@@ -1,14 +1,14 @@
 import React from "react";
-import Image from "next/image";
-import wallet from "@/assets/images/wallet.png";
+import Icon from "@/components/Icon";
+import {EIconName} from "@/components/Icon/Icon.enum";
 
 const Design = () => {
   return (
-    <div class=" bg-black flex justify-center p-[20px]">
+    <div className="flex justify-center p-[20px]">
         <div
-            className="flex justify-center  gap-2 items-center text-white  whitespace-nowrap"
+            className="flex justify-center gap-2 items-center text-white whitespace-nowrap cursor-pointer"
             style={{
-                backgroundImage: "url('/images/btnborder.png')",
+                backgroundImage: "url('/images/image-border-button.png')",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
                 backgroundSize: "cover",
@@ -16,9 +16,25 @@ const Design = () => {
                 height: "4.8rem",
             }}
         >
-            <Image src={wallet} alt="wallet-icon" width={25} height={25} />
-            <p className="uppercase text-[2rem] mb-[1.5rem]">Connect wallet</p>
+            <Icon name={EIconName.Wallet} />
+            <span className="uppercase text-[2rem]">Connect wallet</span>
         </div>
+      <div
+        className="relative text-white text-center cursor-pointer"
+        style={{
+          backgroundImage: "url('/images/image-border-gray-button.png')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          width: "38.7rem",
+          height: "8.6rem",
+        }}
+      >
+        <div className={"absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"}>
+          <span className="uppercase font-[400] text-[3.2rem]">DOWNLOAD APP</span>
+          <p className={"m-0 uppercase font-[400] text-[2rem] tracking-[10px]"}>COMING SOON</p>
+        </div>
+      </div>
     </div>
   );
 };
