@@ -4,10 +4,10 @@ import Header from "@/containers/Header";
 
 export default function Home() {
   return (
-    <main
+    <div
       className={`min-h-screen`}
     >
      <Header/>
-    </main>
+    </div>
   );
 }
