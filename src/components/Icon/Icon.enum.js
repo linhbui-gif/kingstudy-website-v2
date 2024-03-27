@@ -1,3 +1,5 @@
 export const EIconName = {
-   Wallet: 'Wallet'
+   Wallet: 'Wallet',
+   MenuBar : 'MenuBar',
+   Flash: 'Flash'
 }
