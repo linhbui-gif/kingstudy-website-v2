@@ -1,5 +1,21 @@
 export const EIconName = {
    Wallet: 'Wallet',
    MenuBar : 'MenuBar',
-   Flash: 'Flash'
+   Flash: 'Flash',
+   Apple:'Apple',
+   Boots:'Boots',
+   Clock:'Clock',
+   Diet:'Diet',
+   Discord:'Discord',
+   Discord_Small:'Discord_Small',
+   Dumbbell:'Dumbbell',
+   Facebook:'Facebook',
+   FitGPT:'FitGPT',
+   Hand:'Hand',
+   Instagram:'Instagram',
+   Plan:'Plan',
+   Sensor:'Sensor',
+   Telegram:'Telegram',
+   Twitter:'Twitter',
+   Twitter_Small:'Twitter_Small'
 }
