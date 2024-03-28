@@ -17,15 +17,15 @@ const Personal = () => {
           }} className={"w-full h-[30rem] md:h-[100vh]"}></div>
         </div>
       </div>
-      <div>
+      <div className="custom:py-[1.8rem]">
         <div className="container mx-auto px-[1.5rem] xl:px-0">
           <div className={"flex items-center flex-wrap mb-[4rem]"}>
             <div className={"w-[50%] text-center"}>
               <div className={"relative w-full"}>
-                <div className={"relative w-[16.2rem] h-[16.2rem] lg:w-auto lg:h-auto lg:static"}>
+                <div className={"relative w-[16.2rem] h-[16.2rem] lg:w-auto lg:h-auto lg:static "}>
                   <Image className={"absolute lg:static top-0 left-0 z-50 aspect-square w-full h-full  md:w-auto md:h-auto"} src={ImageAi} alt={''} />
                 </div>
-                <div className={"absolute top-[50%] left-0 z-50 md:translate-x-[50%] translate-y-[-50%] w-[8.3rem] h-[7.5rem] md:w-auto md:h-auto"} >
+                <div className={"absolute top-[50%] left-0 z-50 md:translate-x-[50%] translate-y-[-50%] w-[8.3rem] h-[7.5rem] md:w-auto md:h-auto custom:translate-x-[5%] custom:translate-y-[-90%]"} >
                   <Image className={"w-full h-full"} src={ImageCoin} alt={''}/>
                 </div>
                 {/*<div className={"absolute top-0 left-0 z-20 translate-x-[-30%] translate-y-[-20%]"}>*/}

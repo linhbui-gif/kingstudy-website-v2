@@ -21,6 +21,9 @@ module.exports = {
     fontFamily: {
       'Kan': 'Kanit, sans-serif',
       'Unbutu': 'Ubuntu, sans-serif'
+    },
+    screens: {
+      'custom': {'min': '768px' , 'max': '1023px'}
     }
   },
   plugins: [],
