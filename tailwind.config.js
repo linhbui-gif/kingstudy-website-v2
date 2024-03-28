@@ -13,7 +13,10 @@ module.exports = {
     },
     colors: {
       'black' : '#000000',
-      'white': '#FFFFFF'
+      'white': '#FFFFFF',
+      'black-2': '#101010',
+      'gray': '#D8D8D8',
+      'blue' : '#2AD3F8'
     },
     fontFamily: {
       'Kan': 'Kanit, sans-serif',
