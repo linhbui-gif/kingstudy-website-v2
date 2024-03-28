@@ -3,6 +3,8 @@ import Icon from "@/components/Icon";
 import {EIconName} from "@/components/Icon/Icon.enum";
 import ButtonComponent from "@/components/Button";
 import {EStyleButton} from "@/components/Button/Button.enum";
+import Total from "@/components/Icon/Total";
+import Image from "next/image";
 
 const Design = () => {
   return (
