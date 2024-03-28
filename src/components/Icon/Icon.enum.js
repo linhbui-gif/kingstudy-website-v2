@@ -17,5 +17,6 @@ export const EIconName = {
    Sensor:'Sensor',
    Telegram:'Telegram',
    Twitter:'Twitter',
-   Twitter_Small:'Twitter_Small'
+   Twitter_Small:'Twitter_Small',
+   Arrow_Right: 'Arrow_Right'
 }

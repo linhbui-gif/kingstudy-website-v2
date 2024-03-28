@@ -8,7 +8,7 @@ export default function Home() {
     <div
       className={`min-h-screen`}
     >
-     <Header/>
+      <Header/>
       <Hero />
     </div>
   );

@@ -16,7 +16,8 @@ module.exports = {
       'white': '#FFFFFF'
     },
     fontFamily: {
-      'Kan': 'Kanit, sans-serif'
+      'Kan': 'Kanit, sans-serif',
+      'Unbutu': 'Ubuntu, sans-serif'
     }
   },
   plugins: [],
