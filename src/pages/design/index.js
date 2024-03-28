@@ -8,15 +8,16 @@ import Image from "next/image";
 
 const Design = () => {
   return (
-     <div className="bg-black  bg-center bg-no-repeat bg-cover lg:bg-[length:100%_100%] pt-[20px] pb-[60px] lg:pt-[10px] lg:pb-[70px] h-[100vh]">
+     <div className="bg-black  bg-center bg-no-repeat bg-cover lg:bg-[length:100%_100%] pt-[20px] pb-[60px] lg:pt-[10px] lg:pb-[70px] h-[100vh] md:h-[200vh]">
         <div className="w-full max-w-[1024px] mx-auto px-4">
             <div className="flex flex-col items-center justify-center max-w-[1080px] m-auto relative">
                 <Image src="/images/image-roadmap.svg" alt="Roadmap" width={419} height={346} className="relative z-[30]"/>
-                <Image src="/images/image-total.svg" alt="Total" width={820} height={196} className="absolute z-[20] top-[73%]"/>
+                <Image src="/images/image-total.svg" alt="Total" width={820} height={196} className="absolute z-[20] top-[73%] sm:hidden lg:block lg:w-[74%] lg:top-[70%]"/>
             </div>
-            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between w-full relative lg:-mt-[91px] gap-[30px] lg:gap-0 ">
-               <div className=" absolute left-[-5%] top-[4.2rem] w-[269px] min-h-[269px] h-auto lg:w-[279px] bg-[url('/images/images-roadmap-item.svg')] bg-center bg-no-repeat bg-[length:100%_100%]  p-10" >
-                   <div className="absolute w-[94%] left-[3%] top-[27%] bg-white z-10 rounded-[2.8rem] h-full py-[4rem] z-[40px]">
+            <div className="flex flex-col z-[40] lg:flex-row items-center lg:items-start justify-between w-full relative lg:-mt-[91px] gap-[30px] lg:gap-0 ">
+               <div className=" md:w-[230px] md:left-[33%] md:absolute md:w-[269px] md:min-h-[269px] md:h-auto  md:bg-[url('/images/images-roadmap-item.svg')] md:bg-center md:bg-no-repeat md:bg-[length:100%_100%] lg:left-[1%]
+                lg:top-[4rem]" >
+                   <div className="md:absolute w-[94%] left-[3%] top-[27%] bg-white z-10 rounded-[2.8rem] h-full py-[4rem] z-[4rem] md:top-[29%]">
                        <p className=" absolute text-[#29282D4D] z-[3] -right-3 bottom-16 rotate-90 text-[30px] font-semibold">PHASE 01</p>
                        <ul className="list-disc font-ubuntu list-inside">
                            <li className="text-[#636363] text-[1.6rem]">Team Building</li>
@@ -30,8 +31,8 @@ const Design = () => {
                        </ul>
                    </div>
                </div>
-                <div className="absolute left-[34%] top-[9.9rem] w-[269px] min-h-[269px]  h-auto  bg-[url('/images/images-roadmap-item.svg')] bg-center bg-no-repeat bg-[length:100%_100%]  p-10">
-                    <div className="absolute w-[94%] left-[3%] top-[27%] bg-white z-10 rounded-[2.8rem] h-full py-[4rem] z-[40px]">
+                <div className="md:w-[230px] md:absolute md:left-[33%] md:top-[41rem]  w-[269px] min-h-[269px]  md:h-auto  md:bg-[url('/images/images-roadmap-item.svg')] md:bg-center md:bg-no-repeat md:bg-[length:100%_100%] p-10 lg:top-[7.7rem] lg:left-[36%] ">
+                    <div className="absolute w-[94%] left-[3%] top-[27%] bg-white z-10 rounded-[2.8rem] h-full py-[4rem] z-[40px] md:top-[31%] ">
                         <p className=" absolute text-[#29282D4D] z-[3] -right-3 bottom-16 rotate-90 text-[30px] font-semibold">PHASE 02</p>
                         <ul className="list-disc font-ubuntu list-inside">
                                     <li className="text-[#636363] text-[1.6rem]">Private Test</li>
@@ -46,8 +47,8 @@ const Design = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="absolute w-[269px] min-h-[269px] left-[72%] top-[4.2rem] h-auto bg-[url('/images/images-roadmap-item.svg')]  bg-center bg-no-repeat bg-[length:100%_100%]  p-10  ">
-                    <div className="absolute w-[94%] left-[3%] top-[27%] bg-white z-10 rounded-[2.8rem] h-full py-[4rem] z-[4rem]">
+                <div className="md:w-[230px] md:absolute  md:min-h-[269px] md:top-[91rem] md:left-[34%]  h-auto bg-[url('/images/images-roadmap-item.svg')]  bg-center bg-no-repeat bg-[length:100%_100%] p-10  lg:left-[72%] lg:top-[2.2rem]  ">
+                    <div className="absolute w-[94%] left-[3%] top-[27%] bg-white z-10 rounded-[2.8rem] h-full py-[4rem] z-[4rem] md:top-[31%]">
                         <p className=" absolute text-[#29282D4D] z-[3] -right-3 bottom-16 rotate-90 text-[30px] font-semibold">PHASE 03</p>
                         <ul className="list-disc font-ubuntu list-inside">
                                     <li className="text-[#636363] text-[1.6rem]">Daily Missions</li>
