@@ -18,7 +18,11 @@ ul {
 
 .text-gradient-menu {
   display: inline-block;
-  background:  linear-gradient(105.46deg, #2AD3F8 -128.75%, #933CFF 183.67%);
+  background: $common-gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-blue {
+  background: $common-gradient;
 }

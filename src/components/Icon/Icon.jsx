@@ -19,6 +19,7 @@ import Clock from "@/components/Icon/Clock";
 import Dumbbell from "@/components/Icon/Dumbbell";
 import DiscordSmall from "@/components/Icon/DiscordSmall";
 import Twitter_Small from "@/components/Icon/Twitter_Small";
+import ArrowRight from "@/components/Icon/ArrowRight";
 
 const Icon = ({ name, className = '', color, style, onClick }) => {
 
@@ -62,6 +63,8 @@ const Icon = ({ name, className = '', color, style, onClick }) => {
                 return <Clock />
             case EIconName.Dumbbell:
                 return <Dumbbell />
+            case EIconName.Arrow_Right:
+              return <ArrowRight />
             default:
                 break;
         }
