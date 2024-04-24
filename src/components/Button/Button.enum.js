@@ -1,4 +1,4 @@
-export const EStyleButton  = {
+export const EStyleButton = {
   Normal: 'Normal',
-  CommingSoon: 'CommingSoon'
-}
+  CommingSoon: 'CommingSoon',
+};

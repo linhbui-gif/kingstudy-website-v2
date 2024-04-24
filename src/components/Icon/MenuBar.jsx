@@ -1,4 +1,4 @@
-const Svg = ({ color = '' }) => {
+const Svg = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,6 @@ const Svg = ({ color = '' }) => {
         </clipPath>
       </defs>
     </svg>
-
-  )
-}
-export default Svg
+  );
+};
+export default Svg;

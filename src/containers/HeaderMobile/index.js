@@ -1,2 +1,2 @@
-import HeaderMobile from "./HeaderMobile"
-export default HeaderMobile
+import HeaderMobile from './HeaderMobile';
+export default HeaderMobile;

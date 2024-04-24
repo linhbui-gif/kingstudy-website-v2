@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "GOTHAM";
+    src: url("/assets/fonts/SVN-GothamRegular.otf");
+    src: url("/assets/fonts/SVN-GothamBlack.otf?#iefix") format("embedded-opentype"),
+      url("/assets/fonts/SVN-GothamBold.otf") format("otf"),
+      url("/assets/fonts/SVN-GothamBook.otf") format("otf"),
+      url("/assets/fonts/SVN-GothamLight.otf") format("otf"),
+      url("/assets/fonts/SVN-GothamBlack.otf") format("otf"),
+      url("/assets/fonts/SVN-GothamThin.otf") format("otf"),
+      url("/assets/fonts/SVN-GothamUltra.otf") format("otf"),
+      url("/assets/fonts/SVN-GothamXLight.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
