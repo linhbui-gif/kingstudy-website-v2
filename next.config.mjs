@@ -12,6 +12,9 @@ const nextConfig = {
     'rc-tree',
     'rc-table',
   ],
+  compiler: {
+    removeConsole: true,
+  },
 };
 
 export default nextConfig;

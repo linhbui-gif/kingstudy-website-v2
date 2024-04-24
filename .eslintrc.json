@@ -15,7 +15,6 @@
     ]
   },
   "overrides": [
-    // Configuration for TypeScript files
     {
       "files": ["**/*.js", "**/*.jsx"],
       "plugins": ["unused-imports"],
@@ -24,7 +23,6 @@
         "plugin:prettier/recommended"
       ],
       "parserOptions": {
-        // "project": ["./tsconfig.json"]
       },
       "rules": {
         "prettier/prettier": [
@@ -61,9 +59,10 @@
         "class-methods-use-this": "off", // _document.tsx use render method without `this` keyword
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
-          "error",
+          "warn",
           { "argsIgnorePattern": "^_" }
-        ]
+        ],
+        "no-console":["error", {}]
       }
     }
   ]
