@@ -6,8 +6,8 @@
     "start": "env-cmd -f .env next dev",
     "build:prod": "env-cmd -f .env.prod next build",
     "start:prod": "env-cmd -f .env.prod next start",
-    "format": "prettier --write src/**/*.{ts,tsx}",
-    "lint": "next lint",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "lint": "next lint --fix",
     "lint:staged": "lint-staged"
   },
   "dependencies": {
