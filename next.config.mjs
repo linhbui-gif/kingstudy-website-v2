@@ -15,6 +15,13 @@ const nextConfig = {
   compiler: {
     removeConsole: true,
   },
+  images: {
+    domains: ['kingstudy.vn','localhost'],
+  },
+  devIndicators: {
+    buildActivity: false,
+  },
+  trailingSlash: false,
 };
 
 export default nextConfig;
