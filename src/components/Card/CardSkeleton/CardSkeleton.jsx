@@ -6,15 +6,15 @@ const CardSkeleton = () => {
     <div className="Card w-full">
       <div className="Card-header">
         <div className="Card-header-image">
-          <SkeletonImage active />
+          <SkeletonImage className={'w-full h-[25rem]'} active />
         </div>
       </div>
       <div className="Card-body">
         <div className={'mt-2'}>
-          <SkeletonInput active />
+          <SkeletonInput className={'w-full h-[2rem]'} active />
         </div>
         <div className={'mt-2'}>
-          <SkeletonInput active />
+          <SkeletonInput className={'w-full h-[2rem]'} active />
         </div>
       </div>
     </div>
