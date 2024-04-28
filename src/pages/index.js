@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Col, Row } from 'antd';
+import { Button, Col, Row } from 'antd';
 
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/Card/CardSkeleton';
@@ -10,13 +10,18 @@ import { getListSchool } from '@/services/school';
 export default function Home() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState([]);
+  const [filter, setFilter] = useState({
+    page: 1,
+    limit: 15,
+  });
   const getListSchools = async () => {
     try {
       setLoading(true);
-      const response = await getListSchool();
+      const response = await getListSchool(filter);
       if (response?.code === 200) {
         setLoading(false);
-        setData(response?.data?.data);
+        // eslint-disable-next-line no-unsafe-optional-chaining
+        setData((prev) => [...prev, ...response?.data?.data]);
       }
     } catch (e) {
       /* empty */
@@ -24,9 +29,14 @@ export default function Home() {
   };
   useEffect(() => {
     getListSchools().then();
-  }, []);
+  }, [filter.page, filter.limit]);
   const LoadingSkeletonCards = () => {
     return <CardSkeleton />;
+  };
+  const onLoadMore = () => {
+    setFilter((prev) => {
+      return { ...filter, limit: 15, page: prev.page + 1 };
+    });
   };
   return (
     <div className={`min-h-screen`}>
@@ -49,6 +59,14 @@ export default function Home() {
                 </Col>
               );
             })}
+          <Col span={24}>
+            <div className={'w-full flex items-center justify-center'}>
+              {' '}
+              <Button type={'primary'} onClick={onLoadMore}>
+                Load more
+              </Button>
+            </div>
+          </Col>
         </Row>
       </div>
     </div>
