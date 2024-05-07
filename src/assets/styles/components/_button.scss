@@ -1,0 +1,47 @@
+@layer components {
+  .Button {
+    .ant-btn {
+      box-shadow: none;
+      height: 4.8rem;
+      border-radius: .4rem;
+      border: none;
+      display: flex;
+      align-items: center;
+
+      span {
+        @apply text-button-16 shadow-none
+      }
+
+      &:active {
+        @apply text-style-10
+      }
+
+      &.orange {
+        @apply bg-orange text-white
+      }
+      &.orange:hover {
+        @apply bg-orange text-white
+      }
+
+      &.primary-outline {
+        border: 1px solid #DCE8FE;
+        background-color: transparent;
+        @apply text-body-16 text-style-10
+      }
+
+      &.primary-outline:hover {
+        border: 1px solid #DCE8FE;
+        background-color: transparent;
+        @apply text-body-16 text-style-10
+      }
+
+      &.primary {
+        @apply bg-style-10 text-button-16 text-white
+      }
+
+      &.primary:hover {
+        @apply bg-style-10 text-button-16 text-white
+      }
+    }
+  }
+}
