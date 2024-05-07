@@ -15,16 +15,15 @@ module.exports = {
     colors: {
       'style-7': '#141517',
       white: '#FFFFFF',
-      primary: '#22458F',
+      primary: '#29448B',
       orange: '#f48331',
       green: '#008560',
-      red: '#d51f32',
+      red: '#D51F32',
       purple: '#4f3792',
       pink: '#df6ca6',
     },
     fontFamily: {
-      Kan: 'Kanit, sans-serif',
-      Unbutu: 'Ubuntu, sans-serif',
+      BeVnPro: 'Be Vietnam Pro sans-serif',
     },
     borderRadius: {
       sm: '0.5rem',

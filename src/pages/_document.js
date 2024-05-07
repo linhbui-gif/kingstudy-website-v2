@@ -8,63 +8,63 @@ export default function Document() {
       <Head>
         <link
           rel="preload"
-          href="assets/fonts/SVN-GothamBlack.otf"
+          href="assets/fonts/BeVietnamPro-Regular.otf"
           as="font"
           type="font/otf"
           crossOrigin=""
         />
         <link
           rel="preload"
-          href="assets/fonts/SVN-GothamBlack.otf"
+          href="assets/fonts/BeVietnamPro-Thin.otf"
           as="font"
           type="font/otf"
           crossOrigin=""
         />
         <link
           rel="preload"
-          href="assets/fonts/SVN-GothamBold.otf"
+          href="assets/fonts/BeVietnamPro-Light.otf"
           as="font"
           type="font/otf"
           crossOrigin=""
         />
         <link
           rel="preload"
-          href="assets/fonts/SVN-GothamBook.otf"
+          href="assets/fonts/BeVietnamPro-SemiBold.otf"
           as="font"
           type="font/otf"
           crossOrigin=""
         />
         <link
           rel="preload"
-          href="assets/fonts/SVN-GothamLight.otf"
+          href="assets/fonts/BeVietnamPro-Medium.otf"
           as="font"
           type="font/otf"
           crossOrigin=""
         />
         <link
           rel="preload"
-          href="assets/fonts/SVN-GothamRegular.otf"
+          href="assets/fonts/BeVietnamPro-ExtraLight.otf"
           as="font"
           type="font/otf"
           crossOrigin=""
         />
         <link
           rel="preload"
-          href="assets/fonts/SVN-GothamThin.otf"
+          href="assets/fonts/BeVietnamPro-ExtraBold.otf"
           as="font"
           type="font/otf"
           crossOrigin=""
         />
         <link
           rel="preload"
-          href="assets/fonts/SVN-GothamUltra.otf"
+          href="assets/fonts/BeVietnamPro-Bold.otf"
           as="font"
           type="font/otf"
           crossOrigin=""
         />
         <link
           rel="preload"
-          href="assets/fonts/SVN-GothamXLight.otf"
+          href="assets/fonts/BeVietnamPro-Black.otf"
           as="font"
           type="font/otf"
           crossOrigin=""
