@@ -3,7 +3,7 @@ import axios from 'axios';
 import Helpers from './helpers';
 import { EResponseCode, ETypeNotification } from '@/common/enums';
 import { Paths } from '@/routers/constants';
-import { showNotification } from '@/utils/functions';
+import { showNotification } from '@/utils/function';
 
 const AuthorizedInstance = (baseURL) => {
   const instance = axios.create({

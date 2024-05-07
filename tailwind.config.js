@@ -8,21 +8,30 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      boxShadow: {
+        md: '0 .4rem 2rem rgba(0, 0, 0, .2)',
+      },
     },
     colors: {
-      black: '#000000',
+      'style-7': '#141517',
       white: '#FFFFFF',
-      'black-2': '#101010',
-      gray: '#D8D8D8',
-      blue: '#2AD3F8',
+      primary: '#29448B',
+      orange: '#f48331',
+      green: '#008560',
+      red: '#D51F32',
+      purple: '#4f3792',
+      pink: '#df6ca6',
     },
     fontFamily: {
-      Kan: 'Kanit, sans-serif',
-      Unbutu: 'Ubuntu, sans-serif',
+      BeVnPro: 'Be Vietnam Pro sans-serif',
+    },
+    borderRadius: {
+      sm: '0.5rem',
     },
   },
   plugins: [],
   corePlugins: {
     preflight: false,
   },
+  important: true,
 };

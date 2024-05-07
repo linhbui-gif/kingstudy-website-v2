@@ -1,5 +1,8 @@
+import 'antd/dist/reset.css';
 import '@/assets/styles/globals.scss';
 import '@/assets/font.scss';
+import { ConfigProvider } from 'antd';
+
 import { isBrowser } from '@/utils/utils';
 
 if (isBrowser() && 'serviceWorker' in navigator) {
@@ -13,5 +16,9 @@ if (isBrowser() && 'serviceWorker' in navigator) {
   });
 }
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <ConfigProvider theme={{ hashed: false }}>
+      <Component {...pageProps} />
+    </ConfigProvider>
+  );
 }

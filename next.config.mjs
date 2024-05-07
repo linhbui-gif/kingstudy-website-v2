@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   transpilePackages: [
     'antd',
     '@ant-design',
@@ -15,6 +15,13 @@ const nextConfig = {
   compiler: {
     removeConsole: true,
   },
+  images: {
+    domains: ['kingstudy.vn','localhost','king-study.loc'],
+  },
+  devIndicators: {
+    buildActivity: false,
+  },
+  trailingSlash: false,
 };
 
 export default nextConfig;
