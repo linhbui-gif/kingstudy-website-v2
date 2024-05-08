@@ -27,6 +27,7 @@ import Pharmacy from '@/components/Icon/Pharmacy';
 import Scholarship from '@/components/Icon/ScholarshipResult';
 import ScholarshipResult from '@/components/Icon/ScholarshipResult';
 import SocialWork from '@/components/Icon/SocialWork';
+import Star from '@/components/Icon/Star';
 import StudyAboard from '@/components/Icon/StudyAboard';
 import Subscribe from '@/components/Icon/Subscribe';
 import Twitter from '@/components/Icon/Twitter';
@@ -106,6 +107,8 @@ const Icon = ({ name, color, className = '', onClick }) => {
         return <StudyAboard color={color} />;
       case EIconName.Subscribe:
         return <Subscribe color={color} />;
+      case EIconName.Star:
+        return <Star color={color} />;
       default:
         break;
     }
