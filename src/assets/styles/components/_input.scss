@@ -1,0 +1,19 @@
+@layer components {
+  .Input {
+    .ant-input {
+      @apply h-[5.5rem] rounded-sm text-body-14
+    }
+
+    .ant-input.input-navigation {
+      @apply h-[5.5rem] rounded-sm border-0
+    }
+
+    .input-suffix {
+      @apply rounded-sm py-0
+    }
+
+    .input-suffix > .ant-input {
+      @apply text-body-14
+    }
+  }
+}

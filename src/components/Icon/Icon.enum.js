@@ -33,6 +33,8 @@ export const EIconName = {
   Subscribe: 'Subscribe',
   Visa: 'Visa',
   Star: 'Star',
+  Search: 'Search',
+  Account: 'Account',
 };
 export const EIconColor = {
   STYLE_10: '#22458F',
