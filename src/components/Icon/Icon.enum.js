@@ -32,8 +32,10 @@ export const EIconName = {
   StudyAboard: 'StudyAboard',
   Subscribe: 'Subscribe',
   Visa: 'Visa',
+  Star: 'Star',
 };
 export const EIconColor = {
   STYLE_10: '#22458F',
   WHITE: '#FFF',
+  YELLOW: '#EEB443',
 };
