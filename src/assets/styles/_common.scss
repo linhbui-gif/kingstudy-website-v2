@@ -5,14 +5,14 @@ body {
 }
 
 html {
-  font-size: 10px;
+  @apply xl:text-[10px] lg:text-[7px] text-[10px]
 }
 
 a {
   text-decoration: none;
 }
 
-ul {
+ul,li {
   list-style: none;
   margin: 0;
 }
