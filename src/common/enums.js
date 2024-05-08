@@ -8,3 +8,7 @@ export const ETypeNotification = {
 export const EResponseCode = {
   UNAUTHORIZED: 401,
 };
+
+export const ETimeoutDebounce = {
+  SEARCH: 300,
+};

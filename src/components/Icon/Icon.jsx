@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import { EIconName } from './Icon.enum';
@@ -11,7 +12,6 @@ import Class from '@/components/Icon/Class';
 import Compare from '@/components/Icon/Compare';
 import ComputerScience from '@/components/Icon/ComputerScience';
 import Education from '@/components/Icon/Education';
-import Education_V2 from '@/components/Icon/Education_V2';
 import Engineering from '@/components/Icon/Engineering';
 import Exit from '@/components/Icon/Exit';
 import Facebook from '@/components/Icon/Facebook';
@@ -20,22 +20,22 @@ import Home from '@/components/Icon/Home';
 import Idea from '@/components/Icon/Idea';
 import Instagram from '@/components/Icon/Instagram';
 import Ireland_Flag from '@/components/Icon/IrelandFlag';
+import Law from '@/components/Icon/Law';
 import Likedine from '@/components/Icon/Likedine';
+import Loud from '@/components/Icon/Loud';
 import Music from '@/components/Icon/Music';
 import Partner from '@/components/Icon/Partner';
 import Pharmacy from '@/components/Icon/Pharmacy';
 import Scholarship from '@/components/Icon/ScholarshipResult';
 import ScholarshipResult from '@/components/Icon/ScholarshipResult';
+import Search from '@/components/Icon/Search';
 import SocialWork from '@/components/Icon/SocialWork';
 import Star from '@/components/Icon/Star';
 import StudyAboard from '@/components/Icon/StudyAboard';
-import Subscribe from '@/components/Icon/Subscribe';
 import Twitter from '@/components/Icon/Twitter';
 import UK_Flag from '@/components/Icon/UKFlag';
 import Vietnam_Flag from '@/components/Icon/VietnamFlag';
 import Visa from '@/components/Icon/Visa';
-import Law from '@/components/Icon/Visa';
-import Loud from '@/components/Icon/Visa';
 const Icon = ({ name, color, className = '', onClick }) => {
   const renderIcon = () => {
     switch (name) {
@@ -57,8 +57,6 @@ const Icon = ({ name, color, className = '', onClick }) => {
         return <ComputerScience color={color} />;
       case EIconName.Education:
         return <Education color={color} />;
-      case EIconName.Education_V2:
-        return <Education_V2 color={color} />;
       case EIconName.Engineering:
         return <Engineering color={color} />;
       case EIconName.Exit:
@@ -86,7 +84,7 @@ const Icon = ({ name, color, className = '', onClick }) => {
       case EIconName.Vietnam_Flag:
         return <Vietnam_Flag />;
       case EIconName.Visa:
-        return <Visa color={color} />;
+        return <Visa />;
       case EIconName.Partner:
         return <Partner color={color} />;
       case EIconName.Pharmacy:
@@ -105,21 +103,21 @@ const Icon = ({ name, color, className = '', onClick }) => {
         return <SocialWork color={color} />;
       case EIconName.StudyAboard:
         return <StudyAboard color={color} />;
-      case EIconName.Subscribe:
-        return <Subscribe color={color} />;
       case EIconName.Star:
         return <Star color={color} />;
+      case EIconName.Search:
+        return <Search color={color} />;
       default:
         break;
     }
   };
   return (
-    <div
+    <span
       className={`flex justify-center items-center ${className}`}
       onClick={onClick}
     >
       {renderIcon()}
-    </div>
+    </span>
   );
 };
 export default Icon;
