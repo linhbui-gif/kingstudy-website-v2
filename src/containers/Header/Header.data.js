@@ -1,23 +1,19 @@
 export const MenuData = [
   {
     id: 1,
-    name: 'HOME',
+    name: 'Về chúng tôi',
     active: true,
   },
   {
     id: 2,
-    name: 'FEATURES',
+    name: 'Du Học',
   },
   {
     id: 3,
-    name: 'HOW IT WORKS',
+    name: 'Dịch vụ',
   },
   {
     id: 4,
-    name: 'Tokenomics',
-  },
-  {
-    id: 5,
-    name: 'Roadmap',
-  },
+    name: 'Liên Hệ',
+  }
 ];

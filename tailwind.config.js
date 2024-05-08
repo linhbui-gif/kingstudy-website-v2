@@ -13,6 +13,7 @@ module.exports = {
       orange: '#F48331',
       green: '#008560',
       yellow: '#EEB443',
+      red: '#D51F32',
       'style-1': '#000000',
       'style-2': '#262626',
       'style-3': '#0000EE',
@@ -302,6 +303,7 @@ module.exports = {
     },
     borderRadius: {
       sm: '.4rem',
+      full: '50%',
     },
     fontSize: {
       'body-14': [
