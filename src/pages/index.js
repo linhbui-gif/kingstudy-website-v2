@@ -2,8 +2,8 @@ import React from 'react';
 
 import Meta from '@/components/Meta';
 import Header from '@/containers/Header';
+import Hero from '@/containers/Hero';
 import TopBar from '@/containers/Topbar';
-import Hero from "@/containers/Hero";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <Meta title="KingStudy" />
       <TopBar />
       <Header />
-      <Hero/>
+      <Hero />
     </div>
   );
 }
