@@ -6,6 +6,7 @@ const Carousels = ({
   dots = true,
   arrows = true,
   infinite = true,
+  className = '',
   slidesToShow = 1,
   slidesToScroll = 1,
   slidesPerRow = 1,
@@ -29,6 +30,7 @@ const Carousels = ({
     dots,
     arrows,
     infinite,
+    className,
     autoplay,
     slidesPerRow,
     adaptiveHeight,
@@ -57,7 +59,7 @@ const Carousels = ({
   }, [slickRef]);
 
   return (
-    <div style={{ opacity: isReady ? 1 : 0 }}>
+    <div className={`${className}`} style={{ opacity: isReady ? 1 : 0 }}>
       <SlickSlider ref={slickRef} swipeToSlide {...settings}>
         {children}
       </SlickSlider>
