@@ -16,25 +16,31 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Step Setup husky commit convention
+```bash
+npm install --save-dev @commitlint/{config-conventional,cli}
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+npx husky add .husky/commit-msg // Tạo File commit-msg 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Mở file commit-msg điền nội dung sau 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+yarn lint
+yarn build:prod
+npx --no-install commitlint --edit "$1" --config ./commitlint.config.js
 
-## Learn More
+Tạo file commitlint.config.js
 
-To learn more about Next.js, take a look at the following resources:
+Thiết lập rule 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'body-max-line-length': [1, 'always', 72], // Giới hạn chiều dài của body
+    'header-max-length': [2, 'always', 50], // Giới hạn chiều dài của header
+    'subject-case': [2, 'always', 'sentence-case'], // Subject phải viết hoa chữ cái đầu tiên
+    'type-enum': [2, 'always', ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore']] // Loại commit phải thuộc danh sách nhất định
+  }
+};
+```
