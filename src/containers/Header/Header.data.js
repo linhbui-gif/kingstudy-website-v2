@@ -15,5 +15,5 @@ export const MenuData = [
   {
     id: 4,
     name: 'Liên Hệ',
-  }
+  },
 ];

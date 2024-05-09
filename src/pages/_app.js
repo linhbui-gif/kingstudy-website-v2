@@ -17,8 +17,17 @@ if (isBrowser() && 'serviceWorker' in navigator) {
 }
 export default function App({ Component, pageProps }) {
   return (
-    <ConfigProvider theme={{ hashed: false }}>
-      <Component {...pageProps} />
+    <ConfigProvider
+      theme={{
+        token: {
+          fontFamily: 'Be Vietnam Pro, sans-serif',
+        },
+        hashed: false,
+      }}
+    >
+      <main>
+        <Component {...pageProps} />
+      </main>
     </ConfigProvider>
   );
 }

@@ -25,7 +25,6 @@ const Svg = ({ color = EIconColor.STYLE_10 }) => {
         }}
       />
     </svg>
-
   );
 };
 export default Svg;
