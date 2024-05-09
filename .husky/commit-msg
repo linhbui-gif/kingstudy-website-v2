@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+yarn lint
+yarn build:prod
+npx --no-install commitlint --edit "$1" --config ./commitlint.config.js
