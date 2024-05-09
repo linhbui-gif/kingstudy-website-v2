@@ -16,3 +16,31 @@ ul,li {
   list-style: none;
   margin: 0;
 }
+
+@keyframes hero-thumb-sm-2-animation {
+  0% {
+    transform: translateY(-50px)
+  }
+
+  to {
+    transform: translateY(0)
+  }
+}
+
+@keyframes hero-circle-1 {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(1turn)
+  }
+}
+
+.animate-hero-thumb-sm-2-animation {
+  animation: hero-thumb-sm-2-animation 2s linear infinite alternate;
+}
+
+.animate-hero-circle-1 {
+  animation: hero-circle-1 2s linear infinite alternate;
+}

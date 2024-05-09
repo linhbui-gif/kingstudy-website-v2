@@ -9,6 +9,7 @@ import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Input from '@/components/Input';
+import Container from '@/containers/Container';
 import { MenuData } from '@/containers/Header/Header.data';
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
@@ -19,7 +20,7 @@ const Header = () => {
     <header
       className={`relative flex items-center lg:h-[10.4rem] h-[7.2rem] bg-style-10`}
     >
-      <div className="container mx-auto lg:px-[3rem] px-[1.6rem]">
+      <Container>
         <div className="flex items-center justify-between">
           <div className={'lg:w-auto w-[115px]'}>
             <Image
@@ -90,7 +91,7 @@ const Header = () => {
             </div>
           </MediaQuery>
         </div>
-      </div>
+      </Container>
     </header>
   );
 };

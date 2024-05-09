@@ -17,6 +17,10 @@ const nextConfig = {
   },
   images: {
     domains: ['kingstudy.vn','localhost','king-study.loc'],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    formats: ['image/webp'],
   },
   devIndicators: {
     buildActivity: false,
