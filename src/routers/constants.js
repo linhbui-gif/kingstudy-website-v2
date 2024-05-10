@@ -1,6 +1,7 @@
 export const ModulePaths = {
   MyProfile: '/my-user',
   Admin: '/admin',
+  Me: '/me',
 };
 
 export const Paths = {

@@ -25,7 +25,7 @@ const nextConfig = {
   devIndicators: {
     buildActivity: false,
   },
-  trailingSlash: false,
+  trailingSlash: false
 };
 
 export default nextConfig;
