@@ -5,6 +5,7 @@ import Header from '@/containers/Header';
 import Hero from '@/containers/Hero';
 import Major from '@/containers/Major';
 import TopBar from '@/containers/Topbar';
+import Cta from "@/containers/Cta";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Major />
+      <Cta />
     </div>
   );
 }
