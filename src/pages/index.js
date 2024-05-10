@@ -3,6 +3,7 @@ import React from 'react';
 import Meta from '@/components/Meta';
 import Header from '@/containers/Header';
 import Hero from '@/containers/Hero';
+import Major from '@/containers/Major';
 import TopBar from '@/containers/Topbar';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <TopBar />
       <Header />
       <Hero />
+      <Major />
     </div>
   );
 }
