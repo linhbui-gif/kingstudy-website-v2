@@ -16,6 +16,8 @@ if (isBrowser() && 'serviceWorker' in navigator) {
   });
 }
 export default function App({ Component, pageProps }) {
+  const AnyComponent = Component;
+  const getLayout = AnyComponent.getLayout ?? ((page) => page);
   return (
     <ConfigProvider
       theme={{
@@ -25,9 +27,7 @@ export default function App({ Component, pageProps }) {
         hashed: false,
       }}
     >
-      <main>
-        <Component {...pageProps} />
-      </main>
+      <main>{getLayout(<AnyComponent {...pageProps} />)}</main>
     </ConfigProvider>
   );
 }
