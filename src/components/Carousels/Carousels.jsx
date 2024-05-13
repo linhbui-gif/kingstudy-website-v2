@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
 
 const Carousels = ({
-  dots = true,
-  arrows = true,
-  infinite = true,
+  dots = false,
+  arrows = false,
+  infinite = false,
   className = '',
   slidesToShow = 1,
   slidesToScroll = 1,
@@ -20,6 +20,7 @@ const Carousels = ({
   onDragging,
   onBeforeChange,
   onAfterChange,
+  lazyLoad = false,
 }) => {
   const SlickSlider = Slider;
   const [isReady, setIsReady] = useState(false);
@@ -48,6 +49,7 @@ const Carousels = ({
       onDragging?.(false);
       onAfterChange?.(newIndex);
     },
+    lazyLoad,
   };
 
   useEffect(() => {
