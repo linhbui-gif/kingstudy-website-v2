@@ -4,7 +4,7 @@ const Tag = ({ value, onChange, options = [], className }) => {
     return (
       <div className="pr-[2.8rem]" key={item.id}>
         <div
-          className={`relative w-[150px]  md:w-auto cursor-pointer font-[400] text-[1.6rem] leading-7 py-[0.5rem] px-[1.2rem] ${
+          className={`relative w-[150px]  md:w-auto cursor-pointer text-body-16 text-style-12 leading-7 py-[0.5rem] px-[1.2rem] ${
             value && value.value === item.value ? 'font-bold' : ''
           }`}
           onClick={() => {
