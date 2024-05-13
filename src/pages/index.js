@@ -58,12 +58,11 @@ export default function Home() {
       <Header />
       <Hero />
       <Partner />
-      <SchoolGrid />
       <About />
-      <Major />
-      <Cta />
       <Reward />
-
+      <Major />
+      <SchoolGrid />
+      <Cta />
       <LoadingPage done={done} percent={percent} />
     </div>
   );

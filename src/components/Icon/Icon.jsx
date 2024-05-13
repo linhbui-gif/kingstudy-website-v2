@@ -16,6 +16,7 @@ import Engineering from '@/components/Icon/Engineering';
 import Exit from '@/components/Icon/Exit';
 import Facebook from '@/components/Icon/Facebook';
 import Favorite from '@/components/Icon/Favorite';
+import Filter from '@/components/Icon/Filter';
 import Home from '@/components/Icon/Home';
 import Idea from '@/components/Icon/Idea';
 import Instagram from '@/components/Icon/Instagram';
@@ -107,6 +108,8 @@ const Icon = ({ name, color, className = '', onClick, width, height }) => {
         return <Star color={color} />;
       case EIconName.Search:
         return <Search color={color} />;
+      case EIconName.Filter:
+        return <Filter color={color} />;
       default:
         break;
     }
