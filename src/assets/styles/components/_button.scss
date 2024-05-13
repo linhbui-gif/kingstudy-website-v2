@@ -27,7 +27,10 @@
       &.primary-outline {
         border: 1px solid #DCE8FE;
         background-color: transparent;
-        @apply text-body-16 text-style-10
+
+        span {
+          @apply text-body-16 text-style-10
+        }
       }
 
       &.primary-outline:hover {
