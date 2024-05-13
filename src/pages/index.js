@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Meta from '@/components/Meta';
+import About from '@/containers/About';
 import Cta from '@/containers/Cta';
 import Header from '@/containers/Header';
 import Hero from '@/containers/Hero';
@@ -14,6 +15,7 @@ export default function Home() {
       <TopBar />
       <Header />
       <Hero />
+      <About />
       <Major />
       <Cta />
     </div>

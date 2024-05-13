@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import { Form, Typography } from 'antd';
+
+import ButtonComponent from '@/components/Button';
+import Icon from '@/components/Icon';
+import { EIconName } from '@/components/Icon/Icon.enum';
+import Input from '@/components/Input';
 import Tag from '@/components/Tag';
 import { dataCountryOptions } from '@/components/Tag/Country.Tab.data';
 import { ECountryTab } from '@/components/Tag/Country.Tab.data';
@@ -73,7 +79,7 @@ const ComponentGuide = () => {
   return (
     <>
       <div className="container px-4 mx-auto">
-        {/* <div>
+        <div>
           <Typography.Title level={3}>Button Component</Typography.Title>
           <ButtonComponent title={'Đăng Ký'} className={'orange mt-3 ml-4'} />
           <ButtonComponent
@@ -91,8 +97,8 @@ const ComponentGuide = () => {
             className={'primary mt-3 ml-4'}
             secondIconName={EIconName.Arrow_Right}
           />
-        </div> */}
-        {/* <div>
+        </div>
+        <div>
           <Typography.Title level={3}>Input Component</Typography.Title>
           <Form>
             <Form.Item name={'name'}>
@@ -132,7 +138,7 @@ const ComponentGuide = () => {
               />
             </Form.Item>
           </Form>
-        </div> */}
+        </div>
         <div>
           <Tag
             value={selectedOption}
