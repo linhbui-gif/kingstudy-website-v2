@@ -36,7 +36,7 @@ import Twitter from '@/components/Icon/Twitter';
 import UK_Flag from '@/components/Icon/UKFlag';
 import Vietnam_Flag from '@/components/Icon/VietnamFlag';
 import Visa from '@/components/Icon/Visa';
-const Icon = ({ name, color, className = '', onClick }) => {
+const Icon = ({ name, color, className = '', onClick, width, height }) => {
   const renderIcon = () => {
     switch (name) {
       case EIconName.Account:
@@ -44,7 +44,7 @@ const Icon = ({ name, color, className = '', onClick }) => {
       case EIconName.ArtDesign:
         return <ArtDesign color={color} />;
       case EIconName.Arrow_Right:
-        return <ArrowRight />;
+        return <ArrowRight color={color} />;
       case EIconName.American_Flag:
         return <AmericanFlag />;
       case EIconName.Business:
@@ -52,7 +52,7 @@ const Icon = ({ name, color, className = '', onClick }) => {
       case EIconName.Class:
         return <Class color={color} />;
       case EIconName.Compare:
-        return <Compare color={color} />;
+        return <Compare width={width} height={height} color={color} />;
       case EIconName.ComputerScience:
         return <ComputerScience color={color} />;
       case EIconName.Education:
@@ -64,7 +64,7 @@ const Icon = ({ name, color, className = '', onClick }) => {
       case EIconName.Facebook:
         return <Facebook color={color} />;
       case EIconName.Favorite:
-        return <Favorite color={color} />;
+        return <Favorite width={width} height={height} color={color} />;
       case EIconName.Twitter:
         return <Twitter color={color} />;
       case EIconName.Instagram:
