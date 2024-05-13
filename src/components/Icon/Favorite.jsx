@@ -1,10 +1,10 @@
 import { EIconColor } from './Icon.enum';
-const Svg = ({ color = EIconColor.STYLE_10 }) => {
+const Svg = ({ color = EIconColor.STYLE_10, width = 33, height = 33 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={32}
-      height={33}
+      width={width}
+      height={height}
       viewBox="0 0 32 33"
       fill="none"
     >

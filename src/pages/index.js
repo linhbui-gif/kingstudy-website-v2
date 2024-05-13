@@ -9,9 +9,9 @@ import LoadingPage from '@/containers/LoadingPage';
 import Major from '@/containers/Major';
 import Partner from '@/containers/Partner';
 import Reward from '@/containers/Reward';
+import SchoolGrid from '@/containers/SchoolGrid';
 import TopBar from '@/containers/Topbar';
 import { isBrowser } from '@/utils/utils';
-
 export default function Home() {
   const [state, setState] = useState(false);
   const [done, setDone] = useState(false);
@@ -58,10 +58,12 @@ export default function Home() {
       <Header />
       <Hero />
       <Partner />
+      <SchoolGrid />
       <About />
       <Major />
       <Cta />
       <Reward />
+
       <LoadingPage done={done} percent={percent} />
     </div>
   );

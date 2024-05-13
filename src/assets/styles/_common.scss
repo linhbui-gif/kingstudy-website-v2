@@ -48,3 +48,42 @@ ul,li {
 .ant-progress .ant-progress-success-bg, .ant-progress .ant-progress-bg {
   @apply bg-orange
 }
+
+
+//Style Skeleton Card School
+
+.Card-header-image .ant-skeleton.ant-skeleton-element .ant-skeleton-image {
+  @apply h-[26.7rem] w-full
+}
+
+.Card-header-image .ant-skeleton.ant-skeleton-element {
+  @apply w-full
+}
+
+.Card-body-head .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+  @apply w-full min-w-full
+}
+
+.Card-body-title .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+  @apply w-full min-w-full
+}
+
+.Card-body-title .ant-skeleton.ant-skeleton-element {
+  @apply w-full min-w-full my-[.8rem]
+}
+
+.Card-body-price .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+  @apply w-full min-w-full
+}
+
+.Card-body-price .ant-skeleton.ant-skeleton-element {
+  @apply w-full min-w-full my-[.8rem]
+}
+
+.Card-body-action .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+  @apply w-full min-w-full
+}
+
+.Card-body-action  .ant-skeleton.ant-skeleton-element {
+  @apply w-full min-w-full my-[.8rem]
+}
