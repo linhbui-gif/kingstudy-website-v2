@@ -2,18 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import { Form, Typography } from 'antd';
 
-import { Typography } from 'antd';
-
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
-import Partner from '@/containers/Partner/Partner';
-
 import Input from '@/components/Input';
 import Tag from '@/components/Tag';
 import { dataCountryOptions } from '@/components/Tag/Country.Tab.data';
 import { ECountryTab } from '@/components/Tag/Country.Tab.data';
 import { dataCountries } from '@/components/Tag/Country.Tab.data';
+import Partner from '@/containers/Partner/Partner';
 const ComponentGuide = () => {
   const [getCountryParamsRequest, setGetCountryParamsRequest] = useState({
     filter_type: ECountryTab.ALL,
