@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Form, Typography } from 'antd';
+import { Avatar, Form, Select, Typography } from 'antd';
 
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
@@ -10,7 +10,11 @@ import Tag from '@/components/Tag';
 import { dataCountryOptions } from '@/components/Tag/Country.Tab.data';
 import { ECountryTab } from '@/components/Tag/Country.Tab.data';
 import { dataCountries } from '@/components/Tag/Country.Tab.data';
+import Container from '@/containers/Container';
 import Partner from '@/containers/Partner';
+const items = ['apple', 'King of fruits', 'Orange'];
+const { Option } = Select;
+
 const ComponentGuide = () => {
   const [getCountryParamsRequest, setGetCountryParamsRequest] = useState({
     filter_type: ECountryTab.ALL,
@@ -154,6 +158,20 @@ const ComponentGuide = () => {
             </div>
           ))}
         </div>
+        <Container>
+          <Select placeholder="Please select store" style={{ width: '100%' }}>
+            {items.map((item) => (
+              <Option key={item} value={item} label={item}>
+                <div>
+                  <Avatar size="small" style={{ background: '#10899e' }}>
+                    {item[0]}
+                  </Avatar>{' '}
+                  {item}
+                </div>
+              </Option>
+            ))}
+          </Select>
+        </Container>
       </div>
       {/*<Row gutter={[24, 24]} className={'flex'}>*/}
       {/*  {data &&*/}

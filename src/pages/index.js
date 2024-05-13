@@ -12,6 +12,7 @@ import Reward from '@/containers/Reward';
 import SchoolGrid from '@/containers/SchoolGrid';
 import TopBar from '@/containers/Topbar';
 import { isBrowser } from '@/utils/utils';
+
 export default function Home() {
   const [state, setState] = useState(false);
   const [done, setDone] = useState(false);

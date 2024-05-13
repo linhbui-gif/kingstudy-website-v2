@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Flex } from 'antd';
+import { Flex, Select } from 'antd';
+import Image from 'next/image';
 
+import ImageCountry from '@/assets/images/image-country-uk.svg';
 import ButtonComponent from '@/components/Button';
 import Tag from '@/components/Tag';
 import { dataCountryOptions } from '@/components/Tag/Country.Tab.data';
-
 const FilterTools = ({
   paramsRequest,
   showFooter = false,
@@ -85,48 +86,52 @@ const FilterTools = ({
           />
         </div>
       </div>
-      <div className={'bg-[#fafbfd] rounded-sm mt-5 py-4'}>
-        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
-          Quốc Gia
+      <div className={'bg-[#fafbfd] rounded-sm mt-5 p-4'}>
+        <h3 className={'p-[.8rem] text-[2rem] text-style-7 font-[600]'}>
+          Quốc gia, thành phố
         </h3>
         <div>
-          <Tag
-            value={dataCountryOptions.find(
-              (option) => option.value === paramsRequest?.filter_type
-            )}
-            options={dataCountryOptions}
-            onChange={(option) => {
-              const selectedTabValue = option?.value;
-              onFilterChange({
-                filter_type: selectedTabValue,
-              });
-            }}
-            filterTool
-            className={'flex-col items-start justify-start pl-[.5rem]'}
-          />
+          <Select
+            allowClear
+            showSearch
+            placeholder="Please select store"
+            className={'w-full mb-5'}
+          >
+            {dataCountryOptions.map((item) => (
+              <Select.Option
+                key={item?.value}
+                value={item?.value}
+                label={item?.label}
+              >
+                <div>
+                  <Image src={ImageCountry} alt={''} width={24} height={24} />
+                  {item?.label}
+                </div>
+              </Select.Option>
+            ))}
+          </Select>
+          <Select
+            allowClear
+            showSearch
+            placeholder="Please select store"
+            className={'w-full mb-4'}
+          >
+            {dataCountryOptions.map((item) => (
+              <Select.Option
+                key={item?.value}
+                value={item?.value}
+                label={item?.label}
+              >
+                <div>
+                  <Image src={ImageCountry} alt={''} width={24} height={24} />
+                  {item?.label}
+                </div>
+              </Select.Option>
+            ))}
+          </Select>
         </div>
       </div>
-      <div className={'bg-[#fafbfd] rounded-sm mt-5 py-4'}>
-        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
-          Quốc Gia
-        </h3>
-        <div>
-          <Tag
-            value={dataCountryOptions.find(
-              (option) => option.value === paramsRequest?.filter_type
-            )}
-            options={dataCountryOptions}
-            onChange={(option) => {
-              const selectedTabValue = option?.value;
-              onFilterChange({
-                filter_type: selectedTabValue,
-              });
-            }}
-            filterTool
-            className={'flex-col items-start justify-start pl-[.5rem]'}
-          />
-        </div>
-      </div>
+
       {showFooter && (
         <Flex
           align={'center'}
