@@ -7,7 +7,7 @@ import Container from '@/containers/Container';
 
 const Cta = () => {
   return (
-    <section>
+    <section className={'lg:py-[7rem] py-[2rem]'}>
       <Container>
         <Row gutter={[24, 24]}>
           <Col span={24} md={{ span: 24 }} lg={{ span: 12 }}>
@@ -26,15 +26,21 @@ const Cta = () => {
                 />
               </div>
               <div className={'relative max-w-[31rem]'}>
-                <span className={'text-button-16 text-style-10'}>
+                <span
+                  className={'lg:text-button-16 text-body-14 text-style-10'}
+                >
                   Từ hôm nay
                 </span>
-                <p className={'my-4 text-title-24 text-style-7'}>
+                <p
+                  className={
+                    'my-4 lg:text-title-24 text-button-16 text-style-7'
+                  }
+                >
                   Trở thành người hướng dẫn và truyền đạt kiến thức của bạn
                 </p>
                 <ButtonComponent
                   title={'Tự nộp hồ sơ'}
-                  className={'primary w-[14.8rem]'}
+                  className={'primary w-[14.8rem] mt-[3.2rem] lg:mt-0'}
                   loading={false}
                 />
               </div>
@@ -56,15 +62,21 @@ const Cta = () => {
                 />
               </div>
               <div className={'relative max-w-[31rem]'}>
-                <span className={'text-button-16 text-style-10'}>
+                <span
+                  className={'lg:text-button-16 text-body-14 text-style-10'}
+                >
                   Từ hôm nay
                 </span>
-                <p className={'my-4 text-title-24 text-style-7'}>
+                <p
+                  className={
+                    'my-4 lg:text-title-24 text-button-16 text-style-7'
+                  }
+                >
                   Trở thành người hướng dẫn và truyền đạt kiến thức của bạn
                 </p>
                 <ButtonComponent
                   title={'Liên Hệ'}
-                  className={'primary w-[14.8rem]'}
+                  className={'primary w-[14.8rem] mt-[3.2rem] lg:mt-0'}
                   loading={false}
                 />
               </div>

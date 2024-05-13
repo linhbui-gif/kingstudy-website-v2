@@ -52,7 +52,7 @@ const Partner = () => {
     },
   ];
   return (
-    <section className={'pt-[2rem] lg:pt-[7rem]'}>
+    <section className={'py-[2rem] lg:py-[7rem]'}>
       <Container>
         <Carousels
           className={'partners-carousel'}

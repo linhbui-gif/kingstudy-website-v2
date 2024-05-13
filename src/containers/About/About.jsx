@@ -6,11 +6,15 @@ import ButtonComponent from '@/components/Button';
 import Container from '@/containers/Container';
 const About = () => {
   return (
-    <section className={'py-[7rem]'}>
+    <section className={'lg:py-[7rem] py-[2rem]'}>
       <Container>
         <Row gutter={[24, 24]}>
           <Col lg={{ span: 12, order: 1 }} span={24} order={2}>
-            <h3 className={'text-title-36 text-style-7 mb-[7rem]'}>
+            <h3
+              className={
+                'lg:text-title-36 text-[2rem] font-[700] text-style-7 lg:mb-[7rem] mb-[1.8rem]'
+              }
+            >
               Chào Mừng Tới KingStudy
             </h3>
             <div className={'text-body-16 text-style-12 lg:max-w-[50rem]'}>

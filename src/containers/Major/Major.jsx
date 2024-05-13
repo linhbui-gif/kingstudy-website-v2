@@ -17,11 +17,15 @@ const Major = () => {
     setHoveredIndex(null);
   };
   return (
-    <section className={'py-[9rem]'}>
+    <section className={'lg:py-[7rem] py-[2rem]'}>
       <Container>
         <Row gutter={[24, 24]}>
           <Col span={24}>
-            <h2 className={'text-title-36 text-style-7 text-center'}>
+            <h2
+              className={
+                'lg:text-title-36 text-[2rem] font-[700] text-style-7 text-center'
+              }
+            >
               Các Ngành Học Nổi Bật
             </h2>
           </Col>
@@ -42,7 +46,7 @@ const Major = () => {
                   />
                   <span
                     className={
-                      'text-title-24 text-style-7 group-hover:text-white'
+                      'lg:text-title-24 text-body-14 font-[600] text-style-7 group-hover:text-white'
                     }
                   >
                     {major.name}
