@@ -44,3 +44,7 @@ ul,li {
 .animate-hero-circle-1 {
   animation: hero-circle-1 2s linear infinite alternate;
 }
+
+.ant-progress .ant-progress-success-bg, .ant-progress .ant-progress-bg {
+  @apply bg-orange
+}
