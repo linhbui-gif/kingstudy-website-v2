@@ -6,6 +6,7 @@ import Cta from '@/containers/Cta';
 import Header from '@/containers/Header';
 import Hero from '@/containers/Hero';
 import Major from '@/containers/Major';
+import Reward from '@/containers/Reward';
 import TopBar from '@/containers/Topbar';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <About />
       <Major />
       <Cta />
+      <Reward />
     </div>
   );
 }
