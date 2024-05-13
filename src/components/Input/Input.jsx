@@ -106,7 +106,7 @@ const Input = ({
   }, [searchValueDebounce]);
 
   return (
-    <div className={`Input ${style}`}>
+    <div className={`Input relative ${style}`}>
       {type === 'password' ? (
         <AntdInput.Password {...commonProps} />
       ) : (

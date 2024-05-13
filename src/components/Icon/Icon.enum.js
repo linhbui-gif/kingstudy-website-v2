@@ -35,6 +35,7 @@ export const EIconName = {
   Star: 'Star',
   Search: 'Search',
   Account: 'Account',
+  Filter: 'Filter',
 };
 export const EIconColor = {
   STYLE_10: '#22458F',

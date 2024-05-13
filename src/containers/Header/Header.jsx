@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import { Drawer } from 'antd';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,16 +11,37 @@ import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Input from '@/components/Input';
 import Container from '@/containers/Container';
+import FilterTools from '@/containers/FilterTools';
 import { MenuData } from '@/containers/Header/Header.data';
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
 });
 const Header = () => {
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const showDrawer = () => {
+    setOpenDrawer(true);
+  };
+
+  const onClose = () => {
+    setOpenDrawer(false);
+  };
   return (
     <header
-      className={`relative flex items-center lg:h-[10.4rem] h-[7.2rem] bg-style-10`}
+      className={`relative flex items-center lg:h-[10.4rem] h-auto pb-[2rem] lg:pb-0 bg-style-10`}
     >
+      <Drawer
+        onClose={onClose}
+        open={openDrawer}
+        zIndex={1052}
+        classNames={'relative'}
+        width={320}
+      >
+        <div className={''}>
+          <FilterTools showFooter />
+        </div>
+      </Drawer>
       <Container>
         <div className="flex items-center justify-between">
           <div className={'lg:w-auto w-[115px]'}>
@@ -28,7 +50,7 @@ const Header = () => {
               alt={'Logo King study'}
               width={167}
               height={104}
-              className={'max-w-full'}
+              className={'max-w-full h-[73px] lg:h-auto'}
             />
           </div>
 
@@ -52,7 +74,16 @@ const Header = () => {
               <Input
                 className={'input-suffix min-w-[26.8rem]'}
                 placeholder={'Tìm khóa học..'}
-                suffix={<Icon name={EIconName.Search} />}
+                prefix={<Icon name={EIconName.Search} />}
+                suffix={
+                  <Icon
+                    className={
+                      'absolute top-[50%] right-[1rem] translate-y-[-50%] bg-style-10 flex items-center justify-center w-[3.2rem] h-[3.2rem] rounded-full cursor-pointer'
+                    }
+                    name={EIconName.Filter}
+                    onClick={showDrawer}
+                  />
+                }
               />
 
               <div className={'relative'}>
@@ -91,6 +122,22 @@ const Header = () => {
             </div>
           </MediaQuery>
         </div>
+        <MediaQuery maxWidth={1024}>
+          <Input
+            className={'input-suffix min-w-[26.8rem]'}
+            placeholder={'Tìm khóa học..'}
+            prefix={<Icon name={EIconName.Search} />}
+            suffix={
+              <Icon
+                className={
+                  'absolute top-[50%] right-[1rem] translate-y-[-50%] bg-style-10 flex items-center justify-center w-[3.2rem] h-[3.2rem] rounded-full cursor-pointer'
+                }
+                name={EIconName.Filter}
+                onClick={showDrawer}
+              />
+            }
+          />
+        </MediaQuery>
       </Container>
     </header>
   );
