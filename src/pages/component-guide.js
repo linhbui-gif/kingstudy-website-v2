@@ -10,6 +10,7 @@ import Tag from '@/components/Tag';
 import { dataCountryOptions } from '@/components/Tag/Country.Tab.data';
 import { ECountryTab } from '@/components/Tag/Country.Tab.data';
 import { dataCountries } from '@/components/Tag/Country.Tab.data';
+import Partner from '@/containers/Partner';
 const ComponentGuide = () => {
   const [getCountryParamsRequest, setGetCountryParamsRequest] = useState({
     filter_type: ECountryTab.ALL,
@@ -180,6 +181,7 @@ const ComponentGuide = () => {
       {/*    </div>*/}
       {/*  </Col>*/}
       {/*</Row>*/}
+      <Partner />
     </>
   );
 };

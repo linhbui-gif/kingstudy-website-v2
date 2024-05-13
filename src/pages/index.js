@@ -7,6 +7,7 @@ import Header from '@/containers/Header';
 import Hero from '@/containers/Hero';
 import LoadingPage from '@/containers/LoadingPage';
 import Major from '@/containers/Major';
+import Partner from '@/containers/Partner';
 import Reward from '@/containers/Reward';
 import TopBar from '@/containers/Topbar';
 import { isBrowser } from '@/utils/utils';
@@ -56,6 +57,7 @@ export default function Home() {
       <TopBar />
       <Header />
       <Hero />
+      <Partner />
       <About />
       <Major />
       <Cta />
