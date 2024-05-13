@@ -1,4 +1,3 @@
-'use client';
 const TopBar = () => {
   return (
     <div
