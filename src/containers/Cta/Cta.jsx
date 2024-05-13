@@ -25,7 +25,7 @@ const Cta = () => {
                   }
                 />
               </div>
-              <div className={'relative w-[31rem]'}>
+              <div className={'relative max-w-[31rem]'}>
                 <span className={'text-button-16 text-style-10'}>
                   Từ hôm nay
                 </span>
@@ -55,7 +55,7 @@ const Cta = () => {
                   }
                 />
               </div>
-              <div className={'relative w-[31rem]'}>
+              <div className={'relative max-w-[31rem]'}>
                 <span className={'text-button-16 text-style-10'}>
                   Từ hôm nay
                 </span>
