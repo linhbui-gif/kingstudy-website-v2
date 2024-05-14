@@ -13,6 +13,7 @@ import Input from '@/components/Input';
 import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { MenuData } from '@/containers/Header/Header.data';
+import NavigationBottom from '@/containers/NavigationBottom';
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
@@ -135,7 +136,6 @@ const Header = () => {
           </MediaQuery>
           <MediaQuery maxWidth={1023}>
             <div className={'flex items-center gap-[1.6rem]'}>
-              <Icon name={EIconName.Search} color={EIconColor.WHITE} />
               <div className={'relative'}>
                 <Icon name={EIconName.Favorite} color={EIconColor.WHITE} />
                 <span
@@ -166,6 +166,9 @@ const Header = () => {
           />
         </MediaQuery>
       </Container>
+      <MediaQuery maxWidth={1023}>
+        <NavigationBottom />
+      </MediaQuery>
     </header>
   );
 };
