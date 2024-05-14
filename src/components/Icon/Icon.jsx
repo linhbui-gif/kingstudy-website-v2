@@ -34,6 +34,7 @@ import Search from '@/components/Icon/Search';
 import SocialWork from '@/components/Icon/SocialWork';
 import Star from '@/components/Icon/Star';
 import StudyAboard from '@/components/Icon/StudyAboard';
+import Subscribe from '@/components/Icon/Subscribe';
 import Twitter from '@/components/Icon/Twitter';
 import UK_Flag from '@/components/Icon/UKFlag';
 import Vietnam_Flag from '@/components/Icon/VietnamFlag';
@@ -124,6 +125,8 @@ const Icon = ({
         return <Star color={color} />;
       case EIconName.Search:
         return <Search color={color} />;
+      case EIconName.Subscribe:
+        return <Subscribe color={color} />;
       case EIconName.Filter:
         return <Filter color={color} />;
       case EIconName.Plane:

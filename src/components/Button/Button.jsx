@@ -48,11 +48,7 @@ const ButtonComponent = ({
           {iconName && <Icon name={iconName} color={iconColor} />}
           {title && <span>{title}</span>}
           {secondIconName && (
-            <Icon
-              className={'mt-1'}
-              name={secondIconName}
-              color={secondIconColor}
-            />
+            <Icon name={secondIconName} color={secondIconColor} />
           )}
         </div>
       </AntdButton>

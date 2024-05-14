@@ -3,6 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+    .calc-width {
+      width: calc(25% - 20px);
+    }
+  }
 @import "./variable";
 @import "./common";
 @import "./typo";
@@ -11,3 +16,4 @@
 @import "./components/checkboxgroup";
 @import "./container/major";
 @import "./container/feedback";
+@import "./container/footer"
