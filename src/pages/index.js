@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Meta from '@/components/Meta';
 import About from '@/containers/About';
 import Cta from '@/containers/Cta';
+import Feedback from '@/containers/Feedback';
 import Header from '@/containers/Header';
 import Hero from '@/containers/Hero';
 import LoadingPage from '@/containers/LoadingPage';
@@ -12,7 +13,6 @@ import Reward from '@/containers/Reward';
 import SchoolGrid from '@/containers/SchoolGrid';
 import TopBar from '@/containers/Topbar';
 import { isBrowser } from '@/utils/utils';
-import Feedback from "@/containers/Feedback";
 
 export default function Home() {
   const [state, setState] = useState(false);

@@ -9,7 +9,7 @@ const LoadingPage = ({ done, percent }) => {
         done ? 'hidden' : 'block'
       }`}
     >
-      <div className={'flex flex-col items-center w-[50rem]'}>
+      <div className={'flex flex-col items-center max-w-[50rem] lg:w-[50rem]'}>
         <Image src={Logo} alt={''} />
         <Progress status="active" percent={percent} showInfo={false} />
       </div>

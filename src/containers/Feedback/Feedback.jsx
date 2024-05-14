@@ -67,11 +67,7 @@ const Feedback = () => {
     },
   ];
   return (
-    <section
-      className={
-        'lg:py-[7rem] py-[3rem]'
-      }
-    >
+    <section className={'lg:py-[7rem] py-[3rem]'}>
       <Container>
         <Row gutter={[24, 24]}>
           <Col span={24}>

@@ -17,7 +17,7 @@ const About = () => {
             >
               Chào Mừng Tới KingStudy
             </h3>
-            <div className={'text-body-16 text-style-12 lg:max-w-[50rem]'}>
+            <div className={'text-body-16 text-style-12 lg:max-w-[50rem] leading-9'}>
               <p>
                 Với mô hình ONE - STOP - STATION (một trạm), KingStudy cung cấp
                 đa dạng các dịch vụ nhằm giúp các bạn học sinh rút ngắn được
