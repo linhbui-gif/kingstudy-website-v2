@@ -44,8 +44,8 @@ export const statusSchool = (type) => {
 export const changeArrayToOptions = (arr = []) => {
   return (
     arr &&
-    arr.map(({ id, name }) => {
-      return { value: id, label: name };
+    arr.map(({ id, name, icon }) => {
+      return { value: id, label: name, icon: icon || '' };
     })
   );
 };

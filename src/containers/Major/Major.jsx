@@ -6,12 +6,12 @@ import { useRouter } from 'next/router';
 import Icon from '@/components/Icon';
 import { EIconColor } from '@/components/Icon/Icon.enum';
 import Container from '@/containers/Container';
-import { MajorData } from '@/containers/Major/Major.data';
+import { useAPI } from '@/contexts/APIContext';
 import { Paths } from '@/routers/constants';
 const Major = () => {
   const router = useRouter();
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
+  const { majors, setFilterSchool } = useAPI();
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
   };
@@ -20,6 +20,10 @@ const Major = () => {
     setHoveredIndex(null);
   };
   const handleClickMajor = (id) => {
+    setFilterSchool({
+      page: 1,
+      limit: 10,
+    });
     router.push(`${Paths.SchoolFilter(id)}`);
   };
   return (
@@ -35,38 +39,41 @@ const Major = () => {
               Các Ngành Học Nổi Bật
             </h2>
           </Col>
-          {MajorData.map((major, index) => {
-            const isHovered = hoveredIndex === index;
-            return (
-              <Col
-                span={24}
-                md={{ span: 12 }}
-                lg={{ span: 8 }}
-                key={major?.id}
-                onClick={() => handleClickMajor(major?.id)}
-              >
-                <div
-                  className={
-                    'Major-item flex items-center gap-[2.4rem] p-[2.4rem_3.2rem] border border-solid border-style-8 rounded-sm transition group hover:bg-style-10 cursor-pointer'
-                  }
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onMouseLeave={handleMouseLeave}
+          {majors &&
+            majors.map((major, index) => {
+              const isHovered = hoveredIndex === index;
+              return (
+                <Col
+                  span={24}
+                  md={{ span: 12 }}
+                  lg={{ span: 8 }}
+                  key={major?.id}
+                  onClick={() => handleClickMajor(major?.id)}
                 >
-                  <Icon
-                    name={major.iconName}
-                    color={!isHovered ? EIconColor.STYLE_10 : EIconColor.WHITE}
-                  />
-                  <span
+                  <div
                     className={
-                      'lg:text-title-24 text-body-14 font-[600] text-style-7 group-hover:text-white'
+                      'Major-item flex items-center gap-[2.4rem] p-[2.4rem_3.2rem] border border-solid border-style-8 rounded-sm transition group hover:bg-style-10 cursor-pointer'
                     }
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    {major.name}
-                  </span>
-                </div>
-              </Col>
-            );
-          })}
+                    <Icon
+                      name={major?.icon_name}
+                      color={
+                        !isHovered ? EIconColor.STYLE_10 : EIconColor.WHITE
+                      }
+                    />
+                    <span
+                      className={
+                        'lg:text-title-24 text-body-14 font-[600] text-style-7 group-hover:text-white'
+                      }
+                    >
+                      {major.name}
+                    </span>
+                  </div>
+                </Col>
+              );
+            })}
         </Row>
       </Container>
     </section>

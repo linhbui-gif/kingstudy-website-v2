@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/Card/CardSkeleton';
 import Empty from '@/components/Empty';
+import Meta from '@/components/Meta';
 import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { useAPI } from '@/contexts/APIContext';
@@ -30,11 +31,29 @@ const SchoolList = () => {
         <Row gutter={[24, 24]}>
           <Col span={24} xl={{ span: 6 }} className={'xl:block hidden'}>
             <aside>
-              <FilterTools className={''} />
+              <FilterTools
+                onFilterChange={(dataChanged) => {
+                  setFilterSchool({
+                    ...filterSchool,
+                    ...dataChanged,
+                  });
+                }}
+                paramsRequest={filterSchool}
+                className={''}
+                onReset={(dataReset) => {
+                  setFilterSchool({
+                    ...dataReset,
+                    majors: majors,
+                  });
+                }}
+              />
             </aside>
           </Col>
           <Col span={24} lg={{ span: 24 }} xl={{ span: 18 }}>
             <Row gutter={[24, 24]}>
+              <Col span={24}>
+                <h3 className={'text-body-18'}>Danh sách trường</h3>
+              </Col>
               {schoolList.length === 0 ? (
                 <Col span={24}>
                   <div className={'flex items-center justify-center'}>
@@ -78,7 +97,10 @@ export default SchoolList;
 SchoolList.getLayout = function (page) {
   return (
     <>
-      <GuestLayout>{page}</GuestLayout>
+      <GuestLayout>
+        <Meta title={'Danh sách trường'} />
+        {page}
+      </GuestLayout>
     </>
   );
 };

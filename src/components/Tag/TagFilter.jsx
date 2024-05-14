@@ -10,7 +10,7 @@ const TagFilter = ({ value, item, onChange }) => {
         onChange?.(item);
       }}
     >
-      {item.label}(0)
+      {item.label}
     </div>
   );
 };

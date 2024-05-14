@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
-import { getCountries } from '@/services/common';
+import { getCountries, getMajors } from '@/services/common';
 import { getListSchool } from '@/services/school';
 import { changeArrayToOptions } from '@/utils/utils';
 
@@ -10,6 +10,7 @@ export const APIProvider = ({ children }) => {
   const [schoolList, setSchools] = useState([]);
   const [loading, setLoading] = useState(false);
   const [countries, setCountries] = useState([]);
+  const [majors, setMajors] = useState([]);
   const [filterSchool, setFilterSchool] = useState({
     page: 1,
     limit: 10,
@@ -39,12 +40,26 @@ export const APIProvider = ({ children }) => {
       /* empty */
     }
   };
+  const getMajorList = async () => {
+    try {
+      const response = await getMajors();
+      if (response?.code === 200) {
+        setMajors(response?.data?.majors);
+      }
+    } catch (e) {
+      /* empty */
+    }
+  };
   useEffect(() => {
     getSchools().then();
   }, [filterSchool]);
 
   useEffect(() => {
     getCountryList().then();
+  }, []);
+
+  useEffect(() => {
+    getMajorList().then();
   }, []);
   return (
     <APIContext.Provider
@@ -56,6 +71,7 @@ export const APIProvider = ({ children }) => {
         filterSchool,
         getCountryList,
         countries,
+        majors,
       }}
     >
       {children}
