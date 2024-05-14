@@ -27,6 +27,7 @@ import Loud from '@/components/Icon/Loud';
 import Music from '@/components/Icon/Music';
 import Partner from '@/components/Icon/Partner';
 import Pharmacy from '@/components/Icon/Pharmacy';
+import Plane from '@/components/Icon/Plane';
 import Scholarship from '@/components/Icon/ScholarshipResult';
 import ScholarshipResult from '@/components/Icon/ScholarshipResult';
 import Search from '@/components/Icon/Search';
@@ -103,13 +104,15 @@ const Icon = ({ name, color, className = '', onClick, width, height }) => {
       case EIconName.SocialWork:
         return <SocialWork color={color} />;
       case EIconName.StudyAboard:
-        return <StudyAboard color={color} />;
+        return <StudyAboard color={color} width={width} height={height} />;
       case EIconName.Star:
         return <Star color={color} />;
       case EIconName.Search:
         return <Search color={color} />;
       case EIconName.Filter:
         return <Filter color={color} />;
+      case EIconName.Plane:
+        return <Plane color={color} />;
       default:
         break;
     }

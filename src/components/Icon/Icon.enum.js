@@ -36,6 +36,7 @@ export const EIconName = {
   Search: 'Search',
   Account: 'Account',
   Filter: 'Filter',
+  Plane: 'Plane',
 };
 export const EIconColor = {
   STYLE_10: '#22458F',
