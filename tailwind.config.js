@@ -43,6 +43,8 @@ module.exports = {
       'style-29': '#373A3E',
       'style-30': '#FFFFFF',
       'style-31': '#FF5002',
+      'style-32': '#204590',
+      'style-33': '#11367E',
       'Chestnut/50': '#FCF5F4',
       'Chestnut/100': '#FAE8E6',
       'Chestnut/200': '#F6D5D2',
