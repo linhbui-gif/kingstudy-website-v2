@@ -11,6 +11,7 @@ import { dataCountryOptions } from '@/components/Tag/Country.Tab.data';
 import { ECountryTab } from '@/components/Tag/Country.Tab.data';
 import { dataCountries } from '@/components/Tag/Country.Tab.data';
 import Container from '@/containers/Container';
+import Feedback from '@/containers/Feedback';
 import Partner from '@/containers/Partner';
 const items = ['apple', 'King of fruits', 'Orange'];
 const { Option } = Select;
@@ -200,6 +201,7 @@ const ComponentGuide = () => {
       {/*  </Col>*/}
       {/*</Row>*/}
       <Partner />
+      <Feedback />
     </>
   );
 };

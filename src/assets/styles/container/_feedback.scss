@@ -1,0 +1,21 @@
+.feedback-carousel {
+    .slick-dots {
+       @apply translate-y-12;
+        .slick-active {
+            @apply w-[2.7rem];
+            @apply h-[0.8rem];
+            @apply bg-style-10;
+            @apply rounded-[0.5rem]
+           
+        }
+    }
+    .slick-dots li.slick-active button:before {
+        @apply opacity-25;
+        @apply text-Tailwind/black;
+        @apply fixed;
+        @apply leading-[1.2rem];
+    }
+    .slick-dots li button:before {
+        @apply leading-[1.2rem];
+    }
+}
