@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
 import { Col, Row } from 'antd';
+import { useRouter } from 'next/router';
 
 import Icon from '@/components/Icon';
 import { EIconColor } from '@/components/Icon/Icon.enum';
 import Container from '@/containers/Container';
 import { MajorData } from '@/containers/Major/Major.data';
+import { Paths } from '@/routers/constants';
 const Major = () => {
+  const router = useRouter();
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const handleMouseEnter = (index) => {
@@ -15,6 +18,9 @@ const Major = () => {
 
   const handleMouseLeave = () => {
     setHoveredIndex(null);
+  };
+  const handleClickMajor = (id) => {
+    router.push(`${Paths.SchoolFilter(id)}`);
   };
   return (
     <section className={'lg:py-[7rem] py-[2rem]'}>
@@ -32,7 +38,13 @@ const Major = () => {
           {MajorData.map((major, index) => {
             const isHovered = hoveredIndex === index;
             return (
-              <Col span={24} md={{ span: 12 }} lg={{ span: 8 }} key={major?.id}>
+              <Col
+                span={24}
+                md={{ span: 12 }}
+                lg={{ span: 8 }}
+                key={major?.id}
+                onClick={() => handleClickMajor(major?.id)}
+              >
                 <div
                   className={
                     'Major-item flex items-center gap-[2.4rem] p-[2.4rem_3.2rem] border border-solid border-style-8 rounded-sm transition group hover:bg-style-10 cursor-pointer'

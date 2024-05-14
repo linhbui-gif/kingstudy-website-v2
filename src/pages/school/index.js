@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Col, Row } from 'antd';
+import { useRouter } from 'next/router';
 
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/Card/CardSkeleton';
@@ -12,7 +13,17 @@ import GuestLayout from '@/layouts/GuestLayout';
 import { rootUrl } from '@/utils/utils';
 
 const SchoolList = () => {
-  const { schoolList, loading } = useAPI();
+  const router = useRouter();
+  const { majors } = router.query;
+  const { schoolList, loading, setFilterSchool, filterSchool } = useAPI();
+  useEffect(() => {
+    if (majors) {
+      setFilterSchool({
+        ...filterSchool,
+        majors: majors,
+      });
+    }
+  }, [majors]);
   return (
     <section className={'lg:mt-[10rem] mt-[5rem]'}>
       <Container>

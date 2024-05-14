@@ -12,8 +12,5 @@ export const Paths = {
   ResetPassword: '/reset-password',
   Success: '/success',
   Dashboard: '/dashboard',
-  Employee: {
-    List: '/employee',
-    Create: '/employee/create',
-  },
+  SchoolFilter: (id) => `/school?majors=${id}`,
 };
