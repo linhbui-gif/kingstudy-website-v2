@@ -3,6 +3,7 @@ import '@/assets/styles/globals.scss';
 import '@/assets/font.scss';
 import { ConfigProvider } from 'antd';
 
+import { APIProvider } from '@/contexts/APIContext';
 import { isBrowser } from '@/utils/utils';
 
 if (isBrowser() && 'serviceWorker' in navigator) {
@@ -27,7 +28,9 @@ export default function App({ Component, pageProps }) {
         hashed: false,
       }}
     >
-      <main>{getLayout(<AnyComponent {...pageProps} />)}</main>
+      <APIProvider>
+        <main>{getLayout(<AnyComponent {...pageProps} />)}</main>
+      </APIProvider>
     </ConfigProvider>
   );
 }

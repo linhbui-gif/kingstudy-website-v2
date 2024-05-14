@@ -26,7 +26,6 @@ const CardSkeleton = () => {
           justify={'space-between'}
         >
           <SkeletonInput active />
-          <SkeletonInput active />
         </Flex>
       </div>
     </div>

@@ -1,11 +1,12 @@
-import { Flex, Tag } from 'antd';
+import { Flex } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import ImageCountryUk from '@/assets/images/image-country-uk.svg';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
-const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000 }) => {
+import { statusSchool } from '@/utils/utils';
+const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000, type }) => {
   return (
     <div className="Card bg-white lg:shadow-md rounded-sm">
       <div className="Card-header">
@@ -18,16 +19,15 @@ const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000 }) => {
               src={url}
               alt={alt}
               className={'rounded-sm'}
+              width={420}
+              height={236}
             />
           </Link>
         </div>
       </div>
       <div className="Card-body px-[2.4rem] pt-[2.4rem]">
         <Flex justify={'space-between'} align={'center'}>
-          <Tag className={'text-[1.6rem] text-style-13 py-2'} color="#008560">
-            Avaiable
-          </Tag>
-          {/*<Tag color="#F48331">Partner</Tag>*/}
+          {statusSchool(type)}
           <Flex align={'center'} gap={'small'}>
             <Icon name={EIconName.Star} />
             <span className={'mt-2 text-body-16 text-style-12'}>4.9 (25)</span>
