@@ -16,7 +16,7 @@ const nextConfig = {
     removeConsole: false,
   },
   images: {
-    domains: ['kingstudy.vn','localhost','king-study.loc'],
+    domains: ['kingstudy.vn','localhost','king-study.loc','devwebsite.kingstudy.vn'],
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
