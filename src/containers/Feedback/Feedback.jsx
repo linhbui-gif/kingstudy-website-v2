@@ -69,7 +69,7 @@ const Feedback = () => {
   return (
     <section
       className={
-        ' sm:px-[2rem] sm:mt-[2rem] lg:px-[7rem] lg:pb-[3rem] lg:pt-[2rem]'
+        'lg:py-[7rem] py-[3rem]'
       }
     >
       <Container>
@@ -86,10 +86,10 @@ const Feedback = () => {
         </Row>
         <Carousels
           className={'feedback-carousel'}
-          autoplay={false}
+          autoplay
           slidesToShow={3}
-          slidesToScroll={1}
-          dots={true}
+          slidesToScroll={3}
+          dots
           infinite={false}
           responsive={[
             {
@@ -104,8 +104,9 @@ const Feedback = () => {
             {
               breakpoint: 575,
               settings: {
-                slidesToShow: 1.2,
+                slidesToShow: 1.1,
                 slidesToScroll: 1,
+                autoplay: false,
                 infinite: false,
                 dots: false,
               },

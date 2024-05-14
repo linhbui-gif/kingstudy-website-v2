@@ -12,6 +12,7 @@ import Reward from '@/containers/Reward';
 import SchoolGrid from '@/containers/SchoolGrid';
 import TopBar from '@/containers/Topbar';
 import { isBrowser } from '@/utils/utils';
+import Feedback from "@/containers/Feedback";
 
 export default function Home() {
   const [state, setState] = useState(false);
@@ -60,6 +61,7 @@ export default function Home() {
       <Hero />
       <Partner />
       <About />
+      <Feedback />
       <Reward />
       <Major />
       <SchoolGrid />
