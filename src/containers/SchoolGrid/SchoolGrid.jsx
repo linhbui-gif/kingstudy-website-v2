@@ -1,32 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Col, Flex, Row, Select } from 'antd';
 
-import ImageSchool from '@/assets/images/image-school.webp';
 import Card from '@/components/Card';
+import CardSkeleton from '@/components/Card/CardSkeleton';
+import Empty from '@/components/Empty';
 import Tag from '@/components/Tag';
-import {
-  dataCountryOptions,
-  ECountryTab,
-} from '@/components/Tag/Country.Tab.data';
 import Container from '@/containers/Container';
+import { useAPI } from '@/contexts/APIContext';
+import { rootUrl } from '@/utils/utils';
 
 const SchoolGrid = () => {
-  const [getCountryParamsRequest, setGetCountryParamsRequest] = useState({
-    filter_type: ECountryTab.ALL,
-  });
-  const selectedValue = getCountryParamsRequest?.filter_type;
-  const selectedOption = dataCountryOptions.find(
-    (option) => option.value === selectedValue
-  );
-
-  const handleTabChange = (option) => {
-    const selectedTabValue = option?.value;
-
-    setGetCountryParamsRequest({
-      ...getCountryParamsRequest,
-      filter_type: selectedTabValue,
-    });
+  const { schoolList, loading, setFilterSchool, filterSchool, countries } =
+    useAPI();
+  const selectedTagCountries = () => {
+    const selectedCountries =
+      countries &&
+      countries.find((option) => option.value === filterSchool?.country);
+    if (!selectedCountries) return countries?.[1];
+    return selectedCountries;
   };
   return (
     <section className={'lg:py-[15rem] py-[5rem] bg-style-13'}>
@@ -42,15 +34,24 @@ const SchoolGrid = () => {
                 Quốc Gia Du Học
               </h2>
               <Tag
-                value={selectedOption}
-                options={dataCountryOptions}
-                onChange={handleTabChange}
+                value={selectedTagCountries()}
+                options={countries}
+                onChange={(option) => {
+                  const selectedTabValue = option?.value;
+
+                  setFilterSchool({
+                    page: 1,
+                    limit: 10,
+                    country: selectedTabValue,
+                  });
+                }}
                 className={'hidden lg:flex'}
               />
               <Select
+                value={selectedTagCountries()}
                 placeholder={'Tất cả'}
                 allowClear
-                options={dataCountryOptions}
+                options={countries || []}
                 className={'w-[12rem] lg:hidden block'}
                 showSearch
                 filterOption={(input, option) =>
@@ -58,6 +59,12 @@ const SchoolGrid = () => {
                     input.toLowerCase()
                   )
                 }
+                onChange={(option) => {
+                  setFilterSchool({
+                    ...filterSchool,
+                    country: option,
+                  });
+                }}
               />
             </Flex>
           </Col>
@@ -68,27 +75,37 @@ const SchoolGrid = () => {
             'lg:overflow-x-visible overflow-x-scroll flex-nowrap lg:flex-wrap'
           }
         >
-          <Col span={20} lg={{ span: 8 }} md={{ span: 12 }}>
-            <Card
-              url={ImageSchool}
-              title={'Anglia Ruskin University'}
-              alt={'Anglia Ruskin University'}
-            />
-          </Col>
-          <Col span={20} lg={{ span: 8 }} md={{ span: 12 }}>
-            <Card
-              url={ImageSchool}
-              title={'Anglia Ruskin University'}
-              alt={'Anglia Ruskin University'}
-            />
-          </Col>
-          <Col span={20} lg={{ span: 8 }} md={{ span: 12 }}>
-            <Card
-              url={ImageSchool}
-              title={'Anglia Ruskin University'}
-              alt={'Anglia Ruskin University'}
-            />
-          </Col>
+          {schoolList.length === 0 ? (
+            <Col span={24}>
+              <div className={'flex items-center justify-center'}>
+                <Empty />
+              </div>
+            </Col>
+          ) : (
+            ''
+          )}
+          {schoolList &&
+            schoolList.map((school) => {
+              return (
+                <Col
+                  span={20}
+                  lg={{ span: 8 }}
+                  md={{ span: 12 }}
+                  key={school?.id}
+                >
+                  {loading ? (
+                    <CardSkeleton />
+                  ) : (
+                    <Card
+                      url={`${rootUrl}${school?.logo}`}
+                      title={school?.name}
+                      alt={school?.name}
+                      type={school?.type_school}
+                    />
+                  )}
+                </Col>
+              );
+            })}
         </Row>
       </Container>
     </section>

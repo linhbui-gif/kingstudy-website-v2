@@ -46,14 +46,16 @@ const Header = () => {
       <Container>
         <div className="flex items-center justify-between">
           <div className={'lg:w-auto w-[115px]'}>
-            <Image
-              quality={100}
-              src={ImageLogo}
-              alt={'Logo King study'}
-              width={167}
-              height={104}
-              className={'max-w-full h-[73px] lg:h-auto'}
-            />
+            <Link href={'/'}>
+              <Image
+                quality={100}
+                src={ImageLogo}
+                alt={'Logo King study'}
+                width={167}
+                height={104}
+                className={'max-w-full h-[73px] lg:h-auto'}
+              />
+            </Link>
           </div>
 
           <MediaQuery minWidth={1024}>

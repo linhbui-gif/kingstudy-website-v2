@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Flex, Select } from 'antd';
+import { Flex, Form, Select } from 'antd';
 import Image from 'next/image';
 
-import ImageCountry from '@/assets/images/image-country-uk.svg';
 import ButtonComponent from '@/components/Button';
 import Tag from '@/components/Tag';
-import { dataCountryOptions } from '@/components/Tag/Country.Tab.data';
+import { dataTuitionOptions } from '@/containers/FilterTools/Tuition.data';
+import { useAPI } from '@/contexts/APIContext';
+import {
+  getCityByCountry,
+  getLevelCourse,
+  getRanking,
+} from '@/services/common';
+import { changeArrayToOptions, rootUrl } from '@/utils/utils';
 const FilterTools = ({
   paramsRequest,
   showFooter = false,
@@ -15,6 +21,68 @@ const FilterTools = ({
   onReset,
   className = '',
 }) => {
+  const { majors, countries } = useAPI();
+  const majorOptions = changeArrayToOptions(majors);
+  const [cities, setCities] = useState([]);
+  const [levelCourse, setLevelCourse] = useState([]);
+  const [rankings, setRanking] = useState([]);
+  const [form] = Form.useForm();
+  const getCities = async () => {
+    try {
+      const response = await getCityByCountry({
+        province_id: paramsRequest?.country,
+      });
+      if (response?.code === 200) {
+        const citiesOption = changeArrayToOptions(response?.data?.cities);
+        setCities(citiesOption);
+      }
+    } catch (e) {
+      /* empty */
+    }
+  };
+
+  const getLevel = async () => {
+    try {
+      const response = await getLevelCourse();
+      if (response?.code === 200) {
+        const levelOption = changeArrayToOptions(response?.data?.level);
+        setLevelCourse(levelOption);
+      }
+    } catch (e) {
+      /* empty */
+    }
+  };
+  const getRank = async () => {
+    try {
+      const response = await getRanking();
+      if (response?.code === 200) {
+        const rankingOption = changeArrayToOptions(response?.data?.ranking);
+        setRanking(rankingOption);
+      }
+    } catch (e) {
+      /* empty */
+    }
+  };
+  useEffect(() => {
+    getCities().then();
+    getLevel().then();
+    getRank().then();
+  }, [paramsRequest?.country, paramsRequest?.level, paramsRequest?.ranking]);
+
+  const handleChangeCountry = (option) => {
+    form.setFieldValue('province_id', null);
+    onFilterChange({
+      ...paramsRequest,
+      country: option,
+    });
+  };
+
+  const handleChangeCities = (option) => {
+    onFilterChange({
+      ...paramsRequest,
+      province: option,
+    });
+  };
   return (
     <div className={`pb-[7rem] ${className}`}>
       <span
@@ -30,60 +98,14 @@ const FilterTools = ({
         </h3>
         <div>
           <Tag
-            value={dataCountryOptions.find(
-              (option) => option.value === paramsRequest?.filter_type
+            value={majorOptions.find(
+              (option) => option.value === paramsRequest?.majors
             )}
-            options={dataCountryOptions}
+            options={majorOptions}
             onChange={(option) => {
               const selectedTabValue = option?.value;
               onFilterChange({
-                filter_type: selectedTabValue,
-              });
-            }}
-            filterTool
-            className={'flex-col items-start justify-start pl-[.5rem]'}
-          />
-        </div>
-      </div>
-      <div
-        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
-      >
-        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
-          Quốc Gia
-        </h3>
-        <div>
-          <Tag
-            value={dataCountryOptions.find(
-              (option) => option.value === paramsRequest?.filter_type
-            )}
-            options={dataCountryOptions}
-            onChange={(option) => {
-              const selectedTabValue = option?.value;
-              onFilterChange({
-                filter_type: selectedTabValue,
-              });
-            }}
-            filterTool
-            className={'flex-col items-start justify-start pl-[.5rem]'}
-          />
-        </div>
-      </div>
-      <div
-        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
-      >
-        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
-          Quốc Gia
-        </h3>
-        <div>
-          <Tag
-            value={dataCountryOptions.find(
-              (option) => option.value === paramsRequest?.filter_type
-            )}
-            options={dataCountryOptions}
-            onChange={(option) => {
-              const selectedTabValue = option?.value;
-              onFilterChange({
-                filter_type: selectedTabValue,
+                majors: selectedTabValue,
               });
             }}
             filterTool
@@ -96,60 +118,131 @@ const FilterTools = ({
           Quốc gia, thành phố
         </h3>
         <div>
-          <Select
-            allowClear
-            showSearch
-            placeholder="Please select store"
-            className={'w-full mb-5'}
-          >
-            {dataCountryOptions.map((item) => (
-              <Select.Option
-                key={item?.value}
-                value={item?.value}
-                label={item?.label}
+          <Form form={form}>
+            <Select
+              allowClear
+              showSearch
+              placeholder="Nhập Quốc Gia..."
+              className={'w-full mb-5'}
+              onChange={(option) => handleChangeCountry(option)}
+            >
+              {countries &&
+                countries.map((item) => (
+                  <Select.Option
+                    key={item?.value}
+                    value={item?.value}
+                    label={item?.label}
+                  >
+                    <Flex align={'center'} gap={'small'}>
+                      <Image
+                        quality={100}
+                        src={`${rootUrl}/${item?.icon}`}
+                        alt={''}
+                        width={24}
+                        height={24}
+                      />
+                      {item?.label}
+                    </Flex>
+                  </Select.Option>
+                ))}
+            </Select>
+            <Form.Item name={'province_id'}>
+              <Select
+                allowClear
+                showSearch
+                placeholder="Nhập thành phố"
+                className={'w-full mb-4'}
+                onChange={(option) => handleChangeCities(option)}
               >
-                <div>
-                  <Image
-                    quality={100}
-                    src={ImageCountry}
-                    alt={''}
-                    width={24}
-                    height={24}
-                  />
-                  {item?.label}
-                </div>
-              </Select.Option>
-            ))}
-          </Select>
-          <Select
-            allowClear
-            showSearch
-            placeholder="Please select store"
-            className={'w-full mb-4'}
-          >
-            {dataCountryOptions.map((item) => (
-              <Select.Option
-                key={item?.value}
-                value={item?.value}
-                label={item?.label}
-              >
-                <div>
-                  <Image
-                    quality={100}
-                    src={ImageCountry}
-                    alt={''}
-                    width={24}
-                    height={24}
-                  />
-                  {item?.label}
-                </div>
-              </Select.Option>
-            ))}
-          </Select>
+                {cities &&
+                  cities.map((item) => (
+                    <Select.Option
+                      key={item?.value}
+                      value={item?.value}
+                      label={item?.label}
+                    >
+                      {item?.label}
+                    </Select.Option>
+                  ))}
+              </Select>
+            </Form.Item>
+          </Form>
         </div>
       </div>
-
-      {showFooter && (
+      <div
+        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
+      >
+        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
+          Học phí
+        </h3>
+        <div>
+          <Tag
+            value={dataTuitionOptions.find(
+              (option) => option.value === paramsRequest?.survey_tuition
+            )}
+            options={dataTuitionOptions}
+            onChange={(option) => {
+              const selectedTabValue = option?.value;
+              onFilterChange({
+                ...paramsRequest,
+                survey_tuition: selectedTabValue,
+              });
+            }}
+            filterTool
+            className={'flex-col items-start justify-start pl-[.5rem]'}
+          />
+        </div>
+      </div>
+      <div
+        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
+      >
+        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
+          Bậc học
+        </h3>
+        <div>
+          <Tag
+            value={levelCourse.find(
+              (option) => option.value === paramsRequest?.level
+            )}
+            options={levelCourse}
+            onChange={(option) => {
+              const selectedTabValue = option?.value;
+              onFilterChange({
+                ...paramsRequest,
+                level: selectedTabValue,
+              });
+            }}
+            filterTool
+            className={'flex-col items-start justify-start pl-[.5rem]'}
+          />
+        </div>
+      </div>
+      <div
+        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
+      >
+        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
+          Xếp hạng
+        </h3>
+        <div>
+          <Tag
+            value={
+              rankings &&
+              rankings.find((option) => option.value === paramsRequest?.ranking)
+            }
+            options={rankings}
+            onChange={(option) => {
+              const selectedTabValue = option?.value;
+              onFilterChange({
+                ...paramsRequest,
+                ranking: selectedTabValue,
+              });
+            }}
+            filterTool
+            className={'flex-col items-start justify-start pl-[.5rem]'}
+          />
+        </div>
+      </div>
+      {showFooter ? (
         <Flex
           align={'center'}
           justify={'space-between'}
@@ -170,6 +263,18 @@ const FilterTools = ({
             onClick={onReset}
           />
         </Flex>
+      ) : (
+        <ButtonComponent
+          title={'Đặt lại'}
+          className={'primary w-full mt-5'}
+          loading={false}
+          onClick={() => {
+            onReset?.({
+              page: 1,
+              limit: 10,
+            });
+          }}
+        />
       )}
     </div>
   );
