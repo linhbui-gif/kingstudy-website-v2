@@ -12,12 +12,10 @@ import Input from '@/components/Input';
 import Container from '@/containers/Container';
 const Footer = () => {
   return (
-    <footer
-      className={`footer mt-[10rem] bg-style-32 pt-[5.2rem] pb-[7.4rem] lg:pt-[10rem] lg:pb-[20rem]`}
-    >
+    <footer className={`footer mt-[10rem] bg-style-32 py-[5rem] lg:py-[10rem]`}>
       <Container>
-        <div className="footer-top flex items-baseline flex-wrap lg:gap-x-[13.8rem] lg:justify-between">
-          <div className="w-full lg:w-auto">
+        <div className="footer-top flex items-baseline flex-wrap">
+          <div className="w-full lg:w-[30%]">
             <div className="">
               <div className={' lg:block lg:h-auto lg:w-[115px]'}>
                 <Image
@@ -34,7 +32,7 @@ const Footer = () => {
               viên ESL! Các nhà giáo dục có thể tùy chỉnh các bài học như một kế
               hoạch tiếp thu kiến thức tốt nhất.
             </p>
-            <div className="hidden lg:block lg:flex lg:gap-x-[1.6rem] lg:mt-[2.2rem]">
+            <div className="hidden lg:flex lg:gap-x-[1.6rem] lg:mt-[2.2rem]">
               <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
                 <Icon name={EIconName.Facebook} />
               </div>
@@ -49,8 +47,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="w-full flex flex-wrap lg:w-auto lg:gap-x-[15.7rem]">
-            <div className="w-[50%] lg:w-auto ">
+          <div className="w-full flex flex-wrap lg:w-[70%]">
+            <div className="w-[50%] lg:w-[calc(100%/3)]">
               <h6 className="text-body-18 font-[600] leading-[140%] text-white">
                 Dịch vụ hỗ trợ
               </h6>
@@ -89,7 +87,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="w-[50%] lg:w-auto ">
+            <div className="w-[50%] lg:w-[calc(100%/3)]">
               <h6 className="text-body-18 font-[600] leading-[140%] text-white">
                 Dịch vụ khác
               </h6>
@@ -136,7 +134,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="w-full mt-[4rem] lg:mt-0 lg:w-auto ">
+            <div className="w-full mt-[4rem] lg:mt-0 lg:w-[calc(100%/3)]">
               <h6 className="text-body-18 font-[600] leading-[140%] text-white">
                 Về chúng tôi
               </h6>
@@ -186,24 +184,11 @@ const Footer = () => {
           </div>
         </div>
         <div className="hidden lg:flex lg:justify-between lg:items-center lg:bg-style-33 lg:px-[2.4rem] lg:py-[3rem] lg:rounded-[0.4rem] lg:mt-[6rem]">
-          <div className="flex gap-x-[1.2rem]">
-            <div>
-              <Icon name={EIconName.Music} color={EIconColor.WHITE} />
-            </div>
-            <div>
-              <p className="text-body-14 text-style-26 font-[400] leading-[140%] mb-0">
-                Gọi cho chúng tôi 24/7
-              </p>
-              <p className="text-body-16 text-style-5 font-[600] leading-[140%] mb-0 lg:text-body-18">
-                (987) 547587587
-              </p>
-            </div>
-          </div>
           <div className=" mt-[2.4rem] flex">
             <p className="text-body-14 max-w-[14.8rem]  text-white font-[400] leading-[140%] lg:text-body-16">
               © Copyrighted and Designed by Bdevs
             </p>
-            <div className="block flex lg:gap-x-[1.6rem] lg:hidden">
+            <div className="flex lg:gap-x-[1.6rem] lg:hidden">
               <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
                 <Icon name={EIconName.Facebook} />
               </div>
@@ -218,6 +203,19 @@ const Footer = () => {
               </div>
             </div>
           </div>
+          <div className="flex gap-x-[1.2rem]">
+            <div>
+              <Icon name={EIconName.Music} color={EIconColor.WHITE} />
+            </div>
+            <div>
+              <p className="text-body-14 text-style-26 font-[400] leading-[140%] mb-0">
+                Gọi cho chúng tôi 24/7
+              </p>
+              <p className="text-body-16 text-style-5 font-[600] leading-[140%] mb-0 lg:text-body-18">
+                (987) 547587587
+              </p>
+            </div>
+          </div>
           <Form className="mt-0 lg:w-[50rem]">
             <Form.Item name={'subribe'} className="mb-0">
               <Input
@@ -226,10 +224,9 @@ const Footer = () => {
                   <ButtonComponent
                     title={'Subscribe'}
                     className={
-                      '  primary text-style-5 max-w-[12.5rem] px-[1.6rem] py-[0.9rem]  text-white font-[600] leading-[140%] lg:px-[0.8rem] lg:py-[1.2rem]'
+                      'primary max-w-[12.5rem] px-[1.6rem] py-[0.9rem]  text-white font-[600] leading-[140%] lg:px-[0.8rem] lg:py-[1.2rem]'
                     }
                     secondIconName={EIconName.Subscribe}
-                    secondIconColor={EIconColor.STYLE_10}
                   />
                 }
               />
@@ -260,7 +257,7 @@ const Footer = () => {
                   <ButtonComponent
                     title={'Subscribe'}
                     className={
-                      '  primary text-style-5 max-w-[12.5rem] px-[1.6rem] py-[0.9rem]  text-white font-[600] leading-[140%] lg:px-[0.8rem] lg:py-[1.2rem]'
+                      '  primary max-w-[12.5rem] px-[1.6rem] py-[0.9rem]  text-white font-[600] leading-[140%] lg:px-[0.8rem] lg:py-[1.2rem]'
                     }
                     secondIconName={EIconName.Subscribe}
                   />
@@ -273,7 +270,7 @@ const Footer = () => {
               <p className="text-body-14 max-w-[14.8rem]  text-white font-[400] leading-[140%]">
                 © Copyrighted and Designed by Bdevs
               </p>
-              <div className="block flex lg:gap-x-[1.6rem] lg:hidden">
+              <div className="flex lg:gap-x-[1.6rem] lg:hidden">
                 <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
                   <Icon name={EIconName.Facebook} />
                 </div>
