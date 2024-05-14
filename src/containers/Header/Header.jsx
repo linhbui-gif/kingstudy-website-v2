@@ -78,7 +78,7 @@ const Header = () => {
                 suffix={
                   <Icon
                     className={
-                      'absolute top-[50%] right-[1rem] translate-y-[-50%] bg-style-10 flex items-center justify-center w-[3.2rem] h-[3.2rem] rounded-full cursor-pointer'
+                      'absolute top-[50%] right-[1rem] translate-y-[-50%] bg-style-10 flex items-center justify-center w-[3.2rem] h-[3.2rem] md:w-[4.2rem] md:h-[4.2rem] rounded-full cursor-pointer'
                     }
                     name={EIconName.Filter}
                     onClick={showDrawer}
@@ -106,7 +106,7 @@ const Header = () => {
               />
             </div>
           </MediaQuery>
-          <MediaQuery maxWidth={1024}>
+          <MediaQuery maxWidth={1023}>
             <div className={'flex items-center gap-[1.6rem]'}>
               <Icon name={EIconName.Search} color={EIconColor.WHITE} />
               <div className={'relative'}>
@@ -122,7 +122,7 @@ const Header = () => {
             </div>
           </MediaQuery>
         </div>
-        <MediaQuery maxWidth={1024}>
+        <MediaQuery maxWidth={1023}>
           <Input
             className={'input-suffix min-w-[26.8rem]'}
             placeholder={'Tìm khóa học..'}
@@ -130,7 +130,7 @@ const Header = () => {
             suffix={
               <Icon
                 className={
-                  'absolute top-[50%] right-[1rem] translate-y-[-50%] bg-style-10 flex items-center justify-center w-[3.2rem] h-[3.2rem] rounded-full cursor-pointer'
+                  'absolute top-[50%] right-[1rem] translate-y-[-50%] bg-style-10 flex items-center justify-center w-[3.2rem] h-[3.2rem] md:w-[4.2rem] md:h-[4.2rem] rounded-full cursor-pointer'
                 }
                 name={EIconName.Filter}
                 onClick={showDrawer}

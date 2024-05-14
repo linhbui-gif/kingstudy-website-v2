@@ -4,14 +4,13 @@ import Meta from '@/components/Meta';
 import About from '@/containers/About';
 import Cta from '@/containers/Cta';
 import Feedback from '@/containers/Feedback';
-import Header from '@/containers/Header';
 import Hero from '@/containers/Hero';
 import LoadingPage from '@/containers/LoadingPage';
 import Major from '@/containers/Major';
 import Partner from '@/containers/Partner';
 import Reward from '@/containers/Reward';
 import SchoolGrid from '@/containers/SchoolGrid';
-import TopBar from '@/containers/Topbar';
+import GuestLayout from '@/layouts/GuestLayout';
 import { isBrowser } from '@/utils/utils';
 
 export default function Home() {
@@ -56,8 +55,6 @@ export default function Home() {
   return (
     <div className={`min-h-screen`} key={JSON.stringify(state)}>
       <Meta title="KingStudy" />
-      <TopBar />
-      <Header />
       <Hero />
       <Partner />
       <About />
@@ -70,3 +67,10 @@ export default function Home() {
     </div>
   );
 }
+Home.getLayout = function (page) {
+  return (
+    <>
+      <GuestLayout>{page}</GuestLayout>
+    </>
+  );
+};

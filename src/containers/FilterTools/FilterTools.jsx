@@ -13,9 +13,10 @@ const FilterTools = ({
   onFilterChange,
   onApply,
   onReset,
+  className = '',
 }) => {
   return (
-    <div className={'pb-[7rem]'}>
+    <div className={`pb-[7rem] ${className}`}>
       <span
         className={
           'block w-full bg-style-10 rounded-sm p-4 text-white font-[600] text-[1.8rem] mb-[1.2rem]'
@@ -23,7 +24,7 @@ const FilterTools = ({
       >
         Bộ lọc
       </span>
-      <div className={'bg-[#fafbfd] rounded-sm py-4'}>
+      <div className={'border border-style-8 border-solid rounded-sm py-4'}>
         <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
           Ngành Học
         </h3>
@@ -44,7 +45,9 @@ const FilterTools = ({
           />
         </div>
       </div>
-      <div className={'bg-[#fafbfd] rounded-sm mt-5 py-4'}>
+      <div
+        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
+      >
         <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
           Quốc Gia
         </h3>
@@ -65,7 +68,9 @@ const FilterTools = ({
           />
         </div>
       </div>
-      <div className={'bg-[#fafbfd] rounded-sm mt-5 py-4'}>
+      <div
+        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
+      >
         <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
           Quốc Gia
         </h3>
@@ -86,7 +91,7 @@ const FilterTools = ({
           />
         </div>
       </div>
-      <div className={'bg-[#fafbfd] rounded-sm mt-5 p-4'}>
+      <div className={'border border-style-8 border-solid rounded-sm mt-5 p-4'}>
         <h3 className={'p-[.8rem] text-[2rem] text-style-7 font-[600]'}>
           Quốc gia, thành phố
         </h3>
