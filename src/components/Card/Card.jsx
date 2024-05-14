@@ -62,7 +62,7 @@ const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000 }) => {
             gap={'small'}
             className={'pl-[.8rem] cursor-pointer'}
           >
-            <Icon name={EIconName.Favorite} width={24} height={24} />
+            <Icon name={EIconName.Favorite} isFavorite width={24} height={24} />
             <span>Yêu thích</span>
           </Flex>
         </Flex>

@@ -38,7 +38,15 @@ import Twitter from '@/components/Icon/Twitter';
 import UK_Flag from '@/components/Icon/UKFlag';
 import Vietnam_Flag from '@/components/Icon/VietnamFlag';
 import Visa from '@/components/Icon/Visa';
-const Icon = ({ name, color, className = '', onClick, width, height }) => {
+const Icon = ({
+  name,
+  color,
+  className = '',
+  onClick,
+  width,
+  height,
+  isFavorite,
+}) => {
   const renderIcon = () => {
     switch (name) {
       case EIconName.Account:
@@ -66,7 +74,14 @@ const Icon = ({ name, color, className = '', onClick, width, height }) => {
       case EIconName.Facebook:
         return <Facebook color={color} />;
       case EIconName.Favorite:
-        return <Favorite width={width} height={height} color={color} />;
+        return (
+          <Favorite
+            isFavorite={isFavorite}
+            width={width}
+            height={height}
+            color={color}
+          />
+        );
       case EIconName.Twitter:
         return <Twitter color={color} />;
       case EIconName.Instagram:

@@ -1,5 +1,10 @@
 import { EIconColor } from './Icon.enum';
-const Svg = ({ color = EIconColor.STYLE_10, width = 33, height = 33 }) => {
+const Svg = ({
+  color = EIconColor.STYLE_10,
+  width = 33,
+  height = 33,
+  isFavorite = false,
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +18,7 @@ const Svg = ({ color = EIconColor.STYLE_10, width = 33, height = 33 }) => {
         fill={color}
         stroke={color}
         style={{
-          fill: `${color}`,
+          fill: `${!isFavorite ? color : EIconColor.WHITE}`,
           fillOpacity: 1,
           stroke: `${color}`,
           strokeOpacity: 1,
