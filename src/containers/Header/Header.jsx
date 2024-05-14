@@ -58,13 +58,40 @@ const Header = () => {
             <nav className={'flex items-center gap-[3.2rem] pr-[4.1rem]'}>
               {MenuData.map((menu) => {
                 return (
-                  <li key={menu.id}>
+                  <li key={menu.id} className={'relative py-[4.3rem] group'}>
                     <Link
                       href={'/'}
-                      className={'text-button-16 text-style-5 py-[43px]'}
+                      className={
+                        'text-button-16 text-style-5 w-full block hover:text-orange'
+                      }
                     >
                       {menu.name}
                     </Link>
+                    {menu?.children?.length > 0 ? (
+                      <>
+                        <ul
+                          className="absolute left-0 top-[100%] translate-y-[50%] shadow-md bg-white w-[24rem] text-left z-50 rounded-sm pl-0 py-[1.5rem] duration-300 ease-in-out opacity-0 invisible group-hover:opacity-[1] group-hover:visible group-hover:translate-y-[0%]"
+                          style={{ borderTop: '3px solid #F48331' }}
+                        >
+                          {menu?.children.map((item) => {
+                            return (
+                              <li key={item?.id} className={'p-[.5rem_2.5rem]'}>
+                                <Link
+                                  href={'/'}
+                                  className={
+                                    'block w-full text-button-16 font-[500] text-style-7 hover:text-orange'
+                                  }
+                                >
+                                  {item?.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </>
+                    ) : (
+                      ''
+                    )}
                   </li>
                 );
               })}
