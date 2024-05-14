@@ -22,7 +22,7 @@ const Hero = () => {
       }}
     >
       <Image
-        quality={75}
+        quality={100}
         loading={'lazy'}
         width={212}
         height={179}
@@ -73,7 +73,7 @@ const Hero = () => {
                 alt={''}
                 width={176}
                 height={193}
-                quality={75}
+                quality={100}
                 loading={'lazy'}
               />
               <Image
@@ -84,12 +84,12 @@ const Hero = () => {
                 alt={''}
                 width={64}
                 height={59}
-                quality={75}
+                quality={100}
                 loading={'lazy'}
               />
               <div className="shape-4 absolute top-[33.5rem] left-[15rem] rounded-[12px] bg-white w-[18rem] shadow-md text-center pt-[1.7rem] pb-[2.5rem] animate-hero-thumb-sm-2-animation">
                 <Image
-                  quality={75}
+                  quality={100}
                   loading={'lazy'}
                   src={ImageHeroBagde}
                   alt={''}
@@ -113,7 +113,7 @@ const Hero = () => {
                         className={
                           'shadow-[0_0_10px_rgba(28, 51, 84, .1)] border-4 border-solid border-[#fff] shadow-md mr-[-1.5rem] rounded-full'
                         }
-                        quality={75}
+                        quality={100}
                         loading={'lazy'}
                         src={ImageHeroAvatar}
                         alt={''}

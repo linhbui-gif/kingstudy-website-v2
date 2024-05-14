@@ -120,6 +120,7 @@ const Feedback = () => {
                   <div className="flex gap-x-[1rem] lg:gap-x-[2rem]">
                     <div className="w-[6.8rem] lg:w-[6.5rem] h-[6.5rem]">
                       <Image
+                        quality={100}
                         className={
                           'aspect-[48/65] lg:aspect-[65/65] object-contain '
                         }
@@ -140,6 +141,7 @@ const Feedback = () => {
                   </div>
                   <div className="w-[5rem] h-[5rem]">
                     <Image
+                      quality={100}
                       className={
                         'aspect-[70/48] lg:aspect-[126/119] object-contain'
                       }

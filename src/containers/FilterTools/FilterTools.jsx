@@ -109,7 +109,13 @@ const FilterTools = ({
                 label={item?.label}
               >
                 <div>
-                  <Image src={ImageCountry} alt={''} width={24} height={24} />
+                  <Image
+                    quality={100}
+                    src={ImageCountry}
+                    alt={''}
+                    width={24}
+                    height={24}
+                  />
                   {item?.label}
                 </div>
               </Select.Option>
@@ -128,7 +134,13 @@ const FilterTools = ({
                 label={item?.label}
               >
                 <div>
-                  <Image src={ImageCountry} alt={''} width={24} height={24} />
+                  <Image
+                    quality={100}
+                    src={ImageCountry}
+                    alt={''}
+                    width={24}
+                    height={24}
+                  />
                   {item?.label}
                 </div>
               </Select.Option>

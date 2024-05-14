@@ -14,9 +14,9 @@ const Cta = () => {
             <div className={'relative min-h-[27rem] p-[5rem_4rem] rounded-sm'}>
               <div className={'absolute w-full h-full top-0 left-0'}>
                 <Image
+                  quality={100}
                   src={ImageCTA}
                   alt={''}
-                  quality={75}
                   loading={'lazy'}
                   width={649}
                   height={273}
@@ -52,7 +52,7 @@ const Cta = () => {
                 <Image
                   src={ImageCTA}
                   alt={''}
-                  quality={75}
+                  quality={100}
                   loading={'lazy'}
                   width={649}
                   height={273}

@@ -12,6 +12,7 @@ const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000 }) => {
         <div className="Card-header-image">
           <Link href={'/'}>
             <Image
+              quality={100}
               layout="responsive"
               loading="lazy"
               src={url}
@@ -67,7 +68,12 @@ const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000 }) => {
         </Flex>
         <Flex align={'center'} justify={'space-between'}>
           <Flex gap={'small'} align={'center'} className={'py-[1.2rem]'}>
-            <Image src={ImageCountryUk} alt={''} loading={'lazy'} />
+            <Image
+              quality={100}
+              src={ImageCountryUk}
+              alt={''}
+              loading={'lazy'}
+            />
             <span className={'text-body-14 text-style-12'}>United kingdom</span>
           </Flex>
           <Link href={'/'}>

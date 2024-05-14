@@ -51,6 +51,7 @@ const About = () => {
           </Col>
           <Col lg={{ span: 12, order: 2 }} span={24} order={1}>
             <Image
+              quality={100}
               src={ImageAbout}
               alt={'about'}
               layout={'responsive'}

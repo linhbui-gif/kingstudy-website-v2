@@ -84,6 +84,7 @@ const Partner = () => {
                   alt={`${image.alt}`}
                   layout={'responsive'}
                   loading={'lazy'}
+                  quality={100}
                 />
               </div>
             </div>
