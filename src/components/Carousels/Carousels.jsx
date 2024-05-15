@@ -31,7 +31,6 @@ const Carousels = ({
     dots,
     arrows,
     infinite,
-    className,
     autoplay,
     slidesPerRow,
     adaptiveHeight,

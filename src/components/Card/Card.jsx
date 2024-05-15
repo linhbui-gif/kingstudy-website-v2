@@ -8,7 +8,7 @@ import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import { statusSchool } from '@/utils/utils';
 const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000, type }) => {
   return (
-    <div className="Card bg-white lg:shadow-md rounded-sm">
+    <div className="Card bg-white lg:shadow-md rounded-md">
       <div className="Card-header">
         <div className="Card-header-image">
           <Link href={'/'}>
@@ -18,7 +18,7 @@ const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000, type }) => {
               loading="lazy"
               src={url}
               alt={alt}
-              className={'rounded-sm'}
+              className={'rounded-md'}
               width={420}
               height={236}
             />
@@ -51,19 +51,16 @@ const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000, type }) => {
           <Flex
             align={'center'}
             gap={'small'}
-            className={'ml-[-5px] pr-[.8rem] cursor-pointer'}
-            style={{ borderRight: '1px solid #EDEEF2' }}
+            className={'ml-[-5px] pr-[.4rem] cursor-pointer'}
           >
             <Icon name={EIconName.Compare} width={32} height={32} />
-            <span>So sánh</span>
           </Flex>
           <Flex
             align={'center'}
             gap={'small'}
-            className={'pl-[.8rem] cursor-pointer'}
+            className={'pl-[.4rem] cursor-pointer'}
           >
             <Icon name={EIconName.Favorite} isFavorite width={24} height={24} />
-            <span>Yêu thích</span>
           </Flex>
         </Flex>
       </div>

@@ -306,6 +306,7 @@ module.exports = {
     },
     borderRadius: {
       sm: '.4rem',
+      md: '1rem',
       full: '50%',
     },
     fontSize: {
