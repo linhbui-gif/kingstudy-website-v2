@@ -73,10 +73,10 @@ const Feedback = () => {
           <Col span={24}>
             <h2
               className={
-                '  sm:text-title-36 text-[2rem] font-bold text-center leading-[120%] lg:text-style-7  '
+                'lg:mb-[5rem] sm:text-title-36 text-[2rem] font-bold text-center leading-[120%] lg:text-style-7  '
               }
             >
-              Học Viên <br /> Nói gì Về KingStudy
+              Học Viên Nói gì Về KingStudy
             </h2>
           </Col>
         </Row>
@@ -113,10 +113,10 @@ const Feedback = () => {
             <div className="student" key={student.id}>
               <div
                 className={
-                  'bg-style-24 p-[1.6rem] lg:p-[2.4rem] mr-[2.4rem] lg:mx-[1.2rem]'
+                  'bg-style-24 p-[1.6rem] lg:p-[3rem] mr-[2.4rem] lg:mr-[3rem]'
                 }
               >
-                <div className="flex justify-between">
+                <div className="flex justify-between lg:mb-[3rem]">
                   <div className="flex gap-x-[1rem] lg:gap-x-[2rem]">
                     <div className="w-[6.8rem] lg:w-[6.5rem] h-[6.5rem]">
                       <Image
@@ -156,7 +156,7 @@ const Feedback = () => {
                   <h3 className="mb-0 text-style-10 text-body-18 leading-[140%]">
                     {student.title}
                   </h3>
-                  <p className="text-style-12 text-body-16 leading-[140%] my-[1.6rem]">
+                  <p className="text-style-12 text-body-16 leading-[140%] my-[2rem]">
                     {student.desc}
                   </p>
                 </div>

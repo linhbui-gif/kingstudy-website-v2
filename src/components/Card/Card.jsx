@@ -66,26 +66,32 @@ const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000, type }) => {
             <span>Yêu thích</span>
           </Flex>
         </Flex>
-        <Flex align={'center'} justify={'space-between'}>
-          <Flex gap={'small'} align={'center'} className={'py-[1.2rem]'}>
-            <Image
-              quality={100}
-              src={ImageCountryUk}
-              alt={''}
-              loading={'lazy'}
-            />
-            <span className={'text-body-14 text-style-12'}>United kingdom</span>
-          </Flex>
-          <Link href={'/'}>
-            <Flex gap={'small'} align={'center'} className={'py-[1.2rem]'}>
-              <span className={'text-body-14 font-[700] text-style-10'}>
-                Chi Tiết
-              </span>
-              <Icon name={EIconName.Arrow_Right} color={EIconColor.STYLE_10} />
-            </Flex>
-          </Link>
-        </Flex>
       </div>
+      <Flex
+        align={'center'}
+        justify={'space-between'}
+        className={'relative px-[2.4rem]'}
+        style={{ borderTop: '1px solid #edeef2' }}
+      >
+        <Flex
+          gap={'small'}
+          align={'center'}
+          className={
+            'before:absolute before:content-[""] before:bg-style-8 before:m-auto before:top-0 before:left-0 before:right-0 before:w-[1px] before:h-full py-[1.2rem]'
+          }
+        >
+          <Image quality={100} src={ImageCountryUk} alt={''} loading={'lazy'} />
+          <span className={'text-body-14 text-style-12'}>United kingdom</span>
+        </Flex>
+        <Link href={'/'}>
+          <Flex gap={'small'} align={'center'} className={'py-[1.2rem]'}>
+            <span className={'text-body-14 font-[700] text-style-10'}>
+              Chi Tiết
+            </span>
+            <Icon name={EIconName.Arrow_Right} color={EIconColor.STYLE_10} />
+          </Flex>
+        </Link>
+      </Flex>
     </div>
   );
 };

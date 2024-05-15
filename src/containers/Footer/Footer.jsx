@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form } from 'antd';
+import { Col, Form, Row } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,12 +12,17 @@ import Input from '@/components/Input';
 import Container from '@/containers/Container';
 const Footer = () => {
   return (
-    <footer className={`footer mt-[10rem] bg-style-32 py-[5rem] lg:py-[10rem]`}>
+    <footer className={`footer bg-style-32 py-[5rem] lg:py-[10rem]`}>
       <Container>
-        <div className="footer-top flex items-baseline flex-wrap">
-          <div className="w-full lg:w-[30%]">
-            <div className="">
-              <div className={' lg:block w-[12.4rem] h-[6.8rem]'}>
+        <Row className={''}>
+          <Col
+            lg={{ span: 6 }}
+            md={{ span: 12 }}
+            span={24}
+            className={'md:px-[1.2rem] lg:px-0'}
+          >
+            <div>
+              <div className={'md:mt-[-3rem] lg:block w-[14.4rem] h-[6.8rem]'}>
                 <Image
                   src={ImageLogo}
                   alt={'Logo King study footer'}
@@ -47,9 +52,14 @@ const Footer = () => {
                 <Icon name={EIconName.Likedine} />
               </div>
             </div>
-          </div>
-          <div className="w-full flex flex-wrap lg:w-[70%]">
-            <div className="w-[50%] lg:w-[calc(100%/3)]">
+          </Col>
+          <Col
+            lg={{ span: 6 }}
+            md={{ span: 12 }}
+            span={24}
+            className={'md:px-[1.2rem] lg:px-0'}
+          >
+            <div className={'lg:ml-[13rem] mb-[4rem]'}>
               <h6 className="text-body-18 font-[600] leading-[140%] text-white">
                 Dịch vụ hỗ trợ
               </h6>
@@ -88,7 +98,14 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="w-[50%] lg:w-[calc(100%/3)]">
+          </Col>
+          <Col
+            lg={{ span: 6 }}
+            md={{ span: 12 }}
+            span={24}
+            className={'md:px-[1.2rem] lg:px-0'}
+          >
+            <div className={'lg:ml-[12rem] mb-[4rem]'}>
               <h6 className="text-body-18 font-[600] leading-[140%] text-white">
                 Dịch vụ khác
               </h6>
@@ -135,7 +152,14 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="w-full mt-[4rem] lg:mt-0 lg:w-[calc(100%/3)]">
+          </Col>
+          <Col
+            lg={{ span: 6 }}
+            md={{ span: 12 }}
+            span={24}
+            className={'md:px-[1.2rem] lg:px-0'}
+          >
+            <div className={'lg:ml-[11rem] mb-[4rem]'}>
               <h6 className="text-body-18 font-[600] leading-[140%] text-white">
                 Về chúng tôi
               </h6>
@@ -182,8 +206,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
         <div className="hidden lg:flex lg:justify-between lg:items-center lg:bg-style-33 lg:px-[2.4rem] lg:py-[3rem] lg:rounded-[0.4rem] lg:mt-[6rem]">
           <div className=" mt-[2.4rem] flex">
             <p className="text-body-14 max-w-[14.8rem]  text-white font-[400] leading-[140%] lg:text-body-16">

@@ -73,7 +73,7 @@ const Partner = () => {
             <div className={'partners'} key={image.id}>
               <div
                 className={
-                  'mx-auto lg:mx-0 lg:w-[12.6rem] lg:h-[11.9rem] w-[7rem] h-[4.8rem]'
+                  'mx-auto lg:ml-auto lg:w-[12.6rem] lg:h-[11.9rem] w-[7rem] h-[4.8rem]'
                 }
               >
                 <Image

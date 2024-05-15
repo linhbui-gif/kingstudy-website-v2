@@ -46,21 +46,23 @@ const Header = () => {
       <Container>
         <div className="flex items-center justify-between">
           <div className={'lg:w-auto w-[115px]'}>
-            <Link href={'/'}>
+            <Link href={'/'} className={'block w-full h-full'}>
               <Image
                 quality={100}
                 src={ImageLogoMobile}
                 alt={'Logo King study'}
                 width={167}
                 height={92}
-                className={'max-w-full h-[9.2rem] lg:h-auto'}
+                className={'mt-[1.5rem] max-w-full h-[9.2rem] lg:h-auto'}
                 priority
               />
             </Link>
           </div>
 
           <MediaQuery minWidth={1024}>
-            <nav className={'flex items-center gap-[3.2rem] pr-[4.1rem]'}>
+            <nav
+              className={'flex items-center flex-1 gap-[3.2rem] px-[4.1rem]'}
+            >
               {MenuData.map((menu) => {
                 return (
                   <li key={menu.id} className={'relative py-[4.3rem] group'}>
@@ -80,7 +82,7 @@ const Header = () => {
                         >
                           {menu?.children.map((item) => {
                             return (
-                              <li key={item?.id} className={'p-[.5rem_2.5rem]'}>
+                              <li key={item?.id} className={'p-[1rem_2.5rem]'}>
                                 <Link
                                   href={'/'}
                                   className={
@@ -104,13 +106,13 @@ const Header = () => {
 
             <div className={'flex items-center gap-[2.4rem]'}>
               <Input
-                className={'input-suffix min-w-[26.8rem]'}
+                className={'input-suffix min-w-[28.8rem]'}
                 placeholder={'Tìm khóa học..'}
                 prefix={<Icon name={EIconName.Search} />}
                 suffix={
                   <Icon
                     className={
-                      'absolute top-[50%] right-[1rem] translate-y-[-50%] bg-style-10 flex items-center justify-center w-[3.2rem] h-[3.2rem] md:w-[4.2rem] md:h-[4.2rem] rounded-full cursor-pointer'
+                      'absolute top-[50%] right-[1rem] translate-y-[-50%] flex items-center justify-center w-[3.2rem] h-[3.2rem] md:w-[4.2rem] md:h-[4.2rem] cursor-pointer'
                     }
                     name={EIconName.Filter}
                     onClick={showDrawer}
@@ -127,6 +129,11 @@ const Header = () => {
                 >
                   0
                 </span>
+                <span
+                  className={
+                    'absolute w-full h-[1px] bg-white top-[50%] rotate-90 right-[-90%]'
+                  }
+                ></span>
               </div>
 
               <Link href={'/'} className={'text-button-16 text-style-5'}>
@@ -168,7 +175,7 @@ const Header = () => {
             suffix={
               <Icon
                 className={
-                  'absolute top-[50%] right-[1rem] translate-y-[-50%] bg-style-10 flex items-center justify-center w-[3.2rem] h-[3.2rem] md:w-[4.2rem] md:h-[4.2rem] rounded-full cursor-pointer'
+                  'absolute top-[50%] right-[1rem] translate-y-[-50%] flex items-center justify-center w-[3.2rem] h-[3.2rem] md:w-[4.2rem] md:h-[4.2rem] cursor-pointer'
                 }
                 name={EIconName.Filter}
                 onClick={showDrawer}
