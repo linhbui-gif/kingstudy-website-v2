@@ -113,3 +113,7 @@ ul,li {
 .ant-form-item .ant-form-item-control:first-child:not([class^="'ant-col-'"]):not([class*="' ant-col-'"]) {
   padding: 0;
 }
+
+.feedback-carousel .slick-slide:nth-child(3) .student-feedback{
+  @apply lg:mr-0
+}

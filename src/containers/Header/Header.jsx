@@ -44,7 +44,7 @@ const Header = () => {
         </div>
       </Drawer>
       <Container fluid>
-        <div className={'max-w-[1520px] mx-auto'}>
+        <div className={'max-w-[1690px] mx-auto'}>
           <div className="flex items-center justify-between">
             <div className={'lg:w-auto w-[115px]'}>
               <Link href={'/'} className={'block w-full h-full'}>
@@ -108,9 +108,10 @@ const Header = () => {
                 })}
               </nav>
 
-              <div className={'flex items-center gap-[3.4rem]'}>
+              <div className={'flex items-center'}>
                 <Input
-                  className={'input-suffix min-w-[28.8rem]'}
+                  style={'mr-[3rem]'}
+                  className={'input-suffix xl:min-w-[34rem] lg:min-w-[29rem]'}
                   placeholder={'Tìm khóa học..'}
                   prefix={<Icon name={EIconName.Search} />}
                   suffix={
@@ -124,7 +125,7 @@ const Header = () => {
                   }
                 />
 
-                <div className={'relative'}>
+                <div className={'relative mr-[3rem]'}>
                   <Icon name={EIconName.Favorite} color={EIconColor.WHITE} />
                   <span
                     className={
@@ -133,16 +134,23 @@ const Header = () => {
                   >
                     0
                   </span>
+                </div>
+
+                <div className={'relative'}>
+                  <Link
+                    href={'/'}
+                    className={
+                      'text-button-16 text-style-5 ml-[2rem] mr-[3rem]'
+                    }
+                  >
+                    Đăng nhập
+                  </Link>
                   <span
                     className={
-                      'absolute w-full h-[1px] bg-white top-[50%] rotate-90 right-[-100%]'
+                      'absolute left-0 w-[1px] h-[35px] bg-white top-[50%] translate-y-[-50%]'
                     }
                   ></span>
                 </div>
-
-                <Link href={'/'} className={'text-button-16 text-style-5'}>
-                  Đăng nhập
-                </Link>
                 <ButtonComponent
                   title={'Đăng Ký'}
                   className={'w-[112px] orange'}

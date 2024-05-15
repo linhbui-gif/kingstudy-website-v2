@@ -58,7 +58,7 @@ const Hero = () => {
               </h2>
               <p
                 className={
-                  'mt-[1.6rem] mb-[3rem] text-body-16 text-style-7 hidden md:block'
+                  'mt-[1.6rem] mb-[3rem] text-body-16 text-style-7 hidden md:block leading-9'
                 }
               >
                 Đưa tổ chức học tập của bạn lên một tầm cao mới. Chia sẻ kiến
