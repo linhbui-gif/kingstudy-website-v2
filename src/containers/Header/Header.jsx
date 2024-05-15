@@ -44,7 +44,7 @@ const Header = () => {
         </div>
       </Drawer>
       <Container fluid>
-        <div className={'max-w-[1520px] mx-auto'}>
+        <div className={'max-w-[1680px] mx-auto'}>
           <div className="flex items-center justify-between">
             <div className={'lg:w-auto w-[115px]'}>
               <Link href={'/'} className={'block w-full h-full'}>
