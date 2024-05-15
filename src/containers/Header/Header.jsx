@@ -30,7 +30,7 @@ const Header = () => {
   };
   return (
     <header
-      className={`relative flex items-center lg:h-[10.4rem] h-auto pb-[2rem] lg:pb-0 bg-style-10`}
+      className={`relative opacity-100 visible sticky transition-all ease-in-out duration-500 z-50 top-0 w-full block left-0 flex items-center lg:h-[10.4rem] h-auto pb-[2rem] lg:pb-0 bg-style-10 `}
     >
       <Drawer
         onClose={onClose}

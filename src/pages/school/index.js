@@ -29,8 +29,12 @@ const SchoolList = () => {
     <section className={'lg:mt-[10rem] mt-[5rem]'}>
       <Container>
         <Row gutter={[24, 24]}>
-          <Col span={24} xl={{ span: 6 }} className={'xl:block hidden'}>
-            <aside>
+          <Col
+            span={24}
+            xl={{ span: 6 }}
+            className={'xl:block xl:sticky hidden'}
+          >
+            <aside className="sticky top-[10.5rem]">
               <FilterTools
                 onFilterChange={(dataChanged) => {
                   setFilterSchool({
@@ -56,7 +60,7 @@ const SchoolList = () => {
               </Col>
               {schoolList.length === 0 ? (
                 <Col span={24}>
-                  <div className={'flex items-center justify-center'}>
+                  <div className={'flex items-center justify-center flex-col'}>
                     <Empty />
                   </div>
                 </Col>
