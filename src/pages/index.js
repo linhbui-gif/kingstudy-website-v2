@@ -58,10 +58,10 @@ export default function Home() {
       <Hero />
       <Partner />
       <About />
-      <Feedback />
       <Reward />
       <Major />
       <SchoolGrid />
+      <Feedback />
       <Cta />
       <LoadingPage done={done} percent={percent} />
     </div>

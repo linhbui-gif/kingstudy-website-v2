@@ -37,7 +37,7 @@ const Card = ({ url = '', alt, title, price = 47, oldPrice = 1000, type }) => {
           <Link
             href={'/'}
             className={
-              'lg:text-title-24 text-button-16 text-style-7 hover:text-style-7'
+              'block w-full lg:font-[700] text-button-16 lg:text-[2rem] text-style-7 hover:text-style-7'
             }
           >
             {title}
