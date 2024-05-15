@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import ImageLogo from '@/assets/images/logo.svg';
+import ImageLogoMobile from '@/assets/images/image-logo-mobile.png';
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
@@ -49,11 +49,12 @@ const Header = () => {
             <Link href={'/'}>
               <Image
                 quality={100}
-                src={ImageLogo}
+                src={ImageLogoMobile}
                 alt={'Logo King study'}
                 width={167}
-                height={104}
-                className={'max-w-full h-[73px] lg:h-auto'}
+                height={92}
+                className={'max-w-full h-[9.2rem] lg:h-auto'}
+                priority
               />
             </Link>
           </div>
@@ -149,6 +150,13 @@ const Header = () => {
                   0
                 </span>
               </div>
+              <Icon
+                name={EIconName.Account}
+                color={EIconColor.STYLE_10}
+                width={24}
+                height={24}
+                className={'w-[3rem] h-[3rem] rounded-full bg-white'}
+              />
             </div>
           </MediaQuery>
         </div>

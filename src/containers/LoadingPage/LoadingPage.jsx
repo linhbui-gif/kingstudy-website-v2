@@ -10,7 +10,7 @@ const LoadingPage = ({ done, percent }) => {
       }`}
     >
       <div className={'flex flex-col items-center max-w-[50rem] lg:w-[50rem]'}>
-        <Image quality={100} src={Logo} alt={''} />
+        <Image quality={100} src={Logo} alt={''} priority />
         <Progress status="active" percent={percent} showInfo={false} />
       </div>
     </div>

@@ -87,3 +87,7 @@ ul,li {
 .Card-body-action  .ant-skeleton.ant-skeleton-element {
   @apply w-full min-w-full my-[.8rem]
 }
+
+.icon-major-mobile svg {
+  @apply w-[2.4rem] md:w-auto
+}

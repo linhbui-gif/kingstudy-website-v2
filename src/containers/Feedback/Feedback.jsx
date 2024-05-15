@@ -139,7 +139,7 @@ const Feedback = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="w-[5rem] h-[5rem]">
+                  <div className="lg:w-[5rem] h-[5rem] w-[9rem]">
                     <Image
                       quality={100}
                       className={

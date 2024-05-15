@@ -29,7 +29,10 @@ const Major = () => {
   return (
     <section className={'lg:py-[7rem] py-[2rem]'}>
       <Container>
-        <Row gutter={[24, 24]}>
+        <Row
+          gutter={{ xs: 16, md: 24 }}
+          className={'gap-y-[1.6rem] md:gap-y-[2.4rem]'}
+        >
           <Col span={24}>
             <h2
               className={
@@ -44,7 +47,7 @@ const Major = () => {
               const isHovered = hoveredIndex === index;
               return (
                 <Col
-                  span={24}
+                  span={12}
                   md={{ span: 12 }}
                   lg={{ span: 8 }}
                   key={major?.id}
@@ -52,7 +55,7 @@ const Major = () => {
                 >
                   <div
                     className={
-                      'Major-item flex items-center gap-[2.4rem] p-[2.4rem_3.2rem] border border-solid border-style-8 rounded-sm transition group hover:bg-style-10 cursor-pointer'
+                      'Major-item flex items-center gap-[8px] lg:gap-[2.4rem] p-[1.6rem] lg:p-[2.4rem_3.2rem] border border-solid border-style-8 rounded-sm transition group hover:bg-style-10 cursor-pointer'
                     }
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
@@ -62,6 +65,7 @@ const Major = () => {
                       color={
                         !isHovered ? EIconColor.STYLE_10 : EIconColor.WHITE
                       }
+                      className={'icon-major-mobile'}
                     />
                     <span
                       className={

@@ -2,14 +2,13 @@ import React from 'react';
 
 import { Col, Flex, Row, Select } from 'antd';
 
+import ImageSchool from '@/assets/images/image-school.jpg';
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/Card/CardSkeleton';
 import Empty from '@/components/Empty';
 import Tag from '@/components/Tag';
 import Container from '@/containers/Container';
 import { useAPI } from '@/contexts/APIContext';
-import { rootUrl } from '@/utils/utils';
-
 const SchoolGrid = () => {
   const { schoolList, loading, setFilterSchool, filterSchool, countries } =
     useAPI();
@@ -97,7 +96,7 @@ const SchoolGrid = () => {
                     <CardSkeleton />
                   ) : (
                     <Card
-                      url={`${rootUrl}${school?.logo}`}
+                      url={ImageSchool}
                       title={school?.name}
                       alt={school?.name}
                       type={school?.type_school}

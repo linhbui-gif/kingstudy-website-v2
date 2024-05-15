@@ -61,8 +61,8 @@ const Partner = () => {
             {
               breakpoint: 575,
               settings: {
-                slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToShow: 5,
+                slidesToScroll: 5,
                 infinite: false,
                 dots: false,
               },

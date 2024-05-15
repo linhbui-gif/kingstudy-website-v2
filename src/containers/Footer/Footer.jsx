@@ -4,7 +4,7 @@ import { Form } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import ImageLogo from '@/assets/images/logo-footer-kingstudy.svg';
+import ImageLogo from '@/assets/images/image-logo-mobile.png';
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
@@ -17,13 +17,14 @@ const Footer = () => {
         <div className="footer-top flex items-baseline flex-wrap">
           <div className="w-full lg:w-[30%]">
             <div className="">
-              <div className={' lg:block lg:h-auto lg:w-[115px]'}>
+              <div className={' lg:block w-[12.4rem] h-[6.8rem]'}>
                 <Image
                   src={ImageLogo}
                   alt={'Logo King study footer'}
                   width={167}
                   height={104}
-                  className={'max-w-full h-[3.5rem] lg:h-[4.7rem] '}
+                  className={'max-w-full lg:h-auto'}
+                  priority
                 />
               </div>
             </div>
