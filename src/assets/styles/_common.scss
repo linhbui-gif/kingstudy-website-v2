@@ -10,11 +10,25 @@ html {
 
 a {
   text-decoration: none;
+
+  &:hover {
+    @apply text-orange
+  }
 }
 
 ul,li {
   list-style: none;
   margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
 }
 
 @keyframes hero-thumb-sm-2-animation {
@@ -90,4 +104,12 @@ ul,li {
 
 .icon-major-mobile svg {
   @apply w-[2.4rem] md:w-auto
+}
+
+.ant-col {
+  padding: 0 1.2rem;
+}
+
+.ant-form-item .ant-form-item-control:first-child:not([class^="'ant-col-'"]):not([class*="' ant-col-'"]) {
+  padding: 0;
 }

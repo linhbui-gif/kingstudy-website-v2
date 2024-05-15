@@ -1,56 +1,12 @@
 import Image from 'next/image';
+import { useMediaQuery } from 'react-responsive';
 
-import Academy from '@/assets/images/Academy.png';
-import Bookstar from '@/assets/images/Bookstar.png';
-import Highgill from '@/assets/images/HighhillAcademy.png';
-import University from '@/assets/images/University.png';
-import UniversityCurrent from '@/assets/images/UniversityCurrent.png';
 import Carousels from '@/components/Carousels';
 import Container from '@/containers/Container';
+import { imagesPartner } from '@/containers/Partner/Partner.data';
 
 const Partner = () => {
-  const images = [
-    {
-      id: 1,
-      url: University,
-      alt: 'University established in 1930',
-    },
-    {
-      id: 2,
-      url: Bookstar,
-      alt: 'Bookstar tag line goes here',
-    },
-    {
-      id: 3,
-      url: UniversityCurrent,
-      alt: 'University introduction',
-    },
-    {
-      id: 4,
-      url: Highgill,
-      alt: 'Highhill academy',
-    },
-    {
-      id: 5,
-      url: Academy,
-      alt: 'Introduction academy',
-    },
-    {
-      id: 6,
-      url: Academy,
-      alt: 'Introduction academy',
-    },
-    {
-      id: 7,
-      url: Academy,
-      alt: 'Introduction academy',
-    },
-    {
-      id: 8,
-      url: Academy,
-      alt: 'Introduction academy',
-    },
-  ];
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   return (
     <section className={'py-[2rem] lg:py-[7rem]'}>
       <Container>
@@ -58,6 +14,15 @@ const Partner = () => {
           className={'partners-carousel'}
           slidesToShow={6}
           responsive={[
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                infinite: false,
+                dots: false,
+              },
+            },
             {
               breakpoint: 575,
               settings: {
@@ -69,20 +34,16 @@ const Partner = () => {
             },
           ]}
         >
-          {images.map((image) => (
+          {imagesPartner.map((image) => (
             <div className={'partners'} key={image.id}>
-              <div
-                className={
-                  'mx-auto lg:ml-auto lg:w-[12.6rem] lg:h-[11.9rem] w-[7rem] h-[4.8rem]'
-                }
-              >
+              <div className={'flex items-center justify-center '}>
                 <Image
                   className={
-                    'aspect-[70/48] lg:aspect-[126/119] object-contain'
+                    'aspect-[70/48] lg:aspect-auto object-contain lg:object-fill'
                   }
                   src={image.url}
                   alt={`${image.alt}`}
-                  layout={'responsive'}
+                  layout={`${isMobile ? 'responsive' : 'fix'}`}
                   loading={'lazy'}
                   quality={100}
                 />

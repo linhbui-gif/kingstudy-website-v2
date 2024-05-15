@@ -1,6 +1,8 @@
-const Container = ({ children }) => {
+const Container = ({ children, fluid = false }) => {
   return (
-    <div className="container mx-auto lg:px-[3rem] px-[1.6rem]">{children}</div>
+    <div className={`mx-auto px-[1.2rem] ${fluid ? 'w-full' : 'container'}`}>
+      {children}
+    </div>
   );
 };
 export default Container;

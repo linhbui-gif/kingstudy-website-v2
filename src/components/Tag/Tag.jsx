@@ -11,7 +11,7 @@ const Tag = ({
 }) => {
   const renderTagItems = options.map((item) => {
     return (
-      <div className="pr-[2.8rem]" key={item.id}>
+      <div className="pr-[2.8rem] last:pr-0" key={item.id}>
         {!filterTool ? (
           <TagCountry value={value} onChange={onChange} item={item} />
         ) : (
