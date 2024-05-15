@@ -4,7 +4,7 @@ import Container from '@/containers/Container';
 
 const Reward = () => {
   return (
-    <section className={'bg-style-10 lg:py-[7rem] py-[2rem]'}>
+    <section className={'bg-style-10 lg:py-[3.2rem] py-[1.6rem]'}>
       <Container>
         <div className={'flex items-center justify-between'}>
           <div
