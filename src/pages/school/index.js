@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from 'react';
 import React, { useEffect, useState } from 'react';
 
 import { Col, Row } from 'antd';
@@ -15,11 +16,11 @@ import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
-
 const SchoolList = () => {
   const router = useRouter();
   const { majors } = router.query;
   const { schoolList, loading, setFilterSchool, filterSchool } = useAPI();
+  const sidebarRef = useRef(null);
   const [countFilter, setCountFilter] = useState(0);
   useEffect(() => {
     if (majors) {
@@ -29,6 +30,30 @@ const SchoolList = () => {
       });
     }
   }, [majors]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sidebar = sidebarRef.current;
+      const offset = window.scrollY;
+
+      if (sidebar) {
+        if (offset > 10.5 * 10) {
+          sidebar.style.position = 'sticky';
+          sidebar.style.top = '10.5rem';
+        } else {
+          sidebar.style.position = '';
+          sidebar.style.top = '';
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     if (filterSchool) {
       const filterScholLength = { ...filterSchool };
@@ -80,12 +105,8 @@ const SchoolList = () => {
           </Col>
         </Row>
         <Row gutter={[24, 24]}>
-          <Col
-            span={24}
-            xl={{ span: 6 }}
-            className={'xl:block xl:sticky hidden'}
-          >
-            <aside className="sticky top-[10.5rem]">
+          <Col span={24} xl={{ span: 6 }}>
+            <aside ref={sidebarRef}>
               <FilterTools
                 onFilterChange={(dataChanged) => {
                   setFilterSchool({
@@ -108,7 +129,11 @@ const SchoolList = () => {
             <Row gutter={[24, 24]}>
               {schoolList.length === 0 ? (
                 <Col span={24}>
-                  <div className={'flex items-center justify-center flex-col'}>
+                  <div
+                    className={
+                      'flex items-center justify-center flex-col overflow-y-auto max-h-screen'
+                    }
+                  >
                     <Empty />
                   </div>
                 </Col>
@@ -146,7 +171,9 @@ const SchoolList = () => {
     </section>
   );
 };
+
 export default SchoolList;
+
 SchoolList.getLayout = function (page) {
   return (
     <>

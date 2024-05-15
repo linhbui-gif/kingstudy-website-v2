@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { Drawer } from 'antd';
 import dynamic from 'next/dynamic';
@@ -20,6 +20,7 @@ const MediaQuery = dynamic(() => import('react-responsive'), {
 });
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const headerRef = useRef(null);
 
   const showDrawer = () => {
     setOpenDrawer(true);
@@ -28,9 +29,48 @@ const Header = () => {
   const onClose = () => {
     setOpenDrawer(false);
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 40) {
+        headerRef.current.classList.add(
+          'sticky',
+          'top-0',
+          'z-50',
+          'opacity-100',
+          'visible',
+          'transition-all',
+          'ease-in-out',
+          'duration-500',
+          'w-full',
+          'block'
+        );
+      } else {
+        headerRef.current.classList.remove(
+          'sticky',
+          'top-0',
+          'z-50',
+          'opacity-100',
+          'visible',
+          'transition-all',
+          'ease-in-out',
+          'duration-500',
+          'w-full',
+          'block'
+        );
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <header
-      className={`opacity-100 visible sticky transition-all ease-in-out duration-500 z-50 top-0 w-full left-0 flex items-center lg:h-[10.4rem] h-auto pb-[2rem] lg:pb-0 bg-style-10 `}
+      ref={headerRef}
+      className={`relative  flex items-center lg:h-[10.4rem] h-auto pb-[2rem] lg:pb-0 bg-style-10 `}
     >
       <Drawer
         onClose={onClose}
