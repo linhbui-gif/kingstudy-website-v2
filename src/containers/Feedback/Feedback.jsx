@@ -82,7 +82,7 @@ const Feedback = () => {
         </Row>
         <Carousels
           className={'feedback-carousel'}
-          autoplay
+          autoplay={false}
           slidesToShow={3}
           slidesToScroll={3}
           dots

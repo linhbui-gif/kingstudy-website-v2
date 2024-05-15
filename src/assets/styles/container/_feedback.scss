@@ -2,20 +2,27 @@
     .slick-dots {
        @apply translate-y-12;
         .slick-active {
-            @apply w-[2.7rem];
-            @apply h-[0.8rem];
-            @apply bg-style-10;
-            @apply rounded-[0.5rem]
-           
+            @apply w-[2.7rem] h-[0.8rem];
         }
+
+      li {
+        @apply w-[.8rem] h-[0.8rem];
+
+        button {
+          @apply w-[.8rem] h-[0.8rem] rounded-full bg-style-1 p-0 opacity-[.2]
+        }
+      }
     }
-    .slick-dots li.slick-active button:before {
-        @apply opacity-25;
-        @apply text-Tailwind/black;
-        @apply fixed;
-        @apply leading-[1.2rem];
-    }
+
     .slick-dots li button:before {
-        @apply leading-[1.2rem];
+      @apply static text-[unset]
+    }
+
+    .slick-dots li.slick-active button {
+      @apply w-[2.7rem] h-[0.8rem] p-0 bg-style-10 rounded-[0.5rem] opacity-[1];
+    }
+
+    .slick-dots li.slick-active button:before {
+      @apply static text-[unset]
     }
 }
