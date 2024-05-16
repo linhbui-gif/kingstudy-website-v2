@@ -22,7 +22,11 @@ const Footer = () => {
             className={'md:px-[1.2rem] lg:px-0'}
           >
             <div>
-              <div className={'md:mt-[-3rem] lg:block w-[14.4rem] h-[6.8rem]'}>
+              <div
+                className={
+                  'md:mt-[-4rem] lg:block w-[14.4rem] h-[6.8rem] md:w-[34.4rem] md:h-[9.8rem]'
+                }
+              >
                 <Image
                   src={ImageLogo}
                   alt={'Logo King study footer'}

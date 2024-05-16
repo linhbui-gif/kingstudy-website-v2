@@ -27,7 +27,7 @@ const Major = () => {
     router.push(`${Paths.SchoolFilter(id)}`);
   };
   return (
-    <section className={'lg:py-[2.9rem] py-[2rem]'}>
+    <section className={'lg:py-[4.2rem] py-[2rem]'}>
       <Container>
         <Row
           gutter={{ xs: 16, md: 24 }}

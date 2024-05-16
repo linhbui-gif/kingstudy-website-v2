@@ -121,3 +121,18 @@ ul,li {
 .ant-input-outlined {
   @apply border-style-8
 }
+
+.ant-input-outlined:focus, .ant-input-outlined:focus-within {
+  @apply border-style-10
+}
+
+.ant-input-outlined:hover {
+  @apply border-style-10
+}
+.ant-select-item .ant-select-item-option .custom-option .ant-select-item-option-active {
+  @apply border-style-10
+}
+
+.ant-select-outlined:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector {
+  @apply border-style-10
+}
