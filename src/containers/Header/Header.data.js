@@ -1,7 +1,7 @@
 export const MenuData = [
   {
     id: 1,
-    name: 'Về chúng tôi',
+    name: 'Về KingStudy',
     active: true,
     children: [
       {
