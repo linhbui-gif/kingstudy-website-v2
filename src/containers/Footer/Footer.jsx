@@ -12,7 +12,7 @@ import Input from '@/components/Input';
 import Container from '@/containers/Container';
 const Footer = () => {
   return (
-    <footer className={`footer bg-style-32 py-[5rem] lg:py-[10rem]`}>
+    <footer className={`footer bg-style-32 pt-[5rem] lg:pt-[10rem]`}>
       <Container>
         <Row className={''}>
           <Col
@@ -208,7 +208,7 @@ const Footer = () => {
             </div>
           </Col>
         </Row>
-        <div className="hidden lg:flex lg:justify-between lg:items-center lg:bg-style-33 lg:px-[2.4rem] lg:py-[3rem] lg:rounded-[0.4rem] lg:mt-[6rem]">
+        <div className="hidden lg:flex lg:justify-between lg:items-center lg:bg-style-33 lg:px-[2.4rem] lg:py-[3rem] lg:rounded-[0.4rem] lg:mt-[6rem] max-w-[120rem]">
           <div className=" mt-[2.4rem] flex">
             <p className="text-body-14 max-w-[14.8rem]  text-white font-[400] leading-[140%] lg:text-body-16">
               © Copyrighted and Designed by Bdevs

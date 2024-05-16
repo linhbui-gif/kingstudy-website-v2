@@ -115,7 +115,7 @@ const Header = () => {
                 <Input
                   style={'mr-[3rem]'}
                   className={'input-suffix xl:min-w-[34rem] lg:min-w-[29rem]'}
-                  placeholder={'Tìm khóa học..'}
+                  placeholder={'Tìm trường học...'}
                   suffix={
                     <Icon
                       className={
@@ -184,7 +184,7 @@ const Header = () => {
           <MediaQuery maxWidth={1023}>
             <Input
               className={'input-suffix min-w-[26.8rem]'}
-              placeholder={'Tìm khóa học..'}
+              placeholder={'Tìm trường học...'}
               suffix={
                 <Icon
                   className={

@@ -22,10 +22,6 @@ export const MenuData = [
       },
       {
         id: 5,
-        name: 'Sự kiện du học',
-      },
-      {
-        id: 6,
         name: 'Tự nộp hồ sơ',
       },
     ],
