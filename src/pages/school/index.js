@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Col, Row } from 'antd';
 import { useRouter } from 'next/router';
@@ -7,6 +7,9 @@ import ImageSchool from '@/assets/images/image-school.jpg';
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/Card/CardSkeleton';
 import Empty from '@/components/Empty';
+import Icon from '@/components/Icon';
+import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
+import Input from '@/components/Input';
 import Meta from '@/components/Meta';
 import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
@@ -17,6 +20,7 @@ const SchoolList = () => {
   const router = useRouter();
   const { majors } = router.query;
   const { schoolList, loading, setFilterSchool, filterSchool } = useAPI();
+  const [countFilter, setCountFilter] = useState(0);
   useEffect(() => {
     if (majors) {
       setFilterSchool({
@@ -25,9 +29,56 @@ const SchoolList = () => {
       });
     }
   }, [majors]);
+  useEffect(() => {
+    if (filterSchool) {
+      const filterScholLength = { ...filterSchool };
+      delete filterScholLength['page'];
+      delete filterScholLength['limit'];
+      setCountFilter(Object.keys(filterScholLength)?.length);
+    }
+  }, [filterSchool]);
   return (
     <section className={'lg:mt-[10rem] mt-[5rem]'}>
       <Container>
+        <Row gutter={[24, 24]} className={'mb-3'} align={'center'}>
+          <Col span={24} lg={{ span: 5 }}>
+            <div
+              className={
+                'flex items-center h-full px-[1.6rem] text-body-16 text-white bg-style-10 rounded-sm'
+              }
+            >
+              <Icon
+                className={'w-[4rem] h-[4rem]'}
+                name={EIconName.Filter}
+                color={EIconColor.WHITE}
+              />
+              <span>Filter ({countFilter})</span>
+            </div>
+          </Col>
+          <Col span={24} lg={{ span: 8 }}>
+            <Input
+              className={'input-suffix min-w-[26.8rem]'}
+              placeholder={'Tìm trường học..'}
+              prefix={<Icon name={EIconName.Search} />}
+              onSearch={(keyword) => {
+                setFilterSchool({
+                  ...filterSchool,
+                  keywords: keyword,
+                });
+              }}
+              allowClear
+            />
+          </Col>
+          <Col span={24} lg={{ span: 11 }}>
+            <div
+              className={
+                'flex items-center h-full border border-solid border-style-8 lg:px-[2rem] p-[1.6rem] text-body-16 rounded-sm'
+              }
+            >
+              Hiển thị {schoolList?.length} kết quả
+            </div>
+          </Col>
+        </Row>
         <Row gutter={[24, 24]}>
           <Col
             span={24}
@@ -55,9 +106,6 @@ const SchoolList = () => {
           </Col>
           <Col span={24} lg={{ span: 24 }} xl={{ span: 18 }}>
             <Row gutter={[24, 24]}>
-              <Col span={24}>
-                <h3 className={'text-body-18'}>Danh sách trường</h3>
-              </Col>
               {schoolList.length === 0 ? (
                 <Col span={24}>
                   <div className={'flex items-center justify-center flex-col'}>
@@ -85,6 +133,7 @@ const SchoolList = () => {
                           title={school?.name}
                           alt={school?.name}
                           type={school?.type_school}
+                          country={school?.country}
                         />
                       )}
                     </Col>

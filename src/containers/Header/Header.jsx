@@ -44,7 +44,7 @@ const Header = () => {
         </div>
       </Drawer>
       <Container fluid>
-        <div className={'max-w-[1690px] mx-auto'}>
+        <div className={'max-w-[1700px] mx-auto'}>
           <div className="flex items-center justify-between">
             <div className={'lg:w-auto w-[115px]'}>
               <Link href={'/'} className={'block w-full h-full'}>
@@ -73,7 +73,10 @@ const Header = () => {
                           'text-button-16 text-style-5 w-full block hover:text-orange'
                         }
                       >
-                        {menu.name}
+                        <div className={'flex gap-[.8rem]'}>
+                          <span>{menu.name}</span>
+                          <Icon name={EIconName.ArowDown} />
+                        </div>
                       </Link>
                       {menu?.children?.length > 0 ? (
                         <>
@@ -113,7 +116,6 @@ const Header = () => {
                   style={'mr-[3rem]'}
                   className={'input-suffix xl:min-w-[34rem] lg:min-w-[29rem]'}
                   placeholder={'Tìm khóa học..'}
-                  prefix={<Icon name={EIconName.Search} />}
                   suffix={
                     <Icon
                       className={
@@ -183,7 +185,6 @@ const Header = () => {
             <Input
               className={'input-suffix min-w-[26.8rem]'}
               placeholder={'Tìm khóa học..'}
-              prefix={<Icon name={EIconName.Search} />}
               suffix={
                 <Icon
                   className={
