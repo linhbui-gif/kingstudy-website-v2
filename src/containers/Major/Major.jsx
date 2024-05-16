@@ -69,7 +69,7 @@ const Major = () => {
                     />
                     <span
                       className={
-                        'lg:text-title-24 text-body-14 font-[600] text-style-7 group-hover:text-white'
+                        'lg:text-[2rem] lg:font-[700] text-body-14 font-[600] text-style-7 group-hover:text-white'
                       }
                     >
                       {major.name}

@@ -58,7 +58,7 @@ const SchoolList = () => {
           <Col span={24} lg={{ span: 8 }}>
             <Input
               className={'input-suffix min-w-[26.8rem]'}
-              placeholder={'Tìm trường học..'}
+              placeholder={'Tìm trường học...'}
               prefix={<Icon name={EIconName.Search} />}
               onSearch={(keyword) => {
                 setFilterSchool({

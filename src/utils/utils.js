@@ -35,7 +35,10 @@ export const statusSchool = (type) => {
     conditions[conditions.length - 1];
 
   return (
-    <Tag className={'text-[1.5rem] text-style-13'} color={condition.color}>
+    <Tag
+      className={'text-[1.5rem] text-style-13 py-[.2rem]'}
+      color={condition.color}
+    >
       {condition.text}
     </Tag>
   );

@@ -50,7 +50,7 @@ const Hero = () => {
               </h5>
               <h2
                 className={
-                  'mt-[1.8rem] mb-[3.8rem] lg:text-title-50 md:text-[3.6rem] text-[1.6rem] font-[700] text-style-7'
+                  'mt-[1.8rem] mb-[3.8rem] 2xl:text-title-50 md:text-[3.6rem] text-[1.6rem] font-[700] text-style-7'
                 }
               >
                 Khám phá 4500+ Khóa học từ những Giảng viên hàng đầu trên khắp

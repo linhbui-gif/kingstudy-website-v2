@@ -5,15 +5,7 @@ import Link from 'next/link';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import { rootUrl, statusSchool } from '@/utils/utils';
-const Card = ({
-  url = '',
-  alt,
-  title,
-  price = 47,
-  oldPrice = 1000,
-  type,
-  country,
-}) => {
+const Card = ({ url = '', alt, title, price = 47, type, country }) => {
   return (
     <div className="Card bg-white lg:shadow-md rounded-md">
       <div className="Card-header">
@@ -52,14 +44,13 @@ const Card = ({
         </h3>
         <Flex gap={'small'}>
           <span className={'text-body-18 text-style-10'}>{price}đ</span>
-          <del className={'text-body-16 text-style-12 mt-1'}>{oldPrice}đ</del>
         </Flex>
         <Flex className={'my-[2.4rem] ml-[-1rem]'}>
           <Flex align={'center'} gap={'small'} className={'cursor-pointer'}>
-            <Icon name={EIconName.Compare} width={40} height={40} />
+            <Icon name={EIconName.Compare} width={45} height={45} />
           </Flex>
           <Flex align={'center'} gap={'small'} className={' cursor-pointer'}>
-            <Icon name={EIconName.Favorite} width={25} height={25} />
+            <Icon name={EIconName.Favorite} width={30} height={30} />
           </Flex>
         </Flex>
       </div>

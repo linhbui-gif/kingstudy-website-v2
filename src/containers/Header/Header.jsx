@@ -70,7 +70,7 @@ const Header = () => {
                       <Link
                         href={'/'}
                         className={
-                          'text-button-16 text-style-5 w-full block hover:text-orange'
+                          '2xl:text-button-16 lg:text-body-14 lg:font-[600] text-style-5 w-full block hover:text-orange'
                         }
                       >
                         <div className={'flex gap-[.8rem]'}>
@@ -114,7 +114,7 @@ const Header = () => {
               <div className={'flex items-center'}>
                 <Input
                   style={'mr-[3rem]'}
-                  className={'input-suffix xl:min-w-[34rem] lg:min-w-[29rem]'}
+                  className={'input-suffix 2xl:min-w-[34rem] lg:min-w-[27rem]'}
                   placeholder={'Tìm trường học...'}
                   suffix={
                     <Icon
