@@ -69,13 +69,7 @@ const Card = ({
         className={'relative px-[2.4rem]'}
         style={{ borderTop: '1px solid #edeef2' }}
       >
-        <Flex
-          gap={'small'}
-          align={'center'}
-          className={
-            'md:before:absolute md:before:content-[""] md:before:bg-style-8 md:before:m-auto md:before:top-0 md:before:left-0 md:before:right-0 md:before:w-[1px] md:before:h-full py-[1.2rem]'
-          }
-        >
+        <Flex gap={'small'} align={'center'} className={'py-[1.2rem]'}>
           <Image
             quality={100}
             src={`${rootUrl}${country?.icon ? country?.icon : ''}`}
