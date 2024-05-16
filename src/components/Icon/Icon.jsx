@@ -4,6 +4,7 @@ import React from 'react';
 import { EIconName } from './Icon.enum';
 import Account from '@/components/Icon/Account';
 import AmericanFlag from '@/components/Icon/AmericanFlag';
+import ArrowDown from '@/components/Icon/ArrowDown';
 import ArrowRight from '@/components/Icon/ArrowRight';
 import ArtDesign from '@/components/Icon/ArtDesign';
 import Australlia_Flag from '@/components/Icon/AustralliaFlag';
@@ -131,6 +132,8 @@ const Icon = ({
         return <Filter color={color} />;
       case EIconName.Plane:
         return <Plane color={color} />;
+      case EIconName.ArowDown:
+        return <ArrowDown color={color} />;
       default:
         break;
     }

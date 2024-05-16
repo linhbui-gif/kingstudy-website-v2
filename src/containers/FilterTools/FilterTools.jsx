@@ -4,7 +4,9 @@ import { Flex, Form, Select } from 'antd';
 import Image from 'next/image';
 
 import ButtonComponent from '@/components/Button';
-import Tag from '@/components/Tag';
+import CheckboxGroup from '@/components/CheckboxGroup';
+import Icon from '@/components/Icon';
+import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import { dataTuitionOptions } from '@/containers/FilterTools/Tuition.data';
 import { useAPI } from '@/contexts/APIContext';
 import {
@@ -20,6 +22,7 @@ const FilterTools = ({
   onApply,
   onReset,
   className = '',
+  filterDrawer = false,
 }) => {
   const { majors, countries } = useAPI();
   const majorOptions = changeArrayToOptions(majors);
@@ -85,31 +88,30 @@ const FilterTools = ({
   };
   return (
     <div className={`pb-[7rem] ${className}`}>
-      <span
-        className={
-          'block w-full bg-style-10 rounded-sm p-4 text-white font-[600] text-[1.8rem] mb-[1.2rem]'
-        }
-      >
-        Bộ lọc
-      </span>
+      {filterDrawer && (
+        <span
+          className={
+            'block w-full bg-style-10 rounded-sm p-4 text-white font-[600] text-[1.8rem] mb-[1.2rem]'
+          }
+        >
+          Bộ lọc
+        </span>
+      )}
       <div className={'border border-style-8 border-solid rounded-sm py-4'}>
         <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
           Ngành Học
         </h3>
         <div>
-          <Tag
+          <CheckboxGroup
             value={majorOptions.find(
               (option) => option.value === paramsRequest?.majors
             )}
             options={majorOptions}
             onChange={(option) => {
-              const selectedTabValue = option?.value;
               onFilterChange({
-                majors: selectedTabValue,
+                majors: option,
               });
             }}
-            filterTool
-            className={'flex-col items-start justify-start pl-[.5rem]'}
           />
         </div>
       </div>
@@ -119,33 +121,41 @@ const FilterTools = ({
         </h3>
         <div>
           <Form form={form}>
-            <Select
-              allowClear
-              showSearch
-              placeholder="Nhập Quốc Gia..."
-              className={'w-full mb-5'}
-              onChange={(option) => handleChangeCountry(option)}
-            >
-              {countries &&
-                countries.map((item) => (
-                  <Select.Option
-                    key={item?.value}
-                    value={item?.value}
-                    label={item?.label}
-                  >
-                    <Flex align={'center'} gap={'small'}>
-                      <Image
-                        quality={100}
-                        src={`${rootUrl}/${item?.icon}`}
-                        alt={''}
-                        width={24}
-                        height={24}
-                      />
-                      {item?.label}
-                    </Flex>
-                  </Select.Option>
-                ))}
-            </Select>
+            <Form.Item name={'country'}>
+              <Select
+                allowClear
+                showSearch
+                placeholder="Nhập Quốc Gia..."
+                className={'w-full mb-5'}
+                onChange={(option) => handleChangeCountry(option)}
+                suffixIcon={
+                  <Icon
+                    name={EIconName.ArowDown}
+                    color={EIconColor.STYLE_ARROW}
+                  />
+                }
+              >
+                {countries &&
+                  countries.map((item) => (
+                    <Select.Option
+                      key={item?.value}
+                      value={item?.value}
+                      label={item?.label}
+                    >
+                      <Flex align={'center'} gap={'small'}>
+                        <Image
+                          quality={100}
+                          src={`${rootUrl}/${item?.icon}`}
+                          alt={''}
+                          width={24}
+                          height={24}
+                        />
+                        {item?.label}
+                      </Flex>
+                    </Select.Option>
+                  ))}
+              </Select>
+            </Form.Item>
             <Form.Item name={'province_id'}>
               <Select
                 allowClear
@@ -153,6 +163,12 @@ const FilterTools = ({
                 placeholder="Nhập thành phố"
                 className={'w-full mb-4'}
                 onChange={(option) => handleChangeCities(option)}
+                suffixIcon={
+                  <Icon
+                    name={EIconName.ArowDown}
+                    color={EIconColor.STYLE_ARROW}
+                  />
+                }
               >
                 {cities &&
                   cities.map((item) => (
@@ -176,20 +192,17 @@ const FilterTools = ({
           Học phí
         </h3>
         <div>
-          <Tag
+          <CheckboxGroup
             value={dataTuitionOptions.find(
               (option) => option.value === paramsRequest?.survey_tuition
             )}
             options={dataTuitionOptions}
             onChange={(option) => {
-              const selectedTabValue = option?.value;
               onFilterChange({
                 ...paramsRequest,
-                survey_tuition: selectedTabValue,
+                survey_tuition: option,
               });
             }}
-            filterTool
-            className={'flex-col items-start justify-start pl-[.5rem]'}
           />
         </div>
       </div>
@@ -200,20 +213,17 @@ const FilterTools = ({
           Bậc học
         </h3>
         <div>
-          <Tag
+          <CheckboxGroup
             value={levelCourse.find(
               (option) => option.value === paramsRequest?.level
             )}
             options={levelCourse}
             onChange={(option) => {
-              const selectedTabValue = option?.value;
               onFilterChange({
                 ...paramsRequest,
-                level: selectedTabValue,
+                level: option,
               });
             }}
-            filterTool
-            className={'flex-col items-start justify-start pl-[.5rem]'}
           />
         </div>
       </div>
@@ -224,21 +234,18 @@ const FilterTools = ({
           Xếp hạng
         </h3>
         <div>
-          <Tag
+          <CheckboxGroup
             value={
               rankings &&
               rankings.find((option) => option.value === paramsRequest?.ranking)
             }
             options={rankings}
             onChange={(option) => {
-              const selectedTabValue = option?.value;
               onFilterChange({
                 ...paramsRequest,
-                ranking: selectedTabValue,
+                ranking: option,
               });
             }}
-            filterTool
-            className={'flex-col items-start justify-start pl-[.5rem]'}
           />
         </div>
       </div>
@@ -269,6 +276,7 @@ const FilterTools = ({
           className={'primary w-full mt-5'}
           loading={false}
           onClick={() => {
+            form.resetFields();
             onReset?.({
               page: 1,
               limit: 10,

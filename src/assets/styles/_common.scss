@@ -117,3 +117,7 @@ ul,li {
 .feedback-carousel .slick-slide:nth-child(3) .student-feedback{
   @apply lg:mr-0
 }
+
+.ant-input-outlined {
+  @apply border-style-8
+}

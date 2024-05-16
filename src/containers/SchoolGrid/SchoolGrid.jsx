@@ -100,6 +100,7 @@ const SchoolGrid = () => {
                       title={school?.name}
                       alt={school?.name}
                       type={school?.type_school}
+                      country={school?.country}
                     />
                   )}
                 </Col>

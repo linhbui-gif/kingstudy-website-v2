@@ -37,9 +37,11 @@ export const EIconName = {
   Account: 'Account',
   Filter: 'Filter',
   Plane: 'Plane',
+  ArowDown: 'ArowDown',
 };
 export const EIconColor = {
   STYLE_10: '#22458F',
   WHITE: '#FFF',
   YELLOW: '#EEB443',
+  STYLE_ARROW: '#d9d9d9',
 };

@@ -9,7 +9,7 @@ const TagCountry = ({ value, item, onChange }) => {
       }}
     >
       {value && value.value === item.value && (
-        <div className="text-style-31 absolute bottom-[100%] after:absolute after:content-[''] after:bottom-[15px] after:w-[3.1rem]  after:h-[0.2rem] after:bg-style-31 after:top-[40%] after:left-[180%] after:translate-x-[-50%]">
+        <div className="text-orange absolute bottom-[100%] after:absolute after:content-[''] after:bottom-[15px] after:w-[3.1rem]  after:h-[0.1rem] after:bg-orange after:top-[50%] after:translate-y-[-50%] after:left-[50%] after:translate-x-[80%]">
           [06]
         </div>
       )}
