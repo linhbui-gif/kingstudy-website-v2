@@ -40,7 +40,7 @@ const SchoolList = () => {
   return (
     <section className={'lg:mt-[10rem] mt-[5rem]'}>
       <Container>
-        <Row gutter={[24, 24]} className={'mb-3'} align={'center'}>
+        <Row gutter={[24, 24]} className={'mb-[2.4rem]'} align={'center'}>
           <Col span={24} lg={{ span: 5 }}>
             <div
               className={
