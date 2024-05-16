@@ -121,7 +121,7 @@ const FilterTools = ({
         </h3>
         <div>
           <Form form={form}>
-            <Form.Item name={'country'}>
+            <Form.Item name={'country'} className={'mb-0'}>
               <Select
                 allowClear
                 showSearch
@@ -156,7 +156,7 @@ const FilterTools = ({
                   ))}
               </Select>
             </Form.Item>
-            <Form.Item name={'province_id'}>
+            <Form.Item name={'province_id'} className={'mb-0'}>
               <Select
                 allowClear
                 showSearch

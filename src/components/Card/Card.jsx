@@ -73,7 +73,7 @@ const Card = ({
           gap={'small'}
           align={'center'}
           className={
-            'before:absolute before:content-[""] before:bg-style-8 before:m-auto before:top-0 before:left-0 before:right-0 before:w-[1px] before:h-full py-[1.2rem]'
+            'md:before:absolute md:before:content-[""] md:before:bg-style-8 md:before:m-auto md:before:top-0 md:before:left-0 md:before:right-0 md:before:w-[1px] md:before:h-full py-[1.2rem]'
           }
         >
           <Image
