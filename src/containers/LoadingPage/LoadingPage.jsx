@@ -1,7 +1,3 @@
-import { Progress } from 'antd';
-import Image from 'next/image';
-
-import ImageLoading from '@/assets/images/image-loading.gif';
 const LoadingPage = ({ done }) => {
   return (
     <div
