@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { useMediaQuery } from 'react-responsive';
 
 import ImageArrowHero from '@/assets/images/image-hero-arrow.webp';
-import ImageHeroAvatar from '@/assets/images/image-hero-avatar.webp';
-import ImageHeroBagde from '@/assets/images/image-hero-bagde.svg';
 import ImageHeroShape5 from '@/assets/images/image-hero-shape-5.webp';
-import ImageHeroShape6 from '@/assets/images/image-hero-shape-6.svg';
+import ImageHeroShape6 from '@/assets/images/image-hero-shape-6.png';
+import ImageHeroBagde from '@/assets/images/image-hero-shape-8.png';
 import ImageHeroShape6Mobile from '@/assets/images/image-shape-6-mobile.svg';
+import ImageShape7 from '@/assets/images/image-shape-7.png';
 import ButtonComponent from '@/components/Button';
 import Container from '@/containers/Container';
 const Hero = () => {
@@ -22,7 +22,7 @@ const Hero = () => {
       style={{
         backgroundImage: isMobile
           ? "url('/images/image-banner-home-mobile.webp')"
-          : "url('/images/image-hero.webp')",
+          : "url('/images/image-hero2.webp')",
         backgroundSize: 'cover',
       }}
     >
@@ -77,11 +77,12 @@ const Hero = () => {
           >
             <div className={'hero-right relative'}>
               <Image
-                className={'absolute top-[14rem] left-[10%]'}
+                className={
+                  'absolute top-[32rem] left-[-7rem] animate-hero-thumb-sm-2-animation'
+                }
                 src={ImageHeroShape6}
                 alt={''}
-                width={176}
-                height={193}
+                width={300}
                 quality={100}
                 priority
               />
@@ -96,47 +97,23 @@ const Hero = () => {
                 quality={100}
                 priority
               />
-              <div className="shape-4 absolute top-[33.5rem] left-[15rem] rounded-[12px] bg-white w-[18rem] shadow-md text-center pt-[1.7rem] pb-[2.5rem] animate-hero-thumb-sm-2-animation">
+              <div className="shape-4 absolute top-[28.5rem] 2xl:left-[70%] rounded-[12px] text-center animate-hero-thumb-sm-3-animation">
                 <Image
                   quality={100}
                   priority
                   src={ImageHeroBagde}
                   alt={''}
-                  width={80}
-                  height={80}
+                  width={400}
                 />
-                <h5
-                  className={
-                    'text-body-18 text-style-7 max-w-[146px] text-center mx-auto'
-                  }
-                >
-                  Giảng viên <br /> hàng đầu
-                </h5>
               </div>
-              <div className="shape-5 absolute 2xl:bottom-[-30rem] 2xl:right-[0] lg:right-[-3rem] p-[2rem_2.4rem_1.5rem] bg-white rounded-[12px] shadow-md max-w-[28.3rem] animate-hero-thumb-sm-2-animation">
-                <div className={'flex items-center mb-3'}>
-                  {[1, 2, 3, 4, 5, 6].map((image) => {
-                    return (
-                      <Image
-                        key={image}
-                        className={
-                          'shadow-[0_0_10px_rgba(28, 51, 84, .1)] border-4 border-solid border-[#fff] shadow-md mr-[-1.5rem] rounded-full'
-                        }
-                        quality={100}
-                        priority
-                        src={ImageHeroAvatar}
-                        alt={''}
-                        width={30}
-                        height={30}
-                      />
-                    );
-                  })}
-                </div>
-                <h5 className={'font-[400] text-[18px] text-style-7 mb-0'}>
-                  Hơn{' '}
-                  <span className={'text-body-18 text-style-10'}>21,500+</span>{' '}
-                  học viên tham gia khắp thế giới
-                </h5>
+              <div className="shape-5 absolute 2xl:bottom-[-14rem] 2xl:right-[-34%] lg:right-[-3rem] animate-hero-thumb-sm-2-animation">
+                <Image
+                  quality={100}
+                  priority
+                  src={ImageShape7}
+                  alt={''}
+                  width={400}
+                />
               </div>
             </div>
           </Col>

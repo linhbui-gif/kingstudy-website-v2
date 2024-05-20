@@ -253,7 +253,7 @@ const Footer = () => {
                   <ButtonComponent
                     title={'Subscribe'}
                     className={
-                      'orange max-w-[12.5rem] px-[1.6rem] py-[0.9rem]  text-white font-[600] leading-[140%] lg:px-[0.8rem] lg:py-[1.2rem]'
+                      'orange w-[16rem] px-[1.6rem] py-[0.9rem]  text-white font-[600] leading-[140%] lg:px-[0.8rem] lg:py-[1.2rem]'
                     }
                     secondIconName={EIconName.Subscribe}
                   />
@@ -286,7 +286,7 @@ const Footer = () => {
                   <ButtonComponent
                     title={'Subscribe'}
                     className={
-                      '  primary max-w-[12.5rem] px-[1.6rem] py-[0.9rem]  text-white font-[600] leading-[140%] lg:px-[0.8rem] lg:py-[1.2rem]'
+                      'orange max-w-[12.5rem] px-[1.6rem] py-[0.9rem]  text-white font-[600] leading-[140%] lg:px-[0.8rem] lg:py-[1.2rem]'
                     }
                     secondIconName={EIconName.Subscribe}
                   />
