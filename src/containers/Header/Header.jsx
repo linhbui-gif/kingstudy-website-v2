@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 
 import { Drawer } from 'antd';
+import { router } from 'next/client';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import ImageLogoMobile from '@/assets/images/image-logo-mobile.png';
+import { ETypeNotification } from '@/common/enums';
+import Avatar from '@/components/Avatar';
 import ButtonComponent from '@/components/Button';
+import DropdownMenu from '@/components/DropdownMenu';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Input from '@/components/Input';
@@ -14,20 +18,60 @@ import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { MenuData } from '@/containers/Header/Header.data';
 import NavigationBottom from '@/containers/NavigationBottom';
+import { useAPI } from '@/contexts/APIContext';
 import { ModulePaths, Paths } from '@/routers/constants';
+import Helpers from '@/services/helpers';
+import { showNotification } from '@/utils/function';
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
 });
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
-
+  const { isLogin } = useAPI();
   const showDrawer = () => {
     setOpenDrawer(true);
   };
 
   const onClose = () => {
     setOpenDrawer(false);
+  };
+
+  const handleLogout = () => {
+    Helpers.clearTokens();
+    router.push(`${Paths.Home}`);
+    showNotification(
+      ETypeNotification.SUCCESS,
+      'Đăng xuất tài khoản thành công !'
+    );
+  };
+
+  const renderHeaderAccount = () => {
+    return (
+      <DropdownMenu
+        options={[
+          { value: '1', label: 'Thông tin cá nhân', link: `` },
+          { value: '2', label: 'Đăng xuất', onClick: handleLogout },
+        ]}
+      >
+        <div className="Header-account flex items-center">
+          <div className="Header-account-avatar">
+            <Avatar
+              className={'bg-[unset]'}
+              iconNameDefault={EIconName.Account}
+              iconColorDefault={EIconColor.WHITE}
+              image={''}
+            />
+          </div>
+          <div className="text-white">
+            Xin chào, <strong>Hello</strong>
+          </div>
+          <div className="ml-2">
+            <Icon name={EIconName.ArowDown} />
+          </div>
+        </div>
+      </DropdownMenu>
+    );
   };
   return (
     <header
@@ -128,7 +172,16 @@ const Header = () => {
                   }
                 />
 
-                <div className={'relative mr-[3rem]'}>
+                <div
+                  className={'relative mr-[3rem]'}
+                  onClick={() => {
+                    if (!isLogin)
+                      showNotification(
+                        ETypeNotification.INFO,
+                        'Bạn cần phải đăng nhập để sử dụng tính năng này !'
+                      );
+                  }}
+                >
                   <Icon name={EIconName.Favorite} color={EIconColor.WHITE} />
                   <span
                     className={
@@ -139,31 +192,46 @@ const Header = () => {
                   </span>
                 </div>
 
-                <div className={'relative'}>
-                  <Link
-                    href={`${ModulePaths.Auth}${Paths.Login}`}
-                    className={
-                      'text-button-16 text-style-5 ml-[2rem] mr-[3rem]'
-                    }
-                  >
-                    Đăng nhập
-                  </Link>
-                  <span
-                    className={
-                      'absolute left-0 w-[1px] h-[35px] bg-white top-[50%] translate-y-[-50%]'
-                    }
-                  ></span>
-                </div>
-                <ButtonComponent
-                  title={'Đăng Ký'}
-                  className={'w-[112px] orange'}
-                  link={`${ModulePaths.Auth}${Paths.SignUp}`}
-                />
+                {isLogin ? (
+                  renderHeaderAccount()
+                ) : (
+                  <>
+                    <div className={'relative'}>
+                      <Link
+                        href={`${ModulePaths.Auth}${Paths.Login}`}
+                        className={
+                          'text-button-16 text-style-5 ml-[2rem] mr-[3rem]'
+                        }
+                      >
+                        Đăng nhập
+                      </Link>
+                      <span
+                        className={
+                          'absolute left-0 w-[1px] h-[35px] bg-white top-[50%] translate-y-[-50%]'
+                        }
+                      ></span>
+                    </div>
+                    <ButtonComponent
+                      title={'Đăng Ký'}
+                      className={'w-[112px] orange'}
+                      link={`${ModulePaths.Auth}${Paths.SignUp}`}
+                    />
+                  </>
+                )}
               </div>
             </MediaQuery>
             <MediaQuery maxWidth={1023}>
               <div className={'flex items-center gap-[1.6rem]'}>
-                <div className={'relative'}>
+                <div
+                  className={'relative'}
+                  onClick={() => {
+                    if (!isLogin)
+                      showNotification(
+                        ETypeNotification.INFO,
+                        'Bạn cần phải đăng nhập để sử dụng tính năng này !'
+                      );
+                  }}
+                >
                   <Icon name={EIconName.Favorite} color={EIconColor.WHITE} />
                   <span
                     className={
@@ -173,13 +241,13 @@ const Header = () => {
                     0
                   </span>
                 </div>
-                <Icon
-                  name={EIconName.Account}
-                  color={EIconColor.STYLE_10}
-                  width={24}
-                  height={24}
-                  className={'w-[3rem] h-[3rem] rounded-full bg-white'}
-                />
+                {/*<Icon*/}
+                {/*  name={EIconName.Account}*/}
+                {/*  color={EIconColor.STYLE_10}*/}
+                {/*  width={24}*/}
+                {/*  height={24}*/}
+                {/*  className={'w-[3rem] h-[3rem] rounded-full bg-white'}*/}
+                {/*/>*/}
               </div>
             </MediaQuery>
           </div>
@@ -201,7 +269,7 @@ const Header = () => {
         </div>
       </Container>
       <MediaQuery maxWidth={1023}>
-        <NavigationBottom />
+        <NavigationBottom isLogin={isLogin} />
       </MediaQuery>
     </header>
   );

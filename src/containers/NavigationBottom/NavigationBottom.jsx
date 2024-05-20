@@ -2,8 +2,9 @@ import Link from 'next/link';
 
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
+import { ModulePaths, Paths } from '@/routers/constants';
 
-const NavigationBottom = () => {
+const NavigationBottom = ({ isLogin }) => {
   return (
     <div
       className={
@@ -44,7 +45,11 @@ const NavigationBottom = () => {
           </li>
           <li>
             <Link
-              href={'/'}
+              href={
+                isLogin
+                  ? `${ModulePaths.MyProfile}`
+                  : `${ModulePaths.Auth}${Paths.Login}` || ''
+              }
               className={'text-body-14 text-style-10 font-[500]'}
             >
               <Icon

@@ -1,15 +1,49 @@
+import { useState } from 'react';
+
 import { Form } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import ImageLogoMobile from '@/assets/images/image-logo-mobile.png';
+import { ETypeNotification } from '@/common/enums';
 import ButtonComponent from '@/components/Button';
 import Input from '@/components/Input';
 import Meta from '@/components/Meta';
 import AuthLayout from '@/layouts/AuthLayout';
 import { ModulePaths, Paths } from '@/routers/constants';
+import { signUp } from '@/services/auth';
+import { showNotification, validationRules } from '@/utils/function';
 
 const SignUp = () => {
+  const [formValues, setFormValues] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [form] = Form.useForm();
+  const router = useRouter();
+  const handleSubmit = (values) => {
+    const body = { ...values };
+    onSignUp(body).then();
+  };
+
+  const onSignUp = async (body) => {
+    try {
+      setLoading(true);
+      const response = await signUp(body);
+      if (response) {
+        setLoading(false);
+        showNotification(
+          ETypeNotification.SUCCESS,
+          'Đăng ký tài khoản thành công !'
+        );
+        form.resetFields();
+        router.push(`${ModulePaths.Auth}${Paths.Login}`);
+      }
+    } catch (e) {
+      setLoading(false);
+      showNotification(ETypeNotification.ERROR, e?.response?.data?.message);
+    }
+  };
+
   return (
     <div className={'md:w-[56rem] w-full translate-y-[-2%]'}>
       <div className={'w-full text-center'}>
@@ -38,22 +72,51 @@ const SignUp = () => {
             </Link>
           </div>
         </div>
-        <Form layout={'vertical'}>
-          <Form.Item name={'email'} label={'Email'} required>
+        <Form
+          form={form}
+          layout={'vertical'}
+          onValuesChange={(_, values) =>
+            setFormValues({ ...formValues, ...values })
+          }
+          onFinish={handleSubmit}
+        >
+          <Form.Item
+            name={'email'}
+            label={'Email'}
+            required
+            rules={[validationRules.required(''), validationRules.email()]}
+          >
             <Input placeholder={'Nhập Email...'} />
           </Form.Item>
-          <Form.Item name={'phone'} label={'Số điện thoại'} required>
+          <Form.Item
+            name={'phone'}
+            label={'Số điện thoại'}
+            required
+            rules={[validationRules.required('')]}
+          >
             <Input placeholder={'Nhập số điện thoại...'} />
           </Form.Item>
-          <Form.Item name={'password'} label={'Mật khẩu'} required>
+          <Form.Item
+            name={'password'}
+            label={'Mật khẩu'}
+            required
+            rules={[validationRules.required('')]}
+          >
             <Input type={'password'} placeholder={'Nhập mật khẩu...'} />
           </Form.Item>
-          <Form.Item name={'re_password'} label={'Nhập lại mật khẩu'} required>
+          <Form.Item
+            name={'confirm_password'}
+            label={'Nhập lại mật khẩu'}
+            required
+            rules={[validationRules.confirmPassword(formValues?.password)]}
+          >
             <Input type={'password'} placeholder={'Nhập lại mật khẩu...'} />
           </Form.Item>
           <ButtonComponent
             title={'Đăng ký tài khoản'}
             className={'primary w-full block'}
+            htmlType={'submit'}
+            loading={loading}
           />
         </Form>
       </div>
