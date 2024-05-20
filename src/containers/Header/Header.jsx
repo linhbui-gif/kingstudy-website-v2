@@ -14,6 +14,7 @@ import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { MenuData } from '@/containers/Header/Header.data';
 import NavigationBottom from '@/containers/NavigationBottom';
+import {ModulePaths, Paths} from "@/routers/constants";
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
@@ -140,7 +141,7 @@ const Header = () => {
 
                 <div className={'relative'}>
                   <Link
-                    href={'/'}
+                    href={`${ModulePaths.Auth}${Paths.Login}`}
                     className={
                       'text-button-16 text-style-5 ml-[2rem] mr-[3rem]'
                     }
@@ -156,6 +157,7 @@ const Header = () => {
                 <ButtonComponent
                   title={'Đăng Ký'}
                   className={'w-[112px] orange'}
+                  link={`${ModulePaths.Auth}${Paths.SignUp}`}
                 />
               </div>
             </MediaQuery>

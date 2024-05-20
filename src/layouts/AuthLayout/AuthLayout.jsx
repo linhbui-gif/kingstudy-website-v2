@@ -1,7 +1,10 @@
 const AuthLayout = ({ children }) => {
   return (
-    <div className={'AuthLayout'}>
-      <p>Auth layout</p>
+    <div
+      className={
+        'AuthLayout min-h-screen px-4 bg-style-10 flex items-center justify-center '
+      }
+    >
       {children}
     </div>
   );
