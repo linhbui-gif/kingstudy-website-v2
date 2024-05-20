@@ -1,13 +1,13 @@
 export const ModulePaths = {
   MyProfile: '/my-user',
-  Admin: '/admin',
+  Auth: '/auth',
   Me: '/me',
 };
 
 export const Paths = {
   Home: '/',
   Login: '/login',
-  SignUp: '/sign-up',
+  SignUp: '/signup',
   ForgotPassword: '/forgot-password',
   ResetPassword: '/reset-password',
   Success: '/success',
