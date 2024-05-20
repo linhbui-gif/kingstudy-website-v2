@@ -1,19 +1,19 @@
 import { Progress } from 'antd';
 import Image from 'next/image';
 
-import Logo from '@/assets/images/logo.svg';
-const LoadingPage = ({ done, percent }) => {
+import ImageLoading from '@/assets/images/image-loading.gif';
+const LoadingPage = ({ done }) => {
   return (
     <div
-      className={`fixed transition-all z-50 top-0 left-0 w-full h-full flex items-center justify-center bg-style-10 ${
+      className={`fixed w-full h-full top-0 left-0 z-[9999] ${
         done ? 'hidden' : 'block'
       }`}
-    >
-      <div className={'flex flex-col items-center max-w-[50rem] lg:w-[50rem]'}>
-        <Image quality={100} src={Logo} alt={''} priority />
-        <Progress status="active" percent={percent} showInfo={false} />
-      </div>
-    </div>
+      style={{
+        backgroundImage: "url('/images/image-loading.gif')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    ></div>
   );
 };
 export default LoadingPage;

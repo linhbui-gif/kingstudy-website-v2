@@ -4,6 +4,7 @@ import { Drawer } from 'antd';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import ImageLogoMobile from '@/assets/images/image-logo-mobile.png';
 import { ETypeNotification } from '@/common/enums';
@@ -21,7 +22,6 @@ import { useAPI } from '@/contexts/APIContext';
 import { ModulePaths, Paths } from '@/routers/constants';
 import Helpers from '@/services/helpers';
 import { showNotification } from '@/utils/function';
-import {useRouter} from "next/router";
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
