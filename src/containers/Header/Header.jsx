@@ -14,7 +14,7 @@ import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { MenuData } from '@/containers/Header/Header.data';
 import NavigationBottom from '@/containers/NavigationBottom';
-import {ModulePaths, Paths} from "@/routers/constants";
+import { ModulePaths, Paths } from '@/routers/constants';
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
