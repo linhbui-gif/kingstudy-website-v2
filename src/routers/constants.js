@@ -1,5 +1,5 @@
 export const ModulePaths = {
-  MyProfile: '/my-user',
+  MyProfile: '/profile',
   Auth: '/auth',
   Me: '/me',
 };

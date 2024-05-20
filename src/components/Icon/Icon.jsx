@@ -52,7 +52,7 @@ const Icon = ({
   const renderIcon = () => {
     switch (name) {
       case EIconName.Account:
-        return <Account />;
+        return <Account color={color} />;
       case EIconName.ArtDesign:
         return <ArtDesign color={color} />;
       case EIconName.Arrow_Right:

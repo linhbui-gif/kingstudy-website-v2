@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 import { getCountries, getMajors } from '@/services/common';
+import Helpers from '@/services/helpers';
 import { getListSchool } from '@/services/school';
 import { changeArrayToOptions } from '@/utils/utils';
 
@@ -16,6 +17,7 @@ export const APIProvider = ({ children }) => {
     limit: 10,
   });
 
+  const isLogin = Helpers.getAccessToken();
   const getSchools = async () => {
     try {
       setLoading(true);
@@ -72,6 +74,7 @@ export const APIProvider = ({ children }) => {
         getCountryList,
         countries,
         majors,
+        isLogin,
       }}
     >
       {children}
