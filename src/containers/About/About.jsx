@@ -1,7 +1,7 @@
 import { Col, Row } from 'antd';
 import Image from 'next/image';
 
-import ImageAbout from '@/assets/images/image-about-map.webp';
+import ImageAbout from '@/assets/images/image-about.gif';
 import ImageAboutIconCheck from '@/assets/images/image-checked-about.svg';
 import ButtonComponent from '@/components/Button';
 import Container from '@/containers/Container';

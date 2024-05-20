@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { Drawer } from 'antd';
-import { router } from 'next/client';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,6 +21,7 @@ import { useAPI } from '@/contexts/APIContext';
 import { ModulePaths, Paths } from '@/routers/constants';
 import Helpers from '@/services/helpers';
 import { showNotification } from '@/utils/function';
+import {useRouter} from "next/router";
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
@@ -29,6 +29,7 @@ const MediaQuery = dynamic(() => import('react-responsive'), {
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const { isLogin } = useAPI();
+  const router = useRouter();
   const showDrawer = () => {
     setOpenDrawer(true);
   };
