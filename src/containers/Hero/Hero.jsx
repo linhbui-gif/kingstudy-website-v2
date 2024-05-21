@@ -21,8 +21,8 @@ const Hero = () => {
       }
       style={{
         backgroundImage: isMobile
-          ? "url('/images/image-banner-home-mobile.webp')"
-          : "url('/images/image-hero2.webp')",
+          ? "url('/images/image-banner-home-mobile2.webp')"
+          : "url('/images/image-hero3.webp')",
         backgroundSize: 'cover',
       }}
     >
@@ -78,7 +78,7 @@ const Hero = () => {
             <div className={'hero-right relative'}>
               <Image
                 className={
-                  'absolute top-[32rem] left-[-7rem] animate-hero-thumb-sm-2-animation'
+                  'absolute 2xl:top-[32rem] lg:left-[-7rem] lg:top-[21rem] animate-hero-thumb-sm-2-animation'
                 }
                 src={ImageHeroShape6}
                 alt={''}
@@ -97,7 +97,7 @@ const Hero = () => {
                 quality={100}
                 priority
               />
-              <div className="shape-4 absolute top-[28.5rem] 2xl:left-[70%] rounded-[12px] text-center animate-hero-thumb-sm-3-animation">
+              <div className="shape-4 absolute 2xl:top-[28.5rem] 2xl:left-[70%] lg:right-[-8rem] lg:top-[14rem] rounded-[12px] text-center animate-hero-thumb-sm-3-animation">
                 <Image
                   quality={100}
                   priority
@@ -106,7 +106,7 @@ const Hero = () => {
                   width={400}
                 />
               </div>
-              <div className="shape-5 absolute 2xl:bottom-[-14rem] 2xl:right-[-34%] lg:right-[-3rem] animate-hero-thumb-sm-2-animation">
+              <div className="shape-5 absolute lg:bottom-[-14rem] 2xl:right-[-34%] lg:right-[-3rem] animate-hero-thumb-sm-2-animation">
                 <Image
                   quality={100}
                   priority
