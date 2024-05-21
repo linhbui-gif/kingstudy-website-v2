@@ -33,6 +33,7 @@ export const EIconName = {
   Subscribe: 'Subscribe',
   Visa: 'Visa',
   Star: 'Star',
+  StarBorder: 'StarBorder',
   Search: 'Search',
   Account: 'Account',
   Filter: 'Filter',
@@ -44,4 +45,5 @@ export const EIconColor = {
   WHITE: '#FFF',
   YELLOW: '#EEB443',
   STYLE_ARROW: '#d9d9d9',
+  GRAY: '#CCCCCC',
 };

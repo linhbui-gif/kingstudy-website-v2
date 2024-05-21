@@ -14,6 +14,7 @@ import Container from '@/containers/Container';
 import Feedback from '@/containers/Feedback';
 import Footer from '@/containers/Footer';
 import Partner from '@/containers/Partner';
+import Review from '@/containers/Review';
 const items = ['apple', 'King of fruits', 'Orange'];
 const { Option } = Select;
 
@@ -203,6 +204,7 @@ const ComponentGuide = () => {
       {/*</Row>*/}
       <Partner />
       <Feedback />
+      <Review />
       <Footer />
     </>
   );
