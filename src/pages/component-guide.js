@@ -13,6 +13,7 @@ import { dataCountries } from '@/components/Tag/Country.Tab.data';
 import Container from '@/containers/Container';
 import Feedback from '@/containers/Feedback';
 import Footer from '@/containers/Footer';
+import Infrastructure from '@/containers/Infrastructure';
 import Partner from '@/containers/Partner';
 import Review from '@/containers/Review';
 const items = ['apple', 'King of fruits', 'Orange'];
@@ -202,9 +203,10 @@ const ComponentGuide = () => {
       {/*    </div>*/}
       {/*  </Col>*/}
       {/*</Row>*/}
-      <Partner />
+     <Partner />
       <Feedback />
       <Review />
+      <Infrastructure />
       <Footer />
     </>
   );
