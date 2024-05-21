@@ -45,6 +45,7 @@ module.exports = {
       'style-31': '#FF5002',
       'style-32': '#204590',
       'style-33': '#11367E',
+      'style-36': '#DDE2E6',
       'Chestnut/50': '#FCF5F4',
       'Chestnut/100': '#FAE8E6',
       'Chestnut/200': '#F6D5D2',
@@ -300,6 +301,7 @@ module.exports = {
       'Tailwind/rose/800': '#9F1239',
       'Tailwind/rose/900': '#881337',
       'Tailwind/rose/950': '#4C0519',
+
     },
     fontFamily: {
       BeVnPro: 'Be Vietnam Pro sans-serif',
@@ -332,6 +334,12 @@ module.exports = {
         '1.8rem',
         {
           fontWeight: '600',
+        },
+      ],
+      'title-20': [
+        '2rem',
+        {
+          fontWeight: '700',
         },
       ],
       'title-24': [
