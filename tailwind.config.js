@@ -50,6 +50,7 @@ module.exports = {
       'style-33': '#11367E',
       'style-34': '#FFAC00',
       'style-35': '#124694',
+      'style-36': '#DDE2E6',
       'Chestnut/50': '#FCF5F4',
       'Chestnut/100': '#FAE8E6',
       'Chestnut/200': '#F6D5D2',
