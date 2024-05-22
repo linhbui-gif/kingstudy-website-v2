@@ -16,9 +16,11 @@ const Review = () => {
   return (
     <section className={'py-[2rem] lg:py-[7rem]'}>
       <Container>
-        <h2 className="text-title-20 leading-[120%] text-style-7">Đánh Giá Của Học Viên</h2>
-        <div className="flex gap-x-[2.4rem]">
-          <div className="w-[calc(16%)] text-center rounded-[0.5rem] border-custom border-solid border-style-8 p-[2rem]">
+        <h2 className="text-title-20 leading-[120%] text-style-7">
+          Đánh Giá Của Học Viên
+        </h2>
+        <div className="flex gap-x-[2.4rem] md:flex-nowrap flex-wrap ">
+          <div className="md:w-[calc(16%)] lg:w-[calc(20%)] w-full md:mb-0 mb-4 text-center rounded-[0.5rem] border-custom border-solid border-style-8 p-[2rem]">
             <h2 className="text-title-56 leading-[6.5rem] text-style-34 mb-[2.1rem]">
               4.7
             </h2>
@@ -88,7 +90,7 @@ const Review = () => {
                     {review.time}
                   </span>
                 </div>
-                <p className="text-style-12 text-body-16 leading-[150%] text-style-9">
+                <p className="text-style-12 text-body-16 leading-[150%]">
                   {review.content}
                 </p>
               </div>
