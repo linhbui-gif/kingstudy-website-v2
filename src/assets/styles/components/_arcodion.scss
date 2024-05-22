@@ -1,0 +1,22 @@
+.arcodion {
+    @apply w-full;
+    .ant-collapse {
+        @apply bg-white rounded-arcodion border border-solid border-style-36;
+        &-item {
+            @apply bg-white rounded-arcodion border border-solid border-style-36;
+          .ant-collapse-header {
+            
+            @apply p-[1.6rem] border border-style-36 ;
+            &-text{
+                @apply text-button-16 text-style-7 leading-[140%];
+            }
+          }
+          .ant-collapse-content {
+            @apply border-2 border-style-36;
+            &-box {
+                @apply p-[2.4rem] ;
+            }
+          }
+        }
+    }
+}
