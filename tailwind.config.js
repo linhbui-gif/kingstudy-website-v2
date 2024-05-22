@@ -7,6 +7,9 @@ module.exports = {
         sm: '0px 20px 40px 0px #182C4A0D',
         md: '0px 40px 50px 0px #1C335429',
       },
+      borderWidth: {
+        custom: '0.667px',
+      },
     },
     colors: {
       white: '#FFFFFF',
@@ -45,6 +48,8 @@ module.exports = {
       'style-31': '#FF5002',
       'style-32': '#204590',
       'style-33': '#11367E',
+      'style-34': '#FFAC00',
+      'style-35': '#124694',
       'Chestnut/50': '#FCF5F4',
       'Chestnut/100': '#FAE8E6',
       'Chestnut/200': '#F6D5D2',
@@ -334,6 +339,12 @@ module.exports = {
           fontWeight: '600',
         },
       ],
+      'title-20': [
+        '2rem',
+        {
+          fontWeight: '700',
+        },
+      ],
       'title-24': [
         '2.4rem',
         {
@@ -351,6 +362,12 @@ module.exports = {
         {
           fontWeight: '700',
           lineHeight: '6rem',
+        },
+      ],
+      'title-56': [
+        '5.6rem',
+        {
+          fontWeight: '700',
         },
       ],
     },

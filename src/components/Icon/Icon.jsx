@@ -34,6 +34,7 @@ import ScholarshipResult from '@/components/Icon/ScholarshipResult';
 import Search from '@/components/Icon/Search';
 import SocialWork from '@/components/Icon/SocialWork';
 import Star from '@/components/Icon/Star';
+import StarBorder from '@/components/Icon/StarBorder';
 import StudyAboard from '@/components/Icon/StudyAboard';
 import Subscribe from '@/components/Icon/Subscribe';
 import Twitter from '@/components/Icon/Twitter';
@@ -124,6 +125,8 @@ const Icon = ({
         return <StudyAboard color={color} width={width} height={height} />;
       case EIconName.Star:
         return <Star color={color} />;
+      case EIconName.StarBorder:
+        return <StarBorder color={color} />;
       case EIconName.Search:
         return <Search color={color} />;
       case EIconName.Subscribe:
