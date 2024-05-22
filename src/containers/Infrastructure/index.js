@@ -1,3 +1,3 @@
-import Infrastructure from "./Infrastructure";
+import Infrastructure from './Infrastructure';
 
 export default Infrastructure;

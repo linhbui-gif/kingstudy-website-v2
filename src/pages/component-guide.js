@@ -203,7 +203,7 @@ const ComponentGuide = () => {
       {/*    </div>*/}
       {/*  </Col>*/}
       {/*</Row>*/}
-     <Partner />
+      <Partner />
       <Feedback />
       <Review />
       <Infrastructure />

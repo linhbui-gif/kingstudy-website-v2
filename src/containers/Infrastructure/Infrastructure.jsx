@@ -16,7 +16,9 @@ const Infrastructure = () => {
               tuyệt vời cho sinh viên. Trong đó Chelmsford và Cambridge là hai
               cơ sở được xếp Top 10 Best Place In UK.
             </p>
-            <p class="text-body-16 text-style-12 leading-[150%] mb-0">Cambridge Campus</p>
+            <p class="text-body-16 text-style-12 leading-[150%] mb-0">
+              Cambridge Campus
+            </p>
             <p class="text-body-16 text-style-12 leading-[150%] mb-0">
               Cambridge Campus được đầu tư hơn 100 triệu Bảng Anh vào cơ sở vật
               chất trong 5 năm qua và có kế hoạch đầu tư thêm 91 triệu bảng
@@ -57,8 +59,12 @@ const Infrastructure = () => {
               <li class="list-disc text-body-16 text-style-12 leading-[150%]">
                 Khoa Sức khỏe, Giáo dục, Y tế và Chăm sóc Xã hội:
               </li>
-              <li class="list-disc text-body-16 text-style-12 leading-[150%]">Khoa Kinh doanh và Luật:</li>
-              <li class="list-disc text-body-16 text-style-12 leading-[150%]">Khoa Kinh doanh và Luật:</li>
+              <li class="list-disc text-body-16 text-style-12 leading-[150%]">
+                Khoa Kinh doanh và Luật:
+              </li>
+              <li class="list-disc text-body-16 text-style-12 leading-[150%]">
+                Khoa Kinh doanh và Luật:
+              </li>
             </ul>
           </div>
         </div>
@@ -69,7 +75,9 @@ const Infrastructure = () => {
       title: 'Accommodation',
       children: (
         <div>
-          <p className="text-body-16 text-style-12 leading-[150%]">Thông tin về cơ sở Chelmsford.</p>
+          <p className="text-body-16 text-style-12 leading-[150%]">
+            Thông tin về cơ sở Chelmsford.
+          </p>
         </div>
       ),
     },
@@ -77,7 +85,9 @@ const Infrastructure = () => {
   return (
     <section>
       <Container>
-        <h2 className="text-title-20 text-style-7 leading-[120%]">Cơ Sở Vật Chất</h2>
+        <h2 className="text-title-20 text-style-7 leading-[120%]">
+          Cơ Sở Vật Chất
+        </h2>
         <Tabs options={campusOptions} defaultKey="campus" />
       </Container>
     </section>

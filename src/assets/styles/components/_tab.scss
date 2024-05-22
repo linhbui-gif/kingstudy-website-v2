@@ -19,7 +19,7 @@
         @apply text-body-16 text-style-12 leading-[140%] font-[400] transition-none ;
       }
     .ant-tabs-tab {
-        @apply pl-0 pr-[1.6rem] py-0;
+        @apply pl-0 mr-[1.6rem] py-0;
         @apply h-[5.2rem];
         &:hover {
           @apply text-button-16 text-style-32 leading-[140%];
