@@ -25,10 +25,12 @@ import Ireland_Flag from '@/components/Icon/IrelandFlag';
 import Law from '@/components/Icon/Law';
 import Likedine from '@/components/Icon/Likedine';
 import Loud from '@/components/Icon/Loud';
+import Minus from '@/components/Icon/Minus';
 import Music from '@/components/Icon/Music';
 import Partner from '@/components/Icon/Partner';
 import Pharmacy from '@/components/Icon/Pharmacy';
 import Plane from '@/components/Icon/Plane';
+import Plus from '@/components/Icon/Plus';
 import Scholarship from '@/components/Icon/ScholarshipResult';
 import ScholarshipResult from '@/components/Icon/ScholarshipResult';
 import Search from '@/components/Icon/Search';
@@ -41,6 +43,7 @@ import Twitter from '@/components/Icon/Twitter';
 import UK_Flag from '@/components/Icon/UKFlag';
 import Vietnam_Flag from '@/components/Icon/VietnamFlag';
 import Visa from '@/components/Icon/Visa';
+
 const Icon = ({
   name,
   color,
@@ -137,6 +140,10 @@ const Icon = ({
         return <Plane color={color} />;
       case EIconName.ArowDown:
         return <ArrowDown color={color} />;
+      case EIconName.Plus:
+        return <Plus color={color} />;
+      case EIconName.Minus:
+        return <Minus color={color} />;
       default:
         break;
     }

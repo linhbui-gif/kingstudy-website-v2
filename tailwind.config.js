@@ -10,6 +10,9 @@ module.exports = {
       borderWidth: {
         custom: '0.667px',
       },
+      borderRadius: {
+        arcodion: '6px 6px 0px 0px',
+      }
     },
     colors: {
       white: '#FFFFFF',
