@@ -1,4 +1,3 @@
-
 import Arcodion from '@/components/Arcodion';
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
