@@ -62,7 +62,7 @@
           "warn",
           { "argsIgnorePattern": "^_" }
         ],
-        "no-console":["off", {}]
+        "no-console":["error", {}]
       }
     }
   ]
