@@ -2,11 +2,12 @@
     @apply w-full;
     .ant-collapse {
         @apply bg-white rounded-arcodion;
+       
         &-item {
             @apply bg-white rounded-arcodion border border-solid border-b-0 border-style-36 last:border-b;
           .ant-collapse-header {
             
-            @apply p-[1.6rem] border border-style-36 ;
+            @apply p-[1.6rem] border border-style-36 flex items-center ;
             &-text{
                 @apply text-button-16 text-style-7 leading-[140%];
             }

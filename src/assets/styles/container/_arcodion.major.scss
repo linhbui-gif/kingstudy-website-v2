@@ -1,0 +1,25 @@
+.major {
+    @apply w-full;
+    .ant-collapse {
+        @apply bg-white rounded-arcodion ;
+        &-item {
+            &:last-child {
+                @apply rounded-[0.4rem];
+            }
+            @apply bg-white rounded-[0.4rem] border border-solid border-b-0 border-style-36 last:border-b;
+          .ant-collapse-header {
+            
+            @apply p-[2.4rem] border-b-0 flex-row-reverse ;
+            &-text{
+                @apply text-button-16 text-style-7 leading-[140%];
+            }
+          }
+          .ant-collapse-content {
+            @apply  border-t-0 ;
+            &-box {
+                @apply px-[2.4rem] py-0;
+            }
+          }
+        }
+    }
+}

@@ -10,6 +10,7 @@ import Tag from '@/components/Tag';
 import { dataCountryOptions } from '@/components/Tag/Country.Tab.data';
 import { ECountryTab } from '@/components/Tag/Country.Tab.data';
 import { dataCountries } from '@/components/Tag/Country.Tab.data';
+import ArcodionMajor from '@/containers/ArcodionMajor/ArcodionMajor';
 import Container from '@/containers/Container';
 import Feedback from '@/containers/Feedback';
 import Footer from '@/containers/Footer';
@@ -204,6 +205,7 @@ const ComponentGuide = () => {
       {/*    </div>*/}
       {/*  </Col>*/}
       {/*</Row>*/}
+      <ArcodionMajor />
       <Scholarship />
       <Partner />
       <Feedback />

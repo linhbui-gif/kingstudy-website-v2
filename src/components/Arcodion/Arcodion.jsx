@@ -1,6 +1,7 @@
 import { Collapse } from 'antd';
 
 const Accordion = ({
+  className,
   defaultActiveKey,
   collapsible,
   onChange,
@@ -8,7 +9,7 @@ const Accordion = ({
   ...rest
 }) => {
   return (
-    <div className="arcodion">
+    <div className={`arcodion ${className}`}>
       <Collapse
         defaultActiveKey={defaultActiveKey}
         collapsible={collapsible}
