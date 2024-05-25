@@ -19,7 +19,7 @@ import GuestLayout from '@/layouts/GuestLayout';
 const SchoolList = () => {
   const router = useRouter();
   const { majors } = router.query;
-  const { schoolList, loading, setFilterSchool, filterSchool, totalPage } =
+  const { schoolList, loading, setFilterSchool, filterSchool, totalSchool } =
     useAPI();
   const [countFilter, setCountFilter] = useState(0);
   const handlePageChange = (page) => {
@@ -150,10 +150,9 @@ const SchoolList = () => {
             </Row>
             <div className="my-[4.0rem] lg:mt-[2.4rem]">
               <Pagination
-                page={filterSchool.page}
-                pageSize={filterSchool.limit}
+                pages={filterSchool}
                 onChange={handlePageChange}
-                total={totalPage}
+                total={totalSchool}
               />
             </div>
           </Col>

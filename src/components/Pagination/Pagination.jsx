@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Pagination as AntdPagination } from 'antd';
-import classNames from 'classnames';
 import dynamic from 'next/dynamic';
 
 import { EIconName } from '../Icon/Icon.enum';
@@ -16,7 +15,6 @@ const Pagination = ({
   total = 0,
   showLessItems,
   hideOnSinglePage,
-  className,
   onChange,
 }) => {
   const itemRender = (currentPage, type, originalElement) => {
@@ -60,7 +58,7 @@ const Pagination = ({
       </MediaQuery>
 
       <MediaQuery minWidth={576}>
-        <AntdPagination {...props} showLessI tems={showLessItems} />
+        <AntdPagination {...props} showLessItems tems={showLessItems} />
       </MediaQuery>
     </div>
   );
