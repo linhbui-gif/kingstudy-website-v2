@@ -7,6 +7,7 @@ import ButtonComponent from '@/components/Button';
 import CheckboxGroup from '@/components/CheckboxGroup';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
+import AccordionSideBar from '@/containers/AccordionSideBar';
 import { dataTuitionOptions } from '@/containers/FilterTools/Tuition.data';
 import { useAPI } from '@/contexts/APIContext';
 import {
@@ -97,23 +98,23 @@ const FilterTools = ({
           Bộ lọc
         </span>
       )}
-      <div className={'border border-style-8 border-solid rounded-sm py-4'}>
-        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
-          Ngành Học
-        </h3>
-        <div>
-          <CheckboxGroup
-            value={majorOptions.find(
-              (option) => option.value === paramsRequest?.majors
-            )}
-            options={majorOptions}
-            onChange={(option) => {
-              onFilterChange({
-                majors: option,
-              });
-            }}
-          />
-        </div>
+      <div className={'rounded-sm py-4'}>
+        <AccordionSideBar
+          label={'Ngành học'}
+          childrenData={
+            <CheckboxGroup
+              value={majorOptions.find(
+                (option) => option.value === paramsRequest?.majors
+              )}
+              options={majorOptions}
+              onChange={(option) => {
+                onFilterChange({
+                  majors: option,
+                });
+              }}
+            />
+          }
+        />
       </div>
       <div className={'border border-style-8 border-solid rounded-sm mt-5 p-4'}>
         <h3 className={'p-[.8rem] text-[2rem] text-style-7 font-[600]'}>
@@ -185,69 +186,65 @@ const FilterTools = ({
           </Form>
         </div>
       </div>
-      <div
-        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
-      >
-        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
-          Học phí
-        </h3>
-        <div>
-          <CheckboxGroup
-            value={dataTuitionOptions.find(
-              (option) => option.value === paramsRequest?.survey_tuition
-            )}
-            options={dataTuitionOptions}
-            onChange={(option) => {
-              onFilterChange({
-                ...paramsRequest,
-                survey_tuition: option,
-              });
-            }}
-          />
-        </div>
+      <div className={'rounded-sm mt-5 py-4'}>
+        <AccordionSideBar
+          label={'Học phí'}
+          childrenData={
+            <CheckboxGroup
+              value={dataTuitionOptions.find(
+                (option) => option.value === paramsRequest?.survey_tuition
+              )}
+              options={dataTuitionOptions}
+              onChange={(option) => {
+                onFilterChange({
+                  ...paramsRequest,
+                  survey_tuition: option,
+                });
+              }}
+            />
+          }
+        />
       </div>
-      <div
-        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
-      >
-        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
-          Bậc học
-        </h3>
-        <div>
-          <CheckboxGroup
-            value={levelCourse.find(
-              (option) => option.value === paramsRequest?.level
-            )}
-            options={levelCourse}
-            onChange={(option) => {
-              onFilterChange({
-                ...paramsRequest,
-                level: option,
-              });
-            }}
-          />
-        </div>
+      <div className={'rounded-sm mt-5 py-4'}>
+        <AccordionSideBar
+          label={'Bậc học'}
+          childrenData={
+            <CheckboxGroup
+              value={levelCourse.find(
+                (option) => option.value === paramsRequest?.level
+              )}
+              options={levelCourse}
+              onChange={(option) => {
+                onFilterChange({
+                  ...paramsRequest,
+                  level: option,
+                });
+              }}
+            />
+          }
+        />
       </div>
-      <div
-        className={'border border-style-8 border-solid rounded-sm mt-5 py-4'}
-      >
-        <h3 className={'p-[.8rem_1.6rem] text-[2rem] text-style-7 font-[600]'}>
-          Xếp hạng
-        </h3>
-        <div>
-          <CheckboxGroup
-            value={
-              rankings &&
-              rankings.find((option) => option.value === paramsRequest?.ranking)
-            }
-            options={rankings}
-            onChange={(option) => {
-              onFilterChange({
-                ...paramsRequest,
-                ranking: option,
-              });
-            }}
-          />
-        </div>
+      <div className={'rounded-sm mt-5 py-4'}>
+        <AccordionSideBar
+          label={'Xếp hạng'}
+          childrenData={
+            <CheckboxGroup
+              value={
+                rankings &&
+                rankings.find(
+                  (option) => option.value === paramsRequest?.ranking
+                )
+              }
+              options={rankings}
+              onChange={(option) => {
+                onFilterChange({
+                  ...paramsRequest,
+                  ranking: option,
+                });
+              }}
+            />
+          }
+        />
       </div>
       {showFooter ? (
         <Flex
