@@ -13,4 +13,7 @@ export const Paths = {
   Success: '/success',
   Dashboard: '/dashboard',
   SchoolFilter: (id) => `/school?majors=${id}`,
+  School: {
+    SchoolDetail: (slug) => `/school/${slug}`,
+  },
 };

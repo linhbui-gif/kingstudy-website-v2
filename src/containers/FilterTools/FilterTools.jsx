@@ -145,7 +145,7 @@ const FilterTools = ({
                       <Flex align={'center'} gap={'small'}>
                         <Image
                           quality={100}
-                          src={`${rootUrl}/${item?.icon}`}
+                          src={`${rootUrl}${item?.icon}`}
                           alt={''}
                           width={24}
                           height={24}

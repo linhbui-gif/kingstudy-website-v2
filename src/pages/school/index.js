@@ -134,6 +134,7 @@ const SchoolList = () => {
                           alt={school?.name}
                           type={school?.type_school}
                           country={school?.country}
+                          slug={school?.slug}
                         />
                       )}
                     </Col>

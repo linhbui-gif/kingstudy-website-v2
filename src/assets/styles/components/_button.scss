@@ -46,6 +46,14 @@
       &.primary:hover {
         @apply bg-style-10 text-button-16 text-white
       }
+
+      &.default {
+        @apply bg-[#EFF1F6] text-button-16 text-style-7
+      }
+
+      &.default:hover {
+        @apply bg-[#EFF1F6] text-button-16 text-style-7
+      }
     }
   }
 }

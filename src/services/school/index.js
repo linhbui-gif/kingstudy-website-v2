@@ -6,3 +6,8 @@ export const getListSchool = async (params) => {
   });
   return response?.data;
 };
+
+export const getSchoolDetailBySlug = async (slug) => {
+  const response = await ApiService.get(`/school/get-detail/${slug}`);
+  return response?.data;
+};
