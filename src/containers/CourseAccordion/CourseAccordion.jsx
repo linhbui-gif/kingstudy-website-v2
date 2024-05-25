@@ -1,8 +1,10 @@
+import { Space } from 'antd';
+
 import Arcodion from '@/components/Arcodion';
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
-const Scholarship = () => {
+const CourseAccordion = () => {
   const items = [
     {
       key: '1',
@@ -27,10 +29,16 @@ const Scholarship = () => {
             <strong>How do I apply?</strong> We will automatically consider you
             for this scholarship when you apply for the MBA.
           </p>
-          <ButtonComponent
-            title={'Xem chi tiết'}
-            className={'default mt-[2.4rem]'}
-          />
+          <Space>
+            <ButtonComponent
+              title={'Nộp hồ sơ'}
+              className={'primary mt-[2.4rem]'}
+            />
+            <ButtonComponent
+              title={'Xem chi tiết'}
+              className={'default mt-[2.4rem]'}
+            />
+          </Space>
         </div>
       ),
     },
@@ -69,4 +77,4 @@ const Scholarship = () => {
     />
   );
 };
-export default Scholarship;
+export default CourseAccordion;

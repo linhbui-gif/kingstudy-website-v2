@@ -158,3 +158,15 @@ ul,li {
 .ant-collapse {
   @apply border-0;
 }
+
+#city iframe {
+  @apply w-full max-h-[28rem]
+}
+
+.loading-image-hero-text .ant-skeleton.ant-skeleton-element{
+  @apply w-full min-h-[35rem]
+}
+
+.loading-image-hero-text .ant-skeleton.ant-skeleton-element .ant-skeleton-image {
+  @apply w-full min-h-[35rem]
+}
