@@ -178,3 +178,15 @@ ul,li {
 .skeleton-image-school .ant-skeleton.ant-skeleton-element .ant-skeleton-image {
   @apply w-full min-h-[13.7rem]
 }
+
+.accordionSidebar .arcodion .ant-collapse-item .ant-collapse-content-box {
+  @apply px-0;
+}
+
+.accordionSidebar .arcodion .ant-collapse-item .ant-collapse-content-box {
+  @apply p-[1rem_0];
+}
+
+.accordionSidebar .arcodion .ant-collapse-item .ant-collapse-content {
+  @apply border-0;
+}
