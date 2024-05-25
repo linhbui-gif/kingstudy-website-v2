@@ -170,3 +170,11 @@ ul,li {
 .loading-image-hero-text .ant-skeleton.ant-skeleton-element .ant-skeleton-image {
   @apply w-full min-h-[35rem]
 }
+
+.skeleton-image-school .ant-skeleton.ant-skeleton-element {
+  @apply w-full min-h-[13.7rem]
+}
+
+.skeleton-image-school .ant-skeleton.ant-skeleton-element .ant-skeleton-image {
+  @apply w-full min-h-[13.7rem]
+}
