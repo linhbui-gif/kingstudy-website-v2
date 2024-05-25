@@ -15,9 +15,10 @@ export const APIProvider = ({ children }) => {
   const [majors, setMajors] = useState([]);
   const [filterSchool, setFilterSchool] = useState({
     page: 1,
-    limit: 10,
+    limit: 15,
   });
 
+  const [totalSchool, setTotalSchool] = useState(0);
   const isLogin = Helpers.getAccessToken();
   const getSchools = async () => {
     try {
@@ -30,6 +31,7 @@ export const APIProvider = ({ children }) => {
       if (response?.status === 200) {
         setLoading(false);
         setSchools(response?.data?.data?.data?.data);
+        setTotalSchool(response?.data?.data?.data?.total);
       }
     } catch (e) {
       setLoading(false);
@@ -80,6 +82,7 @@ export const APIProvider = ({ children }) => {
         countries,
         majors,
         isLogin,
+        totalSchool,
       }}
     >
       {children}

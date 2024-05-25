@@ -6,7 +6,7 @@ import TopBar from '@/containers/Topbar';
 
 const GuestLayout = ({ children }) => {
   return (
-    <div>
+    <div className={'min-h-screen'}>
       <TopBar />
       <Header />
       {children}

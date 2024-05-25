@@ -11,16 +11,23 @@ import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Input from '@/components/Input';
 import Meta from '@/components/Meta';
+import Pagination from '@/components/Pagination';
 import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
-
 const SchoolList = () => {
   const router = useRouter();
   const { majors } = router.query;
-  const { schoolList, loading, setFilterSchool, filterSchool } = useAPI();
+  const { schoolList, loading, setFilterSchool, filterSchool, totalSchool } =
+    useAPI();
   const [countFilter, setCountFilter] = useState(0);
+  const handlePageChange = (page) => {
+    setFilterSchool({
+      ...filterSchool,
+      page: page,
+    });
+  };
   useEffect(() => {
     if (majors) {
       setFilterSchool({
@@ -141,6 +148,13 @@ const SchoolList = () => {
                   );
                 })}
             </Row>
+            <div className="my-[4.0rem] lg:mt-[2.4rem]">
+              <Pagination
+                pages={filterSchool}
+                onChange={handlePageChange}
+                total={totalSchool}
+              />
+            </div>
           </Col>
         </Row>
       </Container>

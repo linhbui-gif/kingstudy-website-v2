@@ -1,0 +1,40 @@
+
+.Pagination {
+    @apply flex items-center justify-center;
+    .ant-pagination {
+          &-prev, &-next {
+            .Button {
+                .ant-btn {
+                    &.btn-prev, &.btn-next {
+                        @apply w-[4.5rem] h-[4.5rem] py-[1.3rem] rounded-[5rem] border-0 border-solid border-custom border-style-8 bg-white; 
+                   }
+                }
+            }
+        }
+        &-item-active, &-item{
+            @apply border-none;
+            &:hover {
+                @apply bg-white;
+            }
+            
+        }
+        &-item {
+            a {
+                @apply p-[1.1rem] leading-[140%] text-style-9 text-body-16 ;
+                &:hover {
+                    @apply text-button-16 text-style-10 bg-white;
+                }
+            }
+        }
+        &-item-active {
+            a {
+                @apply p-[1.1rem] leading-[140%] text-style-10 text-button-16 ;
+                &:hover {
+                    @apply text-button-16 text-style-10 bg-white;
+                }
+            }
+        }
+     
+     
+    }
+}
