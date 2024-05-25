@@ -13,7 +13,7 @@ const nextConfig = {
     'rc-table',
   ],
   compiler: {
-    removeConsole: true,
+    removeConsole: false,
   },
   images: {
     domains: ['kingstudy.vn','localhost','king-study.loc','devwebsite.kingstudy.vn'],

@@ -7,7 +7,7 @@ export const config = {
 };
 export default async function handler(req, res) {
   try {
-    const { params } = req.body;
+    const { params } = req.body.body;
     const response = await ApiService.get(`/school/filter-school`, {
       params: params,
     });
