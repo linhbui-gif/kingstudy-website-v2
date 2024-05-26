@@ -20,7 +20,15 @@ export default async function handler(req, res) {
       showNotification(ETypeNotification.ERROR, data?.message);
     }
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    if (error.response) {
+      res
+        .status(error.response.status)
+        .json({ error: error.response.statusText });
+    } else if (error.request) {
+      res.status(500).json({ error: 'No response received from external API' });
+    } else {
+      res.status(500).json({ error: 'An error occurred' });
+    }
   }
   res.end();
 }

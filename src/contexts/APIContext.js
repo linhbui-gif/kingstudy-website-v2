@@ -1,9 +1,8 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
-import axios from 'axios';
-
 import { getCountries, getMajors } from '@/services/common';
 import Helpers from '@/services/helpers';
+import { getListSchool } from '@/services/school';
 import { changeArrayToOptions } from '@/utils/utils';
 
 const APIContext = createContext();
@@ -23,15 +22,11 @@ export const APIProvider = ({ children }) => {
   const getSchools = async () => {
     try {
       setLoading(true);
-      const response = await axios.post(`/api/fetch-data`, {
-        body: {
-          params: filterSchool,
-        },
-      });
-      if (response?.status === 200) {
+      const response = await getListSchool(filterSchool);
+      if (response?.code === 200) {
         setLoading(false);
-        setSchools(response?.data?.data?.data?.data);
-        setTotalSchool(response?.data?.data?.data?.total);
+        setSchools(response?.data?.data);
+        setTotalSchool(response?.data?.total);
       }
     } catch (e) {
       setLoading(false);

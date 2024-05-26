@@ -190,3 +190,23 @@ ul,li {
 .accordionSidebar .arcodion .ant-collapse-item .ant-collapse-content {
   @apply border-0;
 }
+
+.sidebarSchoolActive:after {
+   @apply absolute content-[''] top-0 left-0 w-[2px] h-full bg-orange
+}
+
+.sidebarSchoolActive span {
+  @apply text-orange font-[600];
+}
+
+.sidebarSchoolMobileActive:after {
+  @apply absolute content-[''] bottom-0 left-0 w-full h-[2px] bg-orange
+}
+
+.sidebarSchoolMobileActive span {
+  @apply text-orange font-[600];
+}
+
+iframe {
+  @apply w-full
+}

@@ -4,6 +4,7 @@ import { Col, Flex, Row, Skeleton } from 'antd';
 import SkeletonImage from 'antd/es/skeleton/Image';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useMediaQuery } from 'react-responsive';
 
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
@@ -28,6 +29,8 @@ const SchoolDetail = () => {
   // const hasDocument = school?.hasDocument;
   const numberInfors = schoolData?.number_info || {};
   const gallery = schoolData?.gallery || {};
+  const [itemMenuActive, setItemMenuActive] = useState('');
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
   const getSchool = async () => {
     try {
       setLoading(true);
@@ -44,7 +47,58 @@ const SchoolDetail = () => {
     if (!slug) return;
     getSchool().then();
   }, [slug]);
+  const itemsMenu = [
+    {
+      key: 'tongquan',
+      label: 'Tổng Quan',
+    },
+    {
+      key: 'city',
+      label: 'Thành Phố',
+    },
+    {
+      key: 'cosovatchat',
+      label: 'Cơ sở vật chất',
+    },
+    {
+      key: 'chuongtrinhgiangday',
+      label: 'Chương trình giảng dạy',
+    },
+    {
+      key: 'hocphi',
+      label: 'Học phí',
+    },
+    {
+      key: 'hocbong',
+      label: 'Học bổng',
+    },
+    {
+      key: 'khoahoc',
+      label: 'Khóa học',
+    },
+    {
+      key: 'review',
+      label: 'Feedback',
+    },
+    {
+      key: 'gallery',
+      label: 'Thư viện ảnh',
+    },
+  ];
 
+  const handleScroll = (id) => {
+    let yOffset = 0;
+    if (isMobile) {
+      yOffset = -230;
+    } else {
+      yOffset = -103;
+    }
+    const element = document.getElementById(id);
+    const y =
+      element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    setItemMenuActive(id);
+  };
   return (
     <GuestLayout>
       <Meta title={schoolData?.meta_title} />
@@ -53,7 +107,7 @@ const SchoolDetail = () => {
         <section className={'relative z-[5] lg:translate-y-[-6rem]'}>
           <Container>
             <Row gutter={[24, 24]}>
-              <Col lg={{ span: 18 }}>
+              <Col lg={{ span: 16 }}>
                 <div
                   className={'bg-white rounded-sm lg:p-[3.2rem] pt-[3.2rem]'}
                 >
@@ -63,6 +117,7 @@ const SchoolDetail = () => {
                     <Flex
                       align={'start'}
                       className={'school-heading md:gap-[1.6rem] gap-[.6rem]'}
+                      id={'tongquan'}
                     >
                       <Flex
                         align={'start'}
@@ -113,6 +168,38 @@ const SchoolDetail = () => {
                       {statusSchool(schoolData?.type)}
                     </Flex>
                   )}
+                  <div
+                    className={`lg:hidden block fixed top-[16.4rem] bg-white z-[100] left-0 w-full`}
+                  >
+                    <ul
+                      className={
+                        'flex items-center flex-nowrap overflow-x-scroll'
+                      }
+                    >
+                      {itemsMenu &&
+                        itemsMenu.map((item) => {
+                          return (
+                            <li
+                              key={item?.key}
+                              onClick={() => handleScroll(item?.key)}
+                              className={`cursor-pointer min-w-[30%] ${
+                                item?.key === itemMenuActive
+                                  ? 'sidebarSchoolMobileActive relative'
+                                  : ''
+                              }`}
+                            >
+                              <span
+                                className={
+                                  'text-body-16 text-style-9 p-[1.6rem_.8rem] block w-full  hover:text-orange text-center'
+                                }
+                              >
+                                {item?.label}
+                              </span>
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </div>
                   {loading ? (
                     <Skeleton className={'mt-[5rem]'} />
                   ) : (
@@ -132,7 +219,7 @@ const SchoolDetail = () => {
                             return (
                               <div
                                 key={index}
-                                className={`relative before:absolute before:content-[''] before:w-[1px] before:h-[4rem] before:right-[-8.5rem] before:top-[1rem] before:bg-style-8 last:before:static`}
+                                className={`relative before:absolute before:content-[''] before:w-[1px] before:h-[4rem] before:right-[-5.5rem] before:top-[1rem] before:bg-style-8 last:before:static`}
                               >
                                 <span
                                   className={
@@ -350,9 +437,50 @@ const SchoolDetail = () => {
                   </Skeleton>
                 </div>
               </Col>
-              <Col lg={{ span: 6 }}>
-                <div className={'bg-white rounded-sm p-[3rem`] shadow-md'}>
-                  asdasd
+              <Col lg={{ span: 8 }} className={'hidden lg:block'}>
+                <div
+                  className={
+                    'sticky top-[15rem] bg-white rounded-sm p-[3rem] shadow-md'
+                  }
+                >
+                  <div>
+                    <iframe
+                      className={'w-full'}
+                      width="560"
+                      height="224"
+                      src="https://www.youtube.com/embed/irNUtD0U63s?si=H_EBINc_Wz_Gkdzp"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <ul>
+                    {itemsMenu &&
+                      itemsMenu.map((item) => {
+                        return (
+                          <li
+                            key={item?.key}
+                            onClick={() => handleScroll(item?.key)}
+                            className={`cursor-pointer ${
+                              item?.key === itemMenuActive
+                                ? 'sidebarSchoolActive relative'
+                                : ''
+                            }`}
+                          >
+                            <span
+                              className={
+                                'text-body-16 text-style-9 p-[1.6rem_.8rem] block w-full  hover:text-orange'
+                              }
+                              style={{ borderBottom: '1px solid #edeef2' }}
+                            >
+                              {item?.label}
+                            </span>
+                          </li>
+                        );
+                      })}
+                  </ul>
                 </div>
               </Col>
             </Row>
