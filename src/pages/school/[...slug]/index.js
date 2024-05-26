@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { Col, Flex, Row, Skeleton } from 'antd';
 import SkeletonImage from 'antd/es/skeleton/Image';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from 'react-responsive';
 
+import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
-import { EIconName } from '@/components/Icon/Icon.enum';
+import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Meta from '@/components/Meta';
 import Container from '@/containers/Container';
 import Course from '@/containers/Course';
@@ -19,6 +21,45 @@ import Tution from '@/containers/Tution';
 import GuestLayout from '@/layouts/GuestLayout';
 import { getSchoolDetailBySlug } from '@/services/school';
 import { rootUrl, statusSchool } from '@/utils/utils';
+
+const itemsMenu = [
+  {
+    key: 'tongquan',
+    label: 'Tổng Quan',
+  },
+  {
+    key: 'city',
+    label: 'Thành Phố',
+  },
+  {
+    key: 'cosovatchat',
+    label: 'Cơ sở vật chất',
+  },
+  {
+    key: 'chuongtrinhgiangday',
+    label: 'Chương trình giảng dạy',
+  },
+  {
+    key: 'hocphi',
+    label: 'Học phí',
+  },
+  {
+    key: 'hocbong',
+    label: 'Học bổng',
+  },
+  {
+    key: 'khoahoc',
+    label: 'Khóa học',
+  },
+  {
+    key: 'review',
+    label: 'Feedback',
+  },
+  {
+    key: 'gallery',
+    label: 'Thư viện ảnh',
+  },
+];
 
 const SchoolDetail = () => {
   const router = useRouter();
@@ -43,48 +84,11 @@ const SchoolDetail = () => {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     if (!slug) return;
     getSchool().then();
   }, [slug]);
-  const itemsMenu = [
-    {
-      key: 'tongquan',
-      label: 'Tổng Quan',
-    },
-    {
-      key: 'city',
-      label: 'Thành Phố',
-    },
-    {
-      key: 'cosovatchat',
-      label: 'Cơ sở vật chất',
-    },
-    {
-      key: 'chuongtrinhgiangday',
-      label: 'Chương trình giảng dạy',
-    },
-    {
-      key: 'hocphi',
-      label: 'Học phí',
-    },
-    {
-      key: 'hocbong',
-      label: 'Học bổng',
-    },
-    {
-      key: 'khoahoc',
-      label: 'Khóa học',
-    },
-    {
-      key: 'review',
-      label: 'Feedback',
-    },
-    {
-      key: 'gallery',
-      label: 'Thư viện ảnh',
-    },
-  ];
 
   const handleScroll = (id) => {
     let yOffset = 0;
@@ -439,48 +443,75 @@ const SchoolDetail = () => {
               </Col>
               <Col lg={{ span: 8 }} className={'hidden lg:block'}>
                 <div
-                  className={
-                    'sticky top-[15rem] bg-white rounded-sm p-[3rem] shadow-md'
-                  }
+                  className={`sticky top-[15rem] bg-white rounded-sm p-[3rem] shadow-md ${
+                    loading ? 'h-[79.4rem]' : ''
+                  }`}
                 >
-                  <div>
-                    <iframe
-                      className={'w-full'}
-                      width="560"
-                      height="224"
-                      src="https://www.youtube.com/embed/irNUtD0U63s?si=H_EBINc_Wz_Gkdzp"
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                  <ul>
-                    {itemsMenu &&
-                      itemsMenu.map((item) => {
-                        return (
-                          <li
-                            key={item?.key}
-                            onClick={() => handleScroll(item?.key)}
-                            className={`cursor-pointer ${
-                              item?.key === itemMenuActive
-                                ? 'sidebarSchoolActive relative'
-                                : ''
-                            }`}
-                          >
-                            <span
-                              className={
-                                'text-body-16 text-style-9 p-[1.6rem_.8rem] block w-full  hover:text-orange'
-                              }
-                              style={{ borderBottom: '1px solid #edeef2' }}
+                  <Skeleton loading={loading}>
+                    <div>
+                      <iframe
+                        className={'w-full'}
+                        width="560"
+                        height="224"
+                        src="https://www.youtube.com/embed/irNUtD0U63s?si=H_EBINc_Wz_Gkdzp"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <ul className={'mt-[2.7rem]'}>
+                      {itemsMenu &&
+                        itemsMenu.map((item) => {
+                          return (
+                            <li
+                              key={item?.key}
+                              onClick={() => handleScroll(item?.key)}
+                              className={`cursor-pointer ${
+                                item?.key === itemMenuActive
+                                  ? 'sidebarSchoolActive relative'
+                                  : ''
+                              }`}
                             >
-                              {item?.label}
-                            </span>
-                          </li>
-                        );
-                      })}
-                  </ul>
+                              <span
+                                className={
+                                  'text-body-16 text-style-9 p-[1.6rem_.8rem] block w-full  hover:text-orange'
+                                }
+                                style={{ borderBottom: '1px solid #edeef2' }}
+                              >
+                                {item?.label}
+                              </span>
+                            </li>
+                          );
+                        })}
+                    </ul>
+                    <Flex
+                      className={'mt-[7.5rem] mb-[2.8rem]'}
+                      justify={'center'}
+                      gap={'small'}
+                    >
+                      <ButtonComponent
+                        iconName={EIconName.Compare}
+                        iconColor={EIconColor.WHITE}
+                        title={'So sánh'}
+                        className={'primary'}
+                      />
+                      <ButtonComponent
+                        iconName={EIconName.Compare}
+                        title={'Yêu thích'}
+                        className={'default'}
+                      />
+                    </Flex>
+                    <Link
+                      href={'/'}
+                      className={
+                        'block w-full text-center text-style-10 font-[600] underline'
+                      }
+                    >
+                      Tải tài liệu
+                    </Link>
+                  </Skeleton>
                 </div>
               </Col>
             </Row>
