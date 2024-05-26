@@ -1,0 +1,42 @@
+.courses {
+    .ant-menu  {
+        border-inline-end : 0 !important;
+        
+        &-item {
+    
+            @apply  m-0 text-body-16 text-style-9 rounded-none border-b-[0.1rem] border-t-0 border-r-0 border-l-0 border-solid border-custom  border-style-8;
+           
+            &:hover{
+                @apply bg-white;
+            }
+
+        }
+        &-item-selected {
+            @apply pl-0 m-0 bg-white text-button-16 text-style-37 relative rounded-none border-b-[0.1rem] border-t-0 border-r-0 border-l-0 border-solid border-custom  border-style-8  ;
+            &::before {
+                @apply absolute left-[0.8rem] content-[''] w-[0.2rem] h-full bg-style-37;
+                
+            }
+            .ant-menu-title-content {
+               
+            }            
+        }
+        &.item {
+            @apply text-body-16 text-style-9;
+           
+            &:hover{
+                @apply bg-white;
+            }
+
+        }
+    }
+    .ant-menu-light:not(.ant-menu-horizontal) .ant-menu-item:not(.ant-menu-item-selected):active {
+        @apply bg-white ;
+    }
+    .ant-menu-light:not(.ant-menu-horizontal) .ant-menu-item:not(.ant-menu-item-selected):hover {
+        @apply bg-white text-body-16 text-style-9;
+    }
+    .ant-select-selector {
+        @apply px-[0.8rem] py-[1.7rem];
+    }
+}

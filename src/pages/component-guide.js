@@ -17,6 +17,7 @@ import Infrastructure from '@/containers/Infrastructure';
 import Partner from '@/containers/Partner';
 import Review from '@/containers/Review';
 import Scholarship from '@/containers/Scholarship';
+import Courses from '@/containers/Sidebar';
 const items = ['apple', 'King of fruits', 'Orange'];
 const { Option } = Select;
 
@@ -204,6 +205,7 @@ const ComponentGuide = () => {
       {/*    </div>*/}
       {/*  </Col>*/}
       {/*</Row>*/}
+      <Courses />
       <Scholarship />
       <Partner />
       <Feedback />
