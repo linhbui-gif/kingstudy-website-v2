@@ -40,8 +40,8 @@ const ButtonComponent = ({
         loading={loading}
       >
         <div
-          className={`${
-            secondIconName ? 'secondIconName flex items-center gap-2' : ''
+          className={` flex items-center gap-2 ${
+            secondIconName ? 'secondIconName' : ''
           }`}
           style={{ flexDirection: reverse ? 'row-reverse' : undefined }}
         >
