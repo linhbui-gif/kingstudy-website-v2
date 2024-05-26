@@ -4,13 +4,22 @@ import Link from 'next/link';
 
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
+import { Paths } from '@/routers/constants';
 import { rootUrl, statusSchool } from '@/utils/utils';
-const Card = ({ url = '', alt, title, price = 47, type, country }) => {
+const Card = ({
+  url = '',
+  alt,
+  title,
+  price = 47,
+  type,
+  country,
+  slug = '',
+}) => {
   return (
     <div className="Card bg-white lg:shadow-md rounded-md">
       <div className="Card-header">
         <div className="Card-header-image">
-          <Link href={'/'}>
+          <Link href={`${Paths.School.SchoolDetail(slug)}`}>
             <Image
               quality={100}
               layout="responsive"
@@ -34,7 +43,7 @@ const Card = ({ url = '', alt, title, price = 47, type, country }) => {
         </Flex>
         <h3 className={'my-[8px]'}>
           <Link
-            href={'/'}
+            href={`${Paths.School.SchoolDetail(slug)}`}
             className={
               'block w-full lg:font-[700] text-button-16 lg:text-[2rem] text-style-7 hover:text-style-7'
             }

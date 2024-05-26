@@ -39,6 +39,8 @@ export const EIconName = {
   Filter: 'Filter',
   Plane: 'Plane',
   ArowDown: 'ArowDown',
+  ArrowTriangleLeft: 'ArrowTriangleLeft',
+  ArrowTriangleRight: 'ArrowTriangleRight',
   Plus: 'Plus',
   Minus: 'Minus',
 };
@@ -49,4 +51,5 @@ export const EIconColor = {
   STYLE_ARROW: '#d9d9d9',
   STYLE_PLUS: '#575757',
   GRAY: '#CCCCCC',
+  ARROW_TRIANGLE: '#575757',
 };

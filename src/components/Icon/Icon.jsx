@@ -6,6 +6,8 @@ import Account from '@/components/Icon/Account';
 import AmericanFlag from '@/components/Icon/AmericanFlag';
 import ArrowDown from '@/components/Icon/ArrowDown';
 import ArrowRight from '@/components/Icon/ArrowRight';
+import ArrowTriangleLeft from '@/components/Icon/ArrowTriangleLeft';
+import ArrowTriangleRight from '@/components/Icon/ArrowTriangleRight';
 import ArtDesign from '@/components/Icon/ArtDesign';
 import Australlia_Flag from '@/components/Icon/AustralliaFlag';
 import Business from '@/components/Icon/Business';
@@ -140,6 +142,10 @@ const Icon = ({
         return <Plane color={color} />;
       case EIconName.ArowDown:
         return <ArrowDown color={color} />;
+      case EIconName.ArrowTriangleLeft:
+        return <ArrowTriangleLeft color={color} />;
+      case EIconName.ArrowTriangleRight:
+        return <ArrowTriangleRight color={color} />;
       case EIconName.Plus:
         return <Plus color={color} />;
       case EIconName.Minus:

@@ -26,6 +26,14 @@ export default function App({ Component, pageProps }) {
           fontFamily: 'Be Vietnam Pro, sans-serif',
         },
         hashed: false,
+        components: {
+          Breadcrumb: {
+            colorText: 'white',
+            linkColor: 'white',
+            itemColor: 'white',
+            separatorColor: 'white',
+          },
+        },
       }}
     >
       <APIProvider>
