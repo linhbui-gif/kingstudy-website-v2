@@ -126,6 +126,7 @@ const SchoolList = () => {
                 schoolList.map((school) => {
                   return (
                     <Col
+                      className="flex flex-col "
                       span={24}
                       xl={{ span: 8 }}
                       lg={{ span: 12 }}

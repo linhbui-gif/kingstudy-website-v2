@@ -16,7 +16,7 @@ const Card = ({
   slug = '',
 }) => {
   return (
-    <div className="Card bg-white lg:shadow-md rounded-md">
+    <div className="Card bg-white flex flex-col flex-1 lg:shadow-md rounded-md">
       <div className="Card-header">
         <div className="Card-header-image">
           <Link href={`${Paths.School.SchoolDetail(slug)}`}>
@@ -33,7 +33,7 @@ const Card = ({
           </Link>
         </div>
       </div>
-      <div className="Card-body px-[2.4rem] pt-[2.4rem]">
+      <div className="Card-body flex flex-col flex-1 px-[2.4rem] pt-[2.4rem]">
         <Flex justify={'space-between'} align={'center'}>
           {statusSchool(type)}
           <Flex align={'center'} gap={'small'}>
@@ -41,7 +41,7 @@ const Card = ({
             <span className={'mt-2 text-body-16 text-style-12'}>4.9 (25)</span>
           </Flex>
         </Flex>
-        <h3 className={'my-[8px]'}>
+        <h3 className={'my-[8px] flex flex-col flex-1'}>
           <Link
             href={`${Paths.School.SchoolDetail(slug)}`}
             className={
@@ -66,7 +66,7 @@ const Card = ({
       <Flex
         align={'center'}
         justify={'space-between'}
-        className={'relative px-[2.4rem]'}
+        className={'relative px-[2.4rem] mt-auto shrink-0'}
         style={{ borderTop: '1px solid #edeef2' }}
       >
         <Flex gap={'small'} align={'center'} className={'py-[1.2rem]'}>
