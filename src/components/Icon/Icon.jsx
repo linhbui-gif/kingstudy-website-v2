@@ -11,6 +11,7 @@ import ArrowTriangleRight from '@/components/Icon/ArrowTriangleRight';
 import ArtDesign from '@/components/Icon/ArtDesign';
 import Australlia_Flag from '@/components/Icon/AustralliaFlag';
 import Business from '@/components/Icon/Business';
+import Check from '@/components/Icon/Check';
 import Class from '@/components/Icon/Class';
 import Compare from '@/components/Icon/Compare';
 import ComputerScience from '@/components/Icon/ComputerScience';
@@ -150,6 +151,8 @@ const Icon = ({
         return <Plus color={color} />;
       case EIconName.Minus:
         return <Minus color={color} />;
+      case EIconName.Check:
+        return <Check color={color} />;
       default:
         break;
     }

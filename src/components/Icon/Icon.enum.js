@@ -43,6 +43,7 @@ export const EIconName = {
   ArrowTriangleRight: 'ArrowTriangleRight',
   Plus: 'Plus',
   Minus: 'Minus',
+  Check: 'Check',
 };
 export const EIconColor = {
   STYLE_10: '#22458F',
@@ -52,4 +53,5 @@ export const EIconColor = {
   STYLE_PLUS: '#575757',
   GRAY: '#CCCCCC',
   ARROW_TRIANGLE: '#575757',
+  STYLE_7: '#141517',
 };

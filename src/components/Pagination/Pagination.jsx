@@ -3,7 +3,7 @@ import React from 'react';
 import { Pagination as AntdPagination } from 'antd';
 import dynamic from 'next/dynamic';
 
-import { EIconName } from '../Icon/Icon.enum';
+import { EIconColor, EIconName } from '../Icon/Icon.enum';
 import Button from '@/components/Button';
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
@@ -24,6 +24,7 @@ const Pagination = ({
           <Button
             className={'btn-prev'}
             iconName={EIconName.ArrowTriangleLeft}
+            iconColor={EIconColor.STYLE_ARROW}
             size="small"
           />
         );
@@ -32,6 +33,7 @@ const Pagination = ({
           <Button
             className={'btn-next'}
             iconName={EIconName.ArrowTriangleRight}
+            iconColor={EIconColor.STYLE_ARROW}
             size="small"
           />
         );

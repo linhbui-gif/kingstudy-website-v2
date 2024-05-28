@@ -210,3 +210,7 @@ ul,li {
 iframe {
   @apply w-full
 }
+
+.accordionSidebar .ant-collapse>.ant-collapse-item:last-child, .ant-collapse>.ant-collapse-item:last-child>.ant-collapse-header {
+  @apply rounded-sm
+}

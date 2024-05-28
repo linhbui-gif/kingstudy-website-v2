@@ -98,30 +98,14 @@ const FilterTools = ({
           Bộ lọc
         </span>
       )}
-      <div className={'rounded-sm py-4'}>
-        <AccordionSideBar
-          label={'Ngành học'}
-          childrenData={
-            <CheckboxGroup
-              value={majorOptions.find(
-                (option) => option.value === paramsRequest?.majors
-              )}
-              options={majorOptions}
-              onChange={(option) => {
-                onFilterChange({
-                  majors: option,
-                });
-              }}
-            />
-          }
-        />
-      </div>
-      <div className={'border border-style-8 border-solid rounded-sm mt-5 p-4'}>
-        <h3 className={'p-[.8rem] text-[2rem] text-style-7 font-[600]'}>
-          Quốc gia, thành phố
-        </h3>
-        <div>
-          <Form form={form}>
+      <Form form={form}>
+        <div
+          className={'border border-style-8 border-solid rounded-sm mt-5 p-4'}
+        >
+          <h3 className={'p-[.8rem] text-[2rem] text-style-7 font-[600]'}>
+            Quốc gia, thành phố
+          </h3>
+          <div>
             <Form.Item name={'country'} className={'mb-0'}>
               <Select
                 allowClear
@@ -130,10 +114,7 @@ const FilterTools = ({
                 className={'w-full mb-5'}
                 onChange={(option) => handleChangeCountry(option)}
                 suffixIcon={
-                  <Icon
-                    name={EIconName.ArowDown}
-                    color={EIconColor.STYLE_ARROW}
-                  />
+                  <Icon name={EIconName.ArowDown} color={EIconColor.STYLE_7} />
                 }
               >
                 {countries &&
@@ -165,10 +146,7 @@ const FilterTools = ({
                 className={'w-full mb-4'}
                 onChange={(option) => handleChangeCities(option)}
                 suffixIcon={
-                  <Icon
-                    name={EIconName.ArowDown}
-                    color={EIconColor.STYLE_ARROW}
-                  />
+                  <Icon name={EIconName.ArowDown} color={EIconColor.STYLE_7} />
                 }
               >
                 {cities &&
@@ -183,69 +161,94 @@ const FilterTools = ({
                   ))}
               </Select>
             </Form.Item>
-          </Form>
+          </div>
         </div>
-      </div>
-      <div className={'rounded-sm mt-5 py-4'}>
-        <AccordionSideBar
-          label={'Học phí'}
-          childrenData={
-            <CheckboxGroup
-              value={dataTuitionOptions.find(
-                (option) => option.value === paramsRequest?.survey_tuition
-              )}
-              options={dataTuitionOptions}
-              onChange={(option) => {
-                onFilterChange({
-                  ...paramsRequest,
-                  survey_tuition: option,
-                });
-              }}
-            />
-          }
-        />
-      </div>
-      <div className={'rounded-sm mt-5 py-4'}>
-        <AccordionSideBar
-          label={'Bậc học'}
-          childrenData={
-            <CheckboxGroup
-              value={levelCourse.find(
-                (option) => option.value === paramsRequest?.level
-              )}
-              options={levelCourse}
-              onChange={(option) => {
-                onFilterChange({
-                  ...paramsRequest,
-                  level: option,
-                });
-              }}
-            />
-          }
-        />
-      </div>
-      <div className={'rounded-sm mt-5 py-4'}>
-        <AccordionSideBar
-          label={'Xếp hạng'}
-          childrenData={
-            <CheckboxGroup
-              value={
-                rankings &&
-                rankings.find(
-                  (option) => option.value === paramsRequest?.ranking
-                )
+        <div className={'rounded-sm mt-5 py-4'}>
+          <AccordionSideBar
+            label={'Bậc học'}
+            childrenData={
+              <CheckboxGroup
+                value={levelCourse.find(
+                  (option) => option.value === paramsRequest?.level
+                )}
+                options={levelCourse}
+                onChange={(option) => {
+                  onFilterChange({
+                    ...paramsRequest,
+                    level: option,
+                  });
+                }}
+              />
+            }
+          />
+        </div>
+        <div className={'rounded-sm mt-5 py-4'}>
+          <AccordionSideBar
+            label={'Xếp hạng'}
+            childrenData={
+              <CheckboxGroup
+                value={
+                  rankings &&
+                  rankings.find(
+                    (option) => option.value === paramsRequest?.ranking
+                  )
+                }
+                options={rankings}
+                onChange={(option) => {
+                  onFilterChange({
+                    ...paramsRequest,
+                    ranking: option,
+                  });
+                }}
+              />
+            }
+          />
+        </div>
+        <div className={'rounded-sm mt-5 py-4'}>
+          <AccordionSideBar
+            label={'Học phí'}
+            childrenData={
+              <CheckboxGroup
+                value={dataTuitionOptions.find(
+                  (option) => option.value === paramsRequest?.survey_tuition
+                )}
+                options={dataTuitionOptions}
+                onChange={(option) => {
+                  onFilterChange({
+                    ...paramsRequest,
+                    survey_tuition: option,
+                  });
+                }}
+              />
+            }
+          />
+        </div>
+        <div
+          className={'border border-style-8 border-solid rounded-sm mt-5 p-4'}
+        >
+          <h3 className={'p-[.8rem] text-[2rem] text-style-7 font-[600]'}>
+            Ngành học
+          </h3>
+          <Form.Item name={'majors'} className={'mb-0'}>
+            <Select
+              allowClear
+              showSearch
+              placeholder="Nhập ngành học..."
+              className={'w-full mb-5'}
+              suffixIcon={
+                <Icon name={EIconName.ArowDown} color={EIconColor.STYLE_7} />
               }
-              options={rankings}
+              options={majorOptions}
               onChange={(option) => {
                 onFilterChange({
                   ...paramsRequest,
-                  ranking: option,
+                  majors: option,
                 });
               }}
             />
-          }
-        />
-      </div>
+          </Form.Item>
+        </div>
+      </Form>
       {showFooter ? (
         <Flex
           align={'center'}
@@ -276,7 +279,7 @@ const FilterTools = ({
             form.resetFields();
             onReset?.({
               page: 1,
-              limit: 10,
+              limit: 15,
             });
           }}
         />

@@ -69,12 +69,6 @@ const CourseAccordion = () => {
       )}
     </div>
   );
-  return (
-    <Arcodion
-      items={items}
-      defaultActiveKey={['1']}
-      expandIcon={customExpandIcon}
-    />
-  );
+  return <Arcodion items={items} expandIcon={customExpandIcon} />;
 };
 export default CourseAccordion;

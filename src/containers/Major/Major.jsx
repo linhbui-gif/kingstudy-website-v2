@@ -22,7 +22,7 @@ const Major = () => {
   const handleClickMajor = (id) => {
     setFilterSchool({
       page: 1,
-      limit: 10,
+      limit: 15,
     });
     router.push(`${Paths.SchoolFilter(id)}`);
   };
