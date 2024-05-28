@@ -40,7 +40,7 @@ const SchoolGrid = () => {
 
                   setFilterSchool({
                     page: 1,
-                    limit: 10,
+                    limit: 15,
                     country: selectedTabValue,
                   });
                 }}

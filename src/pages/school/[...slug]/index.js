@@ -15,6 +15,7 @@ import Container from '@/containers/Container';
 import Course from '@/containers/Course';
 import HeroBannerText from '@/containers/HeroBannerText';
 import Infrastructure from '@/containers/Infrastructure';
+import InputRequest from '@/containers/InputRequest';
 import Review from '@/containers/Review';
 import Scholarship from '@/containers/Scholarship';
 import Tution from '@/containers/Tution';
@@ -50,6 +51,10 @@ const itemsMenu = [
   {
     key: 'khoahoc',
     label: 'Khóa học',
+  },
+  {
+    key: 'yeucaudauvao',
+    label: 'Yêu cầu đầu vào',
   },
   {
     key: 'review',
@@ -152,19 +157,12 @@ const SchoolDetail = () => {
                             align={'center'}
                             className={'md:gap-[8px] gap-[5px]'}
                           >
-                            <Flex>
-                              <Icon name={EIconName.Star} />
-                              <Icon name={EIconName.Star} />
-                              <Icon name={EIconName.Star} />
-                              <Icon name={EIconName.Star} />
-                              <Icon name={EIconName.Star} />
-                            </Flex>
                             <span
                               className={
-                                'mt-2 md:text-body-16 text-body-14 text-style-9 font-[600]'
+                                'mt-2 md:text-body-16 text-body-14 text-style-9 font-[600] leading-9'
                               }
                             >
-                              (25) reviews
+                              {schoolData?.heading}
                             </span>
                           </Flex>
                         </div>
@@ -284,6 +282,7 @@ const SchoolDetail = () => {
                     <div
                       className={'py-[4rem] font-BeVnPro'}
                       dangerouslySetInnerHTML={{ __html: schoolData?.about }}
+                      style={{ color: '#575757 !important' }}
                     />
                   )}
                   <div
@@ -297,51 +296,51 @@ const SchoolDetail = () => {
                       <ul className={'flex items-center flex-wrap'}>
                         <li
                           className={
-                            'mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
+                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
                           }
                         >
-                          Handle advanced techniques like Dimensionality
-                          Reduction
+                          <Icon name={EIconName.Check} /> Handle advanced
+                          techniques like Dimensionality Reduction
                         </li>
                         <li
                           className={
-                            'mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
+                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
                           }
                         >
-                          Handle advanced techniques like Dimensionality
-                          Reduction
+                          <Icon name={EIconName.Check} /> Handle advanced
+                          techniques like Dimensionality Reduction
                         </li>
                         <li
                           className={
-                            'mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
+                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
                           }
                         >
-                          Handle advanced techniques like Dimensionality
-                          Reduction
+                          <Icon name={EIconName.Check} /> Handle advanced
+                          techniques like Dimensionality Reduction
                         </li>
                         <li
                           className={
-                            'mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
+                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
                           }
                         >
-                          Handle advanced techniques like Dimensionality
-                          Reduction
+                          <Icon name={EIconName.Check} /> Handle advanced
+                          techniques like Dimensionality Reduction
                         </li>
                         <li
                           className={
-                            'mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
+                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
                           }
                         >
-                          Handle advanced techniques like Dimensionality
-                          Reduction
+                          <Icon name={EIconName.Check} /> Handle advanced
+                          techniques like Dimensionality Reduction
                         </li>
                         <li
                           className={
-                            'text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
+                            'flex items-start gap-[8px] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
                           }
                         >
-                          Handle advanced techniques like Dimensionality
-                          Reduction
+                          <Icon name={EIconName.Check} /> Handle advanced
+                          techniques like Dimensionality Reduction
                         </li>
                       </ul>
                     </Skeleton>
@@ -356,6 +355,33 @@ const SchoolDetail = () => {
                           __html: schoolData?.map?.iframe,
                         }}
                       />
+                      <div
+                        className={
+                          'relative p-[2rem_3.2rem] shadow-md my-[3.5rem] rounded-sm after:absolute after:content-[""] after:top-0 after:left-0 after:bg-style-10 after:h-full after:w-[.6rem] after:rounded-sm'
+                        }
+                      >
+                        <h5
+                          className={'mb-[1.6rem] text-button-16 text-style-7'}
+                        >
+                          Cambridge CB1 1PT, Vương quốc Anh
+                        </h5>
+                        <p className={'text-body-16 text-style-7 leading-9'}>
+                          Thành phố Cambridge sở hữu nét đẹp cổ kính và nổi
+                          tiếng là điểm du học thu hút sinh viên quốc tế bậc
+                          nhất Anh Quốc. Tại Cambridge, bạn có thể trải nghiệm
+                          môi trường học nơi có những chương trình giáo dục tốt
+                          nhất trên thế giới, cung cấp môi trường phù hợp để
+                          sinh sống, học tập và phát triển các kỹ năng nghề
+                          nghiệp của bạn.{' '}
+                        </p>
+                        <Link
+                          href={'/'}
+                          target={'_blank'}
+                          className={'text-button-16 text-orange'}
+                        >
+                          Xem trên bản đồ
+                        </Link>
+                      </div>
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
@@ -391,7 +417,9 @@ const SchoolDetail = () => {
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Học bổng
                       </h4>
-                      <Scholarship />
+                      <div className={'max-h-[20rem] overflow-x-auto'}>
+                        <Scholarship />
+                      </div>
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
@@ -400,6 +428,22 @@ const SchoolDetail = () => {
                         Khóa học
                       </h4>
                       <Course />
+                    </div>
+                  </Skeleton>
+                  <Skeleton className={'my-[5rem]'} loading={loading}>
+                    <div id={'yeucaudauvao'} className={'pt-[4rem]'}>
+                      <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
+                        Yêu cầu đầu vào
+                      </h4>
+                      <InputRequest />
+                    </div>
+                  </Skeleton>
+                  <Skeleton loading={loading}>
+                    <div className={'pt-[4rem]'} id={'review'}>
+                      <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
+                        Đánh Giá Của Học Viên
+                      </h4>
+                      <Review data={schoolData?.feed_back} />
                     </div>
                   </Skeleton>
                   <div className={'py-[4rem]'} id={'gallery'}>
@@ -424,6 +468,7 @@ const SchoolDetail = () => {
                                   width={256}
                                   height={137}
                                   quality={100}
+                                  className={'rounded-sm cursor-pointer'}
                                 />
                               )}
                             </Col>
@@ -431,14 +476,6 @@ const SchoolDetail = () => {
                         })}
                     </Row>
                   </div>
-                  <Skeleton loading={loading}>
-                    <div className={''} id={'review'}>
-                      <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
-                        Đánh Giá Của Học Viên
-                      </h4>
-                      <Review data={schoolData?.feed_back} />
-                    </div>
-                  </Skeleton>
                 </div>
               </Col>
               <Col lg={{ span: 8 }} className={'hidden lg:block'}>
@@ -487,7 +524,7 @@ const SchoolDetail = () => {
                         })}
                     </ul>
                     <Flex
-                      className={'mt-[7.5rem] mb-[2.8rem]'}
+                      className={'mt-[3rem] mb-[2.8rem]'}
                       justify={'center'}
                       gap={'small'}
                     >

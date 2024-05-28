@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import { Tabs as AntdTabs } from 'antd';
+import { Select, Tabs as AntdTabs } from 'antd';
 import { useRouter } from 'next/router';
 
-const Tabs = ({ options = [], defaultKey, onKeyChange }) => {
+import Icon from '@/components/Icon';
+import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
+
+const Tabs = ({ options = [], defaultKey, onKeyChange, hasMajor = false }) => {
   const key = 'tabKey';
   const router = useRouter();
   const [activeKey, setActiveKey] = useState(defaultKey || null);
@@ -25,7 +28,18 @@ const Tabs = ({ options = [], defaultKey, onKeyChange }) => {
   }, []);
 
   return (
-    <div className="Tabs">
+    <div className="Tabs relative">
+      {hasMajor && (
+        <Select
+          className={'w-full md:hidden block'}
+          options={[]}
+          placeholder={'Chọn ngành học'}
+          allowClear
+          suffixIcon={
+            <Icon name={EIconName.ArowDown} color={EIconColor.STYLE_7} />
+          }
+        />
+      )}
       <AntdTabs activeKey={activeKey} onChange={handleTabChange}>
         {options.map((option) => (
           <AntdTabs.TabPane tab={option.title} key={option.key}>
@@ -33,6 +47,23 @@ const Tabs = ({ options = [], defaultKey, onKeyChange }) => {
           </AntdTabs.TabPane>
         ))}
       </AntdTabs>
+      {hasMajor && (
+        <div
+          className={
+            'absolute md:block md:top-0 md:right-0 hidden h-[5.2rem] leading-[5.2rem]'
+          }
+        >
+          <Select
+            suffixIcon={
+              <Icon name={EIconName.ArowDown} color={EIconColor.STYLE_7} />
+            }
+            allowClear
+            className={''}
+            options={[]}
+            placeholder={'Chọn ngành học'}
+          />
+        </div>
+      )}
     </div>
   );
 };

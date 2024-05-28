@@ -57,6 +57,10 @@ const Course = ({ data }) => {
       ),
     },
   ];
-  return <Tabs options={campusOptions} defaultKey="all" />;
+  return (
+    <div>
+      <Tabs hasMajor options={campusOptions} defaultKey="all" />
+    </div>
+  );
 };
 export default Course;
