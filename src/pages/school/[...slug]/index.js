@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { Col, Flex, Row, Skeleton } from 'antd';
-import SkeletonImage from 'antd/es/skeleton/Image';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -13,6 +12,7 @@ import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Meta from '@/components/Meta';
 import Container from '@/containers/Container';
 import Course from '@/containers/Course';
+import Gallery from '@/containers/Gallery';
 import HeroBannerText from '@/containers/HeroBannerText';
 import Infrastructure from '@/containers/Infrastructure';
 import InputRequest from '@/containers/InputRequest';
@@ -446,36 +446,7 @@ const SchoolDetail = () => {
                       <Review data={schoolData?.feed_back} />
                     </div>
                   </Skeleton>
-                  <div className={'py-[4rem]'} id={'gallery'}>
-                    <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
-                      Thư viện ảnh
-                    </h4>
-                    <Row gutter={[24, 24]}>
-                      {Object.values(gallery) &&
-                        Object.values(gallery).map((gallery) => {
-                          return (
-                            <Col md={{ span: 8 }} span={24} key={gallery?.id}>
-                              {loading ? (
-                                <div className={'skeleton-image-school'}>
-                                  <SkeletonImage active />
-                                </div>
-                              ) : (
-                                <Image
-                                  src={`${rootUrl}${gallery?.image}`}
-                                  alt={''}
-                                  loading={'lazy'}
-                                  layout={'responsive'}
-                                  width={256}
-                                  height={137}
-                                  quality={100}
-                                  className={'rounded-sm cursor-pointer'}
-                                />
-                              )}
-                            </Col>
-                          );
-                        })}
-                    </Row>
-                  </div>
+                  <Gallery loading={loading} gallery={gallery} />
                 </div>
               </Col>
               <Col lg={{ span: 8 }} className={'hidden lg:block'}>
@@ -540,14 +511,24 @@ const SchoolDetail = () => {
                         className={'default'}
                       />
                     </Flex>
-                    <Link
-                      href={'/'}
-                      className={
-                        'block w-full text-center text-style-10 font-[600] underline'
-                      }
-                    >
-                      Tải tài liệu
-                    </Link>
+                    <Flex justify={'center'} gap={20}>
+                      <Link
+                        href={'/'}
+                        className={
+                          'text-center text-style-10 font-[600] underline'
+                        }
+                      >
+                        Tải tài liệu
+                      </Link>
+                      <Link
+                        href={'/'}
+                        className={
+                          'text-center text-style-10 font-[600] underline'
+                        }
+                      >
+                        Nộp hồ sơ
+                      </Link>
+                    </Flex>
                   </Skeleton>
                 </div>
               </Col>
