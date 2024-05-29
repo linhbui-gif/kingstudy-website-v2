@@ -4,6 +4,8 @@ import { Breadcrumb, Col, Row } from 'antd';
 import SkeletonImage from 'antd/es/skeleton/Image';
 import Link from 'next/link';
 
+import Icon from '@/components/Icon';
+import { EIconName } from '@/components/Icon/Icon.enum';
 import Container from '@/containers/Container';
 import { rootUrl } from '@/utils/utils';
 
@@ -29,6 +31,7 @@ const HeroBannerText = ({ data, loading = false }) => {
                   {data?.name}
                 </h2>
                 <Breadcrumb
+                  className={'breadcrumb-common'}
                   items={[
                     {
                       title: 'Trang chủ',
@@ -40,6 +43,7 @@ const HeroBannerText = ({ data, loading = false }) => {
                       title: data?.name,
                     },
                   ]}
+                  separator={<Icon name={EIconName.ArowDown} />}
                 />
               </Col>
             </Row>

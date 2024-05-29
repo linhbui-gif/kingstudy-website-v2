@@ -214,3 +214,11 @@ iframe {
 .accordionSidebar .ant-collapse>.ant-collapse-item:last-child, .ant-collapse>.ant-collapse-item:last-child>.ant-collapse-header {
   @apply rounded-sm
 }
+
+.breadcrumb-common .ant-breadcrumb-separator {
+  @apply flex;
+}
+
+.breadcrumb-common .ant-breadcrumb-separator span {
+  @apply rotate-[-90deg]
+}
