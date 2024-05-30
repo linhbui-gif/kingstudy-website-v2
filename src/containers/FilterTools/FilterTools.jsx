@@ -252,20 +252,21 @@ const FilterTools = ({
       {showFooter ? (
         <Flex
           align={'center'}
-          justify={'space-between'}
+          justify={'center'}
           className={
             'absolute w-full left-0 bottom-0 shadow-md bg-white p-[1.2rem_1.6rem]'
           }
+          gap={'small'}
         >
           <ButtonComponent
             title={'Áp dụng'}
-            className={'primary w-[15rem]'}
+            className={'primary w-[10rem]'}
             loading={false}
             onClick={onApply}
           />
           <ButtonComponent
             title={'Đặt lại'}
-            className={'primary-outline w-[15rem]'}
+            className={'primary-outline w-[10rem]'}
             loading={false}
             onClick={onReset}
           />

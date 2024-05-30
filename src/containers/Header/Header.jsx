@@ -4,6 +4,7 @@ import { Drawer } from 'antd';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 
 import ImageLogoMobile from '@/assets/images/image-logo-mobile.png';
@@ -30,6 +31,12 @@ const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const { isLogin } = useAPI();
   const router = useRouter();
+  const { setFilterSchool } = useAPI();
+  const [filterCommon, setFilterCommon] = useState({
+    page: 1,
+    limit: 15,
+  });
+  const pathname = usePathname();
   const showDrawer = () => {
     setOpenDrawer(true);
   };
@@ -86,7 +93,27 @@ const Header = () => {
         width={320}
       >
         <div className={''}>
-          <FilterTools showFooter />
+          <FilterTools
+            onFilterChange={(dataChanged) => {
+              setFilterCommon({
+                ...filterCommon,
+                ...dataChanged,
+              });
+            }}
+            paramsRequest={filterCommon}
+            onReset={(dataReset) => {
+              setFilterCommon({
+                ...dataReset,
+                page: 1,
+                limit: 15,
+              });
+            }}
+            showFooter
+            onApply={() => {
+              if (pathname !== '/school') router.push('/school');
+              setFilterSchool({ ...filterCommon });
+            }}
+          />
         </div>
       </Drawer>
       <Container fluid>

@@ -16,7 +16,7 @@ const Card = ({
   slug = '',
 }) => {
   return (
-    <div className="Card bg-white flex flex-col flex-1 lg:shadow-md rounded-md">
+    <div className="Card bg-white flex flex-col flex-1 shadow-md rounded-md">
       <div className="Card-header">
         <div className="Card-header-image">
           <Link href={`${Paths.School.SchoolDetail(slug)}`}>
