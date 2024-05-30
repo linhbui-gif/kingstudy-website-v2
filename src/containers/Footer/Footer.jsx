@@ -60,7 +60,7 @@ const Footer = () => {
           <Col
             lg={{ span: 6 }}
             md={{ span: 12 }}
-            span={24}
+            span={12}
             className={'md:px-[1.2rem] lg:px-0'}
           >
             <div className={'lg:ml-[13rem] mb-[4rem]'}>
@@ -106,7 +106,7 @@ const Footer = () => {
           <Col
             lg={{ span: 6 }}
             md={{ span: 12 }}
-            span={24}
+            span={12}
             className={'md:px-[1.2rem] lg:px-0'}
           >
             <div className={'lg:ml-[12rem] mb-[4rem]'}>
@@ -263,7 +263,7 @@ const Footer = () => {
           </Form>
         </div>
         <div className="flex flex-wrap bg-style-33 px-[2.4rem] py-[3rem] rounded-[0.4rem] mt-[3.2rem] lg:hidden">
-          <div className="flex gap-x-[1.8rem]">
+          <div className="flex gap-x-[1.8rem] md:justify-normal w-full justify-center">
             <div className="flex gap-x-[1.2rem]">
               <div>
                 <Icon name={EIconName.Music} color={EIconColor.WHITE} />

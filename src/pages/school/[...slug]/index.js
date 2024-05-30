@@ -157,12 +157,24 @@ const SchoolDetail = () => {
                             align={'center'}
                             className={'md:gap-[8px] gap-[5px]'}
                           >
+                            <Image
+                              quality={100}
+                              src={`${rootUrl}${
+                                schoolData?.country?.icon
+                                  ? schoolData?.country?.icon
+                                  : ''
+                              }`}
+                              alt={''}
+                              loading={'lazy'}
+                              width={18}
+                              height={18}
+                            />
                             <span
                               className={
                                 'mt-2 md:text-body-16 text-body-14 text-style-9 font-[600] leading-9'
                               }
                             >
-                              {schoolData?.heading}
+                              {schoolData?.country?.name}
                             </span>
                           </Flex>
                         </div>
@@ -280,7 +292,7 @@ const SchoolDetail = () => {
                     <Skeleton className={'my-[5rem]'} />
                   ) : (
                     <div
-                      className={'py-[4rem] font-BeVnPro'}
+                      className={'py-[4rem] font-BeVnPro-style-content'}
                       dangerouslySetInnerHTML={{ __html: schoolData?.about }}
                       style={{ color: '#575757 !important' }}
                     />
@@ -357,7 +369,7 @@ const SchoolDetail = () => {
                       />
                       <div
                         className={
-                          'relative p-[2rem_3.2rem] shadow-md my-[3.5rem] rounded-sm after:absolute after:content-[""] after:top-0 after:left-0 after:bg-style-10 after:h-full after:w-[.6rem] after:rounded-sm'
+                          'relative my-[3.5rem] rounded-sm md:p-[2.4rem] p-[1.6rem] bg-style-8'
                         }
                       >
                         <h5
@@ -385,7 +397,7 @@ const SchoolDetail = () => {
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
-                    <div className={''} id={'cosovatchat'}>
+                    <div className={'pt-[3rem]'} id={'cosovatchat'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Cơ Sở Vật Chất
                       </h4>
@@ -503,19 +515,20 @@ const SchoolDetail = () => {
                         iconName={EIconName.Compare}
                         iconColor={EIconColor.WHITE}
                         title={'So sánh'}
-                        className={'primary'}
+                        className={'primary w-[15rem] px-0'}
                       />
                       <ButtonComponent
-                        iconName={EIconName.Compare}
+                        iconName={EIconName.Favorite}
                         title={'Yêu thích'}
-                        className={'default'}
+                        className={'default w-[15rem] px-0'}
+                        widthIcon={20}
                       />
                     </Flex>
-                    <Flex justify={'center'} gap={20}>
+                    <Flex justify={'center'} gap={50}>
                       <Link
                         href={'/'}
                         className={
-                          'text-center text-style-10 font-[600] underline'
+                          'text-center text-body-16 text-style-10 font-[600] underline'
                         }
                       >
                         Tải tài liệu
@@ -523,7 +536,7 @@ const SchoolDetail = () => {
                       <Link
                         href={'/'}
                         className={
-                          'text-center text-style-10 font-[600] underline'
+                          'text-center text-body-16 text-style-10 font-[600] underline'
                         }
                       >
                         Nộp hồ sơ
