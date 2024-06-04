@@ -2,7 +2,7 @@ const TopBar = () => {
   return (
     <div
       className={
-        'md:flex hidden items-center justify-center h-[5rem] bg-orange '
+        'lg:flex hidden items-center justify-center h-[5rem] bg-orange '
       }
     >
       <span className={'text-body-16 text-style-5'}>

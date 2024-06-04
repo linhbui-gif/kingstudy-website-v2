@@ -1,3 +1,7 @@
+import { Tag } from 'antd';
+
+import env from '@/env';
+
 export const AppConfig = {
   site_name: 'KingStudy',
   title: 'KingStudy',
@@ -18,3 +22,35 @@ export const addTrailingSlash = (url) => {
 export const isBrowser = () => {
   return typeof window !== 'undefined';
 };
+
+export const statusSchool = (type) => {
+  const conditions = [
+    { type: 3, color: '#008560', text: 'Available' },
+    { type: 2, color: '#F48331', text: 'Partner' },
+    { type: 1, color: '#d51f32', text: 'Close' },
+  ];
+
+  const condition =
+    conditions.find((condition) => Number(type) === condition.type) ||
+    conditions[conditions.length - 1];
+
+  return (
+    <Tag
+      className={'text-[1.5rem] text-style-13 py-[.2rem]'}
+      color={condition.color}
+    >
+      {condition.text}
+    </Tag>
+  );
+};
+
+export const changeArrayToOptions = (arr = []) => {
+  return (
+    arr &&
+    arr.map(({ id, name, icon }) => {
+      return { value: id, label: name, icon: icon || '' };
+    })
+  );
+};
+
+export const rootUrl = env.rootUrl;

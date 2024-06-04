@@ -7,12 +7,19 @@ module.exports = {
         sm: '0px 20px 40px 0px #182C4A0D',
         md: '0px 40px 50px 0px #1C335429',
       },
+      borderWidth: {
+        custom: '0.667px',
+      },
+      borderRadius: {
+        arcodion: '6px 6px 0px 0px',
+      }
     },
     colors: {
       white: '#FFFFFF',
       orange: '#F48331',
       green: '#008560',
       yellow: '#EEB443',
+      red: '#D51F32',
       'style-1': '#000000',
       'style-2': '#262626',
       'style-3': '#0000EE',
@@ -41,6 +48,13 @@ module.exports = {
       'style-28': '#1A1F27',
       'style-29': '#373A3E',
       'style-30': '#FFFFFF',
+      'style-31': '#FF5002',
+      'style-32': '#204590',
+      'style-33': '#11367E',
+      'style-34': '#FFAC00',
+      'style-35': '#124694',
+      'style-36': '#DDE2E6',
+      'style-37': '#0069F5',
       'Chestnut/50': '#FCF5F4',
       'Chestnut/100': '#FAE8E6',
       'Chestnut/200': '#F6D5D2',
@@ -302,6 +316,8 @@ module.exports = {
     },
     borderRadius: {
       sm: '.4rem',
+      md: '1rem',
+      full: '50%',
     },
     fontSize: {
       'body-14': [
@@ -328,6 +344,12 @@ module.exports = {
           fontWeight: '600',
         },
       ],
+      'title-20': [
+        '2rem',
+        {
+          fontWeight: '700',
+        },
+      ],
       'title-24': [
         '2.4rem',
         {
@@ -347,11 +369,26 @@ module.exports = {
           lineHeight: '6rem',
         },
       ],
+      'title-56': [
+        '5.6rem',
+        {
+          fontWeight: '700',
+        },
+      ],
+    },
+    container: {
+      screens: {
+        sm: '540px',
+        md: '768px',
+        lg: '992px',
+        xl: '1200px',
+        '2xl': '1320px',
+      },
     },
   },
   plugins: [],
   corePlugins: {
     preflight: false,
   },
-  important: true,
+  important: false,
 };

@@ -3,7 +3,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+    .calc-width {
+      width: calc(25% - 20px);
+    }
+  }
 @import "./variable";
 @import "./common";
 @import "./typo";
 @import "./components/button";
+@import "./components/input";
+@import "./components/checkboxgroup";
+@import "./components/pagination";
+@import "./components/arcodion";
+@import "./components/tab";
+@import "./container/major";
+@import "./container/arcodion.major";
+@import "./container/feedback";
+@import "./container/footer";

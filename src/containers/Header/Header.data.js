@@ -1,23 +1,83 @@
 export const MenuData = [
   {
     id: 1,
-    name: 'HOME',
+    name: 'Về KingStudy',
     active: true,
+    children: [
+      {
+        id: 1,
+        name: 'Giới thiệu',
+      },
+      {
+        id: 2,
+        name: 'Tin tức mới nhất',
+      },
+      {
+        id: 3,
+        name: 'Sự kiện du học',
+      },
+      {
+        id: 4,
+        name: 'Tìm trường',
+      },
+      {
+        id: 5,
+        name: 'Tự nộp hồ sơ',
+      },
+    ],
   },
   {
     id: 2,
-    name: 'FEATURES',
+    name: 'Du Học',
+    children: [
+      {
+        id: 1,
+        name: 'Du Học Anh',
+      },
+      {
+        id: 2,
+        name: 'Du học Uc',
+      },
+      {
+        id: 3,
+        name: 'Du học Mỹ',
+      },
+      {
+        id: 4,
+        name: 'Du học Canada',
+      },
+      {
+        id: 5,
+        name: 'Du học Ireland',
+      },
+      {
+        id: 6,
+        name: 'Du học Hà Lan',
+      },
+      {
+        id: 7,
+        name: 'Du học Singapore',
+      },
+      {
+        id: 8,
+        name: 'Học bổng',
+      },
+      {
+        id: 9,
+        name: 'Blog',
+      },
+      {
+        id: 10,
+        name: 'FAQ',
+      },
+    ],
   },
   {
     id: 3,
-    name: 'HOW IT WORKS',
+    name: 'Dịch vụ',
   },
   {
     id: 4,
-    name: 'Tokenomics',
-  },
-  {
-    id: 5,
-    name: 'Roadmap',
+    name: 'Liên Hệ',
   },
 ];

@@ -3,9 +3,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
 
 const Carousels = ({
-  dots = true,
-  arrows = true,
-  infinite = true,
+  dots = false,
+  arrows = false,
+  infinite = false,
+  className = '',
   slidesToShow = 1,
   slidesToScroll = 1,
   slidesPerRow = 1,
@@ -19,6 +20,7 @@ const Carousels = ({
   onDragging,
   onBeforeChange,
   onAfterChange,
+  lazyLoad = false,
 }) => {
   const SlickSlider = Slider;
   const [isReady, setIsReady] = useState(false);
@@ -46,6 +48,7 @@ const Carousels = ({
       onDragging?.(false);
       onAfterChange?.(newIndex);
     },
+    lazyLoad,
   };
 
   useEffect(() => {
@@ -57,7 +60,7 @@ const Carousels = ({
   }, [slickRef]);
 
   return (
-    <div style={{ opacity: isReady ? 1 : 0 }}>
+    <div className={`${className}`} style={{ opacity: isReady ? 1 : 0 }}>
       <SlickSlider ref={slickRef} swipeToSlide {...settings}>
         {children}
       </SlickSlider>

@@ -7,6 +7,7 @@
       border: none;
       display: flex;
       align-items: center;
+      justify-content: center;
 
       span {
         @apply text-button-16 shadow-none
@@ -26,7 +27,10 @@
       &.primary-outline {
         border: 1px solid #DCE8FE;
         background-color: transparent;
-        @apply text-body-16 text-style-10
+
+        span {
+          @apply text-body-16 text-style-10
+        }
       }
 
       &.primary-outline:hover {
@@ -41,6 +45,14 @@
 
       &.primary:hover {
         @apply bg-style-10 text-button-16 text-white
+      }
+
+      &.default {
+        @apply bg-[#EFF1F6] text-button-16 text-style-7
+      }
+
+      &.default:hover {
+        @apply bg-[#EFF1F6] text-button-16 text-style-7
       }
     }
   }

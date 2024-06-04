@@ -1,18 +1,19 @@
 export const ModulePaths = {
-  MyProfile: '/my-user',
-  Admin: '/admin',
+  MyProfile: '/profile',
+  Auth: '/auth',
+  Me: '/me',
 };
 
 export const Paths = {
   Home: '/',
   Login: '/login',
-  SignUp: '/sign-up',
+  SignUp: '/signup',
   ForgotPassword: '/forgot-password',
   ResetPassword: '/reset-password',
   Success: '/success',
   Dashboard: '/dashboard',
-  Employee: {
-    List: '/employee',
-    Create: '/employee/create',
+  SchoolFilter: (id) => `/school?majors=${id}`,
+  School: {
+    SchoolDetail: (slug) => `/school/${slug}`,
   },
 };

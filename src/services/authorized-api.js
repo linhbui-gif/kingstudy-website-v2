@@ -14,7 +14,7 @@ const AuthorizedInstance = (baseURL) => {
     const authBearer = Helpers.getAccessToken();
 
     if (authBearer) {
-      request.headers.Authorization = `${authBearer}`;
+      request.headers.Authorization = `Bearer ${authBearer}`;
     }
 
     return request;

@@ -5,14 +5,224 @@ body {
 }
 
 html {
-  font-size: 10px;
+  @apply xl:text-[10px] lg:text-[7px] text-[10px]
 }
 
 a {
   text-decoration: none;
+
+  &:hover {
+    @apply text-orange
+  }
 }
 
-ul {
+ul,li {
   list-style: none;
   margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+@keyframes hero-thumb-sm-2-animation {
+  0% {
+    transform: translateY(-50px)
+  }
+
+  to {
+    transform: translateY(0)
+  }
+}
+
+@keyframes hero-thumb-sm-3-animation {
+  0% {
+    transform: translatex(-50px)
+  }
+
+  to {
+    transform: translateX(0)
+  }
+}
+
+@keyframes hero-circle-1 {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(1turn)
+  }
+}
+
+.animate-hero-thumb-sm-2-animation {
+  animation: hero-thumb-sm-2-animation 2s linear infinite alternate;
+}
+
+.animate-hero-thumb-sm-3-animation {
+  animation: hero-thumb-sm-3-animation 2s linear infinite alternate;
+}
+
+.animate-hero-circle-1 {
+  animation: hero-circle-1 2s linear infinite alternate;
+}
+
+.ant-progress .ant-progress-success-bg, .ant-progress .ant-progress-bg {
+  @apply bg-orange
+}
+
+
+//Style Skeleton Card School
+
+.Card-header-image .ant-skeleton.ant-skeleton-element .ant-skeleton-image {
+  @apply h-[26.7rem] w-full
+}
+
+.Card-header-image .ant-skeleton.ant-skeleton-element {
+  @apply w-full
+}
+
+.Card-body-head .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+  @apply w-full min-w-full
+}
+
+.Card-body-title .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+  @apply w-full min-w-full
+}
+
+.Card-body-title .ant-skeleton.ant-skeleton-element {
+  @apply w-full min-w-full my-[.8rem]
+}
+
+.Card-body-price .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+  @apply w-full min-w-full
+}
+
+.Card-body-price .ant-skeleton.ant-skeleton-element {
+  @apply w-full min-w-full my-[.8rem]
+}
+
+.Card-body-action .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+  @apply w-full min-w-full
+}
+
+.Card-body-action  .ant-skeleton.ant-skeleton-element {
+  @apply w-full min-w-full my-[.8rem]
+}
+
+.icon-major-mobile svg {
+  @apply w-[2.4rem] md:w-auto
+}
+
+.ant-col {
+  padding: 0 1.2rem;
+}
+
+.ant-form-item .ant-form-item-control:first-child:not([class^="'ant-col-'"]):not([class*="' ant-col-'"]) {
+  padding: 0;
+}
+
+.feedback-carousel .slick-slide:nth-child(3) .student-feedback{
+  @apply lg:mr-0
+}
+
+.ant-input-outlined {
+  @apply border-style-8
+}
+
+.ant-input-outlined:focus, .ant-input-outlined:focus-within {
+  @apply border-style-10
+}
+
+.ant-input-outlined:hover {
+  @apply border-style-10
+}
+.ant-select-item .ant-select-item-option .custom-option .ant-select-item-option-active {
+  @apply border-style-10
+}
+
+.ant-select-outlined:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector {
+  @apply border-style-10
+}
+
+.ant-col.ant-form-item-control {
+  @apply px-0
+}
+
+.ant-collapse {
+  @apply border-0;
+}
+
+#city iframe {
+  @apply w-full max-h-[28rem]
+}
+
+.loading-image-hero-text .ant-skeleton.ant-skeleton-element{
+  @apply w-full min-h-[35rem]
+}
+
+.loading-image-hero-text .ant-skeleton.ant-skeleton-element .ant-skeleton-image {
+  @apply w-full min-h-[35rem]
+}
+
+.skeleton-image-school .ant-skeleton.ant-skeleton-element {
+  @apply w-full min-h-[13.7rem]
+}
+
+.skeleton-image-school .ant-skeleton.ant-skeleton-element .ant-skeleton-image {
+  @apply w-full min-h-[13.7rem]
+}
+
+.accordionSidebar .arcodion .ant-collapse-item .ant-collapse-content-box {
+  @apply px-0;
+}
+
+.accordionSidebar .arcodion .ant-collapse-item .ant-collapse-content-box {
+  @apply p-[1rem_0];
+}
+
+.accordionSidebar .arcodion .ant-collapse-item .ant-collapse-content {
+  @apply border-0;
+}
+
+.sidebarSchoolActive:after {
+   @apply absolute content-[''] top-0 left-0 w-[2px] h-full bg-orange
+}
+
+.sidebarSchoolActive span {
+  @apply text-orange font-[600];
+}
+
+.sidebarSchoolMobileActive:after {
+  @apply absolute content-[''] bottom-0 left-0 w-full h-[2px] bg-orange
+}
+
+.sidebarSchoolMobileActive span {
+  @apply text-orange font-[600];
+}
+
+iframe {
+  @apply w-full
+}
+
+.accordionSidebar .ant-collapse>.ant-collapse-item:last-child, .ant-collapse>.ant-collapse-item:last-child>.ant-collapse-header {
+  @apply rounded-sm
+}
+
+.breadcrumb-common .ant-breadcrumb-separator {
+  @apply flex;
+}
+
+.breadcrumb-common .ant-breadcrumb-separator span {
+  @apply rotate-[-90deg]
+}
+
+.font-BeVnPro-style-content > *, span{
+  font-family: "Be Vietnam Pro", sans-serif!important;
 }

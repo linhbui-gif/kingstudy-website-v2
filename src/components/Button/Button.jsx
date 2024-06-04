@@ -20,6 +20,7 @@ const ButtonComponent = ({
   onClick,
   block,
   style = '',
+  widthIcon,
 }) => {
   const router = useRouter();
   const handleClickButton = () => {
@@ -40,17 +41,17 @@ const ButtonComponent = ({
         loading={loading}
       >
         <div
-          className="flex items-center justify-center gap-[8px]"
+          className={` flex items-center gap-2 ${
+            secondIconName ? 'secondIconName' : ''
+          }`}
           style={{ flexDirection: reverse ? 'row-reverse' : undefined }}
         >
-          {iconName && <Icon name={iconName} color={iconColor} />}
+          {iconName && (
+            <Icon width={widthIcon} name={iconName} color={iconColor} />
+          )}
           {title && <span>{title}</span>}
           {secondIconName && (
-            <Icon
-              className={'mt-1'}
-              name={secondIconName}
-              color={secondIconColor}
-            />
+            <Icon name={secondIconName} color={secondIconColor} />
           )}
         </div>
       </AntdButton>

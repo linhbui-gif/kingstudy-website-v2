@@ -1,47 +1,76 @@
 import React, { useEffect, useState } from 'react';
 
-import CardSkeleton from '@/components/Card/CardSkeleton';
 import Meta from '@/components/Meta';
-import TopBar from '@/containers/Topbar';
-import { getListSchool } from '@/services/school';
-import ButtonComponent from "@/components/Button";
-import {EIconName} from "@/components/Icon/Icon.enum";
+import About from '@/containers/About';
+import Cta from '@/containers/Cta';
+import Feedback from '@/containers/Feedback';
+import Hero from '@/containers/Hero';
+import LoadingPage from '@/containers/LoadingPage';
+import Major from '@/containers/Major';
+import Partner from '@/containers/Partner';
+import Reward from '@/containers/Reward';
+import SchoolGrid from '@/containers/SchoolGrid';
+import GuestLayout from '@/layouts/GuestLayout';
+import { isBrowser } from '@/utils/utils';
 
 export default function Home() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState([]);
-  const [filter, setFilter] = useState({
-    page: 1,
-    limit: 15,
-  });
-  const getListSchools = async () => {
-    try {
-      setLoading(true);
-      const response = await getListSchool(filter);
-      if (response?.code === 200) {
-        setLoading(false);
-        // eslint-disable-next-line no-unsafe-optional-chaining
-        setData((prev) => [...prev, ...response?.data?.data]);
-      }
-    } catch (e) {
-      /* empty */
-    }
-  };
+  const [state, setState] = useState(false);
+  const [done, setDone] = useState(false);
+  const [percent, setPercent] = useState(0);
+
   useEffect(() => {
-    getListSchools().then();
-  }, [filter.page, filter.limit]);
-  const LoadingSkeletonCards = () => {
-    return <CardSkeleton />;
-  };
-  const onLoadMore = () => {
-    setFilter((prev) => {
-      return { ...filter, limit: 15, page: prev.page + 1 };
-    });
-  };
+    if (isBrowser()) {
+      setState(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isBrowser()) {
+      let timeoutId = undefined;
+      document.fonts.ready.then(() => {
+        timeoutId = window.setTimeout(() => {
+          setDone(true);
+        }, 2000);
+      });
+      return () => {
+        window.clearTimeout(timeoutId);
+      };
+    }
+    return () => {};
+  });
+
+  useEffect(() => {
+    const simulatePageLoading = () => {
+      let currentPercent = 0;
+      const interval = setInterval(() => {
+        currentPercent += 10;
+        setPercent(currentPercent);
+        if (currentPercent >= 100) {
+          clearInterval(interval);
+        }
+      }, 100);
+    };
+    simulatePageLoading();
+  }, []);
   return (
-    <div className={`min-h-screen`}>
+    <div className={`min-h-screen`} key={JSON.stringify(state)}>
       <Meta title="KingStudy" />
-      <TopBar />
+      <Hero />
+      <Partner />
+      <About />
+      <Reward />
+      <Major />
+      <SchoolGrid />
+      <Feedback />
+      <Cta />
+      <LoadingPage done={done} percent={percent} />
     </div>
   );
 }
+Home.getLayout = function (page) {
+  return (
+    <>
+      <GuestLayout>{page}</GuestLayout>
+    </>
+  );
+};

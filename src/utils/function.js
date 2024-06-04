@@ -38,3 +38,26 @@ export const showNotification = (type, description) => {
       break;
   }
 };
+
+export const formatNumberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+export const validationRules = {
+  required: (message) => ({
+    required: true,
+    message: message || 'Vui lòng nhập thông tin trường này !',
+  }),
+  email: (message) => ({
+    type: 'email',
+    message: message || 'Vui lòng nhập email hợp lệ !',
+  }),
+  confirmPassword: (confirmPasswordValue, message) => ({
+    validator: (rule, value) => {
+      // eslint-disable-next-line no-undef
+      if (!value || value === confirmPasswordValue) return Promise.resolve();
+      // eslint-disable-next-line no-undef
+      return Promise.reject(message || 'Mật khẩu không trùng khớp !');
+    },
+  }),
+};

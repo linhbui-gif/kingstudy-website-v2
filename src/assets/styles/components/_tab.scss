@@ -1,0 +1,40 @@
+.Tabs {
+
+    .ant-tabs-top>.ant-tabs-nav .ant-tabs-ink-bar,
+    .ant-tabs-top>div>.ant-tabs-nav .ant-tabs-ink-bar {
+      @apply bottom-0;
+      @apply h-[0.2rem]
+    }
+     .ant-tabs {
+       .ant-tabs-ink-bar {
+        @apply bg-style-32;
+      }
+      .ant-tabs-nav {
+        &::before {
+          @apply top-0;
+          @apply border-b-[0.2rem] border-style-36;
+        }
+      }
+      .ant-tabs-tab-btn {
+        @apply text-body-16 text-style-12 leading-[140%] font-[400] transition-none ;
+      }
+    .ant-tabs-tab {
+        @apply pl-0 mr-[1.2rem] py-0;
+        @apply h-[5.2rem];
+        &:hover {
+          @apply text-button-16 text-style-32 leading-[140%];
+        }
+
+        &+.ant-tabs-tab {
+          @apply  mx-[1.2rem];
+        }
+
+        &.ant-tabs-tab-active {
+            .ant-tabs-tab-btn {
+           @apply text-button-16 text-style-32 leading-[140%] 	;
+          }
+        }
+      }
+    }
+  }
+  
