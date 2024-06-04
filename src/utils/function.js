@@ -1,6 +1,6 @@
-import { notification } from 'antd';
+import {notification} from 'antd';
 
-import { ETypeNotification } from '@/common/enums';
+import {ETypeNotification} from '@/common/enums';
 
 export const showNotification = (type, description) => {
   const options = {
@@ -60,4 +60,10 @@ export const validationRules = {
       return Promise.reject(message || 'Mật khẩu không trùng khớp !');
     },
   }),
+};
+
+export const formatNumbersWithCommas = (number) => {
+  let numberString = number.toString();
+  numberString = numberString.replace('.', '');
+  return parseInt(numberString, 10).toLocaleString('en-US');
 };

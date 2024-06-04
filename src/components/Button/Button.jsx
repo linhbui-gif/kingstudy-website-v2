@@ -21,6 +21,7 @@ const ButtonComponent = ({
   block,
   style = '',
   widthIcon,
+  heightIcon
 }) => {
   const router = useRouter();
   const handleClickButton = () => {
@@ -47,7 +48,7 @@ const ButtonComponent = ({
           style={{ flexDirection: reverse ? 'row-reverse' : undefined }}
         >
           {iconName && (
-            <Icon width={widthIcon} name={iconName} color={iconColor} />
+            <Icon width={widthIcon} height={heightIcon} name={iconName} color={iconColor} />
           )}
           {title && <span>{title}</span>}
           {secondIconName && (

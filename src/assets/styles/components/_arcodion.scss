@@ -4,7 +4,7 @@
         @apply bg-white rounded-arcodion;
        
         &-item {
-            @apply bg-white rounded-arcodion border border-solid border-b-0 border-style-36 last:border-b last:border-b-[#DEE2E6] last:border-solid;
+            @apply bg-white border border-solid border-b-0 border-style-36 last:border-b last:border-b-[#DEE2E6] last:border-solid;
           .ant-collapse-header {
             
             @apply p-[1.6rem] border border-style-8 flex items-center ;
@@ -20,4 +20,8 @@
           }
         }
     }
+
+  .ant-collapse-item:first-child {
+    @apply rounded-arcodion
+  }
 }

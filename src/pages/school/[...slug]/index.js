@@ -22,6 +22,7 @@ import Tution from '@/containers/Tution';
 import GuestLayout from '@/layouts/GuestLayout';
 import { getSchoolDetailBySlug } from '@/services/school';
 import { rootUrl, statusSchool } from '@/utils/utils';
+import {formatNumbersWithCommas} from "@/utils/function";
 
 const itemsMenu = [
   {
@@ -57,12 +58,12 @@ const itemsMenu = [
     label: 'Yêu cầu đầu vào',
   },
   {
-    key: 'review',
-    label: 'Feedback',
-  },
-  {
     key: 'gallery',
     label: 'Thư viện ảnh',
+  },
+  {
+    key: 'review',
+    label: 'Feedback',
   },
 ];
 
@@ -171,7 +172,7 @@ const SchoolDetail = () => {
                             />
                             <span
                               className={
-                                'mt-2 md:text-body-16 text-body-14 text-style-9 font-[600] leading-9'
+                                ' md:text-body-16 text-body-14 text-style-9 font-[600] leading-9'
                               }
                             >
                               {schoolData?.country?.name}
@@ -179,7 +180,9 @@ const SchoolDetail = () => {
                           </Flex>
                         </div>
                       </Flex>
-                      {statusSchool(schoolData?.type)}
+                      <div className={'mt-2'}>
+                        {statusSchool(schoolData?.type)}
+                      </div>
                     </Flex>
                   )}
                   <div
@@ -247,7 +250,7 @@ const SchoolDetail = () => {
                                     'text-center text-title-20 text-style-7'
                                   }
                                 >
-                                  {number?.number}
+                                  {formatNumbersWithCommas(number?.number)}
                                 </h6>
                               </div>
                             );
@@ -291,11 +294,16 @@ const SchoolDetail = () => {
                   {loading ? (
                     <Skeleton className={'my-[5rem]'} />
                   ) : (
-                    <div
-                      className={'py-[4rem] font-BeVnPro-style-content'}
-                      dangerouslySetInnerHTML={{ __html: schoolData?.about }}
-                      style={{ color: '#575757 !important' }}
-                    />
+                    <div className={'py-[4rem] '}>
+                      <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
+                        Tổng quan
+                      </h4>
+                      <div
+                        className={'font-BeVnPro-style-content'}
+                        dangerouslySetInnerHTML={{ __html: schoolData?.about }}
+                        style={{ color: '#575757 !important' }}
+                      />
+                    </div>
                   )}
                   <div
                     className={'md:p-[2.4rem] p-[1.6rem] bg-style-8 rounded-sm'}
@@ -405,7 +413,7 @@ const SchoolDetail = () => {
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
-                    <div className={'py-[4rem]'} id={'chuongtrinhgiangday'}>
+                    <div className={'py-[2rem]'} id={'chuongtrinhgiangday'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Chương trình giảng dạy
                       </h4>
@@ -417,7 +425,7 @@ const SchoolDetail = () => {
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
-                    <div id={'hocphi'}>
+                    <div id={'hocphi'} className={'py-[4rem]'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Học phí
                       </h4>
@@ -450,6 +458,7 @@ const SchoolDetail = () => {
                       <InputRequest />
                     </div>
                   </Skeleton>
+                  <Gallery loading={loading} gallery={gallery} />
                   <Skeleton loading={loading}>
                     <div className={'pt-[4rem]'} id={'review'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
@@ -458,7 +467,6 @@ const SchoolDetail = () => {
                       <Review data={schoolData?.feed_back} />
                     </div>
                   </Skeleton>
-                  <Gallery loading={loading} gallery={gallery} />
                 </div>
               </Col>
               <Col lg={{ span: 8 }} className={'hidden lg:block'}>
@@ -516,6 +524,8 @@ const SchoolDetail = () => {
                         iconColor={EIconColor.WHITE}
                         title={'So sánh'}
                         className={'primary w-[15rem] px-0'}
+                        widthIcon={35}
+                        heightIcon={35}
                       />
                       <ButtonComponent
                         iconName={EIconName.Favorite}

@@ -58,6 +58,22 @@ const CourseAccordion = () => {
         </div>
       ),
     },
+    {
+      key: '3',
+      label: 'International Merit Scholarship (£1,000-£2,000)',
+      children: (
+        <div>
+          <p className="text-button-16 font-[400] text-style-7 leading-[140%] mb-0">
+            <strong>How do I apply?</strong> We will automatically consider you
+            for this scholarship when you apply for the MBA.
+          </p>
+          <ButtonComponent
+            title={'Xem chi tiết'}
+            className={'default mt-[2.4rem]'}
+          />
+        </div>
+      ),
+    },
   ];
 
   const customExpandIcon = ({ isActive }) => (

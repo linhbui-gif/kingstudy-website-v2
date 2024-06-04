@@ -16,6 +16,7 @@ import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
+import PaginationV2 from "@/components/PaginationV2";
 const SchoolList = () => {
   const router = useRouter();
   const { majors } = router.query;
@@ -44,6 +45,14 @@ const SchoolList = () => {
       setCountFilter(Object.keys(filterScholLength)?.length);
     }
   }, [filterSchool]);
+
+  const onShowSizeChange = (current, limit) => {
+    setFilterSchool({
+      ...filterSchool,
+      page: current,
+      limit: limit,
+    });
+  };
   return (
     <section className={'lg:mt-[10rem] mt-[5rem]'}>
       <Container>
@@ -150,9 +159,11 @@ const SchoolList = () => {
                 })}
             </Row>
             <div className="my-[4.0rem] lg:mt-[2.4rem]">
-              <Pagination
+              <PaginationV2
+                showSizeChanger={false}
                 pages={filterSchool}
                 onChange={handlePageChange}
+                onChangeSize={onShowSizeChange}
                 total={totalSchool}
               />
             </div>

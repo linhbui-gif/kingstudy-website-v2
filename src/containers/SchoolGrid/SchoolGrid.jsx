@@ -12,6 +12,7 @@ import { useAPI } from '@/contexts/APIContext';
 const SchoolGrid = () => {
   const { schoolList, loading, setFilterSchool, filterSchool, countries } =
     useAPI();
+  const schoolListSixItem = schoolList.slice(-6);
   const selectedTagCountries = () => {
     const selectedCountries =
       countries &&
@@ -83,8 +84,8 @@ const SchoolGrid = () => {
           ) : (
             ''
           )}
-          {schoolList &&
-            schoolList.map((school) => {
+          {schoolListSixItem &&
+            schoolListSixItem.map((school) => {
               return (
                 <Col
                   span={20}
