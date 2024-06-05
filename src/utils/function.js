@@ -1,6 +1,6 @@
-import {notification} from 'antd';
+import { notification } from 'antd';
 
-import {ETypeNotification} from '@/common/enums';
+import { ETypeNotification } from '@/common/enums';
 
 export const showNotification = (type, description) => {
   const options = {

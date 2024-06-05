@@ -11,12 +11,11 @@ import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Input from '@/components/Input';
 import Meta from '@/components/Meta';
-import Pagination from '@/components/Pagination';
+import PaginationV2 from '@/components/PaginationV2';
 import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
-import PaginationV2 from "@/components/PaginationV2";
 const SchoolList = () => {
   const router = useRouter();
   const { majors } = router.query;

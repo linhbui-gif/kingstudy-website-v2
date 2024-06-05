@@ -21,8 +21,8 @@ import Scholarship from '@/containers/Scholarship';
 import Tution from '@/containers/Tution';
 import GuestLayout from '@/layouts/GuestLayout';
 import { getSchoolDetailBySlug } from '@/services/school';
+import { formatNumbersWithCommas } from '@/utils/function';
 import { rootUrl, statusSchool } from '@/utils/utils';
-import {formatNumbersWithCommas} from "@/utils/function";
 
 const itemsMenu = [
   {

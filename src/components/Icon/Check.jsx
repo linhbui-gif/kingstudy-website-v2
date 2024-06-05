@@ -1,4 +1,4 @@
-import {EIconColor} from "@/components/Icon/Icon.enum";
+import { EIconColor } from '@/components/Icon/Icon.enum';
 
 const Svg = ({ color = EIconColor.STYLE_10 }) => {
   return (
