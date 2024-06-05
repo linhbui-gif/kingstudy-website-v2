@@ -3,6 +3,7 @@ import React from 'react';
 import { Col, Flex, Row, Select } from 'antd';
 
 import ImageSchool from '@/assets/images/image-school.jpg';
+import ButtonComponent from '@/components/Button';
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/Card/CardSkeleton';
 import Empty from '@/components/Empty';
@@ -108,6 +109,16 @@ const SchoolGrid = () => {
                 </Col>
               );
             })}
+          <Col span={24}>
+            <div className={'flex justify-center w-full'}>
+              <ButtonComponent
+                title={'Xem thêm'}
+                className={'primary-outline mt-[4rem]'}
+                loading={false}
+                link={`/school`}
+              />
+            </div>
+          </Col>
         </Row>
       </Container>
     </section>

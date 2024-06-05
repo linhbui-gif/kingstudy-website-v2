@@ -4,7 +4,7 @@ import Container from '@/containers/Container';
 
 const Reward = () => {
   return (
-    <section className={'bg-style-10 lg:py-[3.2rem] py-[1.6rem]'}>
+    <section className={'bg-style-10 lg:py-[3.2rem] pb-[1.6rem]'}>
       <Container>
         <div className={'flex items-center justify-between'}>
           <div
@@ -41,7 +41,7 @@ const Reward = () => {
             }
           >
             <Icon
-              className={'md:w-auto w-[2.7rem]'}
+              className={'md:w-auto w-[2.7rem] h-[5.5rem]'}
               name={EIconName.StudyAboard}
               color={EIconColor.WHITE}
             />
