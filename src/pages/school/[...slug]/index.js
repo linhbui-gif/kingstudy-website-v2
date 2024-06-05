@@ -176,7 +176,9 @@ const SchoolDetail = () => {
                             >
                               {schoolData?.country?.name}
                             </span>
-                            <div className={'flex flex-1 md:hidden justify-end'}>
+                            <div
+                              className={'flex flex-1 md:hidden justify-end'}
+                            >
                               {statusSchool(schoolData?.type)}
                             </div>
                           </Flex>

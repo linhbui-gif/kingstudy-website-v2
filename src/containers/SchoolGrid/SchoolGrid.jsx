@@ -3,14 +3,13 @@ import React from 'react';
 import { Col, Flex, Row, Select } from 'antd';
 
 import ImageSchool from '@/assets/images/image-school.jpg';
+import ButtonComponent from '@/components/Button';
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/Card/CardSkeleton';
 import Empty from '@/components/Empty';
 import Tag from '@/components/Tag';
 import Container from '@/containers/Container';
 import { useAPI } from '@/contexts/APIContext';
-import ButtonComponent from "@/components/Button";
-import {Paths} from "@/routers/constants";
 const SchoolGrid = () => {
   const { schoolList, loading, setFilterSchool, filterSchool, countries } =
     useAPI();
