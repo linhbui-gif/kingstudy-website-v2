@@ -113,7 +113,7 @@ const Feedback = () => {
             <div className="student" key={student.id}>
               <div
                 className={
-                  'student-feedback bg-style-24 p-[1.6rem] lg:p-[3rem] mr-[2.4rem] lg:mr-[3rem]'
+                  'student-feedback bg-style-24 p-[1.6rem] lg:p-[3rem] mr-[2.4rem] lg:mr-[3rem] flex flex-1 flex-col'
                 }
               >
                 <div className="flex justify-between lg:mb-[3rem]">
@@ -152,7 +152,7 @@ const Feedback = () => {
                     />
                   </div>
                 </div>
-                <div className="lg:mt-[0.28rem]">
+                <div className="lg:mt-[0.28rem] flex flex-1 flex-col">
                   <h3 className="mb-0 text-style-10 text-body-18 leading-[140%]">
                     {student.title}
                   </h3>

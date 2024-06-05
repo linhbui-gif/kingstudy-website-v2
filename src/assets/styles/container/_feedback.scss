@@ -25,4 +25,20 @@
     .slick-dots li.slick-active button:before {
       @apply static text-[unset]
     }
+    .slick-list {
+      @apply flex;
+    }
+    .slick-track {
+      @apply flex flex-1;
+      .slick-slide {
+        @apply flex flex-1;
+         >div {
+          @apply flex flex-1 flex-col;
+        }
+      }
+    }
+    .student {
+      display: flex !important;
+      @apply flex-1 flex-col;
+    }
 }
