@@ -12,7 +12,9 @@ import Input from '@/components/Input';
 import Container from '@/containers/Container';
 const Footer = () => {
   return (
-    <footer className={`footer bg-style-32 pt-[5rem] lg:pt-[10rem]`}>
+    <footer
+      className={`footer bg-style-32 pt-[5rem] pb-[10rem] lg:pb-0 lg:pt-[10rem]`}
+    >
       <Container>
         <Row className={''}>
           <Col
@@ -160,7 +162,7 @@ const Footer = () => {
           <Col
             lg={{ span: 6 }}
             md={{ span: 12 }}
-            span={24}
+            span={12}
             className={'md:px-[1.2rem] lg:px-0'}
           >
             <div className={'lg:ml-[11rem] mb-[4rem]'}>
@@ -209,6 +211,29 @@ const Footer = () => {
                   </Link>
                 </li>
               </ul>
+            </div>
+          </Col>
+          <Col
+            lg={{ span: 6 }}
+            md={{ span: 12 }}
+            span={12}
+            className={'md:px-[1.2rem] lg:px-0'}
+          >
+            <div className="flex lg:gap-x-[1.6rem] lg:hidden flex-wrap gap-x-[1rem] mb-2">
+              <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
+                <Icon name={EIconName.Facebook} />
+              </div>
+              <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
+                <Icon name={EIconName.Twitter} />
+              </div>
+            </div>
+            <div className="flex lg:gap-x-[1.6rem] lg:hidden flex-wrap gap-x-[1rem]">
+              <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
+                <Icon name={EIconName.Instagram} />
+              </div>
+              <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
+                <Icon name={EIconName.Likedine} />
+              </div>
             </div>
           </Col>
         </Row>
@@ -296,23 +321,9 @@ const Footer = () => {
           </Form>
           <div>
             <div className=" mt-[2.4rem] flex">
-              <p className="text-body-14 max-w-[14.8rem]  text-white font-[400] leading-[140%]">
-                © Copyrighted and Designed by Bdevs
+              <p className="text-body-14 lg:max-w-[14.8rem]  text-white font-[400] leading-[140%]">
+                © Copyrighted and Designed by Bdevs12321
               </p>
-              <div className="flex lg:gap-x-[1.6rem] lg:hidden">
-                <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
-                  <Icon name={EIconName.Facebook} />
-                </div>
-                <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
-                  <Icon name={EIconName.Twitter} />
-                </div>
-                <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
-                  <Icon name={EIconName.Instagram} />
-                </div>
-                <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
-                  <Icon name={EIconName.Likedine} />
-                </div>
-              </div>
             </div>
           </div>
         </div>

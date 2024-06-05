@@ -53,8 +53,8 @@ const SignUp = () => {
             src={ImageLogoMobile}
             alt={'Logo King study'}
             width={167}
-            height={100}
-            className={'max-w-full h-[10rem] lg:h-auto'}
+            height={104}
+            className={'max-w-full lg:h-auto'}
             priority
           />
         </Link>

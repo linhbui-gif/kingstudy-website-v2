@@ -47,7 +47,7 @@ const Major = () => {
               const isHovered = hoveredIndex === index;
               return (
                 <Col
-                  span={12}
+                  span={24}
                   md={{ span: 12 }}
                   lg={{ span: 8 }}
                   key={major?.id}

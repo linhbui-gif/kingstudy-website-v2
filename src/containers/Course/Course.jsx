@@ -8,7 +8,9 @@ const Course = ({ data }) => {
       title: 'Tất cả',
       children: (
         <>
-          <CourseAccordion />
+          <div className={'max-h-[40rem] overflow-x-auto'}>
+            <CourseAccordion />
+          </div>
         </>
       ),
     },

@@ -21,7 +21,7 @@ const Hero = () => {
       }
       style={{
         backgroundImage: isMobile
-          ? "url('/images/image-banner-home-mobile2.webp')"
+          ? "url('')"
           : "url('/images/image-hero3.webp')",
         backgroundSize: 'cover',
       }}
@@ -39,7 +39,7 @@ const Hero = () => {
       />
       <Container>
         <Row>
-          <Col span={14} md={{ span: 14 }} lg={{ span: 12 }}>
+          <Col span={24} md={{ span: 14 }} lg={{ span: 12 }}>
             <div className="hero-text">
               <h5
                 className={
@@ -50,7 +50,7 @@ const Hero = () => {
               </h5>
               <h2
                 className={
-                  'mt-[1.8rem] mb-[3.8rem] 2xl:text-title-50 md:text-[3.6rem] text-[1.6rem] font-[700] text-style-7'
+                  'mt-[1.8rem] mb-[3.8rem] 2xl:text-title-50 md:text-[3.6rem] text-[2rem] font-[700] text-style-7'
                 }
               >
                 Khám phá 4500+ Khóa học từ những Giảng viên hàng đầu trên khắp
@@ -120,7 +120,7 @@ const Hero = () => {
           <Col
             md={{ span: 24 }}
             lg={{ span: 12 }}
-            className={'md:hidden block'}
+            className={'md:hidden hidden'}
           >
             <div className={'hero-right relative'}>
               <Image

@@ -130,8 +130,7 @@ const SchoolDetail = () => {
                       id={'tongquan'}
                     >
                       <Flex
-                        align={'start'}
-                        className={'md:gap-[1.6rem] gap-[.6rem]'}
+                        className={'gap-[1.6rem] md:items-start items-center'}
                       >
                         <div className={'w-[9rem] h-[9rem]'}>
                           <Image
@@ -177,16 +176,19 @@ const SchoolDetail = () => {
                             >
                               {schoolData?.country?.name}
                             </span>
+                            <div className={'flex flex-1 md:hidden justify-end'}>
+                              {statusSchool(schoolData?.type)}
+                            </div>
                           </Flex>
                         </div>
                       </Flex>
-                      <div className={'mt-2'}>
+                      <div className={'mt-2 md:block hidden'}>
                         {statusSchool(schoolData?.type)}
                       </div>
                     </Flex>
                   )}
                   <div
-                    className={`lg:hidden block fixed top-[16.4rem] bg-white z-[100] left-0 w-full`}
+                    className={`lg:hidden block fixed top-[12.4rem] bg-white z-[100] left-0 w-full`}
                   >
                     <ul
                       className={
@@ -222,7 +224,7 @@ const SchoolDetail = () => {
                   ) : (
                     <>
                       <Flex
-                        className="md:flex hidden school-meta p-[2rem_0] mt-[4rem]"
+                        className="md:flex hidden school-meta p-[1.6rem_0] pb-[1.4rem] mt-[4rem]"
                         gap={20}
                         wrap
                         justify={'space-around'}
@@ -366,7 +368,7 @@ const SchoolDetail = () => {
                     </Skeleton>
                   </div>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
-                    <div id={'city'} className={'py-[4rem]'}>
+                    <div id={'city'} className={'pt-[3rem]'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Thành phố
                       </h4>
@@ -405,7 +407,7 @@ const SchoolDetail = () => {
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
-                    <div className={'pt-[3rem]'} id={'cosovatchat'}>
+                    <div className={'pt-[4rem]'} id={'cosovatchat'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Cơ Sở Vật Chất
                       </h4>
@@ -437,7 +439,7 @@ const SchoolDetail = () => {
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Học bổng
                       </h4>
-                      <div className={'max-h-[20rem] overflow-x-auto'}>
+                      <div className={''}>
                         <Scholarship />
                       </div>
                     </div>

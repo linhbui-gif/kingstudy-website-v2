@@ -9,6 +9,8 @@ import Empty from '@/components/Empty';
 import Tag from '@/components/Tag';
 import Container from '@/containers/Container';
 import { useAPI } from '@/contexts/APIContext';
+import ButtonComponent from "@/components/Button";
+import {Paths} from "@/routers/constants";
 const SchoolGrid = () => {
   const { schoolList, loading, setFilterSchool, filterSchool, countries } =
     useAPI();
@@ -108,6 +110,16 @@ const SchoolGrid = () => {
                 </Col>
               );
             })}
+          <Col span={24}>
+            <div className={'flex justify-center w-full'}>
+              <ButtonComponent
+                title={'Xem thêm'}
+                className={'primary-outline mt-[4rem]'}
+                loading={false}
+                link={`/school`}
+              />
+            </div>
+          </Col>
         </Row>
       </Container>
     </section>
