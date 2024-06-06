@@ -22,7 +22,7 @@ const SchoolGrid = () => {
     return selectedCountries;
   };
   return (
-    <section className={'lg:py-[15rem] py-[5rem] bg-style-13'}>
+    <section className={'py-[7rem] bg-style-13'}>
       <Container>
         <Row gutter={[24, 24]} className={'lg:mb-[5rem] mb-[1.6rem]'}>
           <Col span={24}>

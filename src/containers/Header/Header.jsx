@@ -119,7 +119,7 @@ const Header = () => {
       <Container fluid>
         <div className={'max-w-[1700px] mx-auto'}>
           <div className="flex items-center justify-between">
-            <div className={'lg:w-auto w-[14.4rem] h-[6.8rem] lg:h-auto'}>
+            <div className={'lg:w-auto w-[14.4rem] h-[9.5rem] lg:h-auto'}>
               <Link href={'/'} className={'block w-full h-full'}>
                 <Image
                   quality={100}

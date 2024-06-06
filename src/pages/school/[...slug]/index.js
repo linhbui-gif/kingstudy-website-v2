@@ -83,7 +83,7 @@ const SchoolDetail = () => {
       setLoading(true);
       const response = await getSchoolDetailBySlug(slug[0]);
       if (response?.code === 200) {
-        setLoading(false);
+        setLoading(true);
         setSchool(response?.data?.data);
       }
     } catch (e) {

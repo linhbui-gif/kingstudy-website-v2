@@ -42,7 +42,11 @@ const Login = () => {
   };
   return (
     <div className={'md:w-[56rem] w-full translate-y-[-10%]'}>
-      <div className={'w-full text-center'}>
+      <div
+        className={
+          'text-center lg:w-auto w-[14.4rem] h-[9.5rem] mx-auto lg:h-auto'
+        }
+      >
         <Link href={'/'} className={'block'}>
           <Image
             quality={100}
