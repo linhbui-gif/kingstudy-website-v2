@@ -16,4 +16,7 @@ export const Paths = {
   School: {
     SchoolDetail: (slug) => `/school/${slug}`,
   },
+  Profile: {
+    View: '/profile',
+  },
 };

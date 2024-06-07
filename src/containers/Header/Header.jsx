@@ -58,7 +58,11 @@ const Header = () => {
     return (
       <DropdownMenu
         options={[
-          { value: '1', label: 'Thông tin cá nhân', link: `` },
+          {
+            value: '1',
+            label: 'Thông tin cá nhân',
+            link: `${Paths.Profile.View}`,
+          },
           { value: '2', label: 'Đăng xuất', onClick: handleLogout },
         ]}
       >
