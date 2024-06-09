@@ -27,7 +27,7 @@ import { showNotification } from '@/utils/function';
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
 });
-const Header = () => {
+const Header = ({ totalWishList = 0 }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const { isLogin } = useAPI();
   const router = useRouter();
@@ -207,11 +207,16 @@ const Header = () => {
                 <div
                   className={'relative mr-[3rem]'}
                   onClick={() => {
-                    if (!isLogin)
+                    if (!isLogin) {
                       showNotification(
                         ETypeNotification.INFO,
                         'Bạn cần phải đăng nhập để sử dụng tính năng này !'
                       );
+                    } else {
+                      router.push(
+                        `${Paths.Profile.View}?page=${EProfileSidebar.SCHOOL_FAVORITE}`
+                      );
+                    }
                   }}
                 >
                   <Icon name={EIconName.Favorite} color={EIconColor.WHITE} />
@@ -220,7 +225,7 @@ const Header = () => {
                       'absolute top-[-5px] right-[-10px] flex items-center justify-center w-[20px] h-[20px] text-body-14 text-style-5 text-center bg-red rounded-full'
                     }
                   >
-                    0
+                    {totalWishList}
                   </span>
                 </div>
 
@@ -257,11 +262,16 @@ const Header = () => {
                 <div
                   className={'relative'}
                   onClick={() => {
-                    if (!isLogin)
+                    if (!isLogin) {
                       showNotification(
                         ETypeNotification.INFO,
                         'Bạn cần phải đăng nhập để sử dụng tính năng này !'
                       );
+                    } else {
+                      router.push(
+                        `${Paths.Profile.View}?page=${EProfileSidebar.SCHOOL_FAVORITE}`
+                      );
+                    }
                   }}
                 >
                   <Icon name={EIconName.Favorite} color={EIconColor.WHITE} />
@@ -270,7 +280,7 @@ const Header = () => {
                       'absolute top-[-5px] right-[-10px] flex items-center justify-center w-[20px] h-[20px] text-[12px] text-style-5 text-center bg-red rounded-full'
                     }
                   >
-                    0
+                    {totalWishList}
                   </span>
                 </div>
                 {/*<Icon*/}

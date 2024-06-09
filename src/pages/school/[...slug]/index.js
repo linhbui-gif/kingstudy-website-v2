@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from 'react-responsive';
 
+import { ETypeNotification } from '@/common/enums';
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
@@ -19,9 +20,10 @@ import InputRequest from '@/containers/InputRequest';
 import Review from '@/containers/Review';
 import Scholarship from '@/containers/Scholarship';
 import Tution from '@/containers/Tution';
+import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
-import { getSchoolDetailBySlug } from '@/services/school';
-import { formatNumbersWithCommas } from '@/utils/function';
+import { addSchoolFavorite, getSchoolDetailBySlug } from '@/services/school';
+import { formatNumbersWithCommas, showNotification } from '@/utils/function';
 import { rootUrl, statusSchool } from '@/utils/utils';
 
 const itemsMenu = [
@@ -78,6 +80,7 @@ const SchoolDetail = () => {
   const gallery = schoolData?.gallery || {};
   const [itemMenuActive, setItemMenuActive] = useState('');
   const isMobile = useMediaQuery({ maxWidth: 1024 });
+  const { getSchoolWishList, isLogin } = useAPI();
   const getSchool = async () => {
     try {
       setLoading(true);
@@ -108,6 +111,25 @@ const SchoolDetail = () => {
       element.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: y, behavior: 'smooth' });
     setItemMenuActive(id);
+  };
+  const onAddSchoolFavorite = (idSchool) => {
+    if (typeof idSchool !== 'undefined')
+      addSchoolToFavoriteList(idSchool).then();
+  };
+
+  const addSchoolToFavoriteList = async (idSchoolFavorite) => {
+    try {
+      const response = await addSchoolFavorite(idSchoolFavorite);
+      if (response?.status === 200) {
+        getSchoolWishList().then();
+        showNotification(ETypeNotification.SUCCESS, response?.message);
+      }
+    } catch (e) {
+      showNotification(
+        ETypeNotification.ERROR,
+        'Đã xảy ra lỗi hệ thống ! Vui lòng liên hệ kỹ thuật để được hỗ trợ sớm nhất'
+      );
+    }
   };
   return (
     <GuestLayout>
@@ -536,6 +558,16 @@ const SchoolDetail = () => {
                         title={'Yêu thích'}
                         className={'default w-[15rem] px-0'}
                         widthIcon={20}
+                        onClick={() => {
+                          if (!isLogin) {
+                            showNotification(
+                              ETypeNotification.INFO,
+                              'Bạn cần phải đăng nhập để sử dụng tính năng này !'
+                            );
+                          } else {
+                            onAddSchoolFavorite(schoolData?.id);
+                          }
+                        }}
                       />
                     </Flex>
                     <Flex justify={'center'} gap={50}>

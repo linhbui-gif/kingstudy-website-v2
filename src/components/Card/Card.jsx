@@ -2,9 +2,13 @@ import { Flex } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { ETypeNotification } from '@/common/enums';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
+import { useAPI } from '@/contexts/APIContext';
 import { Paths } from '@/routers/constants';
+import { addSchoolFavorite } from '@/services/school';
+import { showNotification } from '@/utils/function';
 import { rootUrl, statusSchool } from '@/utils/utils';
 const Card = ({
   url = '',
@@ -14,7 +18,29 @@ const Card = ({
   type,
   country,
   slug = '',
+  id,
+  isFavoritePage = false,
 }) => {
+  const { getSchoolWishList, isLogin } = useAPI();
+  const onAddSchoolFavorite = (idSchool) => {
+    if (typeof idSchool !== 'undefined')
+      addSchoolToFavoriteList(idSchool).then();
+  };
+
+  const addSchoolToFavoriteList = async (idSchoolFavorite) => {
+    try {
+      const response = await addSchoolFavorite(idSchoolFavorite);
+      if (response?.status === 200) {
+        if (!isFavoritePage) getSchoolWishList().then();
+        showNotification(ETypeNotification.SUCCESS, response?.message);
+      }
+    } catch (e) {
+      showNotification(
+        ETypeNotification.ERROR,
+        'Đã xảy ra lỗi hệ thống ! Vui lòng liên hệ kỹ thuật để được hỗ trợ sớm nhất'
+      );
+    }
+  };
   return (
     <div className="Card bg-white flex flex-col flex-1 shadow-md rounded-md">
       <div className="Card-header">
@@ -58,7 +84,21 @@ const Card = ({
           <Flex align={'center'} gap={'small'} className={'cursor-pointer'}>
             <Icon name={EIconName.Compare} width={45} height={45} />
           </Flex>
-          <Flex align={'center'} gap={'small'} className={' cursor-pointer'}>
+          <Flex
+            align={'center'}
+            gap={'small'}
+            className={' cursor-pointer'}
+            onClick={() => {
+              if (!isLogin) {
+                showNotification(
+                  ETypeNotification.INFO,
+                  'Bạn cần phải đăng nhập để sử dụng tính năng này !'
+                );
+              } else {
+                onAddSchoolFavorite(id);
+              }
+            }}
+          >
             <Icon name={EIconName.Favorite} width={30} height={30} />
           </Flex>
         </Flex>

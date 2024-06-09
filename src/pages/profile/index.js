@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Col, Flex, Row } from 'antd';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import ImageAvatarDefault from '@/assets/images/image-avatar-default.png';
@@ -15,7 +14,9 @@ import SettingSidebar from '@/containers/Profile/Setting';
 import TrackingProfile from '@/containers/Profile/TrackingProfile';
 import Setting from '@/containers/Setting';
 import { sidebarProfileData } from '@/containers/SidebarProfile/SidebarProfile.data';
+import { useAPI } from '@/contexts/APIContext';
 import ProtectedLayout from '@/layouts/ProtectedLayout';
+import { rootUrl } from '@/utils/utils';
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
@@ -24,10 +25,16 @@ const Profile = () => {
   const router = useRouter();
   // eslint-disable-next-line no-unsafe-optional-chaining
   const { page } = router?.query;
+  const { getProfileInfor, profileState, loadingGetProfileState } = useAPI();
   const renderContentRight = (pageType) => {
     switch (pageType) {
       case EProfileSidebar.MY_PROFILE_INFORMATION:
-        return <MyProfileInformation />;
+        return (
+          <MyProfileInformation
+            profileState={profileState}
+            loading={loadingGetProfileState}
+          />
+        );
       case EProfileSidebar.TRACKING_PROFILE_INFORMATION:
         return <TrackingProfile />;
       case EProfileSidebar.MANAGER_PROFILE_INFORMATION:
@@ -35,11 +42,18 @@ const Profile = () => {
       case EProfileSidebar.SCHOOL_FAVORITE:
         return <SchoolFavorite />;
       case EProfileSidebar.SETTING:
-        return <SettingSidebar />;
+        return (
+          <SettingSidebar
+            avatarStateUrl={`${rootUrl}${profileState?.image_url}`}
+          />
+        );
       default:
         return '';
     }
   };
+  useEffect(() => {
+    getProfileInfor().then();
+  }, []);
   return (
     <div>
       <MediaQuery maxWidth={991}>
@@ -56,17 +70,24 @@ const Profile = () => {
                   style={{ borderBottom: '1px solid #edeef2' }}
                   className={'pb-[3rem]'}
                 >
-                  <div className="avatar">
-                    <Image
-                      className={'rounded-full'}
-                      src={ImageAvatarDefault}
-                      alt={'not-avatar'}
+                  <div className="avatar w-[26rem]">
+                    <img
+                      width={260}
+                      height={260}
+                      loading={'lazy'}
+                      alt={''}
+                      className={'w-full object-cover rounded-full'}
+                      src={
+                        profileState
+                          ? `${rootUrl}${profileState?.image_url}`
+                          : ImageAvatarDefault
+                      }
                     />
                   </div>
                   <div>
                     <span>Xin chào,</span>
                     <h3 className={'text-title-24 font-[700]'}>
-                      David Allberto
+                      {profileState?.full_name}
                     </h3>
                   </div>
                 </Flex>

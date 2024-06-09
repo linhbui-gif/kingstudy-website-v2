@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Col, Row } from 'antd';
 
@@ -9,14 +9,18 @@ import Empty from '@/components/Empty';
 import { useAPI } from '@/contexts/APIContext';
 
 const SchoolFavorite = () => {
-  const { schoolList, loading } = useAPI();
+  const { schoolWishList, getSchoolWishList, loadingGetSchoolWishListState } =
+    useAPI();
+  useEffect(() => {
+    getSchoolWishList().then();
+  }, []);
   return (
     <div className={'p-[2rem]'}>
       <h4 className={'text-title-24 text-style-7'}>
         Danh sách trường yêu thích
       </h4>
       <Row gutter={[24, 24]}>
-        {schoolList.length === 0 ? (
+        {schoolWishList[0].length === 0 ? (
           <Col span={24}>
             <div className={'flex items-center justify-center flex-col'}>
               <Empty />
@@ -25,8 +29,8 @@ const SchoolFavorite = () => {
         ) : (
           ''
         )}
-        {schoolList &&
-          schoolList.map((school) => {
+        {schoolWishList[0] &&
+          schoolWishList[0].map((school) => {
             return (
               <Col
                 className="flex flex-col "
@@ -36,7 +40,7 @@ const SchoolFavorite = () => {
                 md={{ span: 12 }}
                 key={school?.id}
               >
-                {loading ? (
+                {loadingGetSchoolWishListState ? (
                   <CardSkeleton />
                 ) : (
                   <Card
@@ -46,6 +50,8 @@ const SchoolFavorite = () => {
                     type={school?.type_school}
                     country={school?.country}
                     slug={school?.slug}
+                    id={school?.id}
+                    isFavoritePage
                   />
                 )}
               </Col>
