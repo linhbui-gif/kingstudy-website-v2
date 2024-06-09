@@ -3,12 +3,12 @@ import React from 'react';
 import Tabs from '@/components/Tabs';
 import ChangePassword from '@/containers/Profile/Setting/ChangePassword';
 import ChangeProfileInformation from '@/containers/Profile/Setting/ChangeProfileInformation';
-const SettingSidebar = () => {
+const SettingSidebar = ({ avatarStateUrl }) => {
   const settingOptions = [
     {
       key: 'profile',
       title: 'Hồ sơ',
-      children: <ChangeProfileInformation />,
+      children: <ChangeProfileInformation avatarStateUrl={avatarStateUrl} />,
     },
     {
       key: 'password',

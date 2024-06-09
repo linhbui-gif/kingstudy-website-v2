@@ -1,8 +1,11 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
+import { ETypeNotification } from '@/common/enums';
 import { getCountries, getMajors } from '@/services/common';
 import Helpers from '@/services/helpers';
-import { getListSchool } from '@/services/school';
+import { getProfileUser } from '@/services/profile';
+import { getListSchool, getListSchoolWishlist } from '@/services/school';
+import { showNotification } from '@/utils/function';
 import { changeArrayToOptions } from '@/utils/utils';
 
 const APIContext = createContext();
@@ -19,6 +22,11 @@ export const APIProvider = ({ children }) => {
 
   const [totalSchool, setTotalSchool] = useState(0);
   const isLogin = Helpers.getAccessToken();
+  const [profileState, setProfileState] = useState(null);
+  const [loadingGetProfileState, setLoadingProfileState] = useState(false);
+  const [loadingGetSchoolWishListState, setLoadingSchoolWishListState] =
+    useState(false);
+  const [schoolWishList, setSchoolWishList] = useState([]);
   const getSchools = async () => {
     try {
       setLoading(true);
@@ -30,6 +38,10 @@ export const APIProvider = ({ children }) => {
       }
     } catch (e) {
       setLoading(false);
+      showNotification(
+        ETypeNotification.ERROR,
+        'Đã xảy ra lỗi hệ thống ! Vui lòng liên hệ kỹ thuật để được hỗ trợ sớm nhất'
+      );
     }
   };
 
@@ -41,7 +53,10 @@ export const APIProvider = ({ children }) => {
         setCountries(options);
       }
     } catch (e) {
-      /* empty */
+      showNotification(
+        ETypeNotification.ERROR,
+        'Đã xảy ra lỗi hệ thống ! Vui lòng liên hệ kỹ thuật để được hỗ trợ sớm nhất'
+      );
     }
   };
   const getMajorList = async () => {
@@ -51,7 +66,39 @@ export const APIProvider = ({ children }) => {
         setMajors(response?.data?.majors);
       }
     } catch (e) {
-      /* empty */
+      showNotification(
+        ETypeNotification.ERROR,
+        'Đã xảy ra lỗi hệ thống ! Vui lòng liên hệ kỹ thuật để được hỗ trợ sớm nhất'
+      );
+    }
+  };
+  const getProfileInfor = async () => {
+    try {
+      setLoadingProfileState(true);
+      const response = await getProfileUser();
+      if (response?.status === 200) {
+        setLoadingProfileState(false);
+        setProfileState(response?.data);
+      }
+    } catch (e) {
+      setLoadingProfileState(false);
+      showNotification(
+        ETypeNotification.ERROR,
+        'Đã xảy ra lỗi hệ thống ! Vui lòng liên hệ kỹ thuật để được hỗ trợ sớm nhất'
+      );
+    }
+  };
+
+  const getSchoolWishList = async () => {
+    try {
+      setLoadingSchoolWishListState(true);
+      const res = await getListSchoolWishlist();
+      if (res?.status === 200) {
+        setLoadingSchoolWishListState(false);
+        setSchoolWishList(res?.data);
+      }
+    } catch (e) {
+      setLoadingSchoolWishListState(false);
     }
   };
   useEffect(() => {
@@ -65,6 +112,7 @@ export const APIProvider = ({ children }) => {
   useEffect(() => {
     getMajorList().then();
   }, []);
+
   return (
     <APIContext.Provider
       value={{
@@ -78,6 +126,12 @@ export const APIProvider = ({ children }) => {
         majors,
         isLogin,
         totalSchool,
+        getProfileInfor,
+        profileState,
+        loadingGetProfileState,
+        getSchoolWishList,
+        schoolWishList,
+        loadingGetSchoolWishListState,
       }}
     >
       {children}
