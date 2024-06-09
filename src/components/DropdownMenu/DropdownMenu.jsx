@@ -37,7 +37,7 @@ const DropdownMenu = ({
             onClick={() => {
               if (!item?.disabled) {
                 if (item?.link) {
-                  router(item.link);
+                  router.push(item.link);
                 } else {
                   item.onClick?.(item);
                 }
