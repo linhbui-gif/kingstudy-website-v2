@@ -226,3 +226,7 @@ iframe {
 .font-BeVnPro-style-content > *, span{
   font-family: "Be Vietnam Pro", sans-serif!important;
 }
+
+.date-picker-custom-ks .ant-picker {
+  @apply w-full h-[5.5rem]
+}

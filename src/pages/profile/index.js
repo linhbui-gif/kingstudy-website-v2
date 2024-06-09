@@ -6,7 +6,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import ImageAvatarDefault from '@/assets/images/image-avatar-default.png';
+import { EProfileSidebar } from '@/common/enums';
 import Container from '@/containers/Container';
+import ManageProfile from '@/containers/Profile/ManageProfile';
+import MyProfileInformation from '@/containers/Profile/MyProfileInformation';
+import SchoolFavorite from '@/containers/Profile/SchoolFavorite';
+import SettingSidebar from '@/containers/Profile/Setting';
+import TrackingProfile from '@/containers/Profile/TrackingProfile';
 import Setting from '@/containers/Setting';
 import { sidebarProfileData } from '@/containers/SidebarProfile/SidebarProfile.data';
 import ProtectedLayout from '@/layouts/ProtectedLayout';
@@ -20,10 +26,16 @@ const Profile = () => {
   const { page } = router?.query;
   const renderContentRight = (pageType) => {
     switch (pageType) {
-      case 'profile':
-        return 'profile page';
-      case 'wishlist':
-        return 'wishlist';
+      case EProfileSidebar.MY_PROFILE_INFORMATION:
+        return <MyProfileInformation />;
+      case EProfileSidebar.TRACKING_PROFILE_INFORMATION:
+        return <TrackingProfile />;
+      case EProfileSidebar.MANAGER_PROFILE_INFORMATION:
+        return <ManageProfile />;
+      case EProfileSidebar.SCHOOL_FAVORITE:
+        return <SchoolFavorite />;
+      case EProfileSidebar.SETTING:
+        return <SettingSidebar />;
       default:
         return '';
     }
@@ -62,7 +74,7 @@ const Profile = () => {
             </Row>
             <Row>
               <Col span={6}>
-                <div className={'p-[3rem] bg-style-8 rounded-sm'}>
+                <div className={'p-[3rem] bg-style-8 rounded-sm h-full'}>
                   <ul>
                     {sidebarProfileData &&
                       sidebarProfileData.map((sidebar) => {
@@ -70,9 +82,11 @@ const Profile = () => {
                           <li
                             key={sidebar?.key}
                             onClick={() => router.push(sidebar?.link)}
-                            className={
-                              'block w-full p-[1.2rem_1.5rem] cursor-pointer text-body-14'
-                            }
+                            className={`flex items-center w-full p-[1.2rem_1.5rem] cursor-pointer text-body-14 ${
+                              sidebar?.activePaths.includes(page)
+                                ? 'text-orange font-bold'
+                                : ''
+                            }`}
                           >
                             {sidebar?.icon} {sidebar?.title}
                           </li>

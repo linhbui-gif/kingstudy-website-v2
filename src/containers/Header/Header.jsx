@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 
 import ImageLogoMobile from '@/assets/images/image-logo-mobile.png';
-import { ETypeNotification } from '@/common/enums';
+import { EProfileSidebar, ETypeNotification } from '@/common/enums';
 import Avatar from '@/components/Avatar';
 import ButtonComponent from '@/components/Button';
 import DropdownMenu from '@/components/DropdownMenu';
@@ -61,7 +61,7 @@ const Header = () => {
           {
             value: '1',
             label: 'Thông tin cá nhân',
-            link: `${Paths.Profile.View}`,
+            link: `${Paths.Profile.View}?page=${EProfileSidebar.MY_PROFILE_INFORMATION}`,
           },
           { value: '2', label: 'Đăng xuất', onClick: handleLogout },
         ]}
