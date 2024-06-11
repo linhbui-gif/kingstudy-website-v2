@@ -1,6 +1,7 @@
 import { Skeleton } from 'antd';
 
 const MyProfileInformation = ({ loading, profileState }) => {
+  const userInformation = profileState?.profile?.user;
   return (
     <div className={'p-[2rem]'}>
       <h4 className={'text-title-24 text-style-7'}>My Profile</h4>
@@ -11,7 +12,7 @@ const MyProfileInformation = ({ loading, profileState }) => {
               Họ và Tên:
             </h5>
             <span className={'text-body-16 text-style-9'}>
-              {profileState?.full_name}
+              {userInformation?.full_name}
             </span>
           </li>
           <li className={'flex items-center mb-[2rem]'}>
@@ -19,7 +20,7 @@ const MyProfileInformation = ({ loading, profileState }) => {
               Email:
             </h5>
             <span className={'text-body-16 text-style-9'}>
-              {profileState?.email}
+              {userInformation?.email}
             </span>
           </li>
           <li className={'flex items-center mb-[2rem]'}>
@@ -27,7 +28,7 @@ const MyProfileInformation = ({ loading, profileState }) => {
               Số điện thoại:
             </h5>
             <span className={'text-body-16 text-style-9'}>
-              {profileState?.phone}
+              {userInformation?.phone}
             </span>
           </li>
           <li className={'flex items-center mb-[2rem]'}>
@@ -35,7 +36,7 @@ const MyProfileInformation = ({ loading, profileState }) => {
               Giới tính:
             </h5>
             <span className={'text-body-16 text-style-9'}>
-              {profileState?.gender}
+              {userInformation?.gender}
             </span>
           </li>
           <li className={'flex items-center mb-[2rem]'}>
@@ -43,7 +44,7 @@ const MyProfileInformation = ({ loading, profileState }) => {
               Địa chỉ:
             </h5>
             <span className={'text-body-16 text-style-9'}>
-              {profileState?.address}
+              {userInformation?.address}
             </span>
           </li>
         </ul>

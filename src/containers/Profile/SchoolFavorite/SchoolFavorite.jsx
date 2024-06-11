@@ -12,7 +12,7 @@ const SchoolFavorite = () => {
   const { schoolWishList, getSchoolWishList, loadingGetSchoolWishListState } =
     useAPI();
   useEffect(() => {
-    getSchoolWishList().then();
+    if (!schoolWishList) getSchoolWishList().then();
   }, []);
   return (
     <div className={'p-[2rem]'}>
