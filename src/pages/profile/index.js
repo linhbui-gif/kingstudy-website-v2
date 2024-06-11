@@ -26,6 +26,7 @@ const Profile = () => {
   // eslint-disable-next-line no-unsafe-optional-chaining
   const { page } = router?.query;
   const { getProfileInfor, profileState, loadingGetProfileState } = useAPI();
+  const userInformation = profileState?.profile?.user;
   const renderContentRight = (pageType) => {
     switch (pageType) {
       case EProfileSidebar.MY_PROFILE_INFORMATION:
@@ -38,13 +39,18 @@ const Profile = () => {
       case EProfileSidebar.TRACKING_PROFILE_INFORMATION:
         return <TrackingProfile />;
       case EProfileSidebar.MANAGER_PROFILE_INFORMATION:
-        return <ManageProfile />;
+        return (
+          <ManageProfile
+            profileState={profileState}
+            loading={loadingGetProfileState}
+          />
+        );
       case EProfileSidebar.SCHOOL_FAVORITE:
         return <SchoolFavorite />;
       case EProfileSidebar.SETTING:
         return (
           <SettingSidebar
-            avatarStateUrl={`${rootUrl}${profileState?.image_url}`}
+            avatarStateUrl={`${rootUrl}${profileState?.profile?.user?.image_url}`}
           />
         );
       default:
@@ -79,7 +85,7 @@ const Profile = () => {
                       className={'w-full object-cover rounded-full'}
                       src={
                         profileState
-                          ? `${rootUrl}${profileState?.image_url}`
+                          ? `${rootUrl}${userInformation?.image_url}`
                           : ImageAvatarDefault
                       }
                     />
@@ -87,7 +93,7 @@ const Profile = () => {
                   <div>
                     <span>Xin chào,</span>
                     <h3 className={'text-title-24 font-[700]'}>
-                      {profileState?.full_name}
+                      {userInformation?.full_name}
                     </h3>
                   </div>
                 </Flex>

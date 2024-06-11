@@ -45,6 +45,8 @@ export const EIconName = {
   Minus: 'Minus',
   Check: 'Check',
   Camera: 'Camera',
+  Words: 'Words',
+  Pdf: 'Pdf',
 };
 export const EIconColor = {
   STYLE_10: '#22458F',

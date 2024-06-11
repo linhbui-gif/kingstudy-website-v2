@@ -32,6 +32,7 @@ import Loud from '@/components/Icon/Loud';
 import Minus from '@/components/Icon/Minus';
 import Music from '@/components/Icon/Music';
 import Partner from '@/components/Icon/Partner';
+import Pdf from '@/components/Icon/Pdf';
 import Pharmacy from '@/components/Icon/Pharmacy';
 import Plane from '@/components/Icon/Plane';
 import Plus from '@/components/Icon/Plus';
@@ -47,6 +48,7 @@ import Twitter from '@/components/Icon/Twitter';
 import UK_Flag from '@/components/Icon/UKFlag';
 import Vietnam_Flag from '@/components/Icon/VietnamFlag';
 import Visa from '@/components/Icon/Visa';
+import Word from '@/components/Icon/Word';
 
 const Icon = ({
   name,
@@ -156,6 +158,10 @@ const Icon = ({
         return <Check color={color} />;
       case EIconName.Camera:
         return <Camera color={color} />;
+      case EIconName.Words:
+        return <Word color={color} />;
+      case EIconName.Pdf:
+        return <Pdf color={color} />;
       default:
         break;
     }

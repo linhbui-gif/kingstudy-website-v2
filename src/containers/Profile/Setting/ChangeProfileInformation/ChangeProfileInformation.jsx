@@ -29,6 +29,7 @@ const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
   const [loadingUpdate, setLoadingUpdate] = useState(false);
   const { profileState, getProfileInfor, loadingGetProfileState } = useAPI();
   const [form] = Form.useForm();
+  const userInformation = profileState?.profile?.user;
   const handleUploadChange = (files) => {
     if (files) {
       const file = Array.from(files)?.[0];
@@ -92,14 +93,14 @@ const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
     }
   };
   useEffect(() => {
-    if (profileState) {
+    if (userInformation) {
       form.setFieldsValue({
-        full_name: profileState?.full_name,
-        email: profileState?.email,
-        phone: profileState?.phone,
-        address: profileState?.address,
+        full_name: userInformation?.full_name,
+        email: userInformation?.email,
+        phone: userInformation?.phone,
+        address: userInformation?.address,
       });
-      setValue(profileState?.gender === 'male' ? 1 : 2);
+      setValue(userInformation?.gender === 'male' ? 1 : 2);
     }
   }, []);
   return (

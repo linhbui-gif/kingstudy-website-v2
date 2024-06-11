@@ -67,3 +67,22 @@ export const formatNumbersWithCommas = (number) => {
   numberString = numberString.replace('.', '');
   return parseInt(numberString, 10).toLocaleString('en-US');
 };
+
+export const getFileExtension = (filename) => {
+  const parts = filename.split('.');
+  if (parts.length > 1) {
+    return parts.pop().toLowerCase();
+  }
+  return '';
+};
+
+export const groupByArray = (arr, key) => {
+  return arr.reduce((result, item) => {
+    const groupKey = item[key];
+    if (!result[groupKey]) {
+      result[groupKey] = [];
+    }
+    result[groupKey].push(item);
+    return result;
+  }, {});
+};
