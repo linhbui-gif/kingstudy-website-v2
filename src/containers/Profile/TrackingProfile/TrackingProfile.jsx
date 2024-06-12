@@ -1,17 +1,116 @@
 import { useEffect, useState } from 'react';
-
+import { Col, Row, Spin } from "antd";
 import { Skeleton, Table } from 'antd';
 import moment from 'moment';
 import Image from 'next/image';
 
 import { EFormat } from '@/common/enums';
+import Icon from "@/components/Icon";
+import { EIconName } from "@/components/Icon/Icon.enum";
 import { followProfileUser } from '@/services/profile';
 import { renderStatusCourse } from '@/utils/function';
 import { rootUrl, statusSchool } from '@/utils/utils';
-
+import { getFileExtension } from "@/utils/function";
+import { useAPI } from "@/contexts/APIContext";
+import Modal from '@/components/Modal';
 const TrackingProfile = () => {
   const [dataProfileTrack, setDataProfileTrack] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const { profileState } = useAPI();
+
+  const attachMentAcademic = profileState?.profile?.attachment_1;
+  const attachMentProfile = profileState?.profile?.attachment_2;
+  const attachMentFinacial = profileState?.profile?.attachment_3;
+
+  const renderProfile = (arrAcademic, arrProfile, arrFinacial) => {
+    const arr = [];
+    const arrCombine = [...arr, arrAcademic, arrProfile, arrFinacial];
+    const arrKey = ["academic", "profile", "finacial"];
+    const arrCombineGroupKey =
+      arrKey &&
+      arrKey.map((key, index) => {
+        let obj = {};
+        obj[key] = arrCombine[index];
+        return obj;
+      });
+    return (
+      arrCombineGroupKey &&
+      arrCombineGroupKey.map((combineKey, index) => {
+        const arrFinal = Object.values(combineKey)?.[0];
+        return (
+          <Row gutter={[20, 20]} className={"p-[2rem]"} key={index}>
+            <Col span={24} className={"text-title-20"}>
+              {renderNameProfile(Object.keys(combineKey)[0])}
+            </Col>
+            {arrFinal?.length > 0 ? (
+              arrFinal.map((element) => {
+                const ext = element?.url ? getFileExtension(element?.url) : "";
+                const icon = (
+                  <Icon
+                    className={"m"}
+                    name={ext === "docx" ? EIconName.Words : EIconName.Pdf}
+                  />
+                );
+                return (
+                  <Col span={6} key={element?.url}>
+                    <div className={"shadow-md rounded-sm w-[20rem]"}>
+                      <div
+                        className={
+                          "flex items-center justify-center bg-style-10 rounded-sm min-h-[10rem]"
+                        }
+                      >
+                        {icon}
+                      </div>
+                      <div className={"p-[2rem_1rem]"}>
+                        <h5 className={"text-body-14 font-[500]"}>
+                          {element?.name}
+                        </h5>
+                      </div>
+                    </div>
+                  </Col>
+                );
+              })
+            ) : (
+              <>
+                <p className={"px-[1.2rem]"}>Chưa có thông tin </p>
+              </>
+            )}
+          </Row>
+        );
+      })
+    );
+  };
+  const renderNameProfile = (name) => {
+    switch (name) {
+      case "academic":
+        return <span>HỒ SƠ HỌC THUẬT</span>;
+      case "profile":
+        return <span>HỒ SƠ CÁ NHÂN</span>;
+      case "finacial":
+        return <span>HỒ SƠ TÀI CHÍNH</span>;
+      default:
+        return <></>;
+    }
+  };
+  
+  const renderEnglishSkill = (eng_skill) => {
+    switch (eng_skill) {
+      case "5":
+        return <span>Dưới 5.5</span>;
+      case "6":
+        return <span>5.5 đến 7.0</span>;
+      default:
+        return <span>Trên 7.0</span>;
+    }
+  };
+
+  const handleShowDetail = () => {
+    setIsModalVisible(true);
+  };
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+  };
   const expandedRowRender = (record) => {
     const rowData = record?.details;
     const columns = [
@@ -62,7 +161,7 @@ const TrackingProfile = () => {
         key: 'tool',
         render: () => {
           return (
-            <span className={'cursor-pointer text-orange'}>Xem chi tiết</span>
+            <span className={'cursor-pointer text-orange'}  onClick={() => handleShowDetail()}>Xem chi tiết</span>
           );
         },
       },
@@ -153,6 +252,58 @@ const TrackingProfile = () => {
             dataSource={dataProfileTrack}
             rowKey={'id'}
           />
+        )}
+        {isModalVisible && (
+          <Modal
+            className="profile"
+            visible={isModalVisible}
+            title="Thông Tin hồ sơ"
+            onClose={handleCloseModal}
+          >
+            <Row gutter={[20, 20]} className={"p-[2rem]"}>
+              <Col span={12}>
+                <span>Họ và Tên: </span>
+                <strong>{profileState?.profile?.name}</strong>
+              </Col>
+              <Col span={12}>
+                <span>Số điện thoại: </span>
+                <strong>{profileState?.profile?.phone}</strong>
+              </Col>
+              <Col span={12}>
+                <span>Giới tính: </span>
+                <strong>{profileState?.profile?.user?.gender}</strong>
+              </Col>
+              <Col span={12}>
+                <span>Quốc gia du học: </span>
+                <strong>{profileState?.profile?.country?.name}</strong>
+              </Col>
+              <Col span={12}>
+                <span>Bậc học: </span>
+                <strong>{profileState?.profile?.level?.name}</strong>
+              </Col>
+              <Col span={12}>
+                <span>Thời gian gửi: </span>
+                <strong>
+                  {moment(profileState?.profile?.user?.last_login)?.format(
+                    EFormat["DD/MM/YYYY - HH:mm"]
+                  )}
+                </strong>
+              </Col>
+              <Col span={12}>
+                <span>IELTS: </span>
+                <strong>
+                  {renderEnglishSkill(profileState?.profile?.english_skill)}
+                </strong>
+              </Col>
+            </Row>
+            <div>
+              {renderProfile(
+                attachMentAcademic,
+                attachMentProfile,
+                attachMentFinacial
+              )}
+            </div>
+          </Modal>
         )}
       </div>
     </div>
