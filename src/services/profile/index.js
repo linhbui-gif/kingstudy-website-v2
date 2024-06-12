@@ -9,3 +9,8 @@ export const getProfileUser = async () => {
   const response = await ApiService.get(`/profile/get-profile`);
   return response?.data;
 };
+
+export const followProfileUser = async () => {
+  const response = await ApiService.get(`/profile/follow-profile-user`);
+  return response?.data;
+};
