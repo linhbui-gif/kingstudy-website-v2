@@ -1,4 +1,4 @@
-import { notification } from 'antd';
+import { notification, Tag } from 'antd';
 
 import { ETypeNotification } from '@/common/enums';
 
@@ -85,4 +85,27 @@ export const groupByArray = (arr, key) => {
     result[groupKey].push(item);
     return result;
   }, {});
+};
+
+export const renderStatusCourse = (status) => {
+  switch (status) {
+    case '0':
+      return <Tag color="orange">Processing</Tag>;
+    case '1':
+      return <Tag color="success">Applied</Tag>;
+    case '2':
+      return <Tag color="orange">Chase</Tag>;
+    case '3':
+      return <Tag color="orange">Conditional Offer</Tag>;
+    case '4':
+      return <Tag color="orange">Unconditional Offer</Tag>;
+    case '5':
+      return <Tag color="red">Cancel</Tag>;
+    case '6':
+      return <Tag color="purple">Accept Offer</Tag>;
+    case '7':
+      return <Tag color="red">Fail</Tag>;
+    case '8':
+      return <Tag color="success">Successful</Tag>;
+  }
 };
