@@ -15,3 +15,17 @@ export const useDebounce = (value, delay) => {
 
   return debouncedValue;
 };
+
+export const useModalState = () => {
+  const [modalState, setModalState] = useState({ visible: false });
+
+  const handleOpenModal = (data, dataKey) => {
+    setModalState({ ...dataKey, visible: true, data });
+  };
+
+  const handleCloseModal = () => {
+    setModalState({ visible: false });
+  };
+
+  return [modalState, handleOpenModal, handleCloseModal];
+};
