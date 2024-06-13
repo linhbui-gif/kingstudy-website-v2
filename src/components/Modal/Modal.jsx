@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Modal as AntdModal } from 'antd';
-import classNames from 'classnames';
 
 import Button from '@/components/Button';
 
@@ -10,7 +9,7 @@ const Modal = ({
   title,
   centered,
   width,
-  className,
+  className = '',
   children,
   loading,
   showActions,
@@ -25,7 +24,7 @@ const Modal = ({
 }) => {
   return (
     <AntdModal
-      className={classNames('Modal', className)}
+      className={`${className}`}
       style={{ width: 0 }}
       footer={null}
       title={null}
