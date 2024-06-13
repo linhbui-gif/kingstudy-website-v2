@@ -18,6 +18,7 @@ import Infrastructure from '@/containers/Infrastructure';
 import Partner from '@/containers/Partner';
 import Review from '@/containers/Review';
 import Scholarship from '@/containers/Scholarship';
+import StepVerify from '@/containers/StepVerify';
 const items = ['apple', 'King of fruits', 'Orange'];
 const { Option } = Select;
 
@@ -205,6 +206,10 @@ const ComponentGuide = () => {
       {/*    </div>*/}
       {/*  </Col>*/}
       {/*</Row>*/}
+      <div className="my-9 px-[10rem]">
+        <StepVerify />
+      </div>
+
       <AccordionSideBar />
       <Scholarship />
       <Partner />
