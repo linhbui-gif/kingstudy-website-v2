@@ -1,0 +1,39 @@
+.Steps {
+  @apply relative;
+  &-step {
+    @apply gap-x-[0.8rem] gap-y-[2.4rem] absolute mb-[2.4rem];
+    &-item {
+      @apply relative flex-none max-w-[4.4rem] h-[4.4rem] w-[4.4rem] rounded-full text-[1.4rem] font-bold bg-white text-white transition-all duration-300  select-none cursor-pointer;
+      &:first-child {
+        .Steps-step-item {
+          &-title {
+            @apply left-0 transform-none text-left;
+          }
+        }
+      }
+
+      &:last-child {
+        .Steps-step-item {
+          &-title {
+            @apply right-0 left-auto transform-none text-right;
+          }
+        }
+      }
+
+      &-title {
+        @apply absolute top-[calc(100%+1.2rem)] left-1/2 -translate-x-1/2 text-[1.2rem] text-white font-semibold text-center;
+      }
+
+      &-line {
+        @apply h-[0.5rem] rounded-[3rem] bg-white transition-all duration-300;
+        &.active {
+          @apply bg-orange;
+        }
+      }
+
+      &:hover {
+        background: darken(white, 5%);
+      }
+    }
+  }
+}
