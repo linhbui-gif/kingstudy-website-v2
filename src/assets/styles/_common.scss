@@ -230,3 +230,7 @@ iframe {
 .date-picker-custom-ks .ant-picker {
   @apply w-full h-[5.5rem]
 }
+
+.Upload-multiple .ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-container {
+  @apply w-[20rem] h-auto
+}
