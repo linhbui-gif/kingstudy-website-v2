@@ -18,5 +18,6 @@ export const Paths = {
   },
   Profile: {
     View: '/profile',
+    SubmitProfileStep: '/submit-profile',
   },
 };

@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect } from 'react';
 
 const Steps = ({
   options = [],
@@ -7,7 +6,7 @@ const Steps = ({
   onChange,
   lineWidth,
   registerStore = true,
-  className = "",
+  className = '',
   title,
 }) => {
   const passIndexStep = options.findIndex((option) => option.id === value?.id);
@@ -16,7 +15,7 @@ const Steps = ({
   useEffect(() => {
     if (!value) onChange?.(options?.[0]);
   }, [value, onChange, options]);
-  
+
   return (
     <div className={`Steps ${className}`}>
       {registerStore && (
@@ -30,7 +29,7 @@ const Steps = ({
             <div
               key={item.id}
               className={`Steps-step-item-line ${
-                index <= passIndexStep ? "active" : ""
+                index <= passIndexStep ? 'active' : ''
               }`}
               style={{
                 flex: `0 0 ${lineWidth || `calc(100% / ${options.length})`}`,

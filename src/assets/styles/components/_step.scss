@@ -25,9 +25,9 @@
       }
 
       &-line {
-        @apply h-[0.5rem] rounded-[3rem] bg-white transition-all duration-300;
+        @apply h-[0.5rem] rounded-[3rem] bg-style-9 transition-all duration-300;
         &.active {
-          @apply bg-orange;
+          @apply bg-style-10;
         }
       }
 

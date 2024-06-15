@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import Helpers from './helpers';
 import { EResponseCode, ETypeNotification } from '@/common/enums';
-import { Paths } from '@/routers/constants';
+import { ModulePaths, Paths } from '@/routers/constants';
 import { showNotification } from '@/utils/function';
 
 const AuthorizedInstance = (baseURL) => {
@@ -28,7 +28,7 @@ const AuthorizedInstance = (baseURL) => {
     const originalRequest = axiosError.config;
     if (responseStatus === EResponseCode.UNAUTHORIZED && originalRequest) {
       Helpers.clearTokens();
-      window.location.href = `${Paths.Login}`;
+      window.location.href = `${ModulePaths.Auth}${Paths.Login}`;
       showNotification(
         ETypeNotification.ERROR,
         'Tài khoản đã hết hạn phiên sử dụng. Vui lòng đăng nhập lại'

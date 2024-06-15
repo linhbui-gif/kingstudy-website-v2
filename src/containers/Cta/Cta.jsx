@@ -1,11 +1,26 @@
 import { Col, Row } from 'antd';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import ImageCTA from '@/assets/images/image-cta.webp';
+import { ETypeNotification } from '@/common/enums';
 import ButtonComponent from '@/components/Button';
 import Container from '@/containers/Container';
+import { useAPI } from '@/contexts/APIContext';
+import { Paths } from '@/routers/constants';
+import { showNotification } from '@/utils/function';
 
 const Cta = () => {
+  const { isLogin } = useAPI();
+  const router = useRouter();
+  const onSubmitProfile = () => {
+    if (!isLogin)
+      return showNotification(
+        ETypeNotification.INFO,
+        'Bạn cần phải đăng nhập để nộp hồ sơ !'
+      );
+    router.push(`${Paths.Profile.SubmitProfileStep}`);
+  };
   return (
     <section className={'lg:py-[7rem] py-[2rem]'}>
       <Container>
@@ -42,6 +57,7 @@ const Cta = () => {
                   title={'Tự nộp hồ sơ'}
                   className={'primary w-[14.8rem] mt-[3.2rem] lg:mt-0'}
                   loading={false}
+                  onClick={onSubmitProfile}
                 />
               </div>
             </div>

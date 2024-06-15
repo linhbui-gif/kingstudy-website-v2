@@ -93,15 +93,14 @@ const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
     }
   };
   useEffect(() => {
-    if (userInformation) {
-      form.setFieldsValue({
-        full_name: userInformation?.full_name,
-        email: userInformation?.email,
-        phone: userInformation?.phone,
-        address: userInformation?.address,
-      });
-      setValue(userInformation?.gender === 'male' ? 1 : 2);
-    }
+    if (!userInformation) return;
+    form.setFieldsValue({
+      full_name: userInformation?.full_name,
+      email: userInformation?.email,
+      phone: userInformation?.phone,
+      address: userInformation?.address,
+    });
+    setValue(userInformation?.gender === 'male' ? 1 : 2);
   }, []);
   return (
     <div>
