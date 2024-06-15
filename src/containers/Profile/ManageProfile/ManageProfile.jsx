@@ -8,6 +8,7 @@ import { EFormat } from '@/common/enums';
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
 import Tabs from '@/components/Tabs';
+import { Paths } from '@/routers/constants';
 import { getFileExtension } from '@/utils/function';
 
 const ManageProfile = ({ profileState, loading }) => {
@@ -140,7 +141,10 @@ const ManageProfile = ({ profileState, loading }) => {
                 </strong>
               </Col>
               <Col span={24}>
-                <Link href={'/'} className={'text-orange text-body-16'}>
+                <Link
+                  href={`${Paths.Profile.SubmitProfileStep}`}
+                  className={'text-orange text-body-16'}
+                >
                   Chỉnh sửa
                 </Link>
               </Col>
