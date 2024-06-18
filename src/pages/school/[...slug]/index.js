@@ -75,7 +75,7 @@ const SchoolDetail = () => {
   const [school, setSchool] = useState(null);
   const [loading, setLoading] = useState(false);
   const schoolData = school?.data;
-  // const hasDocument = school?.hasDocument;
+  const hasDocument = school?.hasDocument;
   const numberInfors = schoolData?.number_info || {};
   const gallery = schoolData?.gallery || {};
   const [itemMenuActive, setItemMenuActive] = useState('');
@@ -473,7 +473,11 @@ const SchoolDetail = () => {
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Khóa học
                       </h4>
-                      <Course />
+                      <Course
+                        school_id={schoolData?.id}
+                        hasDocument={hasDocument}
+                        data={schoolData?.courses}
+                      />
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>

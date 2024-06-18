@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Drawer } from 'antd';
 import dynamic from 'next/dynamic';
@@ -29,6 +29,7 @@ const MediaQuery = dynamic(() => import('react-responsive'), {
 });
 const Header = ({ totalWishList = 0 }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const { getProfileInfor, profileState } = useAPI();
   const { isLogin } = useAPI();
   const router = useRouter();
   const { setFilterSchool } = useAPI();
@@ -76,7 +77,7 @@ const Header = ({ totalWishList = 0 }) => {
             />
           </div>
           <div className="text-white">
-            Xin chào, <strong>Hello</strong>
+            Xin chào, <strong>{profileState?.profile?.name}</strong>
           </div>
           <div className="ml-2">
             <Icon name={EIconName.ArowDown} />
@@ -85,6 +86,11 @@ const Header = ({ totalWishList = 0 }) => {
       </DropdownMenu>
     );
   };
+  useEffect(() => {
+    if (!profileState) {
+      getProfileInfor().then();
+    }
+  }, [profileState]);
   return (
     <header
       className={`opacity-100 visible sticky transition-all ease-in-out duration-500 z-50 top-0 w-full left-0 flex items-center lg:h-[10.4rem] h-auto pb-[2rem] lg:pb-0 bg-style-10 `}

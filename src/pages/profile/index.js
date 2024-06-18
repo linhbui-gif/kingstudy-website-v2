@@ -101,7 +101,7 @@ const Profile = () => {
             </Row>
             <Row>
               <Col span={6}>
-                <div className={'p-[3rem] bg-style-8 rounded-sm h-full'}>
+                <div className={'p-[3rem] bg-gray-sample rounded-sm h-full'}>
                   <ul>
                     {sidebarProfileData &&
                       sidebarProfileData.map((sidebar) => {
@@ -111,7 +111,7 @@ const Profile = () => {
                             onClick={() => router.push(sidebar?.link)}
                             className={`flex items-center w-full p-[1.2rem_1.5rem] cursor-pointer text-body-14 ${
                               sidebar?.activePaths.includes(page)
-                                ? 'text-orange font-bold'
+                                ? 'bg-white rounded-sm text-style-10 font-[500]'
                                 : ''
                             }`}
                           >

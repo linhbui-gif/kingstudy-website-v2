@@ -1,7 +1,7 @@
 import Tabs from '@/components/Tabs';
 import CourseAccordion from '@/containers/CourseAccordion';
 
-const Course = ({ data }) => {
+const Course = ({ data, hasDocument, school_id }) => {
   const campusOptions = [
     {
       key: 'all',
@@ -9,7 +9,11 @@ const Course = ({ data }) => {
       children: (
         <>
           <div className={'max-h-[40rem] overflow-x-auto'}>
-            <CourseAccordion />
+            <CourseAccordion
+              school_id={school_id}
+              hasDocument={hasDocument}
+              data={data}
+            />
           </div>
         </>
       ),

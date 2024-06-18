@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 
-import { ETypeNotification, EUploadType } from '@/common/enums';
+import { useRouter } from 'next/router';
+
+import {
+  EProfileSidebar,
+  ETypeNotification,
+  EUploadType,
+} from '@/common/enums';
 import Steps from '@/components/Step';
 import StepInformation from '@/containers/StepSubmitProfile/StepInformation';
 import StepUpload from '@/containers/StepSubmitProfile/StepUpload';
+import { Paths } from '@/routers/constants';
 import { submitProfile } from '@/services/profile';
 import { showNotification } from '@/utils/function';
 
@@ -13,6 +20,7 @@ const StepSubmitProfile = () => {
     data: undefined,
   });
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const extractOriginFileObjs = (filesArray) => {
     return filesArray?.map((element) => element?.originFileObj);
   };
@@ -76,6 +84,9 @@ const StepSubmitProfile = () => {
       const response = await submitProfile(body);
       if (response?.status === 200) {
         setLoading(false);
+        router.push(
+          `${Paths.Profile.View}?page=${EProfileSidebar.MANAGER_PROFILE_INFORMATION}`
+        );
         showNotification(ETypeNotification.SUCCESS, 'Nộp hồ sơ thành công !');
       }
     } catch (e) {

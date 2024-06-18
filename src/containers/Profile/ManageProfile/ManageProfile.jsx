@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Col, Row, Spin } from 'antd';
 import moment from 'moment';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { EFormat } from '@/common/enums';
+import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
 import Tabs from '@/components/Tabs';
@@ -17,6 +18,7 @@ const ManageProfile = ({ profileState, loading }) => {
   const attachMentAcademic = userProfileSubmit?.attachment_1;
   const attachMentProfile = userProfileSubmit?.attachment_2;
   const attachMentFinacial = userProfileSubmit?.attachment_3;
+  const router = useRouter();
   const renderEnglishSkill = (eng_skill) => {
     switch (eng_skill) {
       case '5':
@@ -141,12 +143,13 @@ const ManageProfile = ({ profileState, loading }) => {
                 </strong>
               </Col>
               <Col span={24}>
-                <Link
-                  href={`${Paths.Profile.SubmitProfileStep}`}
-                  className={'text-orange text-body-16'}
-                >
-                  Chỉnh sửa
-                </Link>
+                <ButtonComponent
+                  className={'primary w-[15rem]'}
+                  title={'Chỉnh sửa'}
+                  onClick={() => {
+                    router.push(`${Paths.Profile.SubmitProfileStep}`);
+                  }}
+                />
               </Col>
             </Row>
           </Spin>

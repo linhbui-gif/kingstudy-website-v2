@@ -310,6 +310,7 @@ module.exports = {
       'Tailwind/rose/800': '#9F1239',
       'Tailwind/rose/900': '#881337',
       'Tailwind/rose/950': '#4C0519',
+      'gray-sample': '#f8f8f9'
     },
     fontFamily: {
       BeVnPro: 'Be Vietnam Pro sans-serif',

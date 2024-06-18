@@ -19,3 +19,10 @@ export const submitProfile = async (body) => {
   const response = await ApiService.post(`/profile/save-profile-file`, body);
   return response?.data;
 };
+
+export const submitProfileByCourse = async (params) => {
+  const response = await ApiService.get(`/profile/process-course-by-school`, {
+    params: params,
+  });
+  return response?.data;
+};

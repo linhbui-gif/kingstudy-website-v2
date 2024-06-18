@@ -114,11 +114,6 @@ const TrackingProfile = () => {
     const rowData = record?.details;
     const columns = [
       {
-        title: 'Tên của bạn',
-        dataIndex: 'name',
-        key: 'name',
-      },
-      {
         title: 'Khóa học',
         dataIndex: 'course',
         key: 'course',
