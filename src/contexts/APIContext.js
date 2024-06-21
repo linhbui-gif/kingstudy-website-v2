@@ -4,7 +4,12 @@ import { ETypeNotification } from '@/common/enums';
 import { getCountries, getMajors } from '@/services/common';
 import Helpers from '@/services/helpers';
 import { getProfileUser } from '@/services/profile';
-import { getListSchool, getListSchoolWishlist } from '@/services/school';
+import {
+  addSchoolCompareList,
+  getListSchool,
+  getListSchoolWishlist,
+  getSchoolCompareList,
+} from '@/services/school';
 import { showNotification } from '@/utils/function';
 import { changeArrayToOptions } from '@/utils/utils';
 
@@ -27,6 +32,19 @@ export const APIProvider = ({ children }) => {
   const [loadingGetSchoolWishListState, setLoadingSchoolWishListState] =
     useState(false);
   const [schoolWishList, setSchoolWishList] = useState([]);
+  const [loadingGetSchoolCompareState, setLoadingSchoolCompareState] =
+    useState(false);
+  const [schoolCompare, setSchoolCompare] = useState([]);
+
+  const [openDrawerCompare, setOpenDrawerCompare] = useState(false);
+
+  const showDrawerCompare = () => {
+    setOpenDrawerCompare(true);
+  };
+
+  const onCloseCompare = () => {
+    setOpenDrawerCompare(false);
+  };
   const getSchools = async () => {
     try {
       setLoading(true);
@@ -101,6 +119,34 @@ export const APIProvider = ({ children }) => {
       setLoadingSchoolWishListState(false);
     }
   };
+
+  const addSchoolCompare = async (idCompare) => {
+    try {
+      setLoadingSchoolCompareState(true);
+      const res = await addSchoolCompareList(idCompare);
+      if (res?.code === 200) {
+        setLoadingSchoolCompareState(false);
+        showNotification(
+          ETypeNotification.SUCCESS,
+          'Thêm trường vào danh sách so sánh thành công'
+        );
+      }
+    } catch (e) {
+      setLoadingSchoolCompareState(false);
+    }
+  };
+  const getSchoolCompare = async () => {
+    try {
+      setLoadingSchoolCompareState(true);
+      const res = await getSchoolCompareList();
+      if (res?.code === 200) {
+        setLoadingSchoolCompareState(false);
+        setSchoolCompare(res?.data);
+      }
+    } catch (e) {
+      setLoadingSchoolCompareState(false);
+    }
+  };
   useEffect(() => {
     getSchools().then();
   }, [filterSchool]);
@@ -113,6 +159,9 @@ export const APIProvider = ({ children }) => {
     getMajorList().then();
   }, []);
 
+  useEffect(() => {
+    getSchoolCompare().then();
+  }, []);
   return (
     <APIContext.Provider
       value={{
@@ -132,6 +181,13 @@ export const APIProvider = ({ children }) => {
         getSchoolWishList,
         schoolWishList,
         loadingGetSchoolWishListState,
+        addSchoolCompare,
+        loadingGetSchoolCompareState,
+        schoolCompare,
+        openDrawerCompare,
+        setOpenDrawerCompare,
+        onCloseCompare,
+        showDrawerCompare,
       }}
     >
       {children}

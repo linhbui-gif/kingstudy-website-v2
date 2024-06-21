@@ -21,7 +21,7 @@ const Card = ({
   id,
   isFavoritePage = false,
 }) => {
-  const { getSchoolWishList, isLogin } = useAPI();
+  const { getSchoolWishList, isLogin, addSchoolCompare } = useAPI();
   const onAddSchoolFavorite = (idSchool) => {
     if (typeof idSchool !== 'undefined')
       addSchoolToFavoriteList(idSchool).then();
@@ -81,7 +81,14 @@ const Card = ({
           <span className={'text-body-18 text-style-10'}>{price}đ</span>
         </Flex>
         <Flex className={'my-[2.4rem] ml-[-1rem]'}>
-          <Flex align={'center'} gap={'small'} className={'cursor-pointer'}>
+          <Flex
+            align={'center'}
+            gap={'small'}
+            className={'cursor-pointer'}
+            onClick={() => {
+              addSchoolCompare(id).then();
+            }}
+          >
             <Icon name={EIconName.Compare} width={45} height={45} />
           </Flex>
           <Flex

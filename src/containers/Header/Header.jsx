@@ -16,6 +16,7 @@ import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Input from '@/components/Input';
 import Container from '@/containers/Container';
+import DrawerListCompare from '@/containers/DrawerListCompare';
 import FilterTools from '@/containers/FilterTools';
 import { MenuData } from '@/containers/Header/Header.data';
 import NavigationBottom from '@/containers/NavigationBottom';
@@ -30,7 +31,7 @@ const MediaQuery = dynamic(() => import('react-responsive'), {
 const Header = ({ totalWishList = 0 }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const { getProfileInfor, profileState } = useAPI();
-  const { isLogin } = useAPI();
+  const { isLogin, onCloseCompare, openDrawerCompare } = useAPI();
   const router = useRouter();
   const { setFilterSchool } = useAPI();
   const [filterCommon, setFilterCommon] = useState({
@@ -95,6 +96,9 @@ const Header = ({ totalWishList = 0 }) => {
     <header
       className={`opacity-100 visible sticky transition-all ease-in-out duration-500 z-50 top-0 w-full left-0 flex items-center lg:h-[10.4rem] h-auto pb-[2rem] lg:pb-0 bg-style-10 `}
     >
+      {openDrawerCompare && (
+        <DrawerListCompare open={openDrawer} onClose={onCloseCompare} />
+      )}
       <Drawer
         onClose={onClose}
         open={openDrawer}

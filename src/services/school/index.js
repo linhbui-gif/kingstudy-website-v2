@@ -23,3 +23,12 @@ export const getListSchoolWishlist = async () => {
   const response = await ApiService.get(`/profile/school-wishlist`);
   return response?.data;
 };
+
+export const addSchoolCompareList = async (id) => {
+  const response = await ApiService.get(`/school/add-compare-school?id=${id}`);
+  return response?.data;
+};
+export const getSchoolCompareList = async () => {
+  const response = await ApiService.get(`/school/list-compare-school`);
+  return response?.data;
+};
