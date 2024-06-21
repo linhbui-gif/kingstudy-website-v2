@@ -1,10 +1,13 @@
+import { useState } from 'react';
+
 import Tabs from '@/components/Tabs';
 import CourseAccordion from '@/containers/CourseAccordion';
 
 const Course = ({ data, hasDocument, school_id }) => {
+  const [activeTabCourse, setActiveCourse] = useState('0');
   const campusOptions = [
     {
-      key: 'all',
+      key: '0',
       title: 'Tất cả',
       children: (
         <>
@@ -13,59 +16,87 @@ const Course = ({ data, hasDocument, school_id }) => {
               school_id={school_id}
               hasDocument={hasDocument}
               data={data}
+              activeTabCourse={activeTabCourse}
             />
           </div>
         </>
       ),
     },
     {
-      key: 'daihoc',
+      key: '1',
       title: 'Đại học',
       children: (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data?.after_college,
-          }}
-        />
+        <>
+          <div className={'max-h-[40rem] overflow-x-auto'}>
+            <CourseAccordion
+              school_id={school_id}
+              hasDocument={hasDocument}
+              data={data}
+              activeTabCourse={activeTabCourse}
+            />
+          </div>
+        </>
       ),
     },
     {
-      key: 'saudaihoc',
+      key: '2',
       title: 'Sau Đại học',
       children: (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data?.after_college,
-          }}
-        />
+        <>
+          <div className={'max-h-[40rem] overflow-x-auto'}>
+            <CourseAccordion
+              school_id={school_id}
+              hasDocument={hasDocument}
+              data={data}
+              activeTabCourse={activeTabCourse}
+            />
+          </div>
+        </>
       ),
     },
     {
-      key: 'caodang',
+      key: '3',
       title: 'Cao đẳng',
       children: (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data?.after_college,
-          }}
-        />
+        <>
+          <div className={'max-h-[40rem] overflow-x-auto'}>
+            <CourseAccordion
+              school_id={school_id}
+              hasDocument={hasDocument}
+              data={data}
+              activeTabCourse={activeTabCourse}
+            />
+          </div>
+        </>
       ),
     },
     {
-      key: 'khac',
+      key: '4',
       title: 'Khác',
       children: (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data?.after_college,
-          }}
-        />
+        <>
+          <div className={'max-h-[40rem] overflow-x-auto'}>
+            <CourseAccordion
+              school_id={school_id}
+              hasDocument={hasDocument}
+              data={data}
+              activeTabCourse={activeTabCourse}
+            />
+          </div>
+        </>
       ),
     },
   ];
   return (
     <div>
-      <Tabs hasMajor options={campusOptions} defaultKey="all" />
+      <Tabs
+        onKeyChange={(keyTab) => {
+          setActiveCourse(keyTab);
+        }}
+        hasMajor
+        options={campusOptions}
+        defaultKey="0"
+      />
     </div>
   );
 };

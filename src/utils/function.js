@@ -118,3 +118,32 @@ export const parseObjectToFormData = (data) => {
   });
   return formData;
 };
+
+export const slugify = (text) => {
+  const from =
+    'ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỳỵỷỹ';
+  const to =
+    'AAAAEEEIIOOOOUUAĐIUOaaaaeeeiiioooouuaduoUAAAAAAAEEEEEEEEaaaaaaaeeeeeIIIIIIIIIIUUUUUyyyy';
+
+  const map = {};
+  for (let i = 0; i < from.length; i++) {
+    map[from.charAt(i)] = to.charAt(i);
+  }
+
+  const removeDiacritics = (str) => {
+    return str
+      .split('')
+      .map((char) => map[char] || char)
+      .join('');
+  };
+
+  let slug = text.toLowerCase();
+
+  slug = removeDiacritics(slug);
+
+  slug = slug.replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+
+  slug = slug.replace(/^-+|-+$/g, '');
+
+  return slug;
+};
