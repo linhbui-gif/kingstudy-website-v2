@@ -13,6 +13,7 @@ const Tabs = ({ options = [], defaultKey, onKeyChange, hasMajor = false }) => {
 
   const handleTabChange = (activeKeyChanged) => {
     setActiveKey(activeKeyChanged);
+    onKeyChange?.(activeKeyChanged);
   };
 
   useEffect(() => {

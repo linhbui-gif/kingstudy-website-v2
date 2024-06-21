@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Flex, Space } from 'antd';
 import { useRouter } from 'next/router';
@@ -14,7 +14,7 @@ import { Paths } from '@/routers/constants';
 import { submitProfileByCourse } from '@/services/profile';
 import { showNotification } from '@/utils/function';
 import { useModalState } from '@/utils/hook';
-const CourseAccordion = ({ data, hasDocument, school_id }) => {
+const CourseAccordion = ({ data, hasDocument, school_id, activeTabCourse }) => {
   const { isLogin } = useAPI();
   const router = useRouter();
   const [isModalVisible, handleOpen, handleClose] = useModalState();
@@ -25,7 +25,17 @@ const CourseAccordion = ({ data, hasDocument, school_id }) => {
     handleOpenNotDocument,
     handleCloseNotDocument,
   ] = useModalState();
-
+  const [arrData, setArrData] = useState([]);
+  useEffect(() => {
+    if (Number(activeTabCourse) !== 0) {
+      const arr =
+        data &&
+        data.filter((element) => element?.type === Number(activeTabCourse));
+      setArrData(arr);
+    } else {
+      setArrData(data);
+    }
+  }, [activeTabCourse]);
   const submitProfile = async () => {
     try {
       const params = {
@@ -58,38 +68,40 @@ const CourseAccordion = ({ data, hasDocument, school_id }) => {
       );
     }
   };
+  const renderContentCourse = (element) => {
+    return (
+      <>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: element?.content,
+          }}
+        />
+        <Space>
+          <ButtonComponent
+            title={'Nộp hồ sơ'}
+            className={'primary mt-[2.4rem]'}
+            onClick={() => onSubmitProfile(element?.id)}
+          />
+          <ButtonComponent
+            title={'Xem chi tiết'}
+            className={'default mt-[2.4rem]'}
+            onClick={() => {
+              router.push(element?.link_course);
+            }}
+          />
+        </Space>
+      </>
+    );
+  };
   const itemArr =
-    data &&
-    data.map((element) => {
+    arrData &&
+    arrData.map((element) => {
       return {
         key: element?.id,
         label: element?.name,
-        children: (
-          <>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: element?.content,
-              }}
-            />
-            <Space>
-              <ButtonComponent
-                title={'Nộp hồ sơ'}
-                className={'primary mt-[2.4rem]'}
-                onClick={() => onSubmitProfile(element?.id)}
-              />
-              <ButtonComponent
-                title={'Xem chi tiết'}
-                className={'default mt-[2.4rem]'}
-                onClick={() => {
-                  router.push(element?.link_course);
-                }}
-              />
-            </Space>
-          </>
-        ),
+        children: renderContentCourse(element),
       };
     });
-
   const customExpandIcon = ({ isActive }) => (
     <div>
       {isActive ? (

@@ -409,19 +409,16 @@ const SchoolDetail = () => {
                         <h5
                           className={'mb-[1.6rem] text-button-16 text-style-7'}
                         >
-                          Cambridge CB1 1PT, Vương quốc Anh
+                          {schoolData?.map?.title}
                         </h5>
-                        <p className={'text-body-16 text-style-7 leading-9'}>
-                          Thành phố Cambridge sở hữu nét đẹp cổ kính và nổi
-                          tiếng là điểm du học thu hút sinh viên quốc tế bậc
-                          nhất Anh Quốc. Tại Cambridge, bạn có thể trải nghiệm
-                          môi trường học nơi có những chương trình giáo dục tốt
-                          nhất trên thế giới, cung cấp môi trường phù hợp để
-                          sinh sống, học tập và phát triển các kỹ năng nghề
-                          nghiệp của bạn.{' '}
-                        </p>
+                        <div
+                          className={'text-body-16 text-style-7 leading-9'}
+                          dangerouslySetInnerHTML={{
+                            __html: schoolData?.map?.content,
+                          }}
+                        />
                         <Link
-                          href={'/'}
+                          href={schoolData?.map?.link || '/'}
                           target={'_blank'}
                           className={'text-button-16 text-orange'}
                         >
@@ -464,7 +461,7 @@ const SchoolDetail = () => {
                         Học bổng
                       </h4>
                       <div className={''}>
-                        <Scholarship />
+                        <Scholarship data={schoolData?.scholarship} />
                       </div>
                     </div>
                   </Skeleton>
@@ -485,7 +482,7 @@ const SchoolDetail = () => {
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Yêu cầu đầu vào
                       </h4>
-                      <InputRequest />
+                      <InputRequest data={schoolData?.required} />
                     </div>
                   </Skeleton>
                   <Gallery loading={loading} gallery={gallery} />
