@@ -88,7 +88,7 @@ const Header = ({ totalWishList = 0 }) => {
     );
   };
   useEffect(() => {
-    if (!profileState) {
+    if (!profileState && isLogin) {
       getProfileInfor().then();
     }
   }, [profileState]);
