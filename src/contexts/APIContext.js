@@ -9,6 +9,7 @@ import {
   getListSchool,
   getListSchoolWishlist,
   getSchoolCompareList,
+  removeSchoolCompareList,
 } from '@/services/school';
 import { showNotification } from '@/utils/function';
 import { changeArrayToOptions } from '@/utils/utils';
@@ -126,12 +127,14 @@ export const APIProvider = ({ children }) => {
       const res = await addSchoolCompareList(idCompare);
       if (res?.code === 200) {
         setLoadingSchoolCompareState(false);
+        getSchoolCompare().then();
         showNotification(
           ETypeNotification.SUCCESS,
           'Thêm trường vào danh sách so sánh thành công'
         );
       }
     } catch (e) {
+      showNotification(ETypeNotification.ERROR, e?.response?.data?.message);
       setLoadingSchoolCompareState(false);
     }
   };
@@ -142,6 +145,23 @@ export const APIProvider = ({ children }) => {
       if (res?.code === 200) {
         setLoadingSchoolCompareState(false);
         setSchoolCompare(res?.data);
+        setOpenDrawerCompare(true);
+      }
+    } catch (e) {
+      setLoadingSchoolCompareState(false);
+    }
+  };
+  const removeSchoolCompare = async (id) => {
+    try {
+      setLoadingSchoolCompareState(true);
+      const res = await removeSchoolCompareList(id);
+      if (res?.code === 200) {
+        setLoadingSchoolCompareState(false);
+        getSchoolCompare().then();
+        showNotification(
+          ETypeNotification.SUCCESS,
+          'Xóa trường khỏi danh sách so sánh thành công!'
+        );
       }
     } catch (e) {
       setLoadingSchoolCompareState(false);
@@ -157,10 +177,6 @@ export const APIProvider = ({ children }) => {
 
   useEffect(() => {
     getMajorList().then();
-  }, []);
-
-  useEffect(() => {
-    getSchoolCompare().then();
   }, []);
   return (
     <APIContext.Provider
@@ -188,6 +204,8 @@ export const APIProvider = ({ children }) => {
         setOpenDrawerCompare,
         onCloseCompare,
         showDrawerCompare,
+        getSchoolCompare,
+        removeSchoolCompare,
       }}
     >
       {children}

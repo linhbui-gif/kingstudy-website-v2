@@ -31,7 +31,13 @@ const MediaQuery = dynamic(() => import('react-responsive'), {
 const Header = ({ totalWishList = 0 }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const { getProfileInfor, profileState } = useAPI();
-  const { isLogin, onCloseCompare, openDrawerCompare } = useAPI();
+  const {
+    isLogin,
+    onCloseCompare,
+    openDrawerCompare,
+    schoolCompare,
+    removeSchoolCompare,
+  } = useAPI();
   const router = useRouter();
   const { setFilterSchool } = useAPI();
   const [filterCommon, setFilterCommon] = useState({
@@ -96,8 +102,13 @@ const Header = ({ totalWishList = 0 }) => {
     <header
       className={`opacity-100 visible sticky transition-all ease-in-out duration-500 z-50 top-0 w-full left-0 flex items-center lg:h-[10.4rem] h-auto pb-[2rem] lg:pb-0 bg-style-10 `}
     >
-      {openDrawerCompare && (
-        <DrawerListCompare open={openDrawer} onClose={onCloseCompare} />
+      {openDrawerCompare && schoolCompare.length > 0 && (
+        <DrawerListCompare
+          removeSchoolCompare={removeSchoolCompare}
+          data={schoolCompare}
+          open={openDrawerCompare}
+          onClose={onCloseCompare}
+        />
       )}
       <Drawer
         onClose={onClose}
