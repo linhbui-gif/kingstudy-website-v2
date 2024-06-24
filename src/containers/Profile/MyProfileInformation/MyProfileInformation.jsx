@@ -61,7 +61,7 @@ const MyProfileInformation = ({ loading, profileState }) => {
     {
       key: 'information_study',
       title: 'Thông tin du học',
-      children: <StudyAboardInformation />,
+      children: <StudyAboardInformation userInformation={userInformation} />,
     },
   ];
   return (

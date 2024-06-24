@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 
 import moment from 'moment';
-import { useRouter } from 'next/router';
 
-import { EProfileSidebar, ETypeNotification } from '@/common/enums';
+import { ETypeNotification } from '@/common/enums';
 import Steps from '@/components/Step';
 import InformationFamily from '@/containers/StepProfileStudyAboard/InformationFamily';
 import InformationHistoryTravel from '@/containers/StepProfileStudyAboard/InformationHistoryTravel';
 import InformationPersonal from '@/containers/StepProfileStudyAboard/InformationPersonal';
 import InformationStudyArticle from '@/containers/StepProfileStudyAboard/InformationStudyArticle';
 import InformationWork from '@/containers/StepProfileStudyAboard/InformationWork';
-import { Paths } from '@/routers/constants';
+import { useAPI } from '@/contexts/APIContext';
 import { submitProfileStudyAboard } from '@/services/profile';
 import { showNotification } from '@/utils/function';
 
 const FormStepInformation = ({ setIsUpdateToggle }) => {
-  const router = useRouter();
   const [stepState, setStepState] = useState({
     currentStep: undefined,
     data: undefined,
   });
+  const { getProfileInfor } = useAPI();
+  const [loading, setLoading] = useState(false);
   const formatDate = (date) =>
     date ? moment(date).format('YYYY/MM/DD') : null;
 
@@ -34,7 +34,6 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
   ];
   const onSaveProfile = async () => {
     try {
-      setIsUpdateToggle(false);
       const formattedData = { ...stepState?.data };
 
       Object.keys(formattedData).forEach((field) => {
@@ -42,17 +41,20 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
           formattedData[field] = formatDate(formattedData[field]);
         }
       });
+      setLoading(true);
       const response = await submitProfileStudyAboard(formattedData);
       if (response?.status === 200) {
-        router.push(
-          `${Paths.Profile.View}?page=${EProfileSidebar.MY_PROFILE_INFORMATION}`
-        );
+        setLoading(false);
+        setIsUpdateToggle(false);
+        getProfileInfor().then();
         showNotification(
           ETypeNotification.SUCCESS,
           'Cập Nhật hồ sơ thành công !'
         );
       }
     } catch (e) {
+      setLoading(false);
+      setIsUpdateToggle(true);
       showNotification(
         ETypeNotification.ERROR,
         'Có lỗi xảy ra, vui lòng liên hệ Kỹ thuật để được hỗ trợ !'
@@ -100,6 +102,7 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
           setIsUpdateToggle={setIsUpdateToggle}
           onPrev={() => handlePrevStep('4')}
           onSubmit={onSaveProfile}
+          loading={loading}
         />
       ),
     },

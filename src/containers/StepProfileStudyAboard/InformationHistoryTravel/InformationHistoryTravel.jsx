@@ -3,7 +3,7 @@ import { Col, Form, Radio, Row, Space } from 'antd';
 import ButtonComponent from '@/components/Button';
 import Input from '@/components/Input';
 
-const InformationHistoryTravel = ({ onPrev, onSubmit }) => {
+const InformationHistoryTravel = ({ onPrev, onSubmit, loading }) => {
   const onsubmit = (values) => {
     onSubmit?.(values);
   };
@@ -101,6 +101,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit }) => {
                 title={'Hoàn thành'}
                 className={'primary w-[15rem]'}
                 htmlType={'submit'}
+                loading={loading}
               />
               <ButtonComponent
                 title={'Quay lại'}
