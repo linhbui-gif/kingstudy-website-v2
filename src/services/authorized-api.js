@@ -5,6 +5,7 @@ import { EResponseCode, ETypeNotification } from '@/common/enums';
 import { ModulePaths, Paths } from '@/routers/constants';
 import { showNotification } from '@/utils/function';
 
+axios.defaults.withCredentials = true;
 const AuthorizedInstance = (baseURL) => {
   const instance = axios.create({
     baseURL,

@@ -32,3 +32,10 @@ export const getSchoolCompareList = async () => {
   const response = await ApiService.get(`/school/list-compare-school`);
   return response?.data;
 };
+
+export const removeSchoolCompareList = async (idSchool) => {
+  const response = await ApiService.get(
+    `/school/remove-compare-school?id=${idSchool}`
+  );
+  return response?.data;
+};
