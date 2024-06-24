@@ -26,3 +26,11 @@ export const submitProfileByCourse = async (params) => {
   });
   return response?.data;
 };
+
+export const submitProfileStudyAboard = async (body) => {
+  const response = await ApiService.post(
+    `/profile/update-information-study-aboard`,
+    body
+  );
+  return response?.data;
+};

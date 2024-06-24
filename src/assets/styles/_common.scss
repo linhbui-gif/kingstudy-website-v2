@@ -238,3 +238,11 @@ iframe {
 .Upload-multiple .ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select, .ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
   @apply w-[20rem] h-[23.5rem]
 }
+
+.form-input-study-aboard .Input .ant-input {
+  @apply h-[3.1rem]
+}
+
+.form-input-study-aboard .ant-picker {
+  @apply w-full
+}
