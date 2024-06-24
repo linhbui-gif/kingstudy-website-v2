@@ -3,9 +3,9 @@ import { Col, Form, Radio, Row, Space } from 'antd';
 import ButtonComponent from '@/components/Button';
 import Input from '@/components/Input';
 
-const InformationHistoryTravel = ({ onNext, onPrev }) => {
+const InformationHistoryTravel = ({ onPrev, onSubmit }) => {
   const onsubmit = (values) => {
-    onNext?.(values);
+    onSubmit?.(values);
   };
   return (
     <div className={'pt-[2rem]'}>
