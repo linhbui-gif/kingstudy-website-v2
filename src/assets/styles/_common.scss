@@ -246,3 +246,30 @@ iframe {
 .form-input-study-aboard .ant-picker {
   @apply w-full
 }
+
+table {
+  width: 100%!important;
+  @apply border border-solid border-[#DEE2E6] rounded-sm;
+}
+
+table > * {
+  @apply font-BeVnPro;
+}
+
+.table thead tr td {
+   @apply p-[1rem_1.6rem];
+   border-bottom: 1px solid #DEE2E6;
+}
+
+.table thead tr td span {
+  @apply text-button-16 text-style-7;
+}
+
+.table tbody tr td {
+  @apply p-[1rem_1.6rem];
+  border-bottom: 1px solid #DEE2E6;
+}
+
+.table tbody tr td span {
+  @apply text-body-16 text-style-12;
+}
