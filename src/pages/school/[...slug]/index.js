@@ -340,54 +340,19 @@ const SchoolDetail = () => {
                         Thông Tin Nổi Bật
                       </h4>
                       <ul className={'flex items-center flex-wrap'}>
-                        <li
-                          className={
-                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
-                          }
-                        >
-                          <Icon name={EIconName.Check} /> Handle advanced
-                          techniques like Dimensionality Reduction
-                        </li>
-                        <li
-                          className={
-                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
-                          }
-                        >
-                          <Icon name={EIconName.Check} /> Handle advanced
-                          techniques like Dimensionality Reduction
-                        </li>
-                        <li
-                          className={
-                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
-                          }
-                        >
-                          <Icon name={EIconName.Check} /> Handle advanced
-                          techniques like Dimensionality Reduction
-                        </li>
-                        <li
-                          className={
-                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
-                          }
-                        >
-                          <Icon name={EIconName.Check} /> Handle advanced
-                          techniques like Dimensionality Reduction
-                        </li>
-                        <li
-                          className={
-                            'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
-                          }
-                        >
-                          <Icon name={EIconName.Check} /> Handle advanced
-                          techniques like Dimensionality Reduction
-                        </li>
-                        <li
-                          className={
-                            'flex items-start gap-[8px] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
-                          }
-                        >
-                          <Icon name={EIconName.Check} /> Handle advanced
-                          techniques like Dimensionality Reduction
-                        </li>
+                        {schoolData?.featured &&
+                          schoolData?.featured.map((item, index) => {
+                            return (
+                              <li
+                                key={index}
+                                className={
+                                  'flex items-start gap-[8px] mb-[1.6rem] text-body-16 font-[400] md:w-[50%] w-full leading-[24px]'
+                                }
+                              >
+                                <Icon name={EIconName.Check} /> {item}
+                              </li>
+                            );
+                          })}
                       </ul>
                     </Skeleton>
                   </div>
@@ -508,7 +473,7 @@ const SchoolDetail = () => {
                         className={'w-full'}
                         width="560"
                         height="224"
-                        src="https://www.youtube.com/embed/irNUtD0U63s?si=H_EBINc_Wz_Gkdzp"
+                        src={schoolData?.video_url}
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
