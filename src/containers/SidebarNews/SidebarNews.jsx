@@ -88,12 +88,12 @@ const SidebarNews = ({ loading = false, data }) => {
                       className={'flex items-center mb-[2rem]'}
                       key={element?.id}
                     >
-                      <div className={'w-[7rem] h-[9rem]'}>
+                      <div className={'w-[7rem]'}>
                         <Image
                           src={rootUrl + element?.image_location}
                           alt={element?.title}
                           loading={'lazy'}
-                          layout={'fix'}
+                          layout={'responsive'}
                           height={90}
                           width={70}
                           className={

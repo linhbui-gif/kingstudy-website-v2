@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import { Col, Row, Spin } from 'antd';
+import * as cheerio from 'cheerio';
+import DOMPurify from 'isomorphic-dompurify';
 import moment from 'moment/moment';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +16,6 @@ import GuestLayout from '@/layouts/GuestLayout';
 import { Paths } from '@/routers/constants';
 import { getBlogBySlug, getListBlog } from '@/services/blog';
 import { rootUrl } from '@/utils/utils';
-
 const BlogDetail = () => {
   const router = useRouter();
   const { slug } = router.query;
@@ -28,7 +29,16 @@ const BlogDetail = () => {
       const response = await getBlogBySlug(slug[0]);
       if (response?.code === 200) {
         setLoading(false);
-        setData(response?.data);
+        let content = response?.data?.content;
+        const $ = cheerio.load(content);
+        $('img').each((index, element) => {
+          const src = $(element).attr('src');
+          const newSrc = `${rootUrl}${src}`;
+          $(element).attr('src', newSrc);
+        });
+
+        content = $.html();
+        setData({ ...response.data, content });
       }
     } catch (e) {
       setLoading(false);
@@ -53,6 +63,7 @@ const BlogDetail = () => {
     if (!slug) return;
     getBlog().then();
   }, [slug]);
+  const cleanHTML = DOMPurify.sanitize(data?.content);
   return (
     <GuestLayout>
       <Meta title={data?.title} />
@@ -69,8 +80,8 @@ const BlogDetail = () => {
                     >
                       <Image
                         src={
-                          rootUrl + data?.image_location
-                            ? data?.image_location
+                          data?.image_location
+                            ? rootUrl + data?.image_location
                             : '/'
                         }
                         alt={data?.title}
@@ -100,7 +111,7 @@ const BlogDetail = () => {
                     <div
                       className={'font-BeVnPro-style-content'}
                       dangerouslySetInnerHTML={{
-                        __html: data?.content,
+                        __html: cleanHTML,
                       }}
                       style={{ color: '#575757 !important' }}
                     />
