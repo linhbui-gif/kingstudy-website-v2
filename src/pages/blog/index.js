@@ -35,7 +35,7 @@ const Blog = () => {
         setData(response?.data?.data);
       }
     } catch (e) {
-      setLoading(false);
+      setLoading(true);
     }
   };
   useEffect(() => {
