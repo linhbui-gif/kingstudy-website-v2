@@ -20,4 +20,11 @@ export const Paths = {
     View: '/profile',
     SubmitProfileStep: '/submit-profile',
   },
+  Event: {
+    View: '/event',
+  },
+  Blog: {
+    View: '/blog',
+    BlogDetail: (slug) => `/blog/${slug}`,
+  },
 };

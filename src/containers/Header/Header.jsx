@@ -166,7 +166,7 @@ const Header = ({ totalWishList = 0 }) => {
                   return (
                     <li key={menu.id} className={'relative py-[4.3rem] group'}>
                       <Link
-                        href={'/'}
+                        href={`${menu?.link ? menu?.link : '/'}`}
                         className={
                           '2xl:text-button-16 lg:text-body-14 lg:font-[600] text-style-5 w-full block hover:text-orange'
                         }
@@ -189,7 +189,7 @@ const Header = ({ totalWishList = 0 }) => {
                                   className={'p-[1rem_2.5rem]'}
                                 >
                                   <Link
-                                    href={'/'}
+                                    href={`${item?.link ? item?.link : '/'}`}
                                     className={
                                       'block w-full text-button-16 font-[500] text-style-7 hover:text-orange'
                                     }

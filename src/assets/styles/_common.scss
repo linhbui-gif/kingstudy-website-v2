@@ -273,3 +273,19 @@ table > * {
 .table tbody tr td span {
   @apply text-body-16 text-style-12;
 }
+
+.card-new .ant-skeleton.ant-skeleton-element {
+  @apply w-full;
+}
+
+.card-new .ant-skeleton.ant-skeleton-element .ant-skeleton-image {
+  @apply w-full h-[50rem];
+}
+
+.card-new .card-new-input .ant-skeleton-input {
+  @apply w-full h-[2rem];
+}
+
+.font-BeVnPro-style-content img {
+  width: 100%!important;
+}

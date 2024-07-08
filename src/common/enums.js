@@ -47,4 +47,5 @@ export const REGEX = {
 export const EFormat = {
   'YYYY-MM-DD': 'YYYY-MM-DD',
   'DD/MM/YYYY - HH:mm': 'DD/MM/YYYY - HH:mm',
+  'HH:mm': 'HH:mm',
 };
