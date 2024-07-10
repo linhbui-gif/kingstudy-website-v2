@@ -14,15 +14,13 @@ import Container from '@/containers/Container';
 import SidebarNews from '@/containers/SidebarNews';
 import GuestLayout from '@/layouts/GuestLayout';
 import { Paths } from '@/routers/constants';
-import { getBlogBySlug, getListBlog } from '@/services/blog';
+import { getBlogBySlug } from '@/services/blog';
 import { rootUrl } from '@/utils/utils';
 const BlogDetail = () => {
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [blogs, setBlogs] = useState([]);
-  const [loadingSidebar, setLoadingSidebar] = useState(false);
   const getBlog = async () => {
     try {
       setLoading(true);
@@ -44,21 +42,6 @@ const BlogDetail = () => {
       setLoading(false);
     }
   };
-  const getBlogList = async () => {
-    try {
-      setLoadingSidebar(true);
-      const response = await getListBlog({});
-      if (response?.code === 200) {
-        setLoadingSidebar(false);
-        setBlogs(response?.data?.data);
-      }
-    } catch (e) {
-      setLoadingSidebar(false);
-    }
-  };
-  useEffect(() => {
-    getBlogList().then();
-  }, []);
   useEffect(() => {
     if (!slug) return;
     getBlog().then();
@@ -120,7 +103,7 @@ const BlogDetail = () => {
               </div>
             </Col>
             <Col lg={{ span: 8 }}>
-              <SidebarNews data={blogs} loading={loadingSidebar} />
+              <SidebarNews />
             </Col>
           </Row>
         </Container>

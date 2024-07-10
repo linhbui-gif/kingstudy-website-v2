@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 import { ETypeNotification } from '@/common/enums';
+import { getListBlog } from '@/services/blog';
 import { getCountries, getMajors } from '@/services/common';
 import Helpers from '@/services/helpers';
 import { getProfileUser } from '@/services/profile';
@@ -38,7 +39,9 @@ export const APIProvider = ({ children }) => {
   const [schoolCompare, setSchoolCompare] = useState([]);
 
   const [openDrawerCompare, setOpenDrawerCompare] = useState(false);
-
+  const [blogs, setBlogs] = useState([]);
+  const [loadingBlog, setLoadingBlog] = useState(false);
+  const [idCategory, setIdCategory] = useState({});
   const showDrawerCompare = () => {
     setOpenDrawerCompare(true);
   };
@@ -167,6 +170,19 @@ export const APIProvider = ({ children }) => {
       setLoadingSchoolCompareState(false);
     }
   };
+
+  const getBlogList = async () => {
+    try {
+      setLoadingBlog(true);
+      const response = await getListBlog(idCategory);
+      if (response?.code === 200) {
+        setLoadingBlog(false);
+        setBlogs(response?.data?.data);
+      }
+    } catch (e) {
+      setLoadingBlog(true);
+    }
+  };
   useEffect(() => {
     getSchools().then();
   }, [filterSchool]);
@@ -206,6 +222,11 @@ export const APIProvider = ({ children }) => {
         showDrawerCompare,
         getSchoolCompare,
         removeSchoolCompare,
+        getBlogList,
+        loadingBlog,
+        blogs,
+        setIdCategory,
+        idCategory,
       }}
     >
       {children}

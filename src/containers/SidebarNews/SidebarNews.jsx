@@ -1,16 +1,40 @@
+import { useEffect, useState } from 'react';
+
 import { Skeleton } from 'antd';
 import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { EFormat } from '@/common/enums';
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
 import Input from '@/components/Input';
+import { useAPI } from '@/contexts/APIContext';
 import { Paths } from '@/routers/constants';
+import { getListCategory } from '@/services/blog';
 import { rootUrl } from '@/utils/utils';
 
-const SidebarNews = ({ loading = false, data }) => {
+const SidebarNews = () => {
+  const router = useRouter();
+  const { blogs, loadingBlog, setIdCategory } = useAPI();
+  const [categories, setCategories] = useState([]);
+  const [loadingCategory, setLoadingCategory] = useState(false);
+  const getCategories = async () => {
+    try {
+      setLoadingCategory(true);
+      const response = await getListCategory();
+      if (response?.code === 200) {
+        setLoadingCategory(false);
+        setCategories(response?.data);
+      }
+    } catch (e) {
+      setLoadingCategory(true);
+    }
+  };
+  useEffect(() => {
+    getCategories().then();
+  }, []);
   const skeletonLoadingCard = (
     <>
       <div className={'flex mb-[2rem]'}>
@@ -36,24 +60,24 @@ const SidebarNews = ({ loading = false, data }) => {
       </div>
     </>
   );
-  // const loadingSkeletonCategory = (
-  //   <>
-  //     <div>
-  //       <div className={'mb-2'}>
-  //         <Skeleton.Input />
-  //       </div>
-  //       <div className={'mb-2'}>
-  //         <Skeleton.Input />
-  //       </div>
-  //       <div className={'mb-2'}>
-  //         <Skeleton.Input />
-  //       </div>
-  //       <div className={'mb-2'}>
-  //         <Skeleton.Input />
-  //       </div>
-  //     </div>
-  //   </>
-  // );
+  const loadingSkeletonCategory = (
+    <>
+      <div>
+        <div className={'mb-2'}>
+          <Skeleton.Input />
+        </div>
+        <div className={'mb-2'}>
+          <Skeleton.Input />
+        </div>
+        <div className={'mb-2'}>
+          <Skeleton.Input />
+        </div>
+        <div className={'mb-2'}>
+          <Skeleton.Input />
+        </div>
+      </div>
+    </>
+  );
   return (
     <aside>
       <div className={'mb-[3rem]'}>
@@ -78,11 +102,11 @@ const SidebarNews = ({ loading = false, data }) => {
       >
         <h4 className={'text-title-20 mb-[3.5rem]'}>Bài viết mới nhất</h4>
         <div className="content-sidebar">
-          {loading && skeletonLoadingCard}
-          {!loading && (
+          {loadingBlog && skeletonLoadingCard}
+          {!loadingBlog && (
             <>
-              {data &&
-                data.map((element) => {
+              {blogs &&
+                blogs.map((element) => {
                   return (
                     <div
                       className={'flex items-center mb-[2rem]'}
@@ -124,31 +148,38 @@ const SidebarNews = ({ loading = false, data }) => {
           )}
         </div>
       </div>
-      {/*<div*/}
-      {/*  className={*/}
-      {/*    'p-[2rem] bg-white border border-solid border-style-8 rounded-sm shadow-sm'*/}
-      {/*  }*/}
-      {/*>*/}
-      {/*  <h4 className={'text-title-20 mb-[3.5rem]'}>Danh mục</h4>*/}
-      {/*  <ul>*/}
-      {/*    {loading && loadingSkeletonCategory}*/}
-      {/*    {!loading &&*/}
-      {/*      [1, 2, 3, 4, 5].map((element) => {*/}
-      {/*        return (*/}
-      {/*          <li className={'mb-[1.5rem]'} key={element}>*/}
-      {/*            <Link*/}
-      {/*              className={*/}
-      {/*                'relative pl-[2rem] text-style-9 text-body-14 after:absolute after:content-[""] after:left-0 after:top-[6px] after:w-[6px] after:h-[6px] after:rounded-full after:bg-style-12'*/}
-      {/*              }*/}
-      {/*              href={'/'}*/}
-      {/*            >*/}
-      {/*              Danh mục 1*/}
-      {/*            </Link>*/}
-      {/*          </li>*/}
-      {/*        );*/}
-      {/*      })}*/}
-      {/*  </ul>*/}
-      {/*</div>*/}
+      <div
+        className={
+          'p-[2rem] bg-white border border-solid border-style-8 rounded-sm shadow-sm'
+        }
+      >
+        <h4 className={'text-title-20 mb-[3.5rem]'}>Danh mục</h4>
+        <ul>
+          {loadingCategory && loadingSkeletonCategory}
+          {!loadingCategory &&
+            categories &&
+            categories.map((element) => {
+              return (
+                <li
+                  className={'mb-[1.5rem]'}
+                  key={element?.id}
+                  onClick={() => {
+                    setIdCategory({ id: element?.id });
+                    router.push(`${Paths.Blog.View}`);
+                  }}
+                >
+                  <span
+                    className={
+                      'relative cursor-pointer pl-[2rem] text-style-9 text-body-14 after:absolute after:content-[""] after:left-0 after:top-[6px] after:w-[6px] after:h-[6px] after:rounded-full after:bg-style-12'
+                    }
+                  >
+                    {element?.name}
+                  </span>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
     </aside>
   );
 };

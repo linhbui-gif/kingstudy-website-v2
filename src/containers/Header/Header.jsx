@@ -37,6 +37,7 @@ const Header = ({ totalWishList = 0 }) => {
     openDrawerCompare,
     schoolCompare,
     removeSchoolCompare,
+    setIdCategory,
   } = useAPI();
   const router = useRouter();
   const { setFilterSchool } = useAPI();
@@ -187,6 +188,9 @@ const Header = ({ totalWishList = 0 }) => {
                                 <li
                                   key={item?.id}
                                   className={'p-[1rem_2.5rem]'}
+                                  onClick={() => {
+                                    setIdCategory({});
+                                  }}
                                 >
                                   <Link
                                     href={`${item?.link ? item?.link : '/'}`}
