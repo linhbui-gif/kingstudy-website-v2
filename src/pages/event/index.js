@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Col, Row, Skeleton } from 'antd';
+import Link from 'next/link';
 
 import Meta from '@/components/Meta';
 import CardEvent from '@/containers/CardEvent';
 import Container from '@/containers/Container';
+import HeroBannerCommon from '@/containers/HeroBannerCommon';
 import GuestLayout from '@/layouts/GuestLayout';
 import { getListBlogEvent } from '@/services/blog';
 
@@ -46,19 +48,32 @@ const Event = () => {
     getBlogList().then();
   }, []);
   return (
-    <section className={'py-[9rem]'}>
-      <Container>
-        <Row gutter={[24, 24]}>
-          {data &&
-            data.map((element) => {
-              return (
-                <Col lg={{ span: 12 }} key={element?.id}>
-                  {loading ? loadingSkeleton : <CardEvent data={element} />}
-                </Col>
-              );
-            })}
-        </Row>
-      </Container>
+    <section>
+      <HeroBannerCommon
+        title={'Sự kiện'}
+        items={[
+          {
+            title: <Link href="/">Trang chủ</Link>,
+          },
+          {
+            title: 'Danh sách sự kiện',
+          },
+        ]}
+      />
+      <div className={'py-[9rem]'}>
+        <Container>
+          <Row gutter={[24, 24]}>
+            {data &&
+              data.map((element) => {
+                return (
+                  <Col lg={{ span: 12 }} key={element?.id}>
+                    {loading ? loadingSkeleton : <CardEvent data={element} />}
+                  </Col>
+                );
+              })}
+          </Row>
+        </Container>
+      </div>
     </section>
   );
 };
