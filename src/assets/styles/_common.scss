@@ -289,3 +289,7 @@ table > * {
 .font-BeVnPro-style-content img {
   width: 100%!important;
 }
+
+.gradient-black-before:before {
+  background: linear-gradient(0deg,#020e26 0,rgba(9,20,43,0));
+}
