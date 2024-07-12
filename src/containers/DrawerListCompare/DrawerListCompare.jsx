@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
+import { Paths } from '@/routers/constants';
 import { rootUrl } from '@/utils/utils';
 const DrawerListCompare = ({ open, onClose, data, removeSchoolCompare }) => {
   return (
@@ -48,7 +49,11 @@ const DrawerListCompare = ({ open, onClose, data, removeSchoolCompare }) => {
               );
             })}
         </div>
-        <ButtonComponent title={'So sánh'} className={'primary w-[15rem]'} />
+        <ButtonComponent
+          title={'So sánh'}
+          className={'primary w-[15rem]'}
+          link={Paths.Comapre.View}
+        />
       </div>
     </Drawer>
   );

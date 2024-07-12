@@ -27,4 +27,7 @@ export const Paths = {
     View: '/blog',
     BlogDetail: (slug) => `/blog/${slug}`,
   },
+  Comapre: {
+    View: '/compare'
+  }
 };
