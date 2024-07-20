@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Col, Flex, Row } from 'antd';
 import dynamic from 'next/dynamic';
@@ -12,6 +12,8 @@ import MyProfileInformation from '@/containers/Profile/MyProfileInformation';
 import SchoolFavorite from '@/containers/Profile/SchoolFavorite';
 import SettingSidebar from '@/containers/Profile/Setting';
 import TrackingProfile from '@/containers/Profile/TrackingProfile';
+import SettingMobile from '@/containers/ProfileMobile/SettingMobile';
+import ViewProfile from '@/containers/ProfileMobile/ViewProfile';
 import Setting from '@/containers/Setting';
 import { sidebarProfileData } from '@/containers/SidebarProfile/SidebarProfile.data';
 import { useAPI } from '@/contexts/APIContext';
@@ -27,6 +29,7 @@ const Profile = () => {
   const { page } = router?.query;
   const { getProfileInfor, profileState, loadingGetProfileState } = useAPI();
   const userInformation = profileState?.profile?.user;
+  const [switchUIMobile, setSwitchUIMobile] = useState(null);
   const renderContentRight = (pageType) => {
     switch (pageType) {
       case EProfileSidebar.MY_PROFILE_INFORMATION:
@@ -57,14 +60,40 @@ const Profile = () => {
         return '';
     }
   };
+
+  const renderUIMobile = () => {
+    switch (switchUIMobile?.type) {
+      case EProfileSidebar.MY_PROFILE_INFORMATION:
+        return (
+          <ViewProfile
+            profileState={profileState}
+            setSwitchUIMobile={setSwitchUIMobile}
+          />
+        );
+      case EProfileSidebar.SETTING:
+        return (
+          <SettingMobile
+            setSwitchUIMobile={setSwitchUIMobile}
+            profileState={profileState}
+          />
+        );
+      default:
+        return (
+          <Setting
+            setSwitchUIMobile={setSwitchUIMobile}
+            userInformation={userInformation}
+            switchUIMobile={switchUIMobile}
+          />
+        );
+    }
+  };
+
   useEffect(() => {
     getProfileInfor().then();
   }, []);
   return (
     <div>
-      <MediaQuery maxWidth={991}>
-        <Setting />
-      </MediaQuery>
+      <MediaQuery maxWidth={991}>{renderUIMobile()}</MediaQuery>
       <MediaQuery minWidth={992}>
         <div className={'py-[10rem]'}>
           <Container>

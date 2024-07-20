@@ -20,7 +20,7 @@ const ChangePassword = () => {
         }
       >
         <Row>
-          <Col span={12}>
+          <Col md={{ span: 12 }} span={24}>
             <Form.Item
               name={'password'}
               label={'Mật khẩu hiện tại'}
@@ -29,7 +29,7 @@ const ChangePassword = () => {
               <Input type={'password'} />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col md={{ span: 12 }} span={24}>
             <Form.Item
               name={'newPassword'}
               label={'Mật khẩu mới'}
@@ -38,7 +38,7 @@ const ChangePassword = () => {
               <Input type={'password'} />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col md={{ span: 12 }} span={24}>
             <Form.Item
               name={'confirm_newPassword'}
               label={'Nhập lại mật khẩu mới'}
