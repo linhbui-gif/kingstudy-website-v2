@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Col, Form, Radio, Row, Spin } from 'antd';
 import Image from 'next/image';
+import { useMediaQuery } from 'react-responsive';
 
 import ImageAvatarDefault from '@/assets/images/image-avatar-default.png';
 import ImageBannerProfile from '@/assets/images/image-profile-banner.jpg';
@@ -20,7 +21,6 @@ import { useAPI } from '@/contexts/APIContext';
 import { updateProfile } from '@/services/profile';
 import { uploadCommon } from '@/services/upload';
 import { showNotification, validationRules } from '@/utils/function';
-import {useMediaQuery} from "react-responsive";
 
 const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
   const [value, setValue] = useState(ETTypeGender.MALE);

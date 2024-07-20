@@ -2,7 +2,7 @@ import { Col, Flex, Row } from 'antd';
 import { useRouter } from 'next/router';
 
 import ImageAvatarDefault from '@/assets/images/image-avatar-default.png';
-import {EProfileSidebar, ETypeNotification} from '@/common/enums';
+import { EProfileSidebar, ETypeNotification } from '@/common/enums';
 import Avatar from '@/components/Avatar';
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
