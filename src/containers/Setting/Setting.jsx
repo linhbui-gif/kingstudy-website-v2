@@ -1,7 +1,8 @@
 import { Col, Flex, Row } from 'antd';
 import { useRouter } from 'next/router';
 
-import { ETypeNotification } from '@/common/enums';
+import ImageAvatarDefault from '@/assets/images/image-avatar-default.png';
+import {EProfileSidebar, ETypeNotification} from '@/common/enums';
 import Avatar from '@/components/Avatar';
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
@@ -10,8 +11,9 @@ import Container from '@/containers/Container';
 import { Paths } from '@/routers/constants';
 import Helpers from '@/services/helpers';
 import { showNotification } from '@/utils/function';
+import { rootUrl } from '@/utils/utils';
 
-const Setting = () => {
+const Setting = ({ userInformation, setSwitchUIMobile }) => {
   const router = useRouter();
   const handleLogout = () => {
     Helpers.clearTokens();
@@ -26,12 +28,26 @@ const Setting = () => {
       <Container>
         <Row gutter={[16, 16]}>
           <Col span={24}>
-            <Flex align={'center'} className={'bg-white rounded-sm shadow p-5'}>
-              <Avatar />
+            <Flex
+              align={'center'}
+              className={'bg-white rounded-sm shadow p-5'}
+              onClick={() =>
+                setSwitchUIMobile({
+                  type: EProfileSidebar.MY_PROFILE_INFORMATION,
+                })
+              }
+            >
+              <Avatar
+                image={
+                  userInformation
+                    ? `${rootUrl}${userInformation?.image_url}`
+                    : ImageAvatarDefault
+                }
+              />
               <div className={'flex-1 pl-5'}>
-                <h3>BUI QUANG LINH</h3>
+                <h3> {userInformation?.full_name}</h3>
                 <p className={'mb-0 text-body-14 text-style-9'}>
-                  Thay đổi thông tin cá nhân
+                  Xem thông tin cá nhân
                 </p>
               </div>
               <Icon
@@ -43,7 +59,13 @@ const Setting = () => {
           </Col>
           <Col span={24}>
             <div className={'bg-white rounded-sm shadow'}>
-              <Flex align={'center'} className={'bg-white p-5'}>
+              <Flex
+                align={'center'}
+                className={'bg-white p-5'}
+                onClick={() =>
+                  setSwitchUIMobile({ type: EProfileSidebar.SETTING })
+                }
+              >
                 <Icon name={EIconName.Account} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Cài đặt

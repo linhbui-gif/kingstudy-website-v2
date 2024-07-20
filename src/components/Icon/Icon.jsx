@@ -145,7 +145,7 @@ const Icon = ({
       case EIconName.Plane:
         return <Plane color={color} />;
       case EIconName.ArowDown:
-        return <ArrowDown color={color} />;
+        return <ArrowDown width={width} height={height} color={color} />;
       case EIconName.ArrowTriangleLeft:
         return <ArrowTriangleLeft color={color} />;
       case EIconName.ArrowTriangleRight:

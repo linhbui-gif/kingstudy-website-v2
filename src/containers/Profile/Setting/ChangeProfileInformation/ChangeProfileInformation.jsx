@@ -20,6 +20,7 @@ import { useAPI } from '@/contexts/APIContext';
 import { updateProfile } from '@/services/profile';
 import { uploadCommon } from '@/services/upload';
 import { showNotification, validationRules } from '@/utils/function';
+import {useMediaQuery} from "react-responsive";
 
 const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
   const [value, setValue] = useState(ETTypeGender.MALE);
@@ -30,6 +31,7 @@ const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
   const { profileState, getProfileInfor, loadingGetProfileState } = useAPI();
   const [form] = Form.useForm();
   const userInformation = profileState?.profile?.user;
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const handleUploadChange = (files) => {
     if (files) {
       const file = Array.from(files)?.[0];
@@ -113,10 +115,14 @@ const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
             alt={''}
             className={'rounded-sm'}
           />
-          <div className={'w-[26rem] translate-x-[3rem] -translate-y-1/4'}>
+          <div
+            className={
+              'md:w-[26rem] w-[10rem] translate-x-[3rem] -translate-y-1/4'
+            }
+          >
             <img
-              width={260}
-              height={260}
+              width={isMobile ? 100 : 260}
+              height={isMobile ? 100 : 260}
               loading={'lazy'}
               src={
                 previewImage?.avatar ? previewImage?.avatar : ImageAvatarDefault
@@ -141,7 +147,7 @@ const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
         <div>
           <Form layout={'vertical'} form={form} onFinish={onFinishSubmit}>
             <Row>
-              <Col span={12}>
+              <Col md={{ span: 12 }} span={24}>
                 <Form.Item
                   label={'Tên của bạn'}
                   name={'full_name'}
@@ -151,7 +157,7 @@ const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
                   <Input placeholder={'Nhập Họ & Tên...'} />
                 </Form.Item>
               </Col>
-              <Col span={12}>
+              <Col md={{ span: 12 }} span={24}>
                 <Form.Item
                   label={'Email'}
                   name={'email'}
@@ -161,12 +167,12 @@ const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
                   <Input placeholder={'Email...'} />
                 </Form.Item>
               </Col>
-              <Col span={12}>
+              <Col md={{ span: 12 }} span={24}>
                 <Form.Item label={'Số điện thoại'} name={'phone'}>
                   <Input numberic placeholder={'Nhập số điện thoại...'} />
                 </Form.Item>
               </Col>
-              <Col span={12}>
+              <Col md={{ span: 12 }} span={24}>
                 <Form.Item label={'Giới tính'}>
                   <Radio.Group
                     onChange={(e) => {
@@ -179,7 +185,7 @@ const ChangeProfileInformation = ({ avatarStateUrl = '' }) => {
                   </Radio.Group>
                 </Form.Item>
               </Col>
-              <Col span={12}>
+              <Col md={{ span: 12 }} span={24}>
                 <Form.Item label={'Địa chỉ'} name={'address'}>
                   <Input placeholder={'Nhập địa chỉ...'} />
                 </Form.Item>

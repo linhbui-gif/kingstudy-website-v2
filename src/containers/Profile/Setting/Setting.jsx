@@ -17,7 +17,7 @@ const SettingSidebar = ({ avatarStateUrl }) => {
     },
   ];
   return (
-    <div className={'p-[2rem]'}>
+    <div className={'md:p-[2rem] p-[1rem]'}>
       <h4 className={'text-title-24 text-style-7'}>Cài đặt</h4>
       <Tabs options={settingOptions} defaultKey="profile" />
     </div>
