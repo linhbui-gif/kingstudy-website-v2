@@ -152,6 +152,7 @@ const SchoolList = () => {
                           country={school?.country}
                           slug={school?.slug}
                           id={school?.id}
+                          price={school?.price}
                         />
                       )}
                     </Col>

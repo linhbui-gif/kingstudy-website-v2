@@ -14,7 +14,7 @@ const Card = ({
   url = '',
   alt,
   title,
-  price = 47,
+  price = 0,
   type,
   country,
   slug = '',
@@ -78,7 +78,9 @@ const Card = ({
           </Link>
         </h3>
         <Flex gap={'small'}>
-          <span className={'text-body-18 text-style-10'}>{price}đ</span>
+          <span className={'text-body-18 text-style-10'}>
+            {price ? price : 0 + 'đ'}
+          </span>
         </Flex>
         <Flex className={'my-[2.4rem] ml-[-1rem]'}>
           <Flex
