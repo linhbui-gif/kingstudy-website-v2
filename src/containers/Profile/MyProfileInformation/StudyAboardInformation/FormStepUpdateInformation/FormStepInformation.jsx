@@ -65,7 +65,10 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
     {
       id: '1',
       children: (
-        <InformationPersonal onNext={(data) => handleNextStep('2', data)} />
+        <InformationPersonal
+          onPrev={() => setIsUpdateToggle(false)}
+          onNext={(data) => handleNextStep('2', data)}
+        />
       ),
     },
     {

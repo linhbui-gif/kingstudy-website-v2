@@ -24,23 +24,23 @@ const NavigationBottom = ({ isLogin }) => {
           </li>
           <li>
             <Link
-              href={'/'}
+              href={Paths.Event.View}
               className={'text-body-14 text-style-10 font-[500]'}
             >
               <Icon name={EIconName.Plane} />
-              <span className={'hover:text-style-10'}>Du Học</span>
+              <span className={'hover:text-style-10'}>Sự kiện</span>
             </Link>
           </li>
           <li>
             <Link
-              href={'/'}
+              href={Paths.About.View}
               className={'text-body-14 text-style-10 font-[500]'}
             >
               <Icon
                 name={EIconName.ScholarshipResult}
                 color={EIconColor.STYLE_10}
               />
-              <span className={'hover:text-style-10'}>Học Bổng</span>
+              <span className={'hover:text-style-10'}>Giới thiệu</span>
             </Link>
           </li>
           <li>

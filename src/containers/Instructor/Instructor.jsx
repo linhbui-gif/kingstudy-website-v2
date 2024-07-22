@@ -14,10 +14,10 @@ const Instructor = ({ title }) => {
         >
           {title}
         </h2>
-        <Row>
+        <Row gutter={[24, 24]}>
           {[1, 2, 3, 4].map((element) => {
             return (
-              <Col span={6} key={element}>
+              <Col lg={{ span: 6 }} span={24} key={element}>
                 <InstructorCard />
               </Col>
             );

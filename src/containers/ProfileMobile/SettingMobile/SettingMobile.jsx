@@ -6,7 +6,7 @@ import { rootUrl } from '@/utils/utils';
 
 const SettingMobile = ({ setSwitchUIMobile, profileState }) => {
   return (
-    <div className={'mt-[2rem] px-5 min-h-screen overflow-y-scroll'}>
+    <div className={'mt-[2rem] px-5 pb-[10rem] min-h-screen overflow-y-scroll'}>
       <div className={'p-5 shadow-md bg-white container rounded-sm'}>
         <BackToDashBoard setSwitchUIMobile={setSwitchUIMobile} />
         <SettingSidebar

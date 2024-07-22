@@ -12,7 +12,7 @@ const InformationWork = ({ onNext, onPrev }) => {
       <h3>Thông tin công việc</h3>
       <Form layout={'vertical'} onFinish={onsubmit}>
         <Row>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Bạn đã đi làm chưa?'}
               className={'form-input-study-aboard'}
@@ -24,7 +24,7 @@ const InformationWork = ({ onNext, onPrev }) => {
               </Radio.Group>
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Tên cơ quan'}
               className={'form-input-study-aboard'}
@@ -33,7 +33,7 @@ const InformationWork = ({ onNext, onPrev }) => {
               <Input placeholder={'Tên cơ quan...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Thời gian làm việc'}
               className={'form-input-study-aboard'}
@@ -42,7 +42,7 @@ const InformationWork = ({ onNext, onPrev }) => {
               <Input placeholder={'Thời gian làm việc...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Địa chỉ'}
               className={'form-input-study-aboard'}
@@ -51,7 +51,7 @@ const InformationWork = ({ onNext, onPrev }) => {
               <Input placeholder={'Địa chỉ...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Số điện thoại'}
               className={'form-input-study-aboard'}
@@ -60,7 +60,7 @@ const InformationWork = ({ onNext, onPrev }) => {
               <Input placeholder={'Địa chỉ...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Email'}
               className={'form-input-study-aboard'}

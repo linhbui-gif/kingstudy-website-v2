@@ -252,6 +252,7 @@ const TrackingProfile = () => {
             }}
             dataSource={dataProfileTrack}
             rowKey={'id'}
+            scroll={{ x: 1920 }}
           />
         )}
         {isModalVisible?.visible && (

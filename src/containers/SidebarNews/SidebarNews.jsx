@@ -79,10 +79,9 @@ const SidebarNews = () => {
     </>
   );
   return (
-    <aside>
+    <aside className={'hidden md:block'}>
       <div className={'mb-[3rem]'}>
         <Input
-          style={'mr-[3rem]'}
           className={'input-suffix w-full'}
           placeholder={'Tìm bài viết...'}
           suffix={

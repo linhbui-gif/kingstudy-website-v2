@@ -71,7 +71,7 @@ const StepInformation = ({ onNext }) => {
       <Spin spinning={loadingGetProfileState}>
         <Form layout={'vertical'} onFinish={onSubmit} form={form}>
           <Row>
-            <Col span={12}>
+            <Col md={12} span={24}>
               <Form.Item
                 label={'Họ & Tên'}
                 required
@@ -81,13 +81,13 @@ const StepInformation = ({ onNext }) => {
                 <Input placeholder={'Nhập họ tên...'} />
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col md={12} span={24}>
               <Form.Item label={'Quốc gia du học'} name={'country_id'}>
                 <Select
                   allowClear
                   showSearch
                   placeholder="Nhập Quốc Gia..."
-                  className={'w-full mb-5 h-[5.5rem]'}
+                  className={'w-full mb-5 md:h-[5.5rem]'}
                   suffixIcon={
                     <Icon
                       name={EIconName.ArowDown}
@@ -117,7 +117,7 @@ const StepInformation = ({ onNext }) => {
                 </Select>
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col md={12} span={24}>
               <Form.Item
                 label={'Số điện thoại'}
                 required
@@ -127,12 +127,12 @@ const StepInformation = ({ onNext }) => {
                 <Input numberic placeholder={'Nhập số điện thoại...'} />
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col md={12} span={24}>
               <Form.Item label={'Bậc học'} name={'level_id'}>
                 <Select
                   options={levelCourse}
                   placeholder={'Bậc học'}
-                  className={'h-[5.5rem]'}
+                  className={'md:h-[5.5rem]'}
                   suffixIcon={
                     <Icon
                       name={EIconName.ArowDown}
@@ -144,7 +144,7 @@ const StepInformation = ({ onNext }) => {
                 />
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col md={12} span={24}>
               <Form.Item
                 label={'Email'}
                 required
@@ -154,12 +154,12 @@ const StepInformation = ({ onNext }) => {
                 <Input placeholder={'Nhập Email...'} />
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col md={12} span={24}>
               <Form.Item label={'Điểm IELTS'} name={'english_skill'}>
                 <Select
                   options={englishSkills}
                   placeholder={'Điểm IELTS'}
-                  className={'h-[5.5rem]'}
+                  className={'md:h-[5.5rem]'}
                   suffixIcon={
                     <Icon
                       name={EIconName.ArowDown}

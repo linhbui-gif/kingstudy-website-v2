@@ -174,7 +174,9 @@ const Header = ({ totalWishList = 0 }) => {
                       >
                         <div className={'flex gap-[.8rem]'}>
                           <span>{menu.name}</span>
-                          <Icon name={EIconName.ArowDown} />
+                          {menu?.children?.length && (
+                            <Icon name={EIconName.ArowDown} />
+                          )}
                         </div>
                       </Link>
                       {menu?.children?.length > 0 ? (

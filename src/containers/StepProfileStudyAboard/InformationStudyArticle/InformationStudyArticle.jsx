@@ -12,7 +12,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
       <h3>Thông tin học thuật</h3>
       <Form layout={'vertical'} onFinish={onsubmit}>
         <Row>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Bằng cấp cao nhất'}
               className={'form-input-study-aboard'}
@@ -21,7 +21,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               <Input placeholder={'Bằng cấp cao nhất...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Bạn đã đi làm chưa?'}
               className={'form-input-study-aboard'}
@@ -79,7 +79,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               Vui lòng cung cấp thông tin 2 người giới thiệu
             </h4>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Họ tên (1)'}
               className={'form-input-study-aboard'}
@@ -88,7 +88,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               <Input placeholder={'Họ tên (1)...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Chức vụ'}
               className={'form-input-study-aboard'}
@@ -97,7 +97,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               <Input placeholder={'Chức vụ...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Số điện thoại'}
               className={'form-input-study-aboard'}
@@ -106,7 +106,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               <Input numberic placeholder={'Số điện thoại...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Email'}
               className={'form-input-study-aboard'}
@@ -115,7 +115,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               <Input numberic placeholder={'Email...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Họ tên (2)'}
               className={'form-input-study-aboard'}
@@ -124,7 +124,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               <Input placeholder={'Họ tên (2)...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Chức vụ'}
               className={'form-input-study-aboard'}
@@ -133,7 +133,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               <Input placeholder={'Chức vụ...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Số điện thoại'}
               className={'form-input-study-aboard'}
@@ -142,7 +142,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               <Input numberic placeholder={'Số điện thoại...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Email'}
               className={'form-input-study-aboard'}

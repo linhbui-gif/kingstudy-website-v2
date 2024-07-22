@@ -19,6 +19,7 @@ export const EProfileSidebar = {
   MANAGER_PROFILE_INFORMATION: 'manager-profile',
   SCHOOL_FAVORITE: 'school-favorite',
   SETTING: 'setting',
+  INFORMATION_STUDY: 'information-study',
 };
 
 export const EUploadType = {
