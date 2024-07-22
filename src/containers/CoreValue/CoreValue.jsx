@@ -19,7 +19,7 @@ const CoreValue = () => {
         <Row>
           {[1, 2, 3].map((element) => {
             return (
-              <Col span={8} key={element}>
+              <Col lg={{ span: 8 }} span={24} key={element}>
                 <div
                   className={
                     'relative mb-[3rem] text-center group cursor-pointer overflow-hidden rounded-sm'

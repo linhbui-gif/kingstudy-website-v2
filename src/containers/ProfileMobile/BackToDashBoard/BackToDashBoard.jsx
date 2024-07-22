@@ -4,7 +4,7 @@ import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 const BackToDashBoard = ({ setSwitchUIMobile }) => {
   return (
     <div
-      className={'h-[2rem] flex items-center justify-start gap-2'}
+      className={'h-[2rem] mb-[2rem] flex items-center justify-start gap-2'}
       onClick={() => setSwitchUIMobile(null)}
     >
       <Icon

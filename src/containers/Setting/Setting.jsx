@@ -76,10 +76,92 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
                   color={EIconColor.STYLE_10}
                 />
               </Flex>
-              <Flex align={'center'} className={'bg-white p-5'}>
+              <Flex
+                align={'center'}
+                className={'bg-white p-5'}
+                onClick={() => router.push(`${Paths.Blog.View}`)}
+              >
                 <Icon name={EIconName.Account} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Tin tức
+                </span>
+                <Icon
+                  className={'rotate-[-90deg]'}
+                  name={EIconName.ArowDown}
+                  color={EIconColor.STYLE_10}
+                />
+              </Flex>
+            </div>
+          </Col>
+          <Col span={24}>
+            <div className={'bg-white rounded-sm shadow'}>
+              <Flex
+                align={'center'}
+                className={'bg-white p-5'}
+                onClick={() =>
+                  setSwitchUIMobile({ type: EProfileSidebar.INFORMATION_STUDY })
+                }
+              >
+                <Icon name={EIconName.Account} />
+                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
+                  Thông tin du học
+                </span>
+                <Icon
+                  className={'rotate-[-90deg]'}
+                  name={EIconName.ArowDown}
+                  color={EIconColor.STYLE_10}
+                />
+              </Flex>
+              <Flex
+                align={'center'}
+                className={'bg-white p-5'}
+                onClick={() =>
+                  setSwitchUIMobile({
+                    type: EProfileSidebar.TRACKING_PROFILE_INFORMATION,
+                  })
+                }
+              >
+                <Icon name={EIconName.Account} />
+                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
+                  Theo dõi hồ sơ
+                </span>
+                <Icon
+                  className={'rotate-[-90deg]'}
+                  name={EIconName.ArowDown}
+                  color={EIconColor.STYLE_10}
+                />
+              </Flex>
+              <Flex
+                align={'center'}
+                className={'bg-white p-5'}
+                onClick={() =>
+                  setSwitchUIMobile({
+                    type: EProfileSidebar.MANAGER_PROFILE_INFORMATION,
+                  })
+                }
+              >
+                <Icon name={EIconName.Account} />
+                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
+                  Quản lý hồ sơ
+                </span>
+                <Icon
+                  className={'rotate-[-90deg]'}
+                  name={EIconName.ArowDown}
+                  color={EIconColor.STYLE_10}
+                />
+              </Flex>
+              <Flex
+                align={'center'}
+                className={'bg-white p-5'}
+                onClick={() =>
+                  setSwitchUIMobile({
+                    type: EProfileSidebar.SCHOOL_FAVORITE,
+                  })
+                }
+              >
+                <Icon name={EIconName.Account} />
+                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
+                  Trường yêu thích
                 </span>
                 <Icon
                   className={'rotate-[-90deg]'}
@@ -109,66 +191,7 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
               <Flex align={'center'} className={'bg-white p-5'}>
                 <Icon name={EIconName.Account} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Dịch vụ
-                </span>
-                <Icon
-                  className={'rotate-[-90deg]'}
-                  name={EIconName.ArowDown}
-                  color={EIconColor.STYLE_10}
-                />
-              </Flex>
-              <Flex align={'center'} className={'bg-white p-5'}>
-                <Icon name={EIconName.Account} />
-                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Liên Hệ
-                </span>
-                <Icon
-                  className={'rotate-[-90deg]'}
-                  name={EIconName.ArowDown}
-                  color={EIconColor.STYLE_10}
-                />
-              </Flex>
-              <Flex align={'center'} className={'bg-white p-5'}>
-                <Icon name={EIconName.Account} />
-                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Blog Du Học
-                </span>
-                <Icon
-                  className={'rotate-[-90deg]'}
-                  name={EIconName.ArowDown}
-                  color={EIconColor.STYLE_10}
-                />
-              </Flex>
-            </div>
-          </Col>
-          <Col span={24}>
-            <div className={'bg-white rounded-sm shadow'}>
-              <Flex align={'center'} className={'bg-white p-5'}>
-                <Icon name={EIconName.Account} />
-                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Dịch vụ
-                </span>
-                <Icon
-                  className={'rotate-[-90deg]'}
-                  name={EIconName.ArowDown}
-                  color={EIconColor.STYLE_10}
-                />
-              </Flex>
-              <Flex align={'center'} className={'bg-white p-5'}>
-                <Icon name={EIconName.Account} />
-                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Liên Hệ
-                </span>
-                <Icon
-                  className={'rotate-[-90deg]'}
-                  name={EIconName.ArowDown}
-                  color={EIconColor.STYLE_10}
-                />
-              </Flex>
-              <Flex align={'center'} className={'bg-white p-5'}>
-                <Icon name={EIconName.Account} />
-                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Blog Du Học
                 </span>
                 <Icon
                   className={'rotate-[-90deg]'}

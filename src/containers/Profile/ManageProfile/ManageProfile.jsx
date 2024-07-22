@@ -72,7 +72,7 @@ const ManageProfile = ({ profileState, loading }) => {
                   />
                 );
                 return (
-                  <Col span={6} key={element?.url}>
+                  <Col md={6} span={12} key={element?.url}>
                     <div className={'shadow-md rounded-sm'}>
                       <div
                         className={
@@ -108,27 +108,27 @@ const ManageProfile = ({ profileState, loading }) => {
         <div>
           <Spin spinning={loading}>
             <Row gutter={[20, 20]} className={'p-[2rem]'}>
-              <Col span={12}>
+              <Col md={12} span={24}>
                 <span>Họ và Tên: </span>
                 <strong>{userProfileSubmit?.name}</strong>
               </Col>
-              <Col span={12}>
+              <Col md={12} span={24}>
                 <span>Số điện thoại: </span>
                 <strong>{userInformation?.phone}</strong>
               </Col>
-              <Col span={12}>
+              <Col md={12} span={24}>
                 <span>Giới tính: </span>
                 <strong>{userInformation?.gender}</strong>
               </Col>
-              <Col span={12}>
+              <Col md={12} span={24}>
                 <span>Quốc gia du học: </span>
                 <strong>{userProfileSubmit?.country?.name}</strong>
               </Col>
-              <Col span={12}>
+              <Col md={12} span={24}>
                 <span>Bậc học: </span>
                 <strong>{userProfileSubmit?.level?.name}</strong>
               </Col>
-              <Col span={12}>
+              <Col md={12} span={24}>
                 <span>Thời gian gửi: </span>
                 <strong>
                   {moment(userProfileSubmit?.created_at)?.format(
@@ -136,7 +136,7 @@ const ManageProfile = ({ profileState, loading }) => {
                   )}
                 </strong>
               </Col>
-              <Col span={12}>
+              <Col md={12} span={24}>
                 <span>IELTS: </span>
                 <strong>
                   {renderEnglishSkill(userProfileSubmit?.english_skill)}

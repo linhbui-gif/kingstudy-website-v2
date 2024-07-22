@@ -12,7 +12,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading }) => {
       <h3>Thông tin lịch sử du lịch</h3>
       <Form layout={'vertical'} onFinish={onsubmit}>
         <Row>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Bạn đã đi nước ngoài chưa?'}
               className={'form-input-study-aboard'}
@@ -29,7 +29,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading }) => {
               Vui lòng cung cấp thông tin 10 năm gần nhất:
             </h4>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Quốc gia 1'}
               className={'form-input-study-aboard'}
@@ -38,7 +38,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading }) => {
               <Input placeholder={'Quốc gia 1...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Thời gian'}
               className={'form-input-study-aboard'}
@@ -47,7 +47,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading }) => {
               <Input placeholder={'Thời gian...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Mục đích'}
               className={'form-input-study-aboard'}
@@ -56,7 +56,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading }) => {
               <Input placeholder={'Mục đích...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Quốc gia 2'}
               className={'form-input-study-aboard'}
@@ -65,7 +65,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading }) => {
               <Input placeholder={'Quốc gia 1...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Thời gian'}
               className={'form-input-study-aboard'}
@@ -74,7 +74,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading }) => {
               <Input placeholder={'Thời gian...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Mục đích'}
               className={'form-input-study-aboard'}

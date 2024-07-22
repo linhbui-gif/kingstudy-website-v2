@@ -1,9 +1,9 @@
-import { Col, DatePicker, Form, Radio, Row } from 'antd';
+import { Col, DatePicker, Form, Radio, Row, Space } from 'antd';
 
 import ButtonComponent from '@/components/Button';
 import Input from '@/components/Input';
 
-const InformationPersonal = ({ onNext }) => {
+const InformationPersonal = ({ onNext, onPrev }) => {
   const onsubmit = (values) => {
     onNext?.(values);
   };
@@ -12,7 +12,7 @@ const InformationPersonal = ({ onNext }) => {
       <h3>Thông tin cá nhân</h3>
       <Form layout={'vertical'} onFinish={onsubmit}>
         <Row>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Tên của bạn'}
               className={'form-input-study-aboard'}
@@ -21,7 +21,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input placeholder={'Nhập tên của bạn ...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Ngày tháng năm sinh'}
               className={'form-input-study-aboard'}
@@ -30,7 +30,7 @@ const InformationPersonal = ({ onNext }) => {
               <DatePicker placeholder={'Birthday ...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Nơi sinh'}
               className={'form-input-study-aboard'}
@@ -39,7 +39,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input placeholder={'Nơi sinh ...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Giới tính'}
               className={'form-input-study-aboard'}
@@ -51,7 +51,7 @@ const InformationPersonal = ({ onNext }) => {
               </Radio.Group>
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Địa chỉ thường trú'}
               className={'form-input-study-aboard'}
@@ -60,7 +60,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input placeholder={'Địa chỉ thường trú ...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Địa chỉ tạm trú'}
               className={'form-input-study-aboard'}
@@ -69,7 +69,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input placeholder={'Địa chỉ tạm trú ...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'SĐT cá nhân'}
               className={'form-input-study-aboard'}
@@ -78,7 +78,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input numberic placeholder={'SĐT cá nhân...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Email'}
               className={'form-input-study-aboard'}
@@ -87,7 +87,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input placeholder={'Email...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Số CCCD'}
               className={'form-input-study-aboard'}
@@ -96,7 +96,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input numberic placeholder={'Số CCCD...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Nơi cấp'}
               className={'form-input-study-aboard'}
@@ -105,7 +105,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input placeholder={'Nơi cấp...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Ngày cấp'}
               className={'form-input-study-aboard'}
@@ -114,7 +114,7 @@ const InformationPersonal = ({ onNext }) => {
               <DatePicker placeholder={'Ngày cấp...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Ngày hết hạn'}
               className={'form-input-study-aboard'}
@@ -123,7 +123,7 @@ const InformationPersonal = ({ onNext }) => {
               <DatePicker placeholder={'Ngày hết hạn...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Số hộ chiếu'}
               className={'form-input-study-aboard'}
@@ -132,7 +132,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input numberic placeholder={'Số hộ chiếu...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Nơi cấp'}
               className={'form-input-study-aboard'}
@@ -141,7 +141,7 @@ const InformationPersonal = ({ onNext }) => {
               <Input placeholder={'Nơi cấp...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Ngày cấp'}
               className={'form-input-study-aboard'}
@@ -150,7 +150,7 @@ const InformationPersonal = ({ onNext }) => {
               <DatePicker placeholder={'Ngày cấp...'} />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col md={8} span={24}>
             <Form.Item
               label={'Ngày hết hạn'}
               className={'form-input-study-aboard'}
@@ -160,11 +160,18 @@ const InformationPersonal = ({ onNext }) => {
             </Form.Item>
           </Col>
           <Col span={24}>
-            <ButtonComponent
-              title={'Tiếp theo'}
-              className={'primary w-[15rem]'}
-              htmlType={'submit'}
-            />
+            <Space>
+              <ButtonComponent
+                title={'Tiếp theo'}
+                className={'primary w-[15rem]'}
+                htmlType={'submit'}
+              />
+              <ButtonComponent
+                title={'Quay lại'}
+                className={'primary-outline w-[15rem]'}
+                onClick={onPrev}
+              />
+            </Space>
           </Col>
         </Row>
       </Form>

@@ -12,6 +12,8 @@ import MyProfileInformation from '@/containers/Profile/MyProfileInformation';
 import SchoolFavorite from '@/containers/Profile/SchoolFavorite';
 import SettingSidebar from '@/containers/Profile/Setting';
 import TrackingProfile from '@/containers/Profile/TrackingProfile';
+import BackToDashBoard from '@/containers/ProfileMobile/BackToDashBoard';
+import InformationStudy from '@/containers/ProfileMobile/InformationStudy';
 import SettingMobile from '@/containers/ProfileMobile/SettingMobile';
 import ViewProfile from '@/containers/ProfileMobile/ViewProfile';
 import Setting from '@/containers/Setting';
@@ -76,6 +78,55 @@ const Profile = () => {
             setSwitchUIMobile={setSwitchUIMobile}
             profileState={profileState}
           />
+        );
+      case EProfileSidebar.INFORMATION_STUDY:
+        return (
+          <InformationStudy
+            setSwitchUIMobile={setSwitchUIMobile}
+            userInformation={userInformation}
+          />
+        );
+      case EProfileSidebar.TRACKING_PROFILE_INFORMATION:
+        return (
+          <div
+            className={
+              'flex mt-[2rem] px-5 pb-[10rem] min-h-screen overflow-y-scroll'
+            }
+          >
+            <div className={'p-5 shadow-md bg-white container rounded-sm'}>
+              <BackToDashBoard setSwitchUIMobile={setSwitchUIMobile} />
+              <TrackingProfile />
+            </div>
+          </div>
+        );
+      case EProfileSidebar.MANAGER_PROFILE_INFORMATION:
+        return (
+          <div
+            className={
+              'flex mt-[2rem] px-5 pb-[10rem] min-h-screen overflow-y-scroll'
+            }
+          >
+            <div className={'p-5 shadow-md bg-white container rounded-sm'}>
+              <BackToDashBoard setSwitchUIMobile={setSwitchUIMobile} />
+              <ManageProfile
+                profileState={profileState}
+                loading={loadingGetProfileState}
+              />
+            </div>
+          </div>
+        );
+      case EProfileSidebar.SCHOOL_FAVORITE:
+        return (
+          <div
+            className={
+              'flex mt-[2rem] px-5 pb-[10rem] min-h-screen overflow-y-scroll'
+            }
+          >
+            <div className={'p-5 shadow-md bg-white container rounded-sm'}>
+              <BackToDashBoard setSwitchUIMobile={setSwitchUIMobile} />
+              <SchoolFavorite />
+            </div>
+          </div>
         );
       default:
         return (
