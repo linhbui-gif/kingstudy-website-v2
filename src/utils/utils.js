@@ -47,8 +47,8 @@ export const statusSchool = (type) => {
 export const changeArrayToOptions = (arr = []) => {
   return (
     arr &&
-    arr.map(({ id, name, icon }) => {
-      return { value: id, label: name, icon: icon || '' };
+    arr.map(({ id, name, icon, logo }) => {
+      return { value: id, label: name, icon: icon || '', logo: logo || '' };
     })
   );
 };

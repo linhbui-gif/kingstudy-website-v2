@@ -9,6 +9,7 @@ export const MenuData = [
       {
         id: 1,
         name: 'Giới thiệu',
+        link: `${Paths.About.View}`,
       },
       {
         id: 2,
