@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import {Checkbox, Spin} from 'antd';
+import { Checkbox, Spin } from 'antd';
 import Image from 'next/image';
 
 import ButtonComponent from '@/components/Button';
@@ -31,7 +31,7 @@ const StepCountry = ({ onNext }) => {
           {countries &&
             countries.map((element) => {
               return (
-                <div key={element?.value} className={'w-[21rem]'}>
+                <div key={element?.value} className={'md:w-[21rem] w-full'}>
                   <div className={'relative'}>
                     <Image
                       className={'w-full block object-cover rounded-sm'}

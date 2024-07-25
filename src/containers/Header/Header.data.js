@@ -23,11 +23,13 @@ export const MenuData = [
       },
       {
         id: 4,
-        name: 'Tìm trường',
+        name: 'Khảo sát',
+        link: `${Paths.Survey.View}`,
       },
       {
         id: 5,
         name: 'Tự nộp hồ sơ',
+        link: `${Paths.Profile.SubmitProfileStep}`,
       },
     ],
   },

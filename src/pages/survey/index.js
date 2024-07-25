@@ -3,16 +3,15 @@ import React, { useState } from 'react';
 import { Col, Row } from 'antd';
 import Link from 'next/link';
 
+import ImageSchool from '@/assets/images/image-school.jpg';
+import ButtonComponent from '@/components/Button';
+import Card from '@/components/Card';
+import Empty from '@/components/Empty';
 import Meta from '@/components/Meta';
 import Container from '@/containers/Container';
 import HeroBannerCommon from '@/containers/HeroBannerCommon';
 import StepSurvey from '@/containers/StepSurvey';
 import GuestLayout from '@/layouts/GuestLayout';
-import Empty from "@/components/Empty";
-import CardSkeleton from "@/components/Card/CardSkeleton";
-import Card from "@/components/Card";
-import ImageSchool from "@/assets/images/image-school.jpg";
-import ButtonComponent from "@/components/Button";
 const Survey = () => {
   const [schools, setSchools] = useState([]);
   const [activeSchool, setActiveSchool] = useState(false);
@@ -56,7 +55,9 @@ const Survey = () => {
                   <Row gutter={[24, 24]}>
                     {schools.length === 0 && activeSchool ? (
                       <Col span={24}>
-                        <h3 className={'text-center'}>Rất tiếc ! Không có trường nào phù hợp</h3>
+                        <h3 className={'text-center'}>
+                          Rất tiếc ! Không có trường nào phù hợp
+                        </h3>
                         <div
                           className={
                             'flex items-center justify-center flex-col'

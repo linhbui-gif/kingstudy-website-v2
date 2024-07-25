@@ -173,7 +173,11 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
           </Col>
           <Col span={24}>
             <div className={'bg-white rounded-sm shadow'}>
-              <Flex align={'center'} className={'bg-white p-5'}>
+              <Flex
+                align={'center'}
+                className={'bg-white p-5'}
+                onClick={() => router.push(`${Paths.Survey.View}`)}
+              >
                 <Icon name={EIconName.Account} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Khảo sát

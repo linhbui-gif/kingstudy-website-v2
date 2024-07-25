@@ -30,7 +30,7 @@ const StepEnd = ({ onPrev, loading, onSubmit }) => {
     <div className={'my-[3rem]'}>
       <Form layout={'vertical'} onFinish={handlerSubmit}>
         <Row>
-          <Col span={12}>
+          <Col md={{ span: 12 }} span={24}>
             <Form.Item name={'survey_tuition'} label={'Học phí'}>
               <Select
                 options={dataTuitionOptions}
@@ -44,7 +44,7 @@ const StepEnd = ({ onPrev, loading, onSubmit }) => {
               />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col md={{ span: 12 }} span={24}>
             <Form.Item name={'survey_mark_ielts'} label={'Điểm IELTS'}>
               <Select
                 options={englishSkills}
@@ -76,7 +76,7 @@ const StepEnd = ({ onPrev, loading, onSubmit }) => {
               />
               <ButtonComponent
                 title={'Quay lại'}
-                className={'primary-outline min-w-[16rem] mt-[4rem]'}
+                className={'primary-outline md:min-w-[16rem] mt-[4rem]'}
                 onClick={onPrev}
               />
             </Space>

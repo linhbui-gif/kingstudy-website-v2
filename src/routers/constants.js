@@ -30,4 +30,7 @@ export const Paths = {
   About: {
     View: '/about',
   },
+  Survey: {
+    View: '/survey',
+  },
 };

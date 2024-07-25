@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { useRouter } from 'next/router';
-
 import { ETypeNotification } from '@/common/enums';
 import Steps from '@/components/Step';
 import StepCountry from '@/containers/StepSurvey/StepCountry';
@@ -69,7 +67,7 @@ const StepSurvey = ({ setSchools, setActiveSchool }) => {
       if (response?.code === 200) {
         setSchools(response?.data);
         setLoading(false);
-        setActiveSchool(true)
+        setActiveSchool(true);
         showNotification(
           ETypeNotification.SUCCESS,
           'Khảo sát trường thành công !'
