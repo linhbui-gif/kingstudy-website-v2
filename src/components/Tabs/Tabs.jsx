@@ -25,7 +25,7 @@ const Tabs = ({ options = [], defaultKey, onKeyChange, hasMajor = false }) => {
   }, [router.query]);
 
   useEffect(() => {
-    if (!activeKey) setActiveKey(options[0]?.key);
+    if (!activeKey) setActiveKey(options?.[0]?.key || '');
   }, []);
 
   return (
@@ -42,11 +42,12 @@ const Tabs = ({ options = [], defaultKey, onKeyChange, hasMajor = false }) => {
         />
       )}
       <AntdTabs activeKey={activeKey} onChange={handleTabChange}>
-        {options.map((option) => (
-          <AntdTabs.TabPane tab={option.title} key={option.key}>
-            {activeKey === option.key && option.children}
-          </AntdTabs.TabPane>
-        ))}
+        {options &&
+          options.map((option) => (
+            <AntdTabs.TabPane tab={option.title} key={option.key}>
+              {activeKey === option.key && option.children}
+            </AntdTabs.TabPane>
+          ))}
       </AntdTabs>
       {hasMajor && (
         <div

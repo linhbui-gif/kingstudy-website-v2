@@ -1,55 +1,26 @@
 import React, { useState } from 'react';
 
-// import { useRouter } from 'next/router';
-//
-// import {
-//   EProfileSidebar,
-//   ETypeNotification,
-//   EUploadType,
-// } from '@/common/enums';
+import { useRouter } from 'next/router';
+
+import { ETypeNotification } from '@/common/enums';
 import Steps from '@/components/Step';
 import StepCountry from '@/containers/StepSurvey/StepCountry';
+import StepEnd from '@/containers/StepSurvey/StepEnd';
 import StepMajor from '@/containers/StepSurvey/StepMajor';
-// import { Paths } from '@/routers/constants';
-// import { submitProfile } from '@/services/profile';
-// import { showNotification } from '@/utils/function';
-
-const StepSurvey = () => {
+import { surveySchool } from '@/services/school';
+import { parseObjectToFormData, showNotification } from '@/utils/function';
+const StepSurvey = ({ setSchools, setActiveSchool }) => {
   const [stepState, setStepState] = useState({
     currentStep: undefined,
     data: undefined,
   });
-  // const [loading, setLoading] = useState(false);
-  // const router = useRouter();
-  // const extractOriginFileObjs = (filesArray) => {
-  //   return filesArray?.map((element) => element?.originFileObj);
-  // };
-  // const parseObjectToFormData = (obj) => {
-  //   const formData = new FormData();
-  //
-  //   Object.keys(obj).forEach((key) => {
-  //     if (Array.isArray(obj[key])) {
-  //       obj[key].forEach((item) => {
-  //         formData.append(`${key}`, item);
-  //       });
-  //     } else {
-  //       formData.append(key, obj[key]);
-  //     }
-  //   });
-  //
-  //   return formData;
-  // };
-
-  // const onSubmitProfile = () => {
-  //   let body = { ...stepState?.data, object: EUploadType.ATTACHMENT };
-  //   body['academic_files[]'] = extractOriginFileObjs(body['academic_files[]']);
-  //   body['profile_files[]'] = extractOriginFileObjs(body['profile_files[]']);
-  //   body['finance_files[]'] = extractOriginFileObjs(body['finance_files[]']);
-  //
-  //   const formData = parseObjectToFormData(body);
-  //
-  //   onSaveProfile?.(formData).then();
-  // };
+  const [loading, setLoading] = useState(false);
+  const onSubmitSurvey = (data) => {
+    const body = { ...stepState?.data, ...data };
+    body['country_id'] = JSON.stringify(body['country_id']);
+    const formData = parseObjectToFormData(body);
+    onSurveySchool?.(formData).then();
+  };
   const dataStep = [
     {
       id: '1',
@@ -57,7 +28,22 @@ const StepSurvey = () => {
     },
     {
       id: '2',
-      children: <StepMajor />,
+      children: (
+        <StepMajor
+          onPrev={() => handlePrevStep('1')}
+          onNext={(data) => handleNextStep('3', data)}
+        />
+      ),
+    },
+    {
+      id: '3',
+      children: (
+        <StepEnd
+          onPrev={() => handlePrevStep('2')}
+          onSubmit={onSubmitSurvey}
+          loading={loading}
+        />
+      ),
     },
   ];
 
@@ -69,25 +55,34 @@ const StepSurvey = () => {
       data: { ...stepState.data, ...data },
     });
   };
-  // const onSaveProfile = async (body) => {
-  //   try {
-  //     setLoading(true);
-  //     const response = await submitProfile(body);
-  //     if (response?.status === 200) {
-  //       setLoading(false);
-  //       router.push(
-  //         `${Paths.Profile.View}?page=${EProfileSidebar.MANAGER_PROFILE_INFORMATION}`
-  //       );
-  //       showNotification(ETypeNotification.SUCCESS, 'Nộp hồ sơ thành công !');
-  //     }
-  //   } catch (e) {
-  //     setLoading(false);
-  //     showNotification(
-  //       ETypeNotification.ERROR,
-  //       'Có lỗi xảy ra, vui lòng liên hệ Kỹ thuật để được hỗ trợ !'
-  //     );
-  //   }
-  // };
+  const handlePrevStep = (keyStep) => {
+    const changedStep = dataStep.find((option) => option.id === keyStep);
+    setStepState({
+      ...stepState,
+      currentStep: changedStep,
+    });
+  };
+  const onSurveySchool = async (body) => {
+    try {
+      setLoading(true);
+      const response = await surveySchool(body);
+      if (response?.code === 200) {
+        setSchools(response?.data);
+        setLoading(false);
+        setActiveSchool(true)
+        showNotification(
+          ETypeNotification.SUCCESS,
+          'Khảo sát trường thành công !'
+        );
+      }
+    } catch (e) {
+      setLoading(false);
+      showNotification(
+        ETypeNotification.ERROR,
+        'Có lỗi xảy ra, vui lòng liên hệ Kỹ thuật để được hỗ trợ !'
+      );
+    }
+  };
   return (
     <div className={''}>
       <div className={'rounded-[8px] '}>

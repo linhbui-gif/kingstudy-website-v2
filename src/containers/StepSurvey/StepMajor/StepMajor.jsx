@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
-import { Checkbox, Form, Select } from 'antd';
+import { Checkbox, Form, Select, Space } from 'antd';
 
+import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Input from '@/components/Input';
+import TagTimeStartLearn from '@/containers/StepSurvey/StepMajor/TagTimeStartLearn';
 import { useAPI } from '@/contexts/APIContext';
 import { changeArrayToOptions } from '@/utils/utils';
 
@@ -30,11 +32,37 @@ const options = [
     label: 'Điểm học chuyển tiếp',
   },
 ];
-const StepMajor = () => {
+
+const optionTimeStartLearn = [
+  {
+    label: 'Trong 1-3 tháng nữa',
+    value: '1,3',
+  },
+  {
+    label: 'Trong 4-6 tháng nữa',
+    value: '4,6',
+  },
+  {
+    label: 'Trong 7-9 tháng nữa',
+    value: '7,9',
+  },
+  {
+    label: 'Trong 10-12 tháng nữa',
+    value: '10,12',
+  },
+  {
+    label: 'Trong 1 năm nữa hoặc hơn',
+    value: '15',
+  },
+];
+const StepMajor = ({ onNext, onPrev }) => {
   const { majors } = useAPI();
   const majorOptions = changeArrayToOptions(majors);
   const [checkedList, setCheckedList] = useState([]);
   const [optionPoints, setOptionPoints] = useState(options);
+  const [selectedValueTag, setSelectedValueTag] = useState(
+    optionTimeStartLearn[0]?.value
+  );
   const onChangeCheckPoint = (event) => {
     const arrCheckList = processLogicUpdateCheckedList(event);
     const updatedArrOptionPoints = optionPoints.map((item) => ({
@@ -52,9 +80,12 @@ const StepMajor = () => {
         )
       : checkedList.filter((point) => point !== value);
   };
+  const handlerSubmit = (values) => {
+    onNext?.({ ...values, startTime: selectedValueTag });
+  };
   return (
     <div className={'my-[3rem]'}>
-      <Form layout={'vertical'}>
+      <Form layout={'vertical'} onFinish={handlerSubmit}>
         <Form.Item name={'majors'} label={'Chọn ngành học'}>
           <Select
             allowClear
@@ -67,7 +98,7 @@ const StepMajor = () => {
             options={majorOptions}
           />
         </Form.Item>
-        <h3>Điểm học</h3>
+        <h3>ĐIỂM HỌC</h3>
         <div>
           {optionPoints &&
             optionPoints.map((option) => {
@@ -114,6 +145,32 @@ const StepMajor = () => {
               );
             })}
         </div>
+        <h3>THỜI GIAN BẮT ĐẦU HỌC</h3>
+        <div>
+          <TagTimeStartLearn
+            options={optionTimeStartLearn}
+            value={optionTimeStartLearn.find(
+              (option) => option.value === selectedValueTag
+            )}
+            onChange={(option) => {
+              const selectedTabValue = option?.value;
+
+              setSelectedValueTag(selectedTabValue);
+            }}
+          />
+        </div>
+        <Space>
+          <ButtonComponent
+            title={'Tiếp theo'}
+            className={'primary min-w-[16rem] mt-[4rem]'}
+            htmlType={'submit'}
+          />
+          <ButtonComponent
+            title={'Quay lại'}
+            className={'primary-outline min-w-[16rem] mt-[4rem]'}
+            onClick={onPrev}
+          />
+        </Space>
       </Form>
     </div>
   );

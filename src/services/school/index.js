@@ -39,3 +39,7 @@ export const removeSchoolCompareList = async (idSchool) => {
   );
   return response?.data;
 };
+export const surveySchool = async (body) => {
+  const response = await ApiService.post(`/school/survey`, body);
+  return response?.data;
+};

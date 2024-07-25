@@ -41,6 +41,7 @@ export const APIProvider = ({ children }) => {
   const [openDrawerCompare, setOpenDrawerCompare] = useState(false);
   const [blogs, setBlogs] = useState([]);
   const [loadingBlog, setLoadingBlog] = useState(false);
+  const [loadingCountry, setLoadingCountry] = useState(false);
   const [idCategory, setIdCategory] = useState({});
   const showDrawerCompare = () => {
     setOpenDrawerCompare(true);
@@ -69,12 +70,15 @@ export const APIProvider = ({ children }) => {
 
   const getCountryList = async () => {
     try {
+      setLoadingCountry(true);
       const response = await getCountries();
       if (response?.code === 200) {
+        setLoadingCountry(false);
         const options = changeArrayToOptions(response?.data?.countries);
         setCountries(options);
       }
     } catch (e) {
+      setLoadingCountry(true);
       showNotification(
         ETypeNotification.ERROR,
         'Đã xảy ra lỗi hệ thống ! Vui lòng liên hệ kỹ thuật để được hỗ trợ sớm nhất'
@@ -227,6 +231,7 @@ export const APIProvider = ({ children }) => {
         blogs,
         setIdCategory,
         idCategory,
+        loadingCountry,
       }}
     >
       {children}
