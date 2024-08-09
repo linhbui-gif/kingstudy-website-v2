@@ -23,7 +23,10 @@ const NavigationBottom = ({ isLogin, showDrawer }) => {
             </Link>
           </li>
           <li>
-            <div className={'text-body-14 text-style-10 font-[500]'} onClick={showDrawer}>
+            <div
+              className={'text-body-14 text-style-10 font-[500]'}
+              onClick={showDrawer}
+            >
               <Icon
                 name={EIconName.StudyAboard}
                 color={EIconColor.STYLE_10}

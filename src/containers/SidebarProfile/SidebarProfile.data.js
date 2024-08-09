@@ -28,7 +28,14 @@ export const sidebarProfileData = [
   {
     key: '3',
     title: 'Trường yêu thích',
-    icon: <Icon name={EIconName.StudyAboard} color={EIconColor.STYLE_10} width={24} height={24} />,
+    icon: (
+      <Icon
+        name={EIconName.StudyAboard}
+        color={EIconColor.STYLE_10}
+        width={24}
+        height={24}
+      />
+    ),
     link: `${Paths.Profile.View}?page=${EProfileSidebar.SCHOOL_FAVORITE}`,
     activePaths: [`${EProfileSidebar.SCHOOL_FAVORITE}`],
   },

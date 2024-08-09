@@ -22,13 +22,16 @@ import Exit from '@/components/Icon/Exit';
 import Facebook from '@/components/Icon/Facebook';
 import Favorite from '@/components/Icon/Favorite';
 import Filter from '@/components/Icon/Filter';
+import FollowHs from '@/components/Icon/FollowHs';
 import Home from '@/components/Icon/Home';
 import Idea from '@/components/Icon/Idea';
+import Information from '@/components/Icon/Information';
 import Instagram from '@/components/Icon/Instagram';
 import Ireland_Flag from '@/components/Icon/IrelandFlag';
 import Law from '@/components/Icon/Law';
 import Likedine from '@/components/Icon/Likedine';
 import Loud from '@/components/Icon/Loud';
+import ManageHS from '@/components/Icon/ManageHS';
 import Minus from '@/components/Icon/Minus';
 import Music from '@/components/Icon/Music';
 import Partner from '@/components/Icon/Partner';
@@ -39,6 +42,7 @@ import Plus from '@/components/Icon/Plus';
 import Scholarship from '@/components/Icon/ScholarshipResult';
 import ScholarshipResult from '@/components/Icon/ScholarshipResult';
 import Search from '@/components/Icon/Search';
+import Setting from '@/components/Icon/Setting';
 import SocialWork from '@/components/Icon/SocialWork';
 import Star from '@/components/Icon/Star';
 import StarBorder from '@/components/Icon/StarBorder';
@@ -49,10 +53,6 @@ import UK_Flag from '@/components/Icon/UKFlag';
 import Vietnam_Flag from '@/components/Icon/VietnamFlag';
 import Visa from '@/components/Icon/Visa';
 import Word from '@/components/Icon/Word';
-import FollowHs from "@/components/Icon/FollowHs";
-import ManageHS from "@/components/Icon/ManageHS";
-import Setting from "@/components/Icon/Setting";
-import Information from "@/components/Icon/Information";
 
 const Icon = ({
   name,

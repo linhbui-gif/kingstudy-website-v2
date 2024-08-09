@@ -159,7 +159,12 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
                   })
                 }
               >
-                <Icon name={EIconName.StudyAboard} color={EIconColor.STYLE_10} width={24} height={24} />
+                <Icon
+                  name={EIconName.StudyAboard}
+                  color={EIconColor.STYLE_10}
+                  width={24}
+                  height={24}
+                />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Trường yêu thích
                 </span>

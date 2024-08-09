@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { Col, Flex, Row } from 'antd';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import ImageAvatarDefault from '@/assets/images/image-avatar-default.png';
 import { EProfileSidebar } from '@/common/enums';
 import Container from '@/containers/Container';
+import HeroBannerCommon from '@/containers/HeroBannerCommon';
 import ManageProfile from '@/containers/Profile/ManageProfile';
 import MyProfileInformation from '@/containers/Profile/MyProfileInformation';
 import SchoolFavorite from '@/containers/Profile/SchoolFavorite';
@@ -21,8 +23,6 @@ import { sidebarProfileData } from '@/containers/SidebarProfile/SidebarProfile.d
 import { useAPI } from '@/contexts/APIContext';
 import ProtectedLayout from '@/layouts/ProtectedLayout';
 import { rootUrl } from '@/utils/utils';
-import Link from "next/link";
-import HeroBannerCommon from "@/containers/HeroBannerCommon";
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
@@ -208,7 +208,8 @@ const Profile = () => {
                                 : ''
                             }`}
                           >
-                            {sidebar?.icon} <span className={'ml-2'}>{sidebar?.title}</span>
+                            {sidebar?.icon}{' '}
+                            <span className={'ml-2'}>{sidebar?.title}</span>
                           </li>
                         );
                       })}

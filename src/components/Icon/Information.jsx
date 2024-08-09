@@ -1,7 +1,12 @@
 import { EIconColor } from './Icon.enum';
 const Svg = ({ color = EIconColor.STYLE_10 }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 24 24" className={'w-[2.4rem] h-[2.4rem]'}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      id="Layer_1"
+      viewBox="0 0 24 24"
+      className={'w-[2.4rem] h-[2.4rem]'}
+    >
       <path
         d="m12,0C5.38,0,0,5.38,0,12s5.38,12,12,12,12-5.38,12-12S18.62,0,12,0Zm0,21.41c-5.19,0-9.41-4.22-9.41-9.41S6.81,2.59,12,2.59s9.41,4.22,9.41,9.41-4.22,9.41-9.41,9.41Z"
         fill={color}
@@ -13,7 +18,6 @@ const Svg = ({ color = EIconColor.STYLE_10 }) => {
         strokeWidth={0}
       />
     </svg>
-
   );
 };
 export default Svg;
