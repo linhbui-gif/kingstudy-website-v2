@@ -49,6 +49,10 @@ import UK_Flag from '@/components/Icon/UKFlag';
 import Vietnam_Flag from '@/components/Icon/VietnamFlag';
 import Visa from '@/components/Icon/Visa';
 import Word from '@/components/Icon/Word';
+import FollowHs from "@/components/Icon/FollowHs";
+import ManageHS from "@/components/Icon/ManageHS";
+import Setting from "@/components/Icon/Setting";
+import Information from "@/components/Icon/Information";
 
 const Icon = ({
   name,
@@ -162,6 +166,14 @@ const Icon = ({
         return <Word color={color} />;
       case EIconName.Pdf:
         return <Pdf color={color} />;
+      case EIconName.Follow_HS:
+        return <FollowHs color={color} />;
+      case EIconName.Manage_HS:
+        return <ManageHS color={color} />;
+      case EIconName.Setting:
+        return <Setting color={color} />;
+      case EIconName.Information:
+        return <Information color={color} />;
       default:
         break;
     }

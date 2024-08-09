@@ -16,7 +16,7 @@ const DrawerListCompare = ({ open, onClose, data, removeSchoolCompare }) => {
       height={200}
     >
       <div className={'flex items-center justify-between'}>
-        <div className={'flex items-center gap-3'}>
+        <div className={'flex items-center flex-1 justify-center gap-3'}>
           {data &&
             data.map((element) => {
               return (
@@ -33,7 +33,7 @@ const DrawerListCompare = ({ open, onClose, data, removeSchoolCompare }) => {
                     height={70}
                     layout={'responsive'}
                     loading={'lazy'}
-                    className={'w-full object-fill'}
+                    className={'w-full object-fill rounded-full'}
                   />
                   <Icon
                     name={EIconName.Minus}

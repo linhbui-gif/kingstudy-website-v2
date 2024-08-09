@@ -20,7 +20,7 @@ const StudyAboardInformation = ({ isUpdated = false, userInformation }) => {
           </div>
           <span
             onClick={() => setIsUpdateToggle(true)}
-            className={'cursor-pointer text-orange text-body-16 font-[500]'}
+            className={'cursor-pointer text-orange text-body-14 font-[500]'}
           >
             {userInformation?.status_profile_aborad === 1
               ? 'Chỉnh sửa'

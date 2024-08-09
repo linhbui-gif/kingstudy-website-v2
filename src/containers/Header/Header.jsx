@@ -9,9 +9,7 @@ import { useRouter } from 'next/router';
 
 import ImageLogoMobile from '@/assets/images/image-logo-mobile.png';
 import { EProfileSidebar, ETypeNotification } from '@/common/enums';
-import Avatar from '@/components/Avatar';
 import ButtonComponent from '@/components/Button';
-import DropdownMenu from '@/components/DropdownMenu';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Input from '@/components/Input';
@@ -65,33 +63,44 @@ const Header = ({ totalWishList = 0 }) => {
 
   const renderHeaderAccount = () => {
     return (
-      <DropdownMenu
-        options={[
-          {
-            value: '1',
-            label: 'Thông tin cá nhân',
-            link: `${Paths.Profile.View}?page=${EProfileSidebar.MY_PROFILE_INFORMATION}`,
-          },
-          { value: '2', label: 'Đăng xuất', onClick: handleLogout },
-        ]}
-      >
-        <div className="Header-account flex items-center">
-          <div className="Header-account-avatar">
-            <Avatar
-              className={'bg-[unset]'}
-              iconNameDefault={EIconName.Account}
-              iconColorDefault={EIconColor.WHITE}
-              image={''}
-            />
-          </div>
-          <div className="text-white">
-            Xin chào, <strong>{profileState?.profile?.name}</strong>
-          </div>
-          <div className="ml-2">
-            <Icon name={EIconName.ArowDown} />
-          </div>
+      <div className="relative Header-account flex items-center cursor-pointer py-[4rem] group">
+        <div className="text-white text-body-16">
+          Xin chào, <strong>{profileState?.profile?.name}</strong>
         </div>
-      </DropdownMenu>
+        <div className="ml-2">
+          <Icon name={EIconName.ArowDown} />
+        </div>
+        <span
+          className={
+            'absolute left-0 w-[1px] h-[35px] bg-white top-[50%] translate-y-[-50%] ml-[-1.2rem]'
+          }
+        ></span>
+        <ul
+          className="dropdown absolute left-0 top-[100%] translate-y-[50%] shadow-md bg-white w-[24rem] text-left z-50 rounded-sm pl-0 py-[1.5rem] duration-300 ease-in-out opacity-0 invisible group-hover:opacity-[1] group-hover:visible group-hover:translate-y-[0%]"
+          style={{ borderTop: '3px solid #F48331' }}
+        >
+          <li
+            className={
+              'p-[1rem_2.5rem] text-button-16 font-[500] text-style-7 hover:text-orange'
+            }
+            onClick={() => {
+              router.push(
+                `${Paths.Profile.View}?page=${EProfileSidebar.MY_PROFILE_INFORMATION}`
+              );
+            }}
+          >
+            Thông tin cá nhân
+          </li>
+          <li
+            className={
+              'p-[1rem_2.5rem] text-button-16 font-[500] text-style-7 hover:text-orange'
+            }
+            onClick={handleLogout}
+          >
+            Đăng xuất
+          </li>
+        </ul>
+      </div>
     );
   };
   useEffect(() => {
@@ -225,8 +234,7 @@ const Header = ({ totalWishList = 0 }) => {
                       className={
                         'absolute top-[50%] right-[1rem] translate-y-[-50%] flex items-center justify-center w-[3.2rem] h-[3.2rem] md:w-[4.2rem] md:h-[4.2rem] cursor-pointer'
                       }
-                      name={EIconName.Filter}
-                      onClick={showDrawer}
+                      name={EIconName.Search}
                     />
                   }
                 />
@@ -304,19 +312,12 @@ const Header = ({ totalWishList = 0 }) => {
                   <Icon name={EIconName.Favorite} color={EIconColor.WHITE} />
                   <span
                     className={
-                      'absolute top-[-5px] right-[-10px] flex items-center justify-center w-[20px] h-[20px] text-[12px] text-style-5 text-center bg-red rounded-full'
+                      'absolute top-[-5px] right-[-7px] flex items-center justify-center w-[20px] h-[20px] text-[12px] text-style-5 text-center bg-red rounded-full'
                     }
                   >
                     {totalWishList}
                   </span>
                 </div>
-                {/*<Icon*/}
-                {/*  name={EIconName.Account}*/}
-                {/*  color={EIconColor.STYLE_10}*/}
-                {/*  width={24}*/}
-                {/*  height={24}*/}
-                {/*  className={'w-[3rem] h-[3rem] rounded-full bg-white'}*/}
-                {/*/>*/}
               </div>
             </MediaQuery>
           </div>
@@ -329,8 +330,7 @@ const Header = ({ totalWishList = 0 }) => {
                   className={
                     'absolute top-[50%] right-[1rem] translate-y-[-50%] flex items-center justify-center w-[3.2rem] h-[3.2rem] md:w-[4.2rem] md:h-[4.2rem] cursor-pointer'
                   }
-                  name={EIconName.Filter}
-                  onClick={showDrawer}
+                  name={EIconName.Search}
                 />
               }
             />
@@ -338,7 +338,7 @@ const Header = ({ totalWishList = 0 }) => {
         </div>
       </Container>
       <MediaQuery maxWidth={1023}>
-        <NavigationBottom isLogin={isLogin} />
+        <NavigationBottom showDrawer={showDrawer} isLogin={isLogin} />
       </MediaQuery>
     </header>
   );

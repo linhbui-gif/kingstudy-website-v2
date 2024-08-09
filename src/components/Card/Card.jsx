@@ -62,10 +62,10 @@ const Card = ({
       <div className="Card-body flex flex-col flex-1 px-[2.4rem] pt-[2.4rem]">
         <Flex justify={'space-between'} align={'center'}>
           {statusSchool(type)}
-          <Flex align={'center'} gap={'small'}>
-            <Icon name={EIconName.Star} />
-            <span className={'mt-2 text-body-16 text-style-12'}>4.9 (25)</span>
-          </Flex>
+          {/*<Flex align={'center'} gap={'small'}>*/}
+          {/*  <Icon name={EIconName.Star} />*/}
+          {/*  <span className={'mt-2 text-body-16 text-style-12'}>4.9 (25)</span>*/}
+          {/*</Flex>*/}
         </Flex>
         <h3 className={'my-[8px] flex flex-col flex-1'}>
           <Link

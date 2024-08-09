@@ -66,7 +66,7 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
                   setSwitchUIMobile({ type: EProfileSidebar.SETTING })
                 }
               >
-                <Icon name={EIconName.Account} />
+                <Icon name={EIconName.Setting} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Cài đặt
                 </span>
@@ -81,7 +81,7 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
                 className={'bg-white p-5'}
                 onClick={() => router.push(`${Paths.Blog.View}`)}
               >
-                <Icon name={EIconName.Account} />
+                <Icon name={EIconName.Information} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Tin tức
                 </span>
@@ -102,7 +102,7 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
                   setSwitchUIMobile({ type: EProfileSidebar.INFORMATION_STUDY })
                 }
               >
-                <Icon name={EIconName.Account} />
+                <Icon name={EIconName.Plane} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Thông tin du học
                 </span>
@@ -121,7 +121,7 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
                   })
                 }
               >
-                <Icon name={EIconName.Account} />
+                <Icon name={EIconName.Follow_HS} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Theo dõi hồ sơ
                 </span>
@@ -140,7 +140,7 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
                   })
                 }
               >
-                <Icon name={EIconName.Account} />
+                <Icon name={EIconName.Manage_HS} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Quản lý hồ sơ
                 </span>
@@ -159,7 +159,7 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
                   })
                 }
               >
-                <Icon name={EIconName.Account} />
+                <Icon name={EIconName.StudyAboard} color={EIconColor.STYLE_10} width={24} height={24} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Trường yêu thích
                 </span>
@@ -178,7 +178,7 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
                 className={'bg-white p-5'}
                 onClick={() => router.push(`${Paths.Survey.View}`)}
               >
-                <Icon name={EIconName.Account} />
+                <Icon name={EIconName.Setting} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
                   Khảo sát
                 </span>

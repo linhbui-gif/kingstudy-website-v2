@@ -21,6 +21,8 @@ import { sidebarProfileData } from '@/containers/SidebarProfile/SidebarProfile.d
 import { useAPI } from '@/contexts/APIContext';
 import ProtectedLayout from '@/layouts/ProtectedLayout';
 import { rootUrl } from '@/utils/utils';
+import Link from "next/link";
+import HeroBannerCommon from "@/containers/HeroBannerCommon";
 
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
@@ -146,6 +148,17 @@ const Profile = () => {
     <div>
       <MediaQuery maxWidth={991}>{renderUIMobile()}</MediaQuery>
       <MediaQuery minWidth={992}>
+        <HeroBannerCommon
+          title={'Hồ sơ cá nhân'}
+          items={[
+            {
+              title: <Link href="/">Trang chủ</Link>,
+            },
+            {
+              title: 'Hồ sơ cá nhân',
+            },
+          ]}
+        />
         <div className={'py-[10rem]'}>
           <Container>
             <Row>
@@ -195,7 +208,7 @@ const Profile = () => {
                                 : ''
                             }`}
                           >
-                            {sidebar?.icon} {sidebar?.title}
+                            {sidebar?.icon} <span className={'ml-2'}>{sidebar?.title}</span>
                           </li>
                         );
                       })}

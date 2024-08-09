@@ -163,7 +163,9 @@ const SchoolDetail = () => {
                             height={90}
                             loading={'lazy'}
                             alt={schoolData?.name}
-                            className={'w-full h-full object-contain'}
+                            className={
+                              'w-full h-full object-contain rounded-sm'
+                            }
                             quality={100}
                           />
                         </div>
@@ -327,7 +329,7 @@ const SchoolDetail = () => {
                       <div
                         className={'font-BeVnPro-style-content'}
                         dangerouslySetInnerHTML={{ __html: schoolData?.about }}
-                        style={{ color: '#575757 !important' }}
+                        style={{ color: '#141517 !important' }}
                       />
                     </div>
                   )}
