@@ -1,51 +1,41 @@
 import { Col, Flex, Row } from 'antd';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import ImageAvatarDefault from '@/assets/images/image-avatar-default.png';
-import { EProfileSidebar, ETypeNotification } from '@/common/enums';
-import Avatar from '@/components/Avatar';
+import { ETypeNotification } from '@/common/enums';
 import ButtonComponent from '@/components/Button';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Container from '@/containers/Container';
-import { Paths } from '@/routers/constants';
-import Helpers from '@/services/helpers';
+import GuestLayout from '@/layouts/GuestLayout';
+import { ModulePaths, Paths } from '@/routers/constants';
 import { showNotification } from '@/utils/function';
-import { rootUrl } from '@/utils/utils';
 
-const Setting = ({ userInformation, setSwitchUIMobile }) => {
+const Menu = () => {
   const router = useRouter();
-  const handleLogout = () => {
-    Helpers.clearTokens();
-    router.push(`${Paths.Home}`);
-    showNotification(
-      ETypeNotification.SUCCESS,
-      'Đăng xuất tài khoản thành công !'
-    );
-  };
   return (
-    <div className={'min-h-screen mt-5 overflow-y-scroll'}>
+    <div className={'min-h-screen mt-5 overflow-y-scroll pb-[3rem]'}>
       <Container>
         <Row gutter={[16, 16]}>
           <Col span={24}>
             <Flex
               align={'center'}
               className={'bg-white rounded-sm shadow p-5'}
-              onClick={() =>
-                setSwitchUIMobile({
-                  type: EProfileSidebar.MY_PROFILE_INFORMATION,
-                })
-              }
+              onClick={() => {
+                showNotification(
+                  ETypeNotification.WARNING,
+                  'Bạn cần phải đăng nhập để sử dụng tính năng này !'
+                );
+              }}
             >
-              <Avatar
-                image={
-                  userInformation
-                    ? `${rootUrl}${userInformation?.image_url}`
-                    : ImageAvatarDefault
-                }
+              <Image
+                className={'w-[35px] h-[35px] rounded-full'}
+                layout={'fix'}
+                src={ImageAvatarDefault}
+                alt={'avatar-default'}
               />
               <div className={'flex-1 pl-5'}>
-                <h3> {userInformation?.full_name}</h3>
                 <p className={'mb-0 text-body-14 text-style-9'}>
                   Xem thông tin cá nhân
                 </p>
@@ -62,13 +52,11 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
               <Flex
                 align={'center'}
                 className={'bg-white p-5'}
-                onClick={() =>
-                  setSwitchUIMobile({ type: EProfileSidebar.SETTING })
-                }
+                onClick={() => router.push(`${Paths.About.View}`)}
               >
-                <Icon name={EIconName.Setting} />
+                <Icon name={EIconName.Information} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Cài đặt
+                  Giới thiệu
                 </span>
                 <Icon
                   className={'rotate-[-90deg]'}
@@ -98,13 +86,13 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
               <Flex
                 align={'center'}
                 className={'bg-white p-5'}
-                onClick={() =>
-                  setSwitchUIMobile({ type: EProfileSidebar.INFORMATION_STUDY })
-                }
+                onClick={() => {
+                  router.push(`${Paths.School.View}?country_id=7`);
+                }}
               >
                 <Icon name={EIconName.Plane} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Thông tin du học
+                  Du học anh
                 </span>
                 <Icon
                   className={'rotate-[-90deg]'}
@@ -115,15 +103,13 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
               <Flex
                 align={'center'}
                 className={'bg-white p-5'}
-                onClick={() =>
-                  setSwitchUIMobile({
-                    type: EProfileSidebar.TRACKING_PROFILE_INFORMATION,
-                  })
-                }
+                onClick={() => {
+                  router.push(`${Paths.School.View}?country_id=8`);
+                }}
               >
-                <Icon name={EIconName.Follow_HS} />
+                <Icon name={EIconName.Plane} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Theo dõi hồ sơ
+                  Du học úc
                 </span>
                 <Icon
                   className={'rotate-[-90deg]'}
@@ -134,15 +120,13 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
               <Flex
                 align={'center'}
                 className={'bg-white p-5'}
-                onClick={() =>
-                  setSwitchUIMobile({
-                    type: EProfileSidebar.MANAGER_PROFILE_INFORMATION,
-                  })
-                }
+                onClick={() => {
+                  router.push(`${Paths.School.View}?country_id=9`);
+                }}
               >
-                <Icon name={EIconName.Manage_HS} />
+                <Icon name={EIconName.Plane} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Quản lý hồ sơ
+                  Du học Canada
                 </span>
                 <Icon
                   className={'rotate-[-90deg]'}
@@ -153,20 +137,47 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
               <Flex
                 align={'center'}
                 className={'bg-white p-5'}
-                onClick={() =>
-                  setSwitchUIMobile({
-                    type: EProfileSidebar.SCHOOL_FAVORITE,
-                  })
-                }
+                onClick={() => {
+                  router.push(`${Paths.School.View}?country_id=5`);
+                }}
               >
-                <Icon
-                  name={EIconName.StudyAboard}
-                  color={EIconColor.STYLE_10}
-                  width={24}
-                  height={24}
-                />
+                <Icon name={EIconName.Plane} />
                 <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
-                  Trường yêu thích
+                  Du học Mỹ
+                </span>
+                <Icon
+                  className={'rotate-[-90deg]'}
+                  name={EIconName.ArowDown}
+                  color={EIconColor.STYLE_10}
+                />
+              </Flex>
+              <Flex
+                align={'center'}
+                className={'bg-white p-5'}
+                onClick={() => {
+                  router.push(`${Paths.School.View}?country_id=11`);
+                }}
+              >
+                <Icon name={EIconName.Plane} />
+                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
+                  Du học Ireland
+                </span>
+                <Icon
+                  className={'rotate-[-90deg]'}
+                  name={EIconName.ArowDown}
+                  color={EIconColor.STYLE_10}
+                />
+              </Flex>
+              <Flex
+                align={'center'}
+                className={'bg-white p-5'}
+                onClick={() => {
+                  router.push(`${Paths.School.View}?country_id=10`);
+                }}
+              >
+                <Icon name={EIconName.Plane} />
+                <span className={'text-body-16 text-style-7 pl-5 flex-1'}>
+                  Du học Hà Lan
                 </span>
                 <Icon
                   className={'rotate-[-90deg]'}
@@ -212,9 +223,9 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
           </Col>
           <Col span={24}>
             <ButtonComponent
+              link={`${ModulePaths.Auth}${Paths.Login}`}
               className={'primary w-full'}
-              title={'Đăng xuất'}
-              onClick={handleLogout}
+              title={'Đăng nhập'}
             />
           </Col>
         </Row>
@@ -222,4 +233,11 @@ const Setting = ({ userInformation, setSwitchUIMobile }) => {
     </div>
   );
 };
-export default Setting;
+export default Menu;
+Menu.getLayout = function (page) {
+  return (
+    <>
+      <GuestLayout>{page}</GuestLayout>
+    </>
+  );
+};

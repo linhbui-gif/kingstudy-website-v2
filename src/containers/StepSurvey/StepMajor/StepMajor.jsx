@@ -162,12 +162,12 @@ const StepMajor = ({ onNext, onPrev }) => {
         <Space>
           <ButtonComponent
             title={'Tiếp theo'}
-            className={'primary min-w-[16rem] mt-[4rem]'}
+            className={'primary md:min-w-[16rem] mt-[4rem]'}
             htmlType={'submit'}
           />
           <ButtonComponent
             title={'Quay lại'}
-            className={'primary-outline min-w-[16rem] mt-[4rem]'}
+            className={'primary-outline md:min-w-[16rem] mt-[4rem]'}
             onClick={onPrev}
           />
         </Space>

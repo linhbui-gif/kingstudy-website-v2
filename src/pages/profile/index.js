@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { Col, Flex, Row } from 'antd';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import ImageAvatarDefault from '@/assets/images/image-avatar-default.png';
 import { EProfileSidebar } from '@/common/enums';
 import Container from '@/containers/Container';
+import HeroBannerCommon from '@/containers/HeroBannerCommon';
 import ManageProfile from '@/containers/Profile/ManageProfile';
 import MyProfileInformation from '@/containers/Profile/MyProfileInformation';
 import SchoolFavorite from '@/containers/Profile/SchoolFavorite';
@@ -146,6 +148,17 @@ const Profile = () => {
     <div>
       <MediaQuery maxWidth={991}>{renderUIMobile()}</MediaQuery>
       <MediaQuery minWidth={992}>
+        <HeroBannerCommon
+          title={'Hồ sơ cá nhân'}
+          items={[
+            {
+              title: <Link href="/">Trang chủ</Link>,
+            },
+            {
+              title: 'Hồ sơ cá nhân',
+            },
+          ]}
+        />
         <div className={'py-[10rem]'}>
           <Container>
             <Row>
@@ -189,13 +202,14 @@ const Profile = () => {
                           <li
                             key={sidebar?.key}
                             onClick={() => router.push(sidebar?.link)}
-                            className={`flex items-center w-full p-[1.2rem_1.5rem] cursor-pointer text-body-14 ${
+                            className={`flex items-center w-full p-[1.2rem_1.5rem] cursor-pointer text-body-14 hover:bg-white hover:rounded-sm hover:text-style-10 hover:font-[500] ${
                               sidebar?.activePaths.includes(page)
                                 ? 'bg-white rounded-sm text-style-10 font-[500]'
                                 : ''
                             }`}
                           >
-                            {sidebar?.icon} {sidebar?.title}
+                            {sidebar?.icon}{' '}
+                            <span className={'ml-2'}>{sidebar?.title}</span>
                           </li>
                         );
                       })}

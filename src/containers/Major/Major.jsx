@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Col, Row } from 'antd';
 import { useRouter } from 'next/router';
@@ -8,17 +8,11 @@ import { EIconColor } from '@/components/Icon/Icon.enum';
 import Container from '@/containers/Container';
 import { useAPI } from '@/contexts/APIContext';
 import { Paths } from '@/routers/constants';
+import { useHover } from '@/utils/hook';
 const Major = () => {
   const router = useRouter();
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const { majors, setFilterSchool } = useAPI();
-  const handleMouseEnter = (index) => {
-    setHoveredIndex(index);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredIndex(null);
-  };
+  const { hoveredIndex, handleMouseEnter, handleMouseLeave } = useHover();
   const handleClickMajor = (id) => {
     setFilterSchool({
       page: 1,

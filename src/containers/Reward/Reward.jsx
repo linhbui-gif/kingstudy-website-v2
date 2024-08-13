@@ -1,3 +1,5 @@
+import CountUp from 'react-countup';
+
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 import Container from '@/containers/Container';
@@ -18,7 +20,8 @@ const Reward = () => {
                 'md:text-title-24 text-body-14 text-style-5 md:text-left text-center'
               }
             >
-              100% visa <br className={'block md:hidden'} /> thành công
+              <CountUp duration={10} end={100} />% visa{' '}
+              <br className={'block md:hidden'} /> thành công
             </span>
           </div>
           <div
@@ -32,7 +35,8 @@ const Reward = () => {
                 'md:text-title-24 text-body-14 text-style-5 md:text-left text-center'
               }
             >
-              2500+ <br className={'block md:hidden'} /> đối tác
+              <CountUp duration={10} end={2500} />+{' '}
+              <br className={'block md:hidden'} /> đối tác
             </span>
           </div>
           <div
@@ -50,7 +54,8 @@ const Reward = () => {
                 'md:text-title-24 text-body-14 text-style-5 md:text-left text-center'
               }
             >
-              130 tỷ <br className={'block md:hidden'} /> học bổng
+              <CountUp duration={10} end={130} /> tỷ{' '}
+              <br className={'block md:hidden'} /> học bổng
             </span>
           </div>
         </div>

@@ -293,3 +293,7 @@ table > * {
 .gradient-black-before:before {
   background: linear-gradient(0deg,#020e26 0,rgba(9,20,43,0));
 }
+
+.arcodion .ant-collapse-item .ant-collapse-header-text {
+  font-size: 1.8rem!important;
+}

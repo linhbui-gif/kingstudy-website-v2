@@ -15,6 +15,7 @@ export const Paths = {
   SchoolFilter: (id) => `/school?majors=${id}`,
   School: {
     SchoolDetail: (slug) => `/school/${slug}`,
+    View: '/school',
   },
   Profile: {
     View: '/profile',
@@ -32,5 +33,8 @@ export const Paths = {
   },
   Survey: {
     View: '/survey',
+  },
+  Menu: {
+    View: '/menu',
   },
 };

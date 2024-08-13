@@ -18,7 +18,7 @@ import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
 const SchoolList = () => {
   const router = useRouter();
-  const { majors } = router.query;
+  const { majors, country_id } = router.query;
   const { schoolList, loading, setFilterSchool, filterSchool, totalSchool } =
     useAPI();
   const [countFilter, setCountFilter] = useState(0);
@@ -45,6 +45,14 @@ const SchoolList = () => {
     }
   }, [filterSchool]);
 
+  useEffect(() => {
+    if (country_id) {
+      setFilterSchool({
+        ...filterSchool,
+        country: country_id,
+      });
+    }
+  }, [country_id]);
   const onShowSizeChange = (current, limit) => {
     setFilterSchool({
       ...filterSchool,

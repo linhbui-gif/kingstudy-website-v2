@@ -29,3 +29,20 @@ export const useModalState = () => {
 
   return [modalState, handleOpenModal, handleCloseModal];
 };
+export const useHover = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
+
+  return {
+    hoveredIndex,
+    handleMouseEnter,
+    handleMouseLeave,
+  };
+};

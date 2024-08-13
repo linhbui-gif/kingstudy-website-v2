@@ -47,6 +47,10 @@ export const EIconName = {
   Camera: 'Camera',
   Words: 'Words',
   Pdf: 'Pdf',
+  Follow_HS: 'Follow_HS',
+  Manage_HS: 'Manage_HS',
+  Setting: 'Setting',
+  Information: 'Information',
 };
 export const EIconColor = {
   STYLE_10: '#22458F',

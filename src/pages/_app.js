@@ -46,6 +46,9 @@ export default function App({ Component, pageProps }) {
             buttonSolidCheckedActiveBg: '#22458F',
             buttonSolidCheckedBg: '#22458F',
           },
+          Spin: {
+            colorPrimary: '#22458F',
+          },
         },
       }}
     >

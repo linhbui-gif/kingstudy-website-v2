@@ -190,7 +190,7 @@ const TrackingProfile = () => {
                 height={100}
                 layout={'fixed'}
                 loading={'lazy'}
-                className={'max-w-full h-full object-contain'}
+                className={'max-w-full h-full object-contain rounded-sm'}
               />
             )}
           </div>

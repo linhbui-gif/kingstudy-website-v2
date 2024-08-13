@@ -27,11 +27,18 @@ const StepCountry = ({ onNext }) => {
     <div className={'my-[3rem]'}>
       <h3>Chọn quốc gia</h3>
       <Spin spinning={loadingCountry}>
-        <div className={'flex items-center gap-[2rem] flex-wrap'}>
+        <div
+          className={
+            'flex items-center gap-[2rem] md:flex-wrap flex-nowrap overflow-x-scroll md:overflow-visible'
+          }
+        >
           {countries &&
             countries.map((element) => {
               return (
-                <div key={element?.value} className={'md:w-[21rem] w-full'}>
+                <div
+                  key={element?.value}
+                  className={'min-w-[15rem] md:w-[21rem]'}
+                >
                   <div className={'relative'}>
                     <Image
                       className={'w-full block object-cover rounded-sm'}
