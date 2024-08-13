@@ -38,39 +38,41 @@ export const MenuData = [
     name: 'Du Học',
     children: [
       {
-        id: 1,
-        name: 'Du Học Anh',
-      },
-      {
-        id: 2,
-        name: 'Du học Uc',
-      },
-      {
-        id: 3,
-        name: 'Du học Mỹ',
-      },
-      {
-        id: 4,
-        name: 'Du học Canada',
-      },
-      {
-        id: 5,
-        name: 'Du học Ireland',
-      },
-      {
-        id: 6,
-        name: 'Du học Hà Lan',
-      },
-      {
         id: 7,
-        name: 'Du học Singapore',
+        name: 'Du Học Anh',
+        link: `${Paths.School.View}?country_id=7`,
       },
       {
         id: 8,
-        name: 'Học bổng',
+        name: 'Du học Uc',
+        link: `${Paths.School.View}?country_id=8`,
+      },
+      {
+        id: 5,
+        name: 'Du học Mỹ',
+        link: `${Paths.School.View}?country_id=5`,
       },
       {
         id: 9,
+        name: 'Du học Canada',
+        link: `${Paths.School.View}?country_id=9`,
+      },
+      {
+        id: 11,
+        name: 'Du học Ireland',
+        link: `${Paths.School.View}?country_id=11`,
+      },
+      {
+        id: 10,
+        name: 'Du học Hà Lan',
+        link: `${Paths.School.View}?country_id=10`,
+      },
+      {
+        id: 2,
+        name: 'Học bổng',
+      },
+      {
+        id: 3,
         name: 'Blog',
         link: '/blog',
       },

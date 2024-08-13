@@ -202,7 +202,7 @@ const Profile = () => {
                           <li
                             key={sidebar?.key}
                             onClick={() => router.push(sidebar?.link)}
-                            className={`flex items-center w-full p-[1.2rem_1.5rem] cursor-pointer text-body-14 ${
+                            className={`flex items-center w-full p-[1.2rem_1.5rem] cursor-pointer text-body-14 hover:bg-white hover:rounded-sm hover:text-style-10 hover:font-[500] ${
                               sidebar?.activePaths.includes(page)
                                 ? 'bg-white rounded-sm text-style-10 font-[500]'
                                 : ''

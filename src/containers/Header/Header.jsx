@@ -145,7 +145,8 @@ const Header = ({ totalWishList = 0 }) => {
             }}
             showFooter
             onApply={() => {
-              if (pathname !== '/school') router.push('/school');
+              if (pathname !== Paths.School.View)
+                router.push(Paths.School.View);
               setFilterSchool({ ...filterCommon });
             }}
           />

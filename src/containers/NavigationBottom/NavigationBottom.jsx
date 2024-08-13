@@ -50,7 +50,7 @@ const NavigationBottom = ({ isLogin, showDrawer }) => {
               href={
                 isLogin
                   ? `${ModulePaths.MyProfile}`
-                  : `${ModulePaths.Auth}${Paths.Login}` || ''
+                  : `${Paths.Menu.View}` || ''
               }
               className={'text-body-14 text-style-10 font-[500]'}
             >
