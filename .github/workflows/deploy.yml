@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: '18.20.4'
 
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build project
+        run: yarn build:prod
+
       - name: Setup SSH
         uses: appleboy/ssh-action@master
         with:
