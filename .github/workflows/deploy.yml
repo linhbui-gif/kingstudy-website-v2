@@ -19,10 +19,10 @@ jobs:
           node-version: '18.20.4'
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Build project
-        run: yarn build:prod
+        run: npm run build:prod
 
       - name: Setup SSH
         uses: appleboy/ssh-action@master
@@ -34,8 +34,8 @@ jobs:
             cd /var/www/html/king-study
             git checkout develop
             git pull origin develop
-            yarn install
-            yarn build:prod
+            npm install
+            npm run build:prod
           
 
   
