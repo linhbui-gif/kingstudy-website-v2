@@ -19,7 +19,7 @@ jobs:
           node-version: '18.20.4'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build project
         run: npm run build:prod
@@ -34,7 +34,7 @@ jobs:
             cd /var/www/html/king-study
             git checkout develop
             git pull origin develop
-            npm install
+            npm install --legacy-peer-deps
             npm run build:prod
           
 
