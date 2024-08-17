@@ -34,4 +34,5 @@ jobs:
             cd /var/www/html/king-study
             git checkout develop
             git pull origin develop
+            chmod +x run.sh
             ./run.sh
