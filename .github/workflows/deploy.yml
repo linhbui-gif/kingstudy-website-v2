@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js and Yarn
         uses: actions/setup-node@v3
         with:
-          node-version: '18.20.4'
+          node-version: "18.20.4"
 
       - name: Setup SSH
         uses: appleboy/ssh-action@master
@@ -25,15 +25,13 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            if ! command -v npm &> /dev/null; then
-              curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-              sudo apt-get install -y nodejs
+            if ! command -v docker &> /dev/null; then
+              sudo apt install apt-transport-https ca-certificates curl software-properties-common
+              curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+              sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+              sudo apt install docker-ce
             fi
             cd /var/www/html/king-study
             git checkout develop
             git pull origin develop
-            npm install --legacy-peer-deps
-            npm run build:prod
-          
-
-  
+            ./run.sh
