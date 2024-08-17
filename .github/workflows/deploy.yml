@@ -1,0 +1,34 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.6.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Setup Node.js and Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.20.4'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build project
+        run: yarn build:prod
+
+      - name: Deploy to VPS
+        run: |
+          rsync -avz --delete ./ root@45.118.147.146:/var/www/html/king-study/
