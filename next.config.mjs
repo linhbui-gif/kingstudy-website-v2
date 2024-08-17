@@ -16,7 +16,12 @@ const nextConfig = {
     removeConsole: false,
   },
   images: {
-    domains: ['kingstudy.vn','localhost','king-study.loc','devwebsite.kingstudy.vn'],
+    domains: [
+      'admin.kingstudy.vn',
+      'localhost',
+      'king-study.loc',
+      'devwebsite.kingstudy.vn',
+    ],
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -25,7 +30,7 @@ const nextConfig = {
   devIndicators: {
     buildActivity: false,
   },
-  trailingSlash: false
+  trailingSlash: false,
 };
 
 export default nextConfig;
