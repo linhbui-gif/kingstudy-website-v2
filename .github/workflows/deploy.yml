@@ -8,7 +8,7 @@ env:
   IMAGE_TAG: king-study-website
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
