@@ -136,7 +136,7 @@ export async function getServerSideProps(context) {
           meta_description: data?.meta_description,
           robots: data?.is_index,
           keywords: data?.keywords,
-          link: data?.link_seo
+          link: data?.link_seo,
         },
       },
     };
