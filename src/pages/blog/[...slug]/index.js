@@ -1,3 +1,5 @@
+import https from 'https';
+
 import { useEffect, useState } from 'react';
 
 import { Col, Row, Spin } from 'antd';
@@ -16,7 +18,7 @@ import GuestLayout from '@/layouts/GuestLayout';
 import { Paths } from '@/routers/constants';
 import { getBlogBySlug } from '@/services/blog';
 import { rootUrl } from '@/utils/utils';
-const BlogDetail = () => {
+const BlogDetail = ({ blogDetail }) => {
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState(null);
@@ -49,7 +51,14 @@ const BlogDetail = () => {
   const cleanHTML = DOMPurify.sanitize(data?.content);
   return (
     <GuestLayout>
-      <Meta title={data?.title} />
+      <Meta
+        title={blogDetail?.meta_title}
+        description={blogDetail?.meta_description}
+        robots={blogDetail?.robots}
+        thumbnail={rootUrl + blogDetail?.thumbnail}
+        keywords={blogDetail?.keywords}
+        link={blogDetail?.link}
+      />
       <section className={'py-[9rem]'}>
         <Container>
           <Row gutter={[24, 24]}>
@@ -111,4 +120,33 @@ const BlogDetail = () => {
     </GuestLayout>
   );
 };
+export async function getServerSideProps(context) {
+  try {
+    const { slug } = context.params;
+    const agent = new https.Agent({
+      rejectUnauthorized: false,
+    });
+    const response = await getBlogBySlug(slug[0], agent);
+    const data = response?.data;
+    return {
+      props: {
+        blogDetail: {
+          thumbnail: data?.image_banner ? data?.image_banner : '',
+          meta_title: data?.meta_title,
+          meta_description: data?.meta_description,
+          robots: data?.is_index,
+          keywords: data?.keywords,
+          link: data?.link_seo
+        },
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        blogDetail: null,
+        error: error.message,
+      },
+    };
+  }
+}
 export default BlogDetail;

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { AppConfig, addTrailingSlash } from '@/utils/utils';
+import { AppConfig } from '@/utils/utils';
 
 const Meta = (props) => {
   const router = useRouter();
@@ -12,7 +12,7 @@ const Meta = (props) => {
         <meta charSet="UTF-8" key="charset" />
         <meta
           name="viewport"
-          content="width=device-width,initial-scale=1"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
           key="viewport"
         />
         <link
@@ -53,6 +53,10 @@ const Meta = (props) => {
           href={`${router.basePath}/favicon.ico`}
           key="favicon"
         />
+        <link
+          rel="image_src"
+          href={props?.thumbnail ?? router.basePath + '/thumbnail.png'}
+        />
         <title>{AppConfig.site_name}</title>
         <meta
           name="description"
@@ -67,7 +71,7 @@ const Meta = (props) => {
         )}
         <meta
           property="og:title"
-          content={`${props.title} | ${AppConfig.site_name}`}
+          content={props.title ? props.title : AppConfig.title}
           key="og:title"
         />
         <meta
@@ -83,75 +87,25 @@ const Meta = (props) => {
           content={AppConfig.site_name}
           key="og:site_name"
         />
-        {props.post && (
-          <>
-            <meta property="og:type" content="article" key="og:type" />
-            <meta
-              property="og:image"
-              content={`${AppConfig.url}${router.basePath}${props.post.image}`}
-              key="og:image"
-            />
-            <meta
-              name="twitter:card"
-              content="summary_large_image"
-              key="twitter:card"
-            />
-            <meta
-              property="article:published_time"
-              content={new Date(props.post.date).toISOString()}
-              key="article:published_time"
-            />
-            <meta
-              property="article:modified_time"
-              content={new Date(props.post.modified_date).toISOString()}
-              key="article:modified_time"
-            />
-            <script
-              type="application/ld+json"
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: `
-          {
-            "description": "${
-              props.description ? props.description : AppConfig.description
-            }",
-            "author": {
-              "@type": "Person",
-              "name": "${AppConfig.author}"
-            },
-            "@type": "BlogPosting",
-            "url": "${AppConfig.url}${router.basePath}${addTrailingSlash(
-                  router.asPath
-                )}",
-            "publisher": {
-              "@type": "Organization",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "${AppConfig.url}${
-                  router.basePath
-                }/assets/images/logo.png"
-              },
-              "name": "${AppConfig.author}"
-            },
-            "headline": "${props.title} | ${AppConfig.site_name}",
-            "image": ["${AppConfig.url}${router.basePath}${props.post.image}"],
-            "datePublished": "${new Date(props.post.date).toISOString()}",
-            "dateModified": "${new Date(
-              props.post.modified_date
-            ).toISOString()}",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "${AppConfig.url}${router.basePath}${addTrailingSlash(
-                  router.asPath
-                )}"
-            },
-            "@context": "http://schema.org"
-          }`,
-              }}
-              key="ldjson"
-            />
-          </>
+        {props?.robots === 1 ? (
+          <meta name="robots" content="all" />
+        ) : (
+          <meta name="robots" content="noindex" />
         )}
+        <meta
+          property="og:image"
+          itemProp="thumbnailUrl"
+          content={props?.thumbnail ?? router.basePath + '/thumbnail.png'}
+        />
+        <meta
+          property="og:url"
+          itemProp="url"
+          content={props?.link ?? AppConfig.url}
+        />
+        <meta
+          name="keywords"
+          content={props?.keywords ? props?.keywords : AppConfig.keywords}
+        />
       </Head>
     </>
   );

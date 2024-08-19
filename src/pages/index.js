@@ -1,3 +1,5 @@
+import https from 'https';
+
 import React, { useEffect, useState } from 'react';
 
 import Meta from '@/components/Meta';
@@ -11,13 +13,13 @@ import Partner from '@/containers/Partner';
 import Reward from '@/containers/Reward';
 import SchoolGrid from '@/containers/SchoolGrid';
 import GuestLayout from '@/layouts/GuestLayout';
+import { getSeoCommon } from '@/services/common';
 import { isBrowser } from '@/utils/utils';
 
-export default function Home() {
+function Home({ seoConfig }) {
   const [state, setState] = useState(false);
   const [done, setDone] = useState(false);
   const [percent, setPercent] = useState(0);
-
   useEffect(() => {
     if (isBrowser()) {
       setState(true);
@@ -54,7 +56,12 @@ export default function Home() {
   }, []);
   return (
     <div className={`min-h-screen`} key={JSON.stringify(state)}>
-      <Meta title="KingStudy" />
+      <Meta
+        title={seoConfig?.meta_title}
+        description={seoConfig?.meta_description}
+        robots={seoConfig?.robots}
+        thumbnail={seoConfig?.thumbnail}
+      />
       <Hero />
       <Partner />
       <About />
@@ -74,3 +81,28 @@ Home.getLayout = function (page) {
     </>
   );
 };
+export async function getServerSideProps() {
+  try {
+    const agent = new https.Agent({
+      rejectUnauthorized: false,
+    });
+
+    const responseSeo = await getSeoCommon(agent);
+    const dataSeo = responseSeo.data;
+
+    return {
+      props: {
+        seoConfig: dataSeo,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        seoConfig: null,
+        error: error.message,
+      },
+    };
+  }
+}
+
+export default Home;

@@ -7,8 +7,10 @@ export const getListBlog = async (params) => {
   return response?.data;
 };
 
-export const getBlogBySlug = async (slug) => {
-  const response = await ApiService.get(`/blog/get-detail/${slug}`);
+export const getBlogBySlug = async (slug, agent) => {
+  const response = await ApiService.get(`/blog/get-detail/${slug}`, {
+    httpsAgent: agent,
+  });
   return response?.data;
 };
 
