@@ -1,3 +1,5 @@
+import https from 'https';
+
 import React, { useEffect, useState } from 'react';
 
 import { Col, Flex, Row, Skeleton } from 'antd';
@@ -69,7 +71,7 @@ const itemsMenu = [
   },
 ];
 
-const SchoolDetail = () => {
+const SchoolDetail = ({ schoolDetail }) => {
   const router = useRouter();
   const { slug } = router.query;
   const [school, setSchool] = useState(null);
@@ -133,7 +135,13 @@ const SchoolDetail = () => {
   };
   return (
     <GuestLayout>
-      <Meta title={schoolData?.meta_title} />
+      <Meta
+        title={schoolDetail?.meta_title}
+        description={schoolDetail?.meta_description}
+        robots={schoolDetail?.robots}
+        thumbnail={rootUrl + schoolDetail?.thumbnail}
+        link={schoolDetail?.link}
+      />
       <div className={'min-h-screen'}>
         <HeroBannerText data={schoolData} loading={loading} />
         <section className={'relative z-[5] lg:translate-y-[-6rem]'}>
@@ -566,4 +574,32 @@ const SchoolDetail = () => {
     </GuestLayout>
   );
 };
+export async function getServerSideProps(context) {
+  try {
+    const { slug } = context.params;
+    const agent = new https.Agent({
+      rejectUnauthorized: false,
+    });
+    const response = await getSchoolDetailBySlug(slug[0], agent);
+    const data = response?.data?.data?.data;
+    return {
+      props: {
+        schoolDetail: {
+          thumbnail: data?.banner ? data?.banner : '',
+          meta_title: data?.meta_title,
+          meta_description: data?.meta_description,
+          robots: data?.is_index,
+          link: data?.link_seo,
+        },
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        schoolDetail: null,
+        error: error.message,
+      },
+    };
+  }
+}
 export default SchoolDetail;

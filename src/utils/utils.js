@@ -5,11 +5,15 @@ import env from '@/env';
 export const AppConfig = {
   site_name: 'KingStudy',
   title: 'KingStudy',
-  description: 'Personalized AI fitness coaching for all',
-  url: 'https://example.com',
+  description:
+    'KingStudy là đơn vị tư vấn, kết nối du học với 10 năm kinh nghiệm. Khi đến với King Study, bạn sẽ được hỗ trợ về thông tin về du học, học bổng và hướng dẫn hồ ...',
+  url: 'https://kingstudy.vn',
   locale: 'vi',
   author: 'KingStudy',
   pagination_size: 5,
+  thumbUrl: '',
+  keywords:
+    'Du học, Du học Kingstudy, Du học Anh, Du học úc, Du học Canada, Du học Mỹ, Du học Hà Lan',
 };
 
 export const addTrailingSlash = (url) => {

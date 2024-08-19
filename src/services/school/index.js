@@ -7,8 +7,10 @@ export const getListSchool = async (params) => {
   return response?.data;
 };
 
-export const getSchoolDetailBySlug = async (slug) => {
-  const response = await ApiService.get(`/school/get-detail/${slug}`);
+export const getSchoolDetailBySlug = async (slug, agent) => {
+  const response = await ApiService.get(`/school/get-detail/${slug}`, {
+    httpsAgent: agent,
+  });
   return response?.data;
 };
 
