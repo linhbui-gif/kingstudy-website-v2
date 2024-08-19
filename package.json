@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "env-cmd -f .env next dev",
-    "build:prod": "env-cmd -f .env.prod next build",
-    "start:prod": "env-cmd -f .env.prod next start",
+    "build:prod": "cp .env.prod .env && next build",
+    "start:prod": "cp .env.prod .env && next start",
     "format": "prettier --write src/**/*.{js,jsx}",
     "lint": "next lint --fix",
     "lint-staged": "lint-staged",
