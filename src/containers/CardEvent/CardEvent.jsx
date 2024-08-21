@@ -6,6 +6,11 @@ import { EFormat } from '@/common/enums';
 import ButtonComponent from '@/components/Button';
 import { Paths } from '@/routers/constants';
 import { rootUrl } from '@/utils/utils';
+import dynamic from "next/dynamic";
+import React from "react";
+const MediaQuery = dynamic(() => import('react-responsive'), {
+  ssr: false,
+});
 const CardEvent = ({ data }) => {
   return (
     <>
@@ -15,18 +20,33 @@ const CardEvent = ({ data }) => {
         }
       >
         <div
-          className={'lg:min-w-[23rem] lg:w-[23rem] w-full aspect-[500/600]'}
+          className={'lg:min-w-[23rem] lg:w-[23rem] w-full md:aspect-[500/600]'}
         >
           <Link href={`${Paths.Blog.BlogDetail(data?.alias)}`}>
-            <Image
-              src={rootUrl + data?.image_location}
-              alt={data?.title}
-              loading={'lazy'}
-              layout={'responsive'}
-              width={500}
-              height={600}
-              className={'object-cover rounded-sm'}
-            />
+            <MediaQuery maxWidth={991}>
+              <Image
+                src={rootUrl + data?.image_location}
+                alt={data?.title}
+                loading={'lazy'}
+                layout={'fix'}
+                width={500}
+                height={500}
+                className={'w-full block object-contain h-full rounded-sm'}
+                quality={100}
+              />
+            </MediaQuery>
+            <MediaQuery minWidth={992}>
+              <Image
+                src={rootUrl + data?.image_location}
+                alt={data?.title}
+                loading={'lazy'}
+                layout={'responsive'}
+                width={500}
+                height={500}
+                className={'w-full block object-cover h-full rounded-sm'}
+                quality={100}
+              />
+            </MediaQuery>
           </Link>
         </div>
         <div>

@@ -226,7 +226,7 @@ const FilterTools = ({
         <div
           className={'border border-style-8 border-solid rounded-sm mt-5 p-4'}
         >
-          <h3 className={'p-[.8rem] text-[2rem] text-style-7 font-[600]'}>
+          <h3 className={'p-[.8rem] text-[1.8rem] text-style-7 font-[600]'}>
             Ngành học
           </h3>
           <Form.Item name={'majors'} className={'mb-0'}>

@@ -38,7 +38,7 @@ const Event = () => {
       const response = await getListBlogEvent({});
       if (response?.code === 200) {
         setLoading(false);
-        setData(response?.data?.data);
+        setData(response?.data);
       }
     } catch (e) {
       setLoading(true);

@@ -6,6 +6,11 @@ import { EFormat } from '@/common/enums';
 import ButtonComponent from '@/components/Button';
 import { Paths } from '@/routers/constants';
 import { rootUrl } from '@/utils/utils';
+import React from "react";
+import dynamic from "next/dynamic";
+const MediaQuery = dynamic(() => import('react-responsive'), {
+  ssr: false,
+});
 const CardNews = ({ data, key }) => {
   return (
     <>
@@ -13,18 +18,32 @@ const CardNews = ({ data, key }) => {
         <div className={'w-full overflow-hidden'}>
           <Link
             href={`${Paths.Blog.BlogDetail(data?.alias)}`}
-            className={'w-full block h-[50rem]'}
+            className={'w-full block'}
           >
-            <Image
-              src={rootUrl + data?.image_location}
-              alt={data?.title}
-              loading={'lazy'}
-              layout={'fix'}
-              width={500}
-              height={500}
-              className={'w-full block object-cover h-full rounded-sm'}
-              quality={100}
-            />
+            <MediaQuery maxWidth={991}>
+              <Image
+                src={rootUrl + data?.image_location}
+                alt={data?.title}
+                loading={'lazy'}
+                layout={'fix'}
+                width={500}
+                height={500}
+                className={'w-full block object-cover h-full rounded-sm'}
+                quality={100}
+              />
+            </MediaQuery>
+            <MediaQuery minWidth={992}>
+              <Image
+                src={rootUrl + data?.image_location}
+                alt={data?.title}
+                loading={'lazy'}
+                layout={'responsive'}
+                width={500}
+                height={500}
+                className={'w-full block object-cover h-full rounded-sm'}
+                quality={100}
+              />
+            </MediaQuery>
           </Link>
         </div>
         <div

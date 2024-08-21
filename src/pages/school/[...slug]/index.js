@@ -222,7 +222,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                     </Flex>
                   )}
                   <div
-                    className={`lg:hidden block fixed top-[12.4rem] bg-white z-[100] left-0 w-full`}
+                    className={`lg:hidden block fixed top-[14.4rem] md:top-[18.4rem] bg-white z-[100] left-0 w-full`}
                   >
                     <ul
                       className={
@@ -235,7 +235,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                             <li
                               key={item?.key}
                               onClick={() => handleScroll(item?.key)}
-                              className={`cursor-pointer min-w-[30%] ${
+                              className={`cursor-pointer min-w-[33%] ${
                                 item?.key === itemMenuActive
                                   ? 'sidebarSchoolMobileActive relative'
                                   : ''
@@ -462,7 +462,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                   </Skeleton>
                   <Gallery loading={loading} gallery={gallery} />
                   <Skeleton loading={loading}>
-                    <div className={'pt-[4rem]'} id={'review'}>
+                    <div className={'py-[4rem]'} id={'review'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Đánh Giá Của Học Viên
                       </h4>

@@ -47,7 +47,7 @@ const Blog = () => {
         <Container>
           <Row gutter={[24, 24]}>
             <Col lg={{ span: 16 }}>
-              {!blogs && (
+              {blogs.length === 0 && (
                 <p className={'text-title-20'}>Không có bài viết nào</p>
               )}
               {blogs &&

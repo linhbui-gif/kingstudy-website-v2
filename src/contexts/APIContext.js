@@ -181,7 +181,7 @@ export const APIProvider = ({ children }) => {
       const response = await getListBlog(idCategory);
       if (response?.code === 200) {
         setLoadingBlog(false);
-        setBlogs(response?.data?.data);
+        setBlogs(response?.data);
       }
     } catch (e) {
       setLoadingBlog(true);

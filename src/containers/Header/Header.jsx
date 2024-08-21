@@ -63,7 +63,7 @@ const Header = ({ totalWishList = 0 }) => {
 
   const renderHeaderAccount = () => {
     return (
-      <div className="relative Header-account flex items-center cursor-pointer py-[4rem] group">
+      <div className="relative Header-account flex items-center cursor-pointer py-[4.3rem] group">
         <div className="text-white text-body-16">
           Xin chào, <strong>{profileState?.profile?.name}</strong>
         </div>
