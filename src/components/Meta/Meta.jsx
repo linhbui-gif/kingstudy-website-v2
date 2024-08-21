@@ -24,27 +24,27 @@ const Meta = (props) => {
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href={`${router.basePath}/favicon-32x32.png`}
+          href={`${router.basePath}/favicon-32x32.ico`}
           key="icon32"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href={`${router.basePath}/favicon-16x16.png`}
+          href={`${router.basePath}/favicon-16x16.ico`}
           key="icon16"
         />
         <link
           rel="icon"
           type="image/png"
-          href={`${router.basePath}/android-chrome-192x192.png`}
+          href={`${router.basePath}/android-chrome-192x192.ico`}
           sizes="192x192"
           key="android-chrome-192x192"
         />
         <link
           rel="icon"
           type="image/png"
-          href={`${router.basePath}/android-chrome-512x512.png`}
+          href={`${router.basePath}/android-chrome-512x512.ico`}
           sizes="512x512"
           key="android-chrome-512x512"
         />
