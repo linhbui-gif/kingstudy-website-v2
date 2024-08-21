@@ -1,4 +1,7 @@
+import React from 'react';
+
 import moment from 'moment';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,8 +9,6 @@ import { EFormat } from '@/common/enums';
 import ButtonComponent from '@/components/Button';
 import { Paths } from '@/routers/constants';
 import { rootUrl } from '@/utils/utils';
-import React from "react";
-import dynamic from "next/dynamic";
 const MediaQuery = dynamic(() => import('react-responsive'), {
   ssr: false,
 });
