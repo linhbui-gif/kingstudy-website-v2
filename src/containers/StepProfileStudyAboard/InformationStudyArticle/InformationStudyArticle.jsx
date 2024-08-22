@@ -1,4 +1,4 @@
-import {Col, DatePicker, Form, Radio, Row, Space} from 'antd';
+import { Col, DatePicker, Form, Radio, Row, Space } from 'antd';
 
 import ButtonComponent from '@/components/Button';
 import Input from '@/components/Input';
@@ -152,15 +152,10 @@ const InformationStudyArticle = ({ onNext, onPrev, form }) => {
             </Form.Item>
           </Col>
           <Col span={24}>
-            <h4 className={'text-orange'}>
-              Bạn đã thi IELTS chưa?
-            </h4>
+            <h4 className={'text-orange'}>Bạn đã thi IELTS chưa?</h4>
           </Col>
           <Col md={24} span={24}>
-            <Form.Item
-              className={'form-input-study-aboard'}
-              name={'is_ielts'}
-            >
+            <Form.Item className={'form-input-study-aboard'} name={'is_ielts'}>
               <Radio.Group>
                 <Radio value={0}>Chưa</Radio>
                 <Radio value={1}>Rồi</Radio>

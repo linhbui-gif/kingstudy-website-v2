@@ -1,4 +1,4 @@
-import {Col, DatePicker, Form, Radio, Row, Space} from 'antd';
+import { Col, DatePicker, Form, Radio, Row, Space } from 'antd';
 
 import ButtonComponent from '@/components/Button';
 import Input from '@/components/Input';
@@ -96,9 +96,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading, form }) => {
             </Form.Item>
           </Col>
           <Col span={24}>
-            <h4 className={'text-orange'}>
-              Vui lòng cung cấp thông tin
-            </h4>
+            <h4 className={'text-orange'}>Vui lòng cung cấp thông tin</h4>
           </Col>
           <Col md={8} span={24}>
             <Form.Item
@@ -145,7 +143,8 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading, form }) => {
           </Col>
           <Col span={24}>
             <h4 className={'text-orange'}>
-              Vui lòng cung cấp thông tin: thời gian - tên nước - loại visa bị từ chối
+              Vui lòng cung cấp thông tin: thời gian - tên nước - loại visa bị
+              từ chối
             </h4>
           </Col>
           <Col span={24}>
@@ -158,7 +157,8 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading, form }) => {
           </Col>
           <Col span={24}>
             <h4 className={'text-orange'}>
-              Bạn đã từng vi phạm pháp luật hay bị cảnh cáo tại quốc gia nào chưa?
+              Bạn đã từng vi phạm pháp luật hay bị cảnh cáo tại quốc gia nào
+              chưa?
             </h4>
           </Col>
           <Col span={24}>
