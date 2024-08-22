@@ -1,16 +1,16 @@
-import { Col, Form, Radio, Row, Space } from 'antd';
+import {Col, DatePicker, Form, Radio, Row, Space} from 'antd';
 
 import ButtonComponent from '@/components/Button';
 import Input from '@/components/Input';
 
-const InformationStudyArticle = ({ onNext, onPrev }) => {
+const InformationStudyArticle = ({ onNext, onPrev, form }) => {
   const onsubmit = (values) => {
     onNext?.(values);
   };
   return (
     <div className={'pt-[2rem]'}>
       <h3>Thông tin học thuật</h3>
-      <Form layout={'vertical'} onFinish={onsubmit}>
+      <Form form={form} layout={'vertical'} onFinish={onsubmit}>
         <Row>
           <Col md={8} span={24}>
             <Form.Item
@@ -28,8 +28,8 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               name={'is_work'}
             >
               <Radio.Group>
-                <Radio value={1}>Chưa</Radio>
-                <Radio value={2}>Rồi</Radio>
+                <Radio value={0}>Chưa</Radio>
+                <Radio value={1}>Rồi</Radio>
               </Radio.Group>
             </Form.Item>
           </Col>
@@ -112,7 +112,7 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
               className={'form-input-study-aboard'}
               name={'presenter_1_email'}
             >
-              <Input numberic placeholder={'Email...'} />
+              <Input placeholder={'Email...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -146,9 +146,88 @@ const InformationStudyArticle = ({ onNext, onPrev }) => {
             <Form.Item
               label={'Email'}
               className={'form-input-study-aboard'}
-              name={'presenter_2_phone'}
+              name={'presenter_2_email'}
             >
               <Input numberic placeholder={'Email...'} />
+            </Form.Item>
+          </Col>
+          <Col span={24}>
+            <h4 className={'text-orange'}>
+              Bạn đã thi IELTS chưa?
+            </h4>
+          </Col>
+          <Col md={24} span={24}>
+            <Form.Item
+              className={'form-input-study-aboard'}
+              name={'is_ielts'}
+            >
+              <Radio.Group>
+                <Radio value={0}>Chưa</Radio>
+                <Radio value={1}>Rồi</Radio>
+              </Radio.Group>
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Overall'}
+              className={'form-input-study-aboard'}
+              name={'ielts_overall'}
+            >
+              <Input placeholder={'Overall...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Ngày thi'}
+              className={'form-input-study-aboard'}
+              name={'ielts_date'}
+            >
+              <DatePicker placeholder={'Ngày thi...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Reading'}
+              className={'form-input-study-aboard'}
+              name={'ielts_reading'}
+            >
+              <Input placeholder={'Reading...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Listening'}
+              className={'form-input-study-aboard'}
+              name={'ielts_listening'}
+            >
+              <Input placeholder={'Listening...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Writing'}
+              className={'form-input-study-aboard'}
+              name={'ielts_writing'}
+            >
+              <Input placeholder={'Writing...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Speaking'}
+              className={'form-input-study-aboard'}
+              name={'ielts_speaking'}
+            >
+              <Input placeholder={'Speaking...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Test Report Form No'}
+              className={'form-input-study-aboard'}
+              name={'ielts_test_report_form'}
+            >
+              <Input placeholder={'Test Report Form No...'} />
             </Form.Item>
           </Col>
           <Col span={24}>

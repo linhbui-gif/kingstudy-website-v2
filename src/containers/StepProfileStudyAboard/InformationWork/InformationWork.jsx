@@ -3,24 +3,24 @@ import { Col, Form, Radio, Row, Space } from 'antd';
 import ButtonComponent from '@/components/Button';
 import Input from '@/components/Input';
 
-const InformationWork = ({ onNext, onPrev }) => {
+const InformationWork = ({ onNext, onPrev, form }) => {
   const onsubmit = (values) => {
     onNext?.(values);
   };
   return (
     <div className={'pt-[2rem]'}>
       <h3>Thông tin công việc</h3>
-      <Form layout={'vertical'} onFinish={onsubmit}>
+      <Form form={form} layout={'vertical'} onFinish={onsubmit}>
         <Row>
-          <Col md={8} span={24}>
+          <Col md={24} span={24}>
             <Form.Item
               label={'Bạn đã đi làm chưa?'}
               className={'form-input-study-aboard'}
               name={'is_worked_2'}
             >
               <Radio.Group>
-                <Radio value={1}>Chưa</Radio>
-                <Radio value={2}>Rồi</Radio>
+                <Radio value={0}>Chưa</Radio>
+                <Radio value={1}>Rồi</Radio>
               </Radio.Group>
             </Form.Item>
           </Col>
@@ -57,7 +57,7 @@ const InformationWork = ({ onNext, onPrev }) => {
               className={'form-input-study-aboard'}
               name={'job_phone'}
             >
-              <Input placeholder={'Địa chỉ...'} />
+              <Input placeholder={'Số điện thoại...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>

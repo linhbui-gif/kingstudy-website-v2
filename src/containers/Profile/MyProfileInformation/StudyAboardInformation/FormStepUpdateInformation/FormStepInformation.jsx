@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { Form, Spin } from 'antd';
+import dayjs from 'dayjs';
+import localeData from 'dayjs/plugin/localeData';
+import weekday from 'dayjs/plugin/weekday';
 import moment from 'moment';
 
 import { ETypeNotification } from '@/common/enums';
@@ -10,9 +14,13 @@ import InformationPersonal from '@/containers/StepProfileStudyAboard/Information
 import InformationStudyArticle from '@/containers/StepProfileStudyAboard/InformationStudyArticle';
 import InformationWork from '@/containers/StepProfileStudyAboard/InformationWork';
 import { useAPI } from '@/contexts/APIContext';
-import { submitProfileStudyAboard } from '@/services/profile';
+import {
+  getProfileStudyAboard,
+  submitProfileStudyAboard,
+} from '@/services/profile';
 import { showNotification } from '@/utils/function';
-
+dayjs.extend(weekday);
+dayjs.extend(localeData);
 const FormStepInformation = ({ setIsUpdateToggle }) => {
   const [stepState, setStepState] = useState({
     currentStep: undefined,
@@ -20,24 +28,138 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
   });
   const { getProfileInfor } = useAPI();
   const [loading, setLoading] = useState(false);
+  const [form] = Form.useForm();
+  const [loadingProfileStudy, setLoadingProfileStudy] = useState(false);
   const formatDate = (date) =>
     date ? moment(date).format('YYYY/MM/DD') : null;
-
+  useEffect(() => {
+    getStudyAboardInformation().then();
+  }, []);
   const dateFields = [
     'birth_day',
+    'other_passport_date',
+    'other_passport_card_expiration_date',
     'father_birth_day',
     'identity_card_date',
     'identity_card_expiration_date',
     'passport_date',
     'passport_expiration_date',
     'spouse_birth_day',
+    'mother_birth_day',
+    'spouse_birth_place',
+    'child_1_birth_day',
+    'child_2_birth_day',
+    'ielts_date',
+    'travel_history_1_time',
+    'travel_history_2_time',
+    'uk_date',
   ];
-  const onSaveProfile = async () => {
+  const getStudyAboardInformation = async () => {
     try {
-      const formattedData = { ...stepState?.data };
-
+      setLoadingProfileStudy(true);
+      const response = await getProfileStudyAboard();
+      if (response?.status === 200) {
+        const data = response?.data;
+        setLoadingProfileStudy(false);
+        Object.keys(data).forEach((field) => {
+          if (dateFields.includes(field) && data[field] && field) {
+            form.setFieldsValue({
+              [field]: dayjs(data[field]),
+            });
+          }
+        });
+        form.setFieldsValue({
+          name: data?.name,
+          birth_day: dayjs(data?.birth_day),
+          birth_place: data?.birth_place,
+          gender: data?.gender,
+          permanent_address: data?.permanent_address,
+          current_address: data?.current_address,
+          time_at_address: data?.time_at_address,
+          phone: data?.phone,
+          phone_2: data?.phone_2,
+          email: data?.email,
+          identity_card: data?.identity_card,
+          identity_card_issued_by: data?.identity_card_issued_by,
+          passport: data?.passport,
+          passport_issued_by: data?.passport_issued_by,
+          other_passport: data?.other_passport,
+          other_passport_card: data?.other_passport_card,
+          other_passport_issued_by: data?.other_passport_issued_by,
+          father_name: data?.father_name,
+          father_current_address: data?.father_current_address,
+          father_job: data?.father_job,
+          father_phone: data?.father_phone,
+          father_email: data?.father_email,
+          mother_name: data?.mother_name,
+          mother_current_address: data?.mother_current_address,
+          mother_job: data?.mother_job,
+          mother_phone: data?.mother_phone,
+          mother_email: data?.mother_email,
+          marital_status: data?.marital_status,
+          spouse_name: data?.spouse_name,
+          spouse_nationality: data?.spouse_nationality,
+          spouse_current_address: data?.spouse_current_address,
+          child_1_name: data?.child_1_name,
+          child_1_birth_place: data?.child_1_birth_place,
+          child_1_nationality: data?.child_1_nationality,
+          child_1_current_address: data?.child_1_current_address,
+          child_2_name: data?.child_2_name,
+          child_2_nationality: data?.child_2_nationality,
+          child_2_current_address: data?.child_2_current_address,
+          degree: data?.degree,
+          is_work: data?.is_work,
+          degree_school_name: data?.degree_school_name,
+          degree_major: data?.degree_major,
+          degree_school_year: data?.degree_school_year,
+          degree_address: data?.degree_address,
+          presenter_1_name: data?.presenter_1_name,
+          presenter_1_position: data?.presenter_1_position,
+          presenter_1_phone: data?.presenter_1_phone,
+          presenter_1_email: data?.presenter_1_email,
+          presenter_2_name: data?.presenter_2_name,
+          presenter_2_position: data?.presenter_2_position,
+          presenter_2_phone: data?.presenter_2_phone,
+          presenter_2_email: data?.presenter_2_email,
+          is_ielts: data?.is_ielts,
+          ielts_overall: data?.ielts_overall,
+          ielts_reading: data?.ielts_reading,
+          ielts_listening: data?.ielts_listening,
+          ielts_writing: data?.ielts_writing,
+          ielts_speaking: data?.ielts_speaking,
+          ielts_test_report_form: data?.ielts_test_report_form,
+          is_worked_2: data?.is_worked_2,
+          job_company_name: data?.job_company_name,
+          job_working_time: data?.job_working_time,
+          job_address: data?.job_address,
+          job_phone: data?.job_phone,
+          job_email: data?.job_email,
+          job_position: data?.job_position,
+          job_salary: data?.job_salary,
+          is_gone_abroad: data?.is_gone_abroad,
+          travel_history_1_nation: data?.travel_history_1_nation,
+          travel_history_1_purpose: data?.travel_history_1_purpose,
+          travel_history_2_nation: data?.travel_history_2_nation,
+          travel_history_3_purpose: data?.travel_history_3_purpose,
+          is_gone_uk: data?.is_gone_uk,
+          uk_nl_number: data?.uk_nl_number,
+          uk_brp_number: data?.uk_brp_number,
+          is_fail_visa: data?.is_fail_visa,
+          is_fail_visa_info: data?.is_fail_visa_info,
+          is_warned_country: data?.is_warned_country,
+          is_warned_country_info: data?.is_warned_country_info,
+          is_relative_study_abroad: data?.is_relative_study_abroad,
+        });
+      }
+    } catch (e) {
+      setLoadingProfileStudy(true);
+    }
+  };
+  const onSaveProfile = async (endStep) => {
+    try {
+      const formattedData = { ...stepState?.data, ...endStep };
       Object.keys(formattedData).forEach((field) => {
-        if (dateFields.includes(field) && formattedData[field]) {
+        if (dateFields.includes(field) && formattedData[field] && field) {
           formattedData[field] = formatDate(formattedData[field]);
         }
       });
@@ -66,6 +188,7 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
       id: '1',
       children: (
         <InformationPersonal
+          form={form}
           onPrev={() => setIsUpdateToggle(false)}
           onNext={(data) => handleNextStep('2', data)}
         />
@@ -75,6 +198,7 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
       id: '2',
       children: (
         <InformationFamily
+          form={form}
           onPrev={() => handlePrevStep('1')}
           onNext={(data) => handleNextStep('3', data)}
         />
@@ -84,6 +208,7 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
       id: '3',
       children: (
         <InformationStudyArticle
+          form={form}
           onPrev={() => handlePrevStep('2')}
           onNext={(data) => handleNextStep('4', data)}
         />
@@ -93,6 +218,7 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
       id: '4',
       children: (
         <InformationWork
+          form={form}
           onPrev={() => handlePrevStep('3')}
           onNext={(data) => handleNextStep('5', data)}
         />
@@ -102,6 +228,7 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
       id: '5',
       children: (
         <InformationHistoryTravel
+          form={form}
           setIsUpdateToggle={setIsUpdateToggle}
           onPrev={() => handlePrevStep('4')}
           onSubmit={onSaveProfile}
@@ -128,16 +255,18 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
   };
   return (
     <div>
-      <Steps
-        registerStore={true}
-        lineWidth="6rem"
-        options={dataStep}
-        value={stepState.currentStep}
-        onChange={(stepChanged) =>
-          setStepState({ ...stepState, currentStep: stepChanged })
-        }
-        className={'h-full'}
-      />
+      <Spin spinning={loadingProfileStudy}>
+        <Steps
+          registerStore={true}
+          lineWidth="6rem"
+          options={dataStep}
+          value={stepState.currentStep}
+          onChange={(stepChanged) =>
+            setStepState({ ...stepState, currentStep: stepChanged })
+          }
+          className={'h-full'}
+        />
+      </Spin>
     </div>
   );
 };

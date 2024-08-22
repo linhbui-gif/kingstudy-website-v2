@@ -3,14 +3,14 @@ import { Col, DatePicker, Form, Radio, Row, Space } from 'antd';
 import ButtonComponent from '@/components/Button';
 import Input from '@/components/Input';
 
-const InformationPersonal = ({ onNext, onPrev }) => {
+const InformationPersonal = ({ onNext, onPrev, form }) => {
   const onsubmit = (values) => {
     onNext?.(values);
   };
   return (
     <div className={'pt-[2rem]'}>
       <h3>Thông tin cá nhân</h3>
-      <Form layout={'vertical'} onFinish={onsubmit}>
+      <Form form={form} layout={'vertical'} onFinish={onsubmit}>
         <Row>
           <Col md={8} span={24}>
             <Form.Item
@@ -47,13 +47,13 @@ const InformationPersonal = ({ onNext, onPrev }) => {
             >
               <Radio.Group>
                 <Radio value={1}>Nam</Radio>
-                <Radio value={2}>Nữ</Radio>
+                <Radio value={0}>Nữ</Radio>
               </Radio.Group>
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
             <Form.Item
-              label={'Địa chỉ thường trú'}
+              label={'Địa chỉ thường trú (theo sổ hộ khẩu)'}
               className={'form-input-study-aboard'}
               name={'permanent_address'}
             >
@@ -62,11 +62,20 @@ const InformationPersonal = ({ onNext, onPrev }) => {
           </Col>
           <Col md={8} span={24}>
             <Form.Item
-              label={'Địa chỉ tạm trú'}
+              label={'Địa chỉ hiện tại'}
               className={'form-input-study-aboard'}
               name={'current_address'}
             >
-              <Input placeholder={'Địa chỉ tạm trú ...'} />
+              <Input placeholder={'Địa chỉ hiện tại ...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Thời gian ở tại địa chỉ này:'}
+              className={'form-input-study-aboard'}
+              name={'time_at_address'}
+            >
+              <Input placeholder={'Thời gian ở tại địa chỉ này...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -76,6 +85,15 @@ const InformationPersonal = ({ onNext, onPrev }) => {
               name={'phone'}
             >
               <Input numberic placeholder={'SĐT cá nhân...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'SĐT thay thế:'}
+              className={'form-input-study-aboard'}
+              name={'phone_2'}
+            >
+              <Input numberic placeholder={'SĐT thay thế...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -129,7 +147,7 @@ const InformationPersonal = ({ onNext, onPrev }) => {
               className={'form-input-study-aboard'}
               name={'passport'}
             >
-              <Input numberic placeholder={'Số hộ chiếu...'} />
+              <Input placeholder={'Số hộ chiếu...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -155,6 +173,54 @@ const InformationPersonal = ({ onNext, onPrev }) => {
               label={'Ngày hết hạn'}
               className={'form-input-study-aboard'}
               name={'passport_expiration_date'}
+            >
+              <DatePicker placeholder={'Ngày hết hạn...'} />
+            </Form.Item>
+          </Col>
+          <Col span={24}>
+            <h3>Bạn có hộ chiếu khác không?</h3>
+            <Form.Item
+              className={'form-input-study-aboard'}
+              name={'other_passport'}
+            >
+              <Radio.Group>
+                <Radio value={1}>Có</Radio>
+                <Radio value={0}>Không</Radio>
+              </Radio.Group>
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Số hộ chiếu:'}
+              className={'form-input-study-aboard'}
+              name={'other_passport_card'}
+            >
+              <Input placeholder={'Số hộ chiếu...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Nơi cấp:'}
+              className={'form-input-study-aboard'}
+              name={'other_passport_issued_by'}
+            >
+              <Input placeholder={'Nơi cấp...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Ngày cấp:'}
+              className={'form-input-study-aboard'}
+              name={'other_passport_date'}
+            >
+              <DatePicker placeholder={'Ngày cấp...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Ngày hết hạn:'}
+              className={'form-input-study-aboard'}
+              name={'other_passport_card_expiration_date'}
             >
               <DatePicker placeholder={'Ngày hết hạn...'} />
             </Form.Item>

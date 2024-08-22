@@ -34,3 +34,9 @@ export const submitProfileStudyAboard = async (body) => {
   );
   return response?.data;
 };
+export const getProfileStudyAboard = async () => {
+  const response = await ApiService.get(
+    `/profile/get-information-study-aboard`
+  );
+  return response?.data;
+};
