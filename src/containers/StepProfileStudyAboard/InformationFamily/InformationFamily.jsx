@@ -194,7 +194,7 @@ const InformationFamily = ({ onNext, onPrev, form }) => {
               className={'form-input-study-aboard'}
               name={'child_1_birth_day'}
             >
-              <Input placeholder={'Ngày tháng năm sinh...'} />
+              <DatePicker placeholder={'Ngày tháng năm sinh...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -239,7 +239,7 @@ const InformationFamily = ({ onNext, onPrev, form }) => {
               className={'form-input-study-aboard'}
               name={'child_2_birth_day'}
             >
-              <Input placeholder={'Ngày tháng năm sinh...'} />
+              <DatePicker placeholder={'Ngày tháng năm sinh...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>

@@ -46,7 +46,6 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
     'passport_expiration_date',
     'spouse_birth_day',
     'mother_birth_day',
-    'spouse_birth_place',
     'child_1_birth_day',
     'child_2_birth_day',
     'ielts_date',
@@ -149,6 +148,8 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
           is_warned_country: data?.is_warned_country,
           is_warned_country_info: data?.is_warned_country_info,
           is_relative_study_abroad: data?.is_relative_study_abroad,
+          spouse_birth_place: data?.spouse_birth_place,
+          child_2_birth_place: data?.child_2_birth_place,
         });
       }
     } catch (e) {
@@ -177,6 +178,7 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
     } catch (e) {
       setLoading(false);
       setIsUpdateToggle(true);
+      console.log('e', e)
       showNotification(
         ETypeNotification.ERROR,
         'Có lỗi xảy ra, vui lòng liên hệ Kỹ thuật để được hỗ trợ !'

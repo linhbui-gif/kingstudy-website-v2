@@ -148,7 +148,7 @@ const InformationStudyArticle = ({ onNext, onPrev, form }) => {
               className={'form-input-study-aboard'}
               name={'presenter_2_email'}
             >
-              <Input numberic placeholder={'Email...'} />
+              <Input placeholder={'Email...'} />
             </Form.Item>
           </Col>
           <Col span={24}>
@@ -186,7 +186,7 @@ const InformationStudyArticle = ({ onNext, onPrev, form }) => {
               className={'form-input-study-aboard'}
               name={'ielts_reading'}
             >
-              <Input placeholder={'Reading...'} />
+              <Input numberic placeholder={'Reading...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -195,7 +195,7 @@ const InformationStudyArticle = ({ onNext, onPrev, form }) => {
               className={'form-input-study-aboard'}
               name={'ielts_listening'}
             >
-              <Input placeholder={'Listening...'} />
+              <Input numberic placeholder={'Listening...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -204,7 +204,7 @@ const InformationStudyArticle = ({ onNext, onPrev, form }) => {
               className={'form-input-study-aboard'}
               name={'ielts_writing'}
             >
-              <Input placeholder={'Writing...'} />
+              <Input numberic placeholder={'Writing...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -213,7 +213,7 @@ const InformationStudyArticle = ({ onNext, onPrev, form }) => {
               className={'form-input-study-aboard'}
               name={'ielts_speaking'}
             >
-              <Input placeholder={'Speaking...'} />
+              <Input numberic placeholder={'Speaking...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>

@@ -104,7 +104,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading, form }) => {
               className={'form-input-study-aboard'}
               name={'uk_nl_number'}
             >
-              <Input placeholder={'NI Number...'} />
+              <Input numberic placeholder={'NI Number...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -122,7 +122,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading, form }) => {
               className={'form-input-study-aboard'}
               name={'uk_brp_number'}
             >
-              <Input placeholder={'BRP number...'} />
+              <Input numberic placeholder={'BRP number...'} />
             </Form.Item>
           </Col>
           <Col span={24}>

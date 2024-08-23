@@ -16,6 +16,7 @@ import Container from '@/containers/Container';
 import FilterTools from '@/containers/FilterTools';
 import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
+import {rootUrl} from "@/utils/utils";
 const SchoolList = () => {
   const router = useRouter();
   const { majors, country_id } = router.query;
@@ -153,7 +154,11 @@ const SchoolList = () => {
                         <CardSkeleton />
                       ) : (
                         <Card
-                          url={ImageSchool}
+                          url={
+                            school?.thumbnail
+                              ? rootUrl + school?.thumbnail
+                              : ImageSchool
+                          }
                           title={school?.name}
                           alt={school?.name}
                           type={school?.type_school}
