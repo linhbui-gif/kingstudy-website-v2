@@ -12,7 +12,7 @@ import Container from '@/containers/Container';
 import HeroBannerCommon from '@/containers/HeroBannerCommon';
 import StepSurvey from '@/containers/StepSurvey';
 import GuestLayout from '@/layouts/GuestLayout';
-import {rootUrl} from "@/utils/utils";
+import { rootUrl } from '@/utils/utils';
 const Survey = () => {
   const [schools, setSchools] = useState([]);
   const [activeSchool, setActiveSchool] = useState(false);
@@ -89,7 +89,11 @@ const Survey = () => {
                             key={school?.id}
                           >
                             <Card
-                              url={school?.thumbnail ? rootUrl + school?.thumbnail : ImageSchool}
+                              url={
+                                school?.thumbnail
+                                  ? rootUrl + school?.thumbnail
+                                  : ImageSchool
+                              }
                               title={school?.name}
                               alt={school?.name}
                               type={school?.type_school}

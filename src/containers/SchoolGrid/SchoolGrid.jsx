@@ -10,7 +10,7 @@ import Empty from '@/components/Empty';
 import Tag from '@/components/Tag';
 import Container from '@/containers/Container';
 import { useAPI } from '@/contexts/APIContext';
-import {rootUrl} from "@/utils/utils";
+import { rootUrl } from '@/utils/utils';
 const SchoolGrid = () => {
   const { schoolList, loading, setFilterSchool, filterSchool, countries } =
     useAPI();
@@ -99,7 +99,11 @@ const SchoolGrid = () => {
                     <CardSkeleton />
                   ) : (
                     <Card
-                      url={school?.thumbnail ? rootUrl + school?.thumbnail : ImageSchool}
+                      url={
+                        school?.thumbnail
+                          ? rootUrl + school?.thumbnail
+                          : ImageSchool
+                      }
                       title={school?.name}
                       alt={school?.name}
                       type={school?.type_school}

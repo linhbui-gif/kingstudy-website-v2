@@ -178,7 +178,6 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
     } catch (e) {
       setLoading(false);
       setIsUpdateToggle(true);
-      console.log('e', e)
       showNotification(
         ETypeNotification.ERROR,
         'Có lỗi xảy ra, vui lòng liên hệ Kỹ thuật để được hỗ trợ !'
