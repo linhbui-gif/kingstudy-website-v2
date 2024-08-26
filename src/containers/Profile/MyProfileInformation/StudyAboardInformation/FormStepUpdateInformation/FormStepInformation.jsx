@@ -51,6 +51,9 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
     'ielts_date',
     'travel_history_1_time',
     'travel_history_2_time',
+    'travel_history_3_time',
+    'travel_history_4_time',
+    'travel_history_5_time',
     'uk_date',
   ];
   const getStudyAboardInformation = async () => {
@@ -139,7 +142,13 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
           travel_history_1_nation: data?.travel_history_1_nation,
           travel_history_1_purpose: data?.travel_history_1_purpose,
           travel_history_2_nation: data?.travel_history_2_nation,
+          travel_history_3_nation: data?.travel_history_3_nation,
+          travel_history_4_nation: data?.travel_history_4_nation,
+          travel_history_5_nation: data?.travel_history_5_nation,
           travel_history_3_purpose: data?.travel_history_3_purpose,
+          travel_history_2_purpose: data?.travel_history_2_purpose,
+          travel_history_4_purpose: data?.travel_history_4_purpose,
+          travel_history_5_purpose: data?.travel_history_5_purpose,
           is_gone_uk: data?.is_gone_uk,
           uk_nl_number: data?.uk_nl_number,
           uk_brp_number: data?.uk_brp_number,
@@ -150,6 +159,12 @@ const FormStepInformation = ({ setIsUpdateToggle }) => {
           is_relative_study_abroad: data?.is_relative_study_abroad,
           spouse_birth_place: data?.spouse_birth_place,
           child_2_birth_place: data?.child_2_birth_place,
+          is_denine_info: data?.is_denine_info,
+          is_denine: data?.is_denine,
+          relative_abroad_name: data?.relative_abroad_name,
+          relative_abroad_phone: data?.relative_abroad_phone,
+          relative_abroad_email: data?.relative_abroad_email,
+          relative_abroad_address: data?.relative_abroad_address,
         });
       }
     } catch (e) {

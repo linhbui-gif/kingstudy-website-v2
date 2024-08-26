@@ -62,7 +62,7 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading, form }) => {
               className={'form-input-study-aboard'}
               name={'travel_history_2_nation'}
             >
-              <Input placeholder={'Quốc gia 1...'} />
+              <Input placeholder={'Quốc gia 2...'} />
             </Form.Item>
           </Col>
           <Col md={8} span={24}>
@@ -78,7 +78,91 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading, form }) => {
             <Form.Item
               label={'Mục đích'}
               className={'form-input-study-aboard'}
+              name={'travel_history_2_purpose'}
+            >
+              <Input placeholder={'Mục đích...'} />
+            </Form.Item>
+          </Col>
+
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Quốc gia 3'}
+              className={'form-input-study-aboard'}
+              name={'travel_history_3_nation'}
+            >
+              <Input placeholder={'Quốc gia 3...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Thời gian'}
+              className={'form-input-study-aboard'}
+              name={'travel_history_3_time'}
+            >
+              <DatePicker placeholder={'Thời gian...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Mục đích'}
+              className={'form-input-study-aboard'}
               name={'travel_history_3_purpose'}
+            >
+              <Input placeholder={'Mục đích...'} />
+            </Form.Item>
+          </Col>
+
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Quốc gia 3'}
+              className={'form-input-study-aboard'}
+              name={'travel_history_4_nation'}
+            >
+              <Input placeholder={'Quốc gia 4...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Thời gian'}
+              className={'form-input-study-aboard'}
+              name={'travel_history_4_time'}
+            >
+              <DatePicker placeholder={'Thời gian...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Mục đích'}
+              className={'form-input-study-aboard'}
+              name={'travel_history_4_purpose'}
+            >
+              <Input placeholder={'Mục đích...'} />
+            </Form.Item>
+          </Col>
+
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Quốc gia 5'}
+              className={'form-input-study-aboard'}
+              name={'travel_history_5_nation'}
+            >
+              <Input placeholder={'Quốc gia 5...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Thời gian'}
+              className={'form-input-study-aboard'}
+              name={'travel_history_5_time'}
+            >
+              <DatePicker placeholder={'Thời gian...'} />
+            </Form.Item>
+          </Col>
+          <Col md={8} span={24}>
+            <Form.Item
+              label={'Mục đích'}
+              className={'form-input-study-aboard'}
+              name={'travel_history_5_purpose'}
             >
               <Input placeholder={'Mục đích...'} />
             </Form.Item>
@@ -185,6 +269,33 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading, form }) => {
               <Input />
             </Form.Item>
           </Col>
+
+          <Col span={24}>
+            <h4 className={'text-orange'}>
+              Bạn đã từng bị từ chối nhập cảnh tại quốc gia nào chưa?
+            </h4>
+          </Col>
+          <Col span={24}>
+            <Form.Item className={'form-input-study-aboard'} name={'is_denine'}>
+              <Radio.Group>
+                <Radio value={0}>Chưa</Radio>
+                <Radio value={1}>Rồi</Radio>
+              </Radio.Group>
+            </Form.Item>
+          </Col>
+          <Col span={24}>
+            <h4 className={'text-orange'}>
+              Vui lòng cung cấp thông tin: lý do và quốc gia xảy ra sự việc:
+            </h4>
+          </Col>
+          <Col span={24}>
+            <Form.Item
+              className={'form-input-study-aboard'}
+              name={'is_denine_info'}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
           <Col span={24}>
             <h4 className={'text-orange'}>
               Bạn có người thân tại quốc gia du học không?
@@ -199,6 +310,46 @@ const InformationHistoryTravel = ({ onPrev, onSubmit, loading, form }) => {
                 <Radio value={0}>Chưa</Radio>
                 <Radio value={1}>Rồi</Radio>
               </Radio.Group>
+            </Form.Item>
+          </Col>
+
+          <Col span={24}>
+            <h4 className={'text-orange'}>Vui lòng cung cấp thông tin :</h4>
+          </Col>
+          <Col span={8}>
+            <Form.Item
+              label={'Họ và tên:'}
+              className={'form-input-study-aboard'}
+              name={'relative_abroad_name'}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col span={8}>
+            <Form.Item
+              label={'Số điện thoại:'}
+              className={'form-input-study-aboard'}
+              name={'relative_abroad_phone'}
+            >
+              <Input numberic />
+            </Form.Item>
+          </Col>
+          <Col span={8}>
+            <Form.Item
+              label={'Email:'}
+              className={'form-input-study-aboard'}
+              name={'relative_abroad_email'}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col span={24}>
+            <Form.Item
+              label={'Địa chỉ:'}
+              className={'form-input-study-aboard'}
+              name={'relative_abroad_address'}
+            >
+              <Input />
             </Form.Item>
           </Col>
           <Col span={24}>
