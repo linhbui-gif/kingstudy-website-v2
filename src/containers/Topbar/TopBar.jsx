@@ -6,7 +6,8 @@ const TopBar = () => {
       }
     >
       <span className={'text-body-16 text-style-5'}>
-        Đăng ký ngay để hưởng ngay ưu đãi lên đến 40% tất cả khóa học.
+        Du học KingStudy nghỉ lễ Quốc Khánh 2/9 từ ngày 31/08/2024 (thứ Bảy) đến
+        hết ngày 03/09/2024 (thứ Ba)
       </span>
     </div>
   );

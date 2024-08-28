@@ -6,7 +6,13 @@ import { useRouter } from 'next/router';
 import Icon from '@/components/Icon';
 import { EIconColor, EIconName } from '@/components/Icon/Icon.enum';
 
-const Tabs = ({ options = [], defaultKey, onKeyChange, hasMajor = false }) => {
+const Tabs = ({
+  options = [],
+  defaultKey,
+  onKeyChange,
+  hasMajor = false,
+  majors = [],
+}) => {
   const key = 'tabKey';
   const router = useRouter();
   const [activeKey, setActiveKey] = useState(defaultKey || null);
@@ -60,8 +66,8 @@ const Tabs = ({ options = [], defaultKey, onKeyChange, hasMajor = false }) => {
               <Icon name={EIconName.ArowDown} color={EIconColor.STYLE_7} />
             }
             allowClear
-            className={''}
-            options={[]}
+            className={'w-[200px]'}
+            options={majors}
             placeholder={'Chọn ngành học'}
           />
         </div>

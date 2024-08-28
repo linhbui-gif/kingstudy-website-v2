@@ -25,7 +25,7 @@ import Tution from '@/containers/Tution';
 import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
 import { addSchoolFavorite, getSchoolDetailBySlug } from '@/services/school';
-import { formatNumbersWithCommas, showNotification } from '@/utils/function';
+import { showNotification } from '@/utils/function';
 import { rootUrl, statusSchool } from '@/utils/utils';
 
 const itemsMenu = [
@@ -211,13 +211,13 @@ const SchoolDetail = ({ schoolDetail }) => {
                             <div
                               className={'flex flex-1 md:hidden justify-end'}
                             >
-                              {statusSchool(schoolData?.type)}
+                              {statusSchool(schoolData?.type_school)}
                             </div>
                           </Flex>
                         </div>
                       </Flex>
                       <div className={'mt-2 md:block hidden'}>
-                        {statusSchool(schoolData?.type)}
+                        {statusSchool(schoolData?.type_school)}
                       </div>
                     </Flex>
                   )}
@@ -286,7 +286,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                                     'text-center text-title-20 text-style-7'
                                   }
                                 >
-                                  {formatNumbersWithCommas(number?.number)}
+                                  {number?.number}
                                 </h6>
                               </div>
                             );

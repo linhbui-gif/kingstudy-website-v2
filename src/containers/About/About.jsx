@@ -32,25 +32,30 @@ const About = () => {
                 Mô hình ONE - STOP - STATION (một trạm) của KingStudy với sự
                 tinh gọn về mặt lộ trình và thời gian xử lý công việc, giúp bạn
                 chạm tới nền giáo dục quốc tế mơ ước mà không cần đến đơn vị thứ
-                3 hỗ trợ{' '}
+                3 hỗ trợ
               </p>
               <ul className={'pl-0'}>
                 <li className={'flex items-center gap-x-[1rem] mb-[2rem]'}>
                   {' '}
                   <Image src={ImageAboutIconCheck} alt={''} />
-                  Hỗ trợ hồ sơ du học HOÀN TOÀN MIỄN PHÍ
+                  Hỗ trợ hồ sơ du học <strong>HOÀN TOÀN MIỄN PHÍ</strong>
                 </li>
 
                 <li className={'flex items-center gap-x-[1rem] mb-[2rem]'}>
                   <Image src={ImageAboutIconCheck} alt={''} />
-                  Quy trình 10 BƯỚC chuẩn bị hồ sơ nhanh chóng và hiệu quả
+                  <span>
+                    Quy trình <strong>10 BƯỚC</strong> chuẩn bị hồ sơ nhanh
+                    chóng và hiệu quả
+                  </span>
                 </li>
 
                 <li className={'flex items-center gap-x-[1rem]'}>
                   {' '}
                   <Image src={ImageAboutIconCheck} alt={''} />
-                  Mentor 1-1 hướng dẫn viết LOR, SOP, CV,... và luyện phỏng vấn
-                  học bổng
+                  <span>
+                    <strong>Mentor 1-1</strong> hướng dẫn viết LOR, SOP, CV,...
+                    và luyện phỏng vấn học bổng
+                  </span>
                 </li>
               </ul>
               <div className={'flex justify-center lg:justify-start'}>

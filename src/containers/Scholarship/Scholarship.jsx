@@ -42,6 +42,12 @@ const Scholarship = ({ data }) => {
       )}
     </div>
   );
-  return <Arcodion items={itemArr} expandIcon={customExpandIcon} />;
+  return (
+    <Arcodion
+      className={'modify-school-detail'}
+      items={itemArr}
+      expandIcon={customExpandIcon}
+    />
+  );
 };
 export default Scholarship;

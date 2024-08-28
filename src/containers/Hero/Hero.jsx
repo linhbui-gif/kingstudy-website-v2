@@ -53,20 +53,21 @@ const Hero = () => {
                   'mt-[1.8rem] mb-[3.8rem] 2xl:text-title-50 md:text-[3.6rem] text-[2rem] font-[700] text-style-7'
                 }
               >
-                Khám phá 4500+ Khóa học từ những Giảng viên hàng đầu trên khắp
-                Thế giới
+                Khám phá những ngôi trường nằm trong “Wishlist” của bạn!
               </h2>
               <p
                 className={
                   'mt-[1.6rem] mb-[3rem] text-body-16 text-style-7 hidden md:block leading-9'
                 }
               >
-                Đưa tổ chức học tập của bạn lên một tầm cao mới. Chia sẻ kiến
-                thức tới mọi người trên khắp thế giới.
+                Với hơn 20+ tiêu chí được các chuyên gia KingStudy tuyển chọn và
+                đánh giá kỹ lưỡng, bạn chắc chắn sẽ tìm kiếm được ngôi trường
+                dành-riêng-cho- mình.
               </p>
               <ButtonComponent
-                title={'Xem tất cả khóa học'}
+                title={'Khám phá danh sách trường'}
                 className={'orange w-[19.7rem] md:w-auto'}
+                link={'/school'}
               />
             </div>
           </Col>

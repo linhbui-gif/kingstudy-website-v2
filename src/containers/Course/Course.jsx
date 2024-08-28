@@ -2,9 +2,13 @@ import { useState } from 'react';
 
 import Tabs from '@/components/Tabs';
 import CourseAccordion from '@/containers/CourseAccordion';
+import { useAPI } from '@/contexts/APIContext';
+import { changeArrayToOptions } from '@/utils/utils';
 
 const Course = ({ data, hasDocument, school_id }) => {
   const [activeTabCourse, setActiveCourse] = useState('0');
+  const { majors } = useAPI();
+  const majorOptions = changeArrayToOptions(majors);
   const campusOptions = [
     {
       key: '0',
@@ -96,6 +100,7 @@ const Course = ({ data, hasDocument, school_id }) => {
         hasMajor
         options={campusOptions}
         defaultKey="0"
+        majors={majorOptions}
       />
     </div>
   );

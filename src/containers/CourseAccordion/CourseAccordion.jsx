@@ -164,7 +164,11 @@ const CourseAccordion = ({ data, hasDocument, school_id, activeTabCourse }) => {
           </Flex>
         </Modal>
       )}
-      <Arcodion items={itemArr} expandIcon={customExpandIcon} />
+      <Arcodion
+        className={'modify-school-detail'}
+        items={itemArr}
+        expandIcon={customExpandIcon}
+      />
     </>
   );
 };
