@@ -40,9 +40,9 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-body-14 text-white font-[400] mt-[0.8rem] mb-[5.6rem] leading-[140%] lg:max-w-[30.6rem] lg:mt-[1.3rem] lg:mb-[0.21rem] lg:text-body-16">
-              Những ý tưởng bài học và kế hoạch bài học tuyệt vời dành cho giáo
-              viên ESL! Các nhà giáo dục có thể tùy chỉnh các bài học như một kế
-              hoạch tiếp thu kiến thức tốt nhất.
+              Hơn 10 năm đồng hành cùng học sinh Việt Nam, KingStudy cam kết
+              mang đến các giải pháp du học toàn diện, miễn phí hỗ trợ hồ sơ,
+              đảm bảo quy trình nhanh chóng và hiệu quả.
             </p>
             <div className="hidden lg:flex lg:gap-x-[1.6rem] lg:mt-[2.2rem]">
               <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
