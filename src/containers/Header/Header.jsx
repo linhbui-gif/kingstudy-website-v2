@@ -65,7 +65,11 @@ const Header = ({ totalWishList = 0 }) => {
     return (
       <div className="relative Header-account flex items-center cursor-pointer py-[4.3rem] group">
         <div className="text-white text-body-16">
-          Xin chào, <strong>{profileState?.profile?.name}</strong>
+          Xin chào,{' '}
+          <strong>
+            {profileState?.profile?.name ||
+              profileState?.profile?.user?.username}
+          </strong>
         </div>
         <div className="ml-2">
           <Icon name={EIconName.ArowDown} />
