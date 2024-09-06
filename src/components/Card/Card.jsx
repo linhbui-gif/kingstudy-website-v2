@@ -129,7 +129,7 @@ const Card = ({
           />
           <span className={'text-body-14 text-style-12'}>{country?.name}</span>
         </Flex>
-        <Link href={'/'}>
+        <Link href={`${Paths.School.SchoolDetail(slug)}`}>
           <Flex gap={'small'} align={'center'} className={'py-[1.2rem]'}>
             <span className={'text-body-14 font-[700] text-style-10'}>
               Chi Tiết

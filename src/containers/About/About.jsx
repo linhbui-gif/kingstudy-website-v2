@@ -53,7 +53,7 @@ const About = () => {
                   {' '}
                   <Image src={ImageAboutIconCheck} alt={''} />
                   <span>
-                    <strong>Mentor 1-1</strong> hướng dẫn viết LOR, SOP, CV,...
+                    <strong>MENTOR 1-1</strong> hướng dẫn viết LOR, SOP, CV,...
                     và luyện phỏng vấn học bổng
                   </span>
                 </li>
