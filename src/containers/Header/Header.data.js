@@ -44,7 +44,7 @@ export const MenuData = [
       },
       {
         id: 8,
-        name: 'Du học Uc',
+        name: 'Du học Úc',
         link: `${Paths.School.View}?country_id=8`,
       },
       {

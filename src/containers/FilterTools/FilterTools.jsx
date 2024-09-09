@@ -116,6 +116,11 @@ const FilterTools = ({
                 suffixIcon={
                   <Icon name={EIconName.ArowDown} color={EIconColor.STYLE_7} />
                 }
+                filterOption={(input, option) =>
+                  (option?.label.toLowerCase() ?? '').includes(
+                    input.toLowerCase()
+                  )
+                }
               >
                 {countries &&
                   countries.map((item) => (
@@ -148,6 +153,11 @@ const FilterTools = ({
                 suffixIcon={
                   <Icon name={EIconName.ArowDown} color={EIconColor.STYLE_7} />
                 }
+                filterOption={(input, option) =>
+                  (option?.label.toLowerCase() ?? '').includes(
+                    input.toLowerCase()
+                  )
+                }
               >
                 {cities &&
                   cities.map((item) => (
@@ -169,13 +179,13 @@ const FilterTools = ({
             childrenData={
               <CheckboxGroup
                 value={levelCourse.find(
-                  (option) => option.value === paramsRequest?.level
+                  (option) => option.value === paramsRequest?.levelcourse
                 )}
                 options={levelCourse}
                 onChange={(option) => {
                   onFilterChange({
                     ...paramsRequest,
-                    level: option,
+                    levelcourse: option,
                   });
                 }}
               />
@@ -245,6 +255,11 @@ const FilterTools = ({
                   majors: option,
                 });
               }}
+              filterOption={(input, option) =>
+                (option?.label.toLowerCase() ?? '').includes(
+                  input.toLowerCase()
+                )
+              }
             />
           </Form.Item>
         </div>

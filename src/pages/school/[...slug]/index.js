@@ -3,6 +3,7 @@ import https from 'https';
 import React, { useEffect, useState } from 'react';
 
 import { Col, Flex, Row, Skeleton } from 'antd';
+import * as cheerio from 'cheerio';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -88,8 +89,21 @@ const SchoolDetail = ({ schoolDetail }) => {
       setLoading(true);
       const response = await getSchoolDetailBySlug(slug[0]);
       if (response?.code === 200) {
+        let content = response?.data?.data?.data?.program?.after_college;
+        const $ = cheerio.load(content);
+        $('img').each((index, element) => {
+          const src = $(element).attr('src');
+          const newSrc = `${rootUrl}${src}`;
+          $(element).attr('src', newSrc);
+          $(element).attr('alt', 'after_college');
+        });
+
+        content = $.html();
         setLoading(false);
-        setSchool(response?.data?.data);
+        setSchool({
+          ...response?.data?.data,
+          content,
+        });
       }
     } catch (e) {
       setLoading(false);
@@ -407,7 +421,10 @@ const SchoolDetail = ({ schoolDetail }) => {
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Cơ Sở Vật Chất
                       </h4>
-                      <Infrastructure data={schoolData?.program} />
+                      <Infrastructure
+                        data={schoolData?.program}
+                        after_college={school?.content}
+                      />
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
@@ -556,7 +573,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                         Tải tài liệu
                       </Link>
                       <Link
-                        href={'/'}
+                        href={'/submit-profile'}
                         className={
                           'text-center text-body-16 text-style-10 font-[600] underline'
                         }

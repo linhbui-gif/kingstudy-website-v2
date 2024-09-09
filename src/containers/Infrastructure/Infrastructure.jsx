@@ -1,6 +1,9 @@
+import DOMPurify from 'isomorphic-dompurify';
+
 import Tabs from '@/components/Tabs';
 
-const Infrastructure = ({ data }) => {
+const Infrastructure = ({ data, after_college }) => {
+  const cleanHTML = DOMPurify.sanitize(after_college);
   const campusOptions = [
     {
       key: 'campus',
@@ -19,7 +22,7 @@ const Infrastructure = ({ data }) => {
       children: (
         <div
           dangerouslySetInnerHTML={{
-            __html: data?.after_college,
+            __html: cleanHTML,
           }}
         />
       ),

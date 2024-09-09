@@ -46,7 +46,7 @@ const Hero = () => {
                   'md:text-body-18 text-body-14 font-[600] text-style-10'
                 }
               >
-                Khám phá hành trình của bạn
+                Cùng KingStudy
               </h5>
               <h2
                 className={
