@@ -44,14 +44,15 @@ const Cta = () => {
                 <span
                   className={'lg:text-button-16 text-body-14 text-style-10'}
                 >
-                  Từ hôm nay
+                  Chẳng cần agent
                 </span>
                 <p
                   className={
                     'my-4 lg:text-title-24 text-button-16 text-style-7'
                   }
                 >
-                  Trở thành người hướng dẫn và truyền đạt kiến thức của bạn
+                  Tự mình chinh phục ngôi trường bạn mơ ước bằng cách
+                  Tự nộp hồ sơ
                 </p>
                 <ButtonComponent
                   title={'Tự nộp hồ sơ'}
@@ -81,14 +82,14 @@ const Cta = () => {
                 <span
                   className={'lg:text-button-16 text-body-14 text-style-10'}
                 >
-                  Từ hôm nay
+                  Đặt lịch ngay
                 </span>
                 <p
                   className={
                     'my-4 lg:text-title-24 text-button-16 text-style-7'
                   }
                 >
-                  Trở thành người hướng dẫn và truyền đạt kiến thức của bạn
+                  Để được tư vấn và hỗ trợ chuẩn bị hồ sơ cùng các chuyên gia
                 </p>
                 <ButtonComponent
                   title={'Liên Hệ'}

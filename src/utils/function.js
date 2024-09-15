@@ -147,3 +147,10 @@ export const slugify = (text) => {
 
   return slug;
 };
+
+export const replaceDotWithComma = (input) => {
+  if (input.includes('.')) {
+    return input.replace(/\./g, ',');
+  }
+  return input;
+};

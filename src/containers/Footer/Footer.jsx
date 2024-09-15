@@ -240,7 +240,7 @@ const Footer = () => {
         <div className="hidden lg:flex lg:justify-between lg:items-center lg:bg-style-33 lg:px-[2.4rem] lg:py-[3rem] lg:rounded-[0.4rem] lg:mt-[6rem] max-w-[120rem]">
           <div className=" mt-[2.4rem] flex">
             <p className="text-body-14 max-w-[14.8rem]  text-white font-[400] leading-[140%] lg:text-body-16">
-              © Copyrighted and Designed by Bdevs
+              © Copyrighted and Designed by Kingstudy
             </p>
             <div className="flex lg:gap-x-[1.6rem] lg:hidden">
               <div className="rounded-[3rem] bg-style-33 py-[1.2rem] flex justify-center w-[4rem] h-[4rem]">
@@ -266,7 +266,7 @@ const Footer = () => {
                 Gọi cho chúng tôi 24/7
               </p>
               <p className="text-body-16 text-style-5 font-[600] leading-[140%] mb-0 lg:text-body-18">
-                (987) 547587587
+                056 999 9595
               </p>
             </div>
           </div>

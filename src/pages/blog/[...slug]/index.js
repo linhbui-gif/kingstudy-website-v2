@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { EFormat } from '@/common/enums';
+import ButtonComponent from '@/components/Button';
 import Meta from '@/components/Meta';
 import Container from '@/containers/Container';
 import SidebarNews from '@/containers/SidebarNews';
@@ -101,12 +102,21 @@ const BlogDetail = ({ blogDetail }) => {
                     </ul>
                     <h3 className={'text-title-24'}>{data?.title}</h3>
                     <div
-                      className={'font-BeVnPro-style-content'}
+                      className={
+                        'font-BeVnPro-style-content modify-content-blog'
+                      }
                       dangerouslySetInnerHTML={{
                         __html: cleanHTML,
                       }}
                       style={{ color: '#575757 !important' }}
                     />
+                    <div className={'flex justify-center'}>
+                      <ButtonComponent
+                        title={data?.button_name || 'Đăng ký ngay'}
+                        className={'primary'}
+                        link={data?.button_link || '#'}
+                      />
+                    </div>
                   </div>
                 </Spin>
               </div>

@@ -26,7 +26,7 @@ import Tution from '@/containers/Tution';
 import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
 import { addSchoolFavorite, getSchoolDetailBySlug } from '@/services/school';
-import { showNotification } from '@/utils/function';
+import {replaceDotWithComma, showNotification} from '@/utils/function';
 import { rootUrl, statusSchool } from '@/utils/utils';
 
 const itemsMenu = [
@@ -300,7 +300,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                                     'text-center text-title-20 text-style-7'
                                   }
                                 >
-                                  {number?.number}
+                                  {replaceDotWithComma(number?.number)}
                                 </h6>
                               </div>
                             );
@@ -331,7 +331,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                                     <span
                                       className={'text-button-16 text-style-7'}
                                     >
-                                      {element?.number}
+                                      {replaceDotWithComma(element?.number)}
                                     </span>
                                   </li>
                                 );
