@@ -26,7 +26,7 @@ import Tution from '@/containers/Tution';
 import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
 import { addSchoolFavorite, getSchoolDetailBySlug } from '@/services/school';
-import {replaceDotWithComma, showNotification} from '@/utils/function';
+import { replaceDotWithComma, showNotification } from '@/utils/function';
 import { rootUrl, statusSchool } from '@/utils/utils';
 
 const itemsMenu = [

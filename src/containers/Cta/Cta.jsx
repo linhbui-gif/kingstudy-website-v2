@@ -51,8 +51,8 @@ const Cta = () => {
                     'my-4 lg:text-title-24 text-button-16 text-style-7'
                   }
                 >
-                  Tự mình chinh phục ngôi trường bạn mơ ước bằng cách
-                  Tự nộp hồ sơ
+                  Tự mình chinh phục ngôi trường bạn mơ ước bằng cách Tự nộp hồ
+                  sơ
                 </p>
                 <ButtonComponent
                   title={'Tự nộp hồ sơ'}
