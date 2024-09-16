@@ -25,6 +25,7 @@ const AboutPage = () => {
             title: 'Giới thiệu',
           },
         ]}
+        urlBanner={'/images/image-banner-about.jpg'}
       />
       <div className={'py-[9rem]'}>
         <About />

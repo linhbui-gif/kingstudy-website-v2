@@ -5,13 +5,16 @@ import { Breadcrumb, Col, Row } from 'antd';
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
 import Container from '@/containers/Container';
-const HeroBannerCommon = ({ title, items }) => {
+const HeroBannerCommon = ({ title, items, urlBanner = '' }) => {
   return (
     <>
       <div
-        className="banner relative flex items-center  min-h-[35rem] z-[2] after:absolute after:content-[''] after:w-full after:h-full after:left-0 after:top-0 after:bg-style-7 after:opacity-[.7] after:z-[-1]"
+        className="banner relative flex items-center min-h-[35rem] lg:min-h-[65rem] z-[2] after:absolute after:content-[''] after:w-full after:h-full after:left-0 after:top-0 after:bg-style-7 after:opacity-[.7] after:z-[-1]"
         style={{
-          backgroundImage: `url('/images/image-banner-common.png')`,
+          backgroundImage:
+            urlBanner === ''
+              ? `url('/images/image-banner-common.png')`
+              : `url(${urlBanner})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

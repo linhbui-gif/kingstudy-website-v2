@@ -42,6 +42,7 @@ const Blog = () => {
             title: 'Danh sách bài viết',
           },
         ]}
+        urlBanner={'/images/image-banner-blog.jpg'}
       />
       <div className={'py-[9rem]'}>
         <Container>

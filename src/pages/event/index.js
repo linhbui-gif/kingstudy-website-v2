@@ -59,6 +59,7 @@ const Event = () => {
             title: 'Danh sách sự kiện',
           },
         ]}
+        urlBanner={'/images/image-banner-event.jpg'}
       />
       <div className={'py-[9rem]'}>
         <Container>

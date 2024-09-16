@@ -28,6 +28,7 @@ const Survey = () => {
             title: 'Khảo sát',
           },
         ]}
+        urlBanner={'/images/image-banner-survey.jpg'}
       />
       <div>
         <Container>
