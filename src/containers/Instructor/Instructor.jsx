@@ -3,7 +3,7 @@ import { Col, Row } from 'antd';
 import Container from '@/containers/Container';
 import InstructorCard from '@/containers/Instructor/InstructorCard';
 
-const Instructor = ({ title }) => {
+const Instructor = ({ title, data = [] }) => {
   return (
     <div className={'py-[9rem]'}>
       <Container>
@@ -15,13 +15,18 @@ const Instructor = ({ title }) => {
           {title}
         </h2>
         <Row gutter={[24, 24]}>
-          {[1, 2, 3, 4].map((element) => {
-            return (
-              <Col lg={{ span: 6 }} span={24} key={element}>
-                <InstructorCard />
-              </Col>
-            );
-          })}
+          {data &&
+            data.map((element) => {
+              return (
+                <Col lg={{ span: 6 }} span={24} key={element}>
+                  <InstructorCard
+                    titleCard={element['locale_vi']['title']}
+                    subTitle={element['locale_vi']['subtitle']}
+                    imageUrl={element['image_location'] || ''}
+                  />
+                </Col>
+              );
+            })}
         </Row>
       </Container>
     </div>

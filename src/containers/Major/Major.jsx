@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Col, Row } from 'antd';
 import { useRouter } from 'next/router';
@@ -11,15 +11,21 @@ import { Paths } from '@/routers/constants';
 import { useHover } from '@/utils/hook';
 const Major = () => {
   const router = useRouter();
-  const { majors, setFilterSchool } = useAPI();
+  const { majors, setFilterSchool, setParamMajor } = useAPI();
   const { hoveredIndex, handleMouseEnter, handleMouseLeave } = useHover();
   const handleClickMajor = (id) => {
     setFilterSchool({
       page: 1,
       limit: 15,
     });
+    setParamMajor(null);
     router.push(`${Paths.SchoolFilter(id)}`);
   };
+  useEffect(() => {
+    setParamMajor({
+      limit: 9,
+    });
+  }, []);
   return (
     <section className={'lg:py-[15rem] py-[2rem]'}>
       <Container>

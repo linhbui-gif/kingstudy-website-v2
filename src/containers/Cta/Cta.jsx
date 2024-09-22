@@ -36,7 +36,7 @@ const Cta = () => {
                   width={649}
                   height={273}
                   className={
-                    'w-full h-full object-cover object-center rounded-sm'
+                    'w-full h-full object-cover object-left lg:object-center rounded-sm'
                   }
                 />
               </div>
@@ -74,7 +74,7 @@ const Cta = () => {
                   width={649}
                   height={273}
                   className={
-                    'w-full h-full object-cover object-center rounded-sm'
+                    'w-full h-full object-cover object-left lg:object-center rounded-sm'
                   }
                 />
               </div>

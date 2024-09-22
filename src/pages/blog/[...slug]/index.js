@@ -61,7 +61,7 @@ const BlogDetail = ({ blogDetail }) => {
         link={blogDetail?.link}
       />
       <section className={'py-[9rem]'}>
-        <Container>
+        <Container isBlogDetail>
           <Row gutter={[24, 24]}>
             <Col lg={{ span: 16 }}>
               <div className={'rounded-sm mb-[2rem]'}>
@@ -89,7 +89,7 @@ const BlogDetail = ({ blogDetail }) => {
                     </Link>
                   </div>
                   <div
-                    className={'p-[3rem] bg-white shadow-md'}
+                    className={'p-[1rem] md:p-[3rem] bg-white shadow-md'}
                     style={{ borderRadius: '0 0 4px 4px' }}
                   >
                     <ul className={'flex items-center gap-[20px] mb-[1.5rem]'}>

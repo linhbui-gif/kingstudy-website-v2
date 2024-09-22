@@ -209,7 +209,7 @@ const Profile = () => {
                             }`}
                           >
                             {sidebar?.icon}{' '}
-                            <span className={'ml-2'}>{sidebar?.title}</span>
+                            <span className={'ml-3'}>{sidebar?.title}</span>
                           </li>
                         );
                       })}

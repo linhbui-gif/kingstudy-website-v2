@@ -4,7 +4,6 @@ import { Col, Row } from 'antd';
 import Image from 'next/image';
 import { useMediaQuery } from 'react-responsive';
 
-import ImageArrowHero from '@/assets/images/image-hero-arrow.webp';
 import ImageHeroShape5 from '@/assets/images/image-hero-shape-5.webp';
 import ImageHeroShape6 from '@/assets/images/image-hero-shape-6.png';
 import ImageHeroBagde from '@/assets/images/image-hero-shape-8.png';
@@ -26,17 +25,17 @@ const Hero = () => {
         backgroundSize: 'cover',
       }}
     >
-      <Image
-        quality={100}
-        loading={'lazy'}
-        width={212}
-        height={179}
-        className={
-          'absolute top-[46%] left-[2rem] md:top-[50%] md:left-0 md:w-auto md:h-auto w-[5rem] h-[4rem]'
-        }
-        src={ImageArrowHero}
-        alt={'image-hero'}
-      />
+      {/*<Image*/}
+      {/*  quality={100}*/}
+      {/*  loading={'lazy'}*/}
+      {/*  width={212}*/}
+      {/*  height={179}*/}
+      {/*  className={*/}
+      {/*    'absolute top-[46%] left-[2rem] md:top-[50%] md:left-0 md:w-auto md:h-auto w-[5rem] h-[4rem]'*/}
+      {/*  }*/}
+      {/*  src={ImageArrowHero}*/}
+      {/*  alt={'image-hero'}*/}
+      {/*/>*/}
       <Container>
         <Row>
           <Col span={24} md={{ span: 14 }} lg={{ span: 12 }}>
@@ -66,7 +65,7 @@ const Hero = () => {
               </p>
               <ButtonComponent
                 title={'Khám phá danh sách trường'}
-                className={'orange w-[19.7rem] md:w-auto'}
+                className={'orange md:w-auto'}
                 link={'/school'}
               />
             </div>

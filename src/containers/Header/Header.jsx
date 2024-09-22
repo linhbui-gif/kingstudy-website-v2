@@ -317,7 +317,7 @@ const Header = ({ totalWishList = 0 }) => {
                   <Icon name={EIconName.Favorite} color={EIconColor.WHITE} />
                   <span
                     className={
-                      'absolute top-[-5px] right-[-7px] flex items-center justify-center w-[20px] h-[20px] text-[12px] text-style-5 text-center bg-red rounded-full'
+                      'absolute top-[-5px] right-[-2px] flex items-center justify-center w-[20px] h-[20px] text-[12px] text-style-5 text-center bg-red rounded-full'
                     }
                   >
                     {totalWishList}

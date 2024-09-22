@@ -31,6 +31,15 @@ export const MenuData = [
         name: 'Tự nộp hồ sơ',
         link: `${Paths.Profile.SubmitProfileStep}`,
       },
+      {
+        id: 6,
+        name: 'FAQ',
+      },
+      {
+        id: 7,
+        name: 'Blog',
+        link: '/blog',
+      },
     ],
   },
   {
@@ -70,15 +79,6 @@ export const MenuData = [
       {
         id: 2,
         name: 'Học bổng',
-      },
-      {
-        id: 3,
-        name: 'Blog',
-        link: '/blog',
-      },
-      {
-        id: 10,
-        name: 'FAQ',
       },
     ],
   },

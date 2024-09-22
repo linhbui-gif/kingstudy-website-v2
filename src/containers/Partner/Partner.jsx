@@ -19,7 +19,8 @@ const Partner = () => {
               settings: {
                 slidesToShow: 5,
                 slidesToScroll: 5,
-                infinite: false,
+                infinite: true,
+                autoplay: true,
                 dots: false,
               },
             },
@@ -28,7 +29,8 @@ const Partner = () => {
               settings: {
                 slidesToShow: 3,
                 slidesToScroll: 3,
-                infinite: false,
+                infinite: true,
+                autoplay: true,
                 dots: false,
               },
             },

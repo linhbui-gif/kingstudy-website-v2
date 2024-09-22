@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Container from '@/containers/Container';
-const Vison = () => {
+const Vison = ({ title, description }) => {
   return (
     <div className={'py-[9rem] bg-style-13'}>
       <Container>
@@ -10,13 +10,14 @@ const Vison = () => {
             'lg:text-title-36 text-[2rem] font-[700] text-style-7 mb-[3rem] text-center'
           }
         >
-          TẦM NHÌN
+          {title || ''}
         </h2>
-        <p className={'text-body-16 text-center leading-9'}>
-          Join one of the world’s largest online learning marketplaces. <br />
-          Our Instructor Support Team is ready to help you while our Teaching
-          Center
-        </p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: description,
+          }}
+          className={'description-vision'}
+        />
       </Container>
     </div>
   );

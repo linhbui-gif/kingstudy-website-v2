@@ -10,7 +10,7 @@ const About = () => {
     <section className={'lg:py-[7rem] py-[2rem]'}>
       <Container>
         <Row gutter={[24, 24]}>
-          <Col lg={{ span: 10, order: 1 }} span={24} order={2}>
+          <Col lg={{ span: 10, order: 1 }} span={24} order={1}>
             <h3
               className={
                 'lg:text-title-36 text-[2rem] font-[700] text-style-7 lg:mb-[7rem] mb-[1.8rem] lg:text-left text-center'
@@ -67,7 +67,7 @@ const About = () => {
               </div>
             </div>
           </Col>
-          <Col lg={{ span: 14, order: 2 }} span={24} order={1}>
+          <Col lg={{ span: 14, order: 2 }} span={24} order={2}>
             <Image
               quality={100}
               src={ImageAbout}

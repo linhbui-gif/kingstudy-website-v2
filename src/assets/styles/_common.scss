@@ -321,3 +321,21 @@ table > * {
 .modify-content-blog li {
   list-style: disc;
 }
+
+.description-event-elips {
+  white-space: normal;
+  word-break: break-word;
+  height: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  display: -moz-box;
+  -webkit-line-clamp: 4;
+  -moz-line-clamp: 4;
+  -line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.description-vision span {
+  color: black!important;
+}

@@ -7,6 +7,6 @@ export const ETuition = {
 export const dataTuitionOptions = [
   { value: ETuition.ALL, label: 'Tất cả' },
   { value: ETuition.UNLESS_500, label: 'Dưới 500 triệu' },
-  { value: ETuition.FROM_500_TO_1B, label: 'Từ 500 triệu đến 1 Tỉ' },
+  { value: ETuition.FROM_500_TO_1B, label: 'Từ 500 triệu đến 1 tỉ' },
   { value: ETuition.THAN_1B, label: 'Trên 1 tỉ' },
 ];

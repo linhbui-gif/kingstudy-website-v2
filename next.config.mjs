@@ -21,6 +21,7 @@ const nextConfig = {
       'localhost',
       'king-study.loc',
       'devwebsite.kingstudy.vn',
+      'kingstudy.vn'
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',

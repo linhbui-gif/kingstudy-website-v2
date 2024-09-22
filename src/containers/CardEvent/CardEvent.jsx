@@ -67,7 +67,11 @@ const CardEvent = ({ data }) => {
               {moment(data?.created_at).format(EFormat['HH:mm'])}
             </li>
           </ul>
-          <p className={'text-style-9 leading-9 mb-[1.5rem] text-body-14'}>
+          <p
+            className={
+              'text-style-9 leading-9 mb-[1.5rem] text-body-14 description-event-elips'
+            }
+          >
             {data?.description}
           </p>
           <ButtonComponent

@@ -43,6 +43,7 @@ export const APIProvider = ({ children }) => {
   const [loadingBlog, setLoadingBlog] = useState(false);
   const [loadingCountry, setLoadingCountry] = useState(false);
   const [idCategory, setIdCategory] = useState({});
+  const [paramMajors, setParamMajor] = useState(null);
   const showDrawerCompare = () => {
     setOpenDrawerCompare(true);
   };
@@ -87,7 +88,7 @@ export const APIProvider = ({ children }) => {
   };
   const getMajorList = async () => {
     try {
-      const response = await getMajors();
+      const response = await getMajors(paramMajors);
       if (response?.code === 200) {
         setMajors(response?.data?.majors);
       }
@@ -197,7 +198,7 @@ export const APIProvider = ({ children }) => {
 
   useEffect(() => {
     getMajorList().then();
-  }, []);
+  }, [paramMajors]);
   return (
     <APIContext.Provider
       value={{
@@ -232,6 +233,7 @@ export const APIProvider = ({ children }) => {
         setIdCategory,
         idCategory,
         loadingCountry,
+        setParamMajor,
       }}
     >
       {children}

@@ -4,7 +4,8 @@ import Link from 'next/link';
 import ImageMember from '@/assets/images/image-member.jpg';
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
-const InstructorCard = () => {
+import { rootUrl } from '@/utils/utils';
+const InstructorCard = ({ titleCard, subTitle, imageUrl = '' }) => {
   return (
     <div
       className={'shadow-sm rounded-sm'}
@@ -21,7 +22,7 @@ const InstructorCard = () => {
             <Image
               width={400}
               height={400}
-              src={ImageMember}
+              src={rootUrl + imageUrl || ImageMember}
               alt={'/'}
               layout={'responsive'}
               loading={'lazy'}
@@ -29,8 +30,8 @@ const InstructorCard = () => {
             />
           </div>
           <div className="member-content">
-            <h4 className={'text-center text-title-20'}>Bùi Mỹ Linh</h4>
-            <p className={'text-center text-body-14'}>Chuyên viên tư vấn</p>
+            <h4 className={'text-center text-title-20'}>{titleCard || ''}</h4>
+            <p className={'text-center text-body-14'}>{subTitle}</p>
           </div>
           <div className="member-social">
             <ul className={'flex items-center justify-center gap-3'}>
