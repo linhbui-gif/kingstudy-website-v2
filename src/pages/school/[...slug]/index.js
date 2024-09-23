@@ -83,7 +83,7 @@ const SchoolDetail = ({ schoolDetail }) => {
   const gallery = schoolData?.gallery || {};
   const [itemMenuActive, setItemMenuActive] = useState('');
   const isMobile = useMediaQuery({ maxWidth: 1024 });
-  const { getSchoolWishList, isLogin } = useAPI();
+  const { getSchoolWishList, isLogin, setParamMajor } = useAPI();
   const getSchool = async () => {
     try {
       setLoading(true);
@@ -115,6 +115,9 @@ const SchoolDetail = ({ schoolDetail }) => {
     getSchool().then();
   }, [slug]);
 
+  useEffect(() => {
+    setParamMajor(null);
+  }, []);
   const handleScroll = (id) => {
     let yOffset = 0;
     if (isMobile) {
@@ -155,6 +158,7 @@ const SchoolDetail = ({ schoolDetail }) => {
         robots={schoolDetail?.robots}
         thumbnail={rootUrl + schoolDetail?.thumbnail}
         link={schoolDetail?.link}
+        keywords={schoolDetail?.keywords}
       />
       <div className={'min-h-screen'}>
         <HeroBannerText data={schoolData} loading={loading} />
@@ -344,7 +348,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                   {loading ? (
                     <Skeleton className={'my-[5rem]'} />
                   ) : (
-                    <div className={'py-[4rem] '}>
+                    <div className={'pt-[4rem] '}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Tổng quan
                       </h4>
@@ -356,7 +360,9 @@ const SchoolDetail = ({ schoolDetail }) => {
                     </div>
                   )}
                   <div
-                    className={'md:p-[2.4rem] p-[1.6rem] bg-style-8 rounded-sm'}
+                    className={
+                      'md:p-[2.4rem] p-[1.6rem] mt-[4rem] bg-style-8 rounded-sm'
+                    }
                     id="thongtinnoibat"
                   >
                     <Skeleton loading={loading}>
@@ -381,7 +387,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                     </Skeleton>
                   </div>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
-                    <div id={'city'} className={'pt-[3rem]'}>
+                    <div id={'city'} className={'pt-[4rem]'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Thành phố
                       </h4>
@@ -392,7 +398,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                       />
                       <div
                         className={
-                          'relative my-[3.5rem] rounded-sm md:p-[2.4rem] p-[1.6rem] bg-style-8'
+                          'relative mt-[3.5rem] rounded-sm md:p-[2.4rem] p-[1.6rem] bg-style-8'
                         }
                       >
                         <h5
@@ -428,7 +434,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
-                    <div className={'py-[2rem]'} id={'chuongtrinhgiangday'}>
+                    <div className={'pt-[4rem]'} id={'chuongtrinhgiangday'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Chương trình giảng dạy
                       </h4>
@@ -440,7 +446,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                     </div>
                   </Skeleton>
                   <Skeleton className={'my-[5rem]'} loading={loading}>
-                    <div id={'hocphi'} className={'py-[4rem]'}>
+                    <div id={'hocphi'} className={'pt-[4rem]'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Học phí
                       </h4>
@@ -479,7 +485,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                   </Skeleton>
                   <Gallery loading={loading} gallery={gallery} />
                   <Skeleton loading={loading}>
-                    <div className={'py-[4rem]'} id={'review'}>
+                    <div className={'pt-[4rem]'} id={'review'}>
                       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>
                         Đánh Giá Của Học Viên
                       </h4>
@@ -602,11 +608,12 @@ export async function getServerSideProps(context) {
     return {
       props: {
         schoolDetail: {
-          thumbnail: data?.banner ? data?.banner : '',
+          thumbnail: data?.logo ? data?.logo : '',
           meta_title: data?.meta_title,
           meta_description: data?.meta_description,
           robots: data?.is_index,
           link: data?.link_seo,
+          keywords: data?.keywords,
         },
       },
     };

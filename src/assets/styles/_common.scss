@@ -339,3 +339,7 @@ table > * {
 .description-vision span {
   color: black!important;
 }
+
+p {
+  @apply mb-0
+}

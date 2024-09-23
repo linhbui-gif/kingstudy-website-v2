@@ -57,7 +57,7 @@ const Meta = (props) => {
           rel="image_src"
           href={props?.thumbnail ?? router.basePath + '/thumbnail.png'}
         />
-        <title>{AppConfig.site_name}</title>
+        <title>{props?.title ? props?.title : AppConfig.site_name}</title>
         <meta
           name="description"
           content={

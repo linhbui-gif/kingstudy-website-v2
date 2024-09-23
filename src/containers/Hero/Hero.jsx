@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Col, Row } from 'antd';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useMediaQuery } from 'react-responsive';
 
 import ImageHeroShape5 from '@/assets/images/image-hero-shape-5.webp';
@@ -11,7 +12,10 @@ import ImageHeroShape6Mobile from '@/assets/images/image-shape-6-mobile.svg';
 import ImageShape7 from '@/assets/images/image-shape-7.png';
 import ButtonComponent from '@/components/Button';
 import Container from '@/containers/Container';
+import { useAPI } from '@/contexts/APIContext';
 const Hero = () => {
+  const { setParamMajor } = useAPI();
+  const router = useRouter();
   const isMobile = useMediaQuery({ maxWidth: 767 });
   return (
     <section
@@ -66,7 +70,10 @@ const Hero = () => {
               <ButtonComponent
                 title={'Khám phá danh sách trường'}
                 className={'orange md:w-auto'}
-                link={'/school'}
+                onClick={() => {
+                  setParamMajor(null);
+                  router.push('/school');
+                }}
               />
             </div>
           </Col>

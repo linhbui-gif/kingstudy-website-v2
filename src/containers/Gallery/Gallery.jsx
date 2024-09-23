@@ -20,7 +20,7 @@ const Gallery = ({ gallery = {}, loading = false }) => {
     setPhotoIndex(index);
   };
   return (
-    <div className={'py-[4rem]'} id={'gallery'}>
+    <div className={'pt-[4rem]'} id={'gallery'}>
       <h4 className={'mb-[1.6rem] text-title-20 text-style-7'}>Thư viện ảnh</h4>
       <Row gutter={[24, 24]}>
         {Object.values(gallery) &&

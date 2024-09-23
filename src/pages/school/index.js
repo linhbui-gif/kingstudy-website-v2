@@ -122,7 +122,6 @@ const SchoolList = () => {
                 onReset={(dataReset) => {
                   setFilterSchool({
                     ...dataReset,
-                    majors: majors,
                   });
                 }}
               />
