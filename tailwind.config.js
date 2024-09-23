@@ -27,7 +27,7 @@ module.exports = {
       'style-5': '#FFFFFF',
       'style-6': '#FFB013',
       'style-7': '#141517',
-      'style-8': '#EDEEF2',
+      'style-8': '#DDE2E6',
       'style-9': '#575757',
       'style-10': '#22458F',
       'style-12': '#575757',
