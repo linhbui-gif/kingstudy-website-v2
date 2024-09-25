@@ -608,7 +608,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         schoolDetail: {
-          thumbnail: data?.logo ? data?.logo : '',
+          thumbnail: data?.thumbnail ? data?.thumbnail : '',
           meta_title: data?.meta_title,
           meta_description: data?.meta_description,
           robots: data?.is_index,
