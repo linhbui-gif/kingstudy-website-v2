@@ -34,7 +34,7 @@ const Carousels = ({
     autoplay,
     slidesPerRow,
     adaptiveHeight,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     slidesToShow,
     slidesToScroll,
     focusOnSelect,

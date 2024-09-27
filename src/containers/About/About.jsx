@@ -1,7 +1,7 @@
 import { Col, Row } from 'antd';
 import Image from 'next/image';
 
-import ImageAbout from '@/assets/images/image-about.gif';
+import ImageAbout from '@/assets/images/image-about.jpg';
 import ImageAboutIconCheck from '@/assets/images/image-checked-about.svg';
 import ButtonComponent from '@/components/Button';
 import Container from '@/containers/Container';
@@ -34,7 +34,7 @@ const About = () => {
                 chạm tới nền giáo dục quốc tế mơ ước mà không cần đến đơn vị thứ
                 3 hỗ trợ
               </p>
-              <ul className={'pl-0'}>
+              <ul className={'pl-0 mt-[2rem]'}>
                 <li className={'flex items-center gap-x-[1rem] mb-[2rem]'}>
                   {' '}
                   <Image src={ImageAboutIconCheck} alt={''} />

@@ -13,6 +13,9 @@ const Partner = () => {
         <Carousels
           className={'partners-carousel'}
           slidesToShow={6}
+          autoplay={true}
+          lazyLoad={true}
+          infinite={true}
           responsive={[
             {
               breakpoint: 992,

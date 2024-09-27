@@ -100,11 +100,11 @@ const Feedback = () => {
         </Row>
         <Carousels
           className={'feedback-carousel'}
-          autoplay={false}
+          autoplay={true}
           slidesToShow={3}
           slidesToScroll={3}
           dots
-          infinite={false}
+          infinite={true}
           responsive={[
             {
               breakpoint: 1024,
@@ -113,6 +113,7 @@ const Feedback = () => {
                 slidesToScroll: 2,
                 infinite: false,
                 dots: false,
+                autoplay: true,
               },
             },
             {
@@ -120,7 +121,7 @@ const Feedback = () => {
               settings: {
                 slidesToShow: 1.1,
                 slidesToScroll: 1,
-                autoplay: false,
+                autoplay: true,
                 infinite: false,
                 dots: false,
               },
