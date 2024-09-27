@@ -48,6 +48,8 @@ const Partner = () => {
                   layout={`${isMobile ? 'responsive' : 'fix'}`}
                   loading={'lazy'}
                   quality={100}
+                  width={150}
+                  height={150}
                 />
               </div>
             </div>

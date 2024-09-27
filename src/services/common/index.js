@@ -5,3 +5,4 @@ export * from './get-level-course';
 export * from './get-ranking';
 export * from './get-seo';
 export * from './smart-search';
+export * from './save-contact';
