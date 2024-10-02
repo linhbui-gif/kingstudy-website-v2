@@ -2,20 +2,21 @@ import https from 'https';
 
 import React, { useEffect, useState } from 'react';
 
+import dynamic from 'next/dynamic';
+
 import Meta from '@/components/Meta';
 import About from '@/containers/About';
-import Cta from '@/containers/Cta';
-import Feedback from '@/containers/Feedback';
-import Hero from '@/containers/Hero';
 import LoadingPage from '@/containers/LoadingPage';
-import Major from '@/containers/Major';
-import Partner from '@/containers/Partner';
 import Reward from '@/containers/Reward';
 import SchoolGrid from '@/containers/SchoolGrid';
 import GuestLayout from '@/layouts/GuestLayout';
 import { getSeoCommon } from '@/services/common';
 import { isBrowser } from '@/utils/utils';
-
+const DynamicPartner = dynamic(() => import('@/containers/Partner'));
+const DynamicHero = dynamic(() => import('@/containers/Hero'));
+const DynamicMajor = dynamic(() => import('@/containers/Major'));
+const DynamicFeedback = dynamic(() => import('@/containers/Feedback'));
+const DynamicCTA = dynamic(() => import('@/containers/Cta'), { ssr: false });
 function Home({ seoConfig }) {
   const [state, setState] = useState(false);
   const [done, setDone] = useState(false);
@@ -62,14 +63,14 @@ function Home({ seoConfig }) {
         robots={seoConfig?.robots}
         thumbnail={seoConfig?.thumbnail}
       />
-      <Hero />
-      <Partner />
+      <DynamicHero />
+      <DynamicPartner />
       <About />
       <Reward />
-      <Major />
+      <DynamicMajor />
       <SchoolGrid />
-      <Feedback />
-      <Cta />
+      <DynamicFeedback />
+      <DynamicCTA />
       <LoadingPage done={done} percent={percent} />
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 import { Col, Row } from 'antd';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 import ImageSchool from '@/assets/images/image-school.jpg';
-import Card from '@/components/Card';
 import CardSkeleton from '@/components/Card/CardSkeleton';
 import Empty from '@/components/Empty';
 import Icon from '@/components/Icon';
@@ -17,6 +17,7 @@ import FilterTools from '@/containers/FilterTools';
 import { useAPI } from '@/contexts/APIContext';
 import GuestLayout from '@/layouts/GuestLayout';
 import { rootUrl } from '@/utils/utils';
+const DynamicCard = dynamic(() => import('@/components/Card'));
 const SchoolList = () => {
   const router = useRouter();
   const { majors, country_id } = router.query;
@@ -152,7 +153,7 @@ const SchoolList = () => {
                       {loading ? (
                         <CardSkeleton />
                       ) : (
-                        <Card
+                        <DynamicCard
                           url={
                             school?.thumbnail
                               ? rootUrl + school?.thumbnail

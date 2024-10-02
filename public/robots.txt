@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://kingstudy.vn
+
+# Sitemaps
+Sitemap: https://kingstudy.vn/sitemap.xml
