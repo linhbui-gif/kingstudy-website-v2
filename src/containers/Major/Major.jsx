@@ -13,13 +13,13 @@ const Major = () => {
   const router = useRouter();
   const { majors, setFilterSchool, setParamMajor } = useAPI();
   const { hoveredIndex, handleMouseEnter, handleMouseLeave } = useHover();
-  const handleClickMajor = (id) => {
+  const handleClickMajor = async (id) => {
     setFilterSchool({
       page: 1,
       limit: 15,
     });
     setParamMajor(null);
-    router.push(`${Paths.SchoolFilter(id)}`);
+    await router.push(`${Paths.SchoolFilter(id)}`);
   };
   useEffect(() => {
     setParamMajor({

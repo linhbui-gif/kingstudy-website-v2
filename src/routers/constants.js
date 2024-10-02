@@ -12,27 +12,27 @@ export const Paths = {
   ResetPassword: '/reset-password',
   Success: '/success',
   Dashboard: '/dashboard',
-  SchoolFilter: (id) => `/school?majors=${id}`,
+  SchoolFilter: (id) => `/truong-hoc?majors=${id}`,
   School: {
-    SchoolDetail: (slug) => `/school/${slug}`,
-    View: '/school',
+    SchoolDetail: (slug) => `/truong-hoc/${slug}`,
+    View: '/truong-hoc',
   },
   Profile: {
     View: '/profile',
     SubmitProfileStep: '/submit-profile',
   },
   Event: {
-    View: '/event',
+    View: '/su-kien',
   },
   Blog: {
-    View: '/blog',
-    BlogDetail: (slug) => `/blog/${slug}`,
+    View: '/tin-tuc',
+    BlogDetail: (slug) => `/tin-tuc/${slug}`,
   },
   About: {
-    View: '/about',
+    View: '/gioi-thieu',
   },
   Survey: {
-    View: '/survey',
+    View: '/khao-sat',
   },
   Menu: {
     View: '/menu',

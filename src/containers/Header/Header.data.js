@@ -38,7 +38,7 @@ export const MenuData = [
       {
         id: 7,
         name: 'Blog',
-        link: '/blog',
+        link: Paths.Blog.View,
       },
     ],
   },
