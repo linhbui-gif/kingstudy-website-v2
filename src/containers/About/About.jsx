@@ -70,10 +70,10 @@ const About = () => {
           <Col lg={{ span: 14, order: 2 }} span={24} order={2}>
             <Image
               quality={100}
-              loading={'lazy'}
               src={ImageAbout}
               alt={'about'}
               layout={'responsive'}
+              priority
             />
           </Col>
         </Row>

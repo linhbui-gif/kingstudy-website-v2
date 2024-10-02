@@ -13,7 +13,6 @@ import ImageShape7 from '@/assets/images/image-shape-7.png';
 import ButtonComponent from '@/components/Button';
 import Container from '@/containers/Container';
 import { useAPI } from '@/contexts/APIContext';
-import { Paths } from '@/routers/constants';
 const Hero = () => {
   const { setParamMajor } = useAPI();
   const router = useRouter();
@@ -73,7 +72,7 @@ const Hero = () => {
                 className={'orange md:w-auto'}
                 onClick={() => {
                   setParamMajor(null);
-                  router.push(Paths.School.View);
+                  router.push('/school');
                 }}
               />
             </div>
@@ -92,7 +91,7 @@ const Hero = () => {
                 alt={''}
                 width={300}
                 quality={100}
-                loading={'lazy'}
+                priority
               />
               <Image
                 className={
@@ -103,12 +102,12 @@ const Hero = () => {
                 width={64}
                 height={59}
                 quality={100}
-                loading={'lazy'}
+                priority
               />
               <div className="shape-4 absolute 2xl:top-[28.5rem] 2xl:left-[70%] lg:right-[-8rem] lg:top-[14rem] rounded-[12px] text-center animate-hero-thumb-sm-3-animation">
                 <Image
                   quality={100}
-                  loading={'lazy'}
+                  priority
                   src={ImageHeroBagde}
                   alt={''}
                   width={400}
@@ -117,7 +116,7 @@ const Hero = () => {
               <div className="shape-5 absolute lg:bottom-[-14rem] 2xl:right-[-34%] lg:right-[-3rem] animate-hero-thumb-sm-2-animation">
                 <Image
                   quality={100}
-                  loading={'lazy'}
+                  priority
                   src={ImageShape7}
                   alt={''}
                   width={400}
@@ -140,7 +139,7 @@ const Hero = () => {
                 width={65}
                 height={70}
                 quality={100}
-                loading={'lazy'}
+                priority
               />
               <Image
                 className={
@@ -151,7 +150,7 @@ const Hero = () => {
                 width={64}
                 height={59}
                 quality={100}
-                loading={'lazy'}
+                priority
               />
             </div>
           </Col>

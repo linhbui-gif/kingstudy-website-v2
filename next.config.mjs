@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-import TerserPlugin from 'terser-webpack-plugin';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 const nextConfig = {
   reactStrictMode: false,
   transpilePackages: [
@@ -34,26 +32,6 @@ const nextConfig = {
     buildActivity: false,
   },
   trailingSlash: false,
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.optimization.minimizer.push(
-        new TerserPlugin({
-          terserOptions: {
-            compress: {
-              drop_console: true,
-            },
-          },
-          extractComments: false,
-        })
-      );
-
-      config.optimization.minimizer.push(
-        new CssMinimizerPlugin()
-      );
-    }
-
-    return config;
-  },
 };
 
 export default nextConfig;

@@ -1,18 +1,16 @@
 import React from 'react';
 
 import { Col, Flex, Row, Select } from 'antd';
-import dynamic from 'next/dynamic';
 
 import ImageSchool from '@/assets/images/image-school.jpg';
 import ButtonComponent from '@/components/Button';
+import Card from '@/components/Card';
 import CardSkeleton from '@/components/Card/CardSkeleton';
 import Empty from '@/components/Empty';
 import Tag from '@/components/Tag';
 import Container from '@/containers/Container';
 import { useAPI } from '@/contexts/APIContext';
-import { Paths } from '@/routers/constants';
 import { rootUrl } from '@/utils/utils';
-const DynamicCard = dynamic(() => import('@/components/Card'));
 const SchoolGrid = () => {
   const { schoolList, loading, setFilterSchool, filterSchool, countries } =
     useAPI();
@@ -100,7 +98,7 @@ const SchoolGrid = () => {
                   {loading ? (
                     <CardSkeleton />
                   ) : (
-                    <DynamicCard
+                    <Card
                       url={
                         school?.thumbnail
                           ? rootUrl + school?.thumbnail
@@ -123,7 +121,7 @@ const SchoolGrid = () => {
                 title={'Xem thêm'}
                 className={'primary-outline mt-[4rem]'}
                 loading={false}
-                link={Paths.School.View}
+                link={`/school`}
               />
             </div>
           </Col>
