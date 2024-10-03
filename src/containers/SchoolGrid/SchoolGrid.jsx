@@ -10,6 +10,7 @@ import Empty from '@/components/Empty';
 import Tag from '@/components/Tag';
 import Container from '@/containers/Container';
 import { useAPI } from '@/contexts/APIContext';
+import { Paths } from '@/routers/constants';
 import { rootUrl } from '@/utils/utils';
 const SchoolGrid = () => {
   const { schoolList, loading, setFilterSchool, filterSchool, countries } =
@@ -121,7 +122,7 @@ const SchoolGrid = () => {
                 title={'Xem thêm'}
                 className={'primary-outline mt-[4rem]'}
                 loading={false}
-                link={`/school`}
+                link={Paths.School.View}
               />
             </div>
           </Col>

@@ -73,7 +73,7 @@ const About = () => {
               src={ImageAbout}
               alt={'about'}
               layout={'responsive'}
-              priority
+              loading={'lazy'}
             />
           </Col>
         </Row>
