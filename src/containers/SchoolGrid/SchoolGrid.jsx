@@ -20,7 +20,7 @@ const SchoolGrid = () => {
     const selectedCountries =
       countries &&
       countries.find((option) => option.value === filterSchool?.country);
-    if (!selectedCountries) return countries?.[1];
+    if (!selectedCountries) return countries?.[0];
     return selectedCountries;
   };
   return (

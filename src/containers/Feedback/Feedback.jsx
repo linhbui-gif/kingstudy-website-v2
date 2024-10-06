@@ -1,8 +1,14 @@
 import { Col, Row } from 'antd';
 import Image from 'next/image';
 
-import NguyenHongChuyen from '@/assets/images/student-nguyen-hong-chuyen.webp';
-import TranLeQuan from '@/assets/images/student-tran-le-quan.webp';
+import HaUyen from '@/assets/images/feedback/Website-FB-Hà-Uyên.jpg';
+import Khanhan from '@/assets/images/feedback/Website-FB-Khánh-An.jpg';
+import TranLeQuan from '@/assets/images/feedback/Website-FB-Lê-Quân.jpg';
+import Minhnghia from '@/assets/images/feedback/Website-FB-Minh-Nghĩa.jpg';
+import Quocbao from '@/assets/images/feedback/Website-FB-Quốc-Bảo.jpg';
+import QuynhHuong from '@/assets/images/feedback/Website-FB-Quỳnh-Hương.jpg';
+import ThuyDung from '@/assets/images/feedback/Website-FB-Thùy-Dung.jpg';
+import TrungHieu from '@/assets/images/feedback/Website-FB-Trung-Hiếu.jpg';
 import Tick from '@/assets/images/Tick.png';
 import Carousels from '@/components/Carousels';
 import Icon from '@/components/Icon';
@@ -22,7 +28,7 @@ const Feedback = () => {
     {
       id: 2,
       name: 'TRẦN KHÁNH AN',
-      url: TranLeQuan,
+      url: Khanhan,
       scholarship: 'Học bổng 35% - University of Technology Sydney',
       title: 'Giảng viên ân cần !',
       desc: '3 từ để nói về KingStudy là nhanh chóng - uy tín - nhiệt tình. Trong quá trình làm việc các thông tin đều được xử lý nhanh chóng. Về độ uy tín thì KingStudy hiện đang là đối tác với hơn 3000 trường trên toàn thế giới. Và từ nhiệt tình dành cho anh Tú - luôn sẵn sàng giải đáp cho mình mọi câu hỏi và vạch ra cho mình một lộ trình rõ ràng.\n',
@@ -31,7 +37,7 @@ const Feedback = () => {
     {
       id: 3,
       name: 'NGUYỄN MINH NGHĨA',
-      url: NguyenHongChuyen,
+      url: Minhnghia,
       scholarship: 'Học bổng 80% - Northern Kentucky University',
       title: 'Trải nghiệm tuyệt vời !',
       desc: 'Trong quá trình apply học bổng em gần như không gặp phải bất cứ khó khăn nào và mọi quá trình đều diễn ra suôn sẻ nhờ có sự hỗ trợ của các anh chị của KingStudy. Cảm ơn các anh chị đặc biệt là chị Vy và anh Tú đã luôn giúp đỡ em rất nhiệt tình trong quá trình em làm hồ sơ. Anh chị rất thân thiện và luôn tư vấn cho em một cách rất ân cần và chi tiết để nên em cũng rất yên tâm trong suốt quá trình làm hồ sơ du học của mình. Cảm ơn anh chị đã hỗ trợ để em có được kết quả như ngày hôm nay, chúc KingStudy ngày càng phát triển và có thêm nhiều thành công hơn nữa.',
@@ -40,7 +46,7 @@ const Feedback = () => {
     {
       id: 4,
       name: 'NGUYỄN KIM HÀ UYÊN',
-      url: NguyenHongChuyen,
+      url: HaUyen,
       scholarship: 'Toronto Metropolitan University',
       title: 'Trải nghiệm tuyệt vời !',
       desc: 'Đối với mình, việc chọn KingStudy là bước đệm đầu tiên cho hành trình du học là một quyết định không bao giờ hối hận. Ngoài lời cảm ơn, em vô cùng biết ơn khi các anh chị luôn đồng hành cùng em. Các bạn có thể yên tâm gửi gắm niềm tin vào KingStudy để yên tâm xách balo lên và đi sang miền đất hứa.\n',
@@ -49,7 +55,7 @@ const Feedback = () => {
     {
       id: 5,
       name: 'ĐỖ HOÀNG QUỲNH HƯƠNG',
-      url: TranLeQuan,
+      url: QuynhHuong,
       scholarship: 'Học bổng 50% - University of Lincoln',
       title: 'Giảng viên ân cần !',
       desc: 'Em cảm thấy rất may mắn vì đã biết đến KingStudy và có KingStudy đồng hành với em trong quá trình hoàn thành hồ sơ du học. Em xin cảm ơn chị Linh, chị Vy, chị Thu Phương và KingStudy đã hỗ trợ em hết mình. Chúc KingStudy ngày càng giúp đỡ nhiều bạn du học sinh chạm tay đến giấc mơ của mình.\n',
@@ -58,7 +64,7 @@ const Feedback = () => {
     {
       id: 6,
       name: 'LÊ THỊ THUỲ DUNG',
-      url: NguyenHongChuyen,
+      url: ThuyDung,
       scholarship: 'Học bổng 3.000 GBP - University of Exeter',
       title: 'Trải nghiệm tuyệt vời !',
       desc: 'Điều mà mình thích nhất ở KingStudy là sự nhiệt tình của tất cả mọi người, anh chị rất kiên nhẫn hướng dẫn mình từng bước một. Cảm ơn mọi người đã đồng hành cùng mình trong suốt quá trình này đặc biệt là anh Tú, chị Phương và chị Vy - những người đã trực tiếp hỗ trợ mình. Chúc KingStudy ngày càng phát triển và thành công hơn nữa.\n',
@@ -67,7 +73,7 @@ const Feedback = () => {
     {
       id: 7,
       name: 'HOÀNG TRUNG HIẾU',
-      url: NguyenHongChuyen,
+      url: TrungHieu,
       scholarship:
         'Học bổng 10,000 GBP - University of Strathclyde và Học bổng 50% - University of Liverpool',
       title: 'Trải nghiệm tuyệt vời !',
@@ -77,7 +83,7 @@ const Feedback = () => {
     {
       id: 8,
       name: 'ĐỖ QUỐC BẢO',
-      url: NguyenHongChuyen,
+      url: Quocbao,
       scholarship: 'Học bổng maximum 30% - University Of Amsterdam',
       title: 'Trải nghiệm tuyệt vời !',
       desc: 'Trước khi đến với KingStudy, việc du học với mình cũng khá xa vời vì mình cũng không rõ quá trình này cần làm hay chuẩn bị những gì nhưng khi gặp anh Tú, chị Linh và chị Vy mọi thứ rõ ràng và việc du học dễ dàng hơn nếu có sự chuẩn bị kỹ lưỡng. Mình rất biết ơn các anh chị và KingStudy đã đồng hành cùng mình trong suốt quá trình chuẩn bị hồ sơ này.\n',
@@ -141,7 +147,7 @@ const Feedback = () => {
                       <Image
                         quality={100}
                         className={
-                          'aspect-[48/65] lg:aspect-[65/65] object-contain '
+                          'aspect-[48/65] lg:aspect-[65/65] object-contain rounded-full'
                         }
                         src={student.url}
                         alt={`${student.alt}`}

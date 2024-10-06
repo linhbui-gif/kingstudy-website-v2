@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Breadcrumb, Col, Row } from 'antd';
+import Image from 'next/image';
 
 import Icon from '@/components/Icon';
 import { EIconName } from '@/components/Icon/Icon.enum';
@@ -19,6 +20,15 @@ const HeroBannerCommon = ({ title, items, urlBanner = '' }) => {
           backgroundPosition: 'center',
         }}
       >
+        <Image
+          quality={100}
+          className={'absolute -z-10 opacity-0 invisible'}
+          src={urlBanner === '' ? '/images/image-banner-common.png' : urlBanner}
+          alt={'image-banner-page-single'}
+          layout={'responsive'}
+          width={1000}
+          height={450}
+        />
         <Container>
           <Row>
             <Col span={24}>

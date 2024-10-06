@@ -30,17 +30,15 @@ const Hero = () => {
         backgroundSize: 'cover',
       }}
     >
-      {/*<Image*/}
-      {/*  quality={100}*/}
-      {/*  loading={'lazy'}*/}
-      {/*  width={212}*/}
-      {/*  height={179}*/}
-      {/*  className={*/}
-      {/*    'absolute top-[46%] left-[2rem] md:top-[50%] md:left-0 md:w-auto md:h-auto w-[5rem] h-[4rem]'*/}
-      {/*  }*/}
-      {/*  src={ImageArrowHero}*/}
-      {/*  alt={'image-hero'}*/}
-      {/*/>*/}
+      <Image
+        quality={100}
+        className={'absolute -z-10 opacity-0 invisible'}
+        src={'/images/image-hero3.webp'}
+        alt={'image-hero'}
+        layout={'responsive'}
+        width={1000}
+        height={450}
+      />
       <Container>
         <Row>
           <Col span={24} md={{ span: 14 }} lg={{ span: 12 }}>
