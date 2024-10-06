@@ -36,3 +36,7 @@ yarn-error.log*
 next-env.d.ts
 .env
 /.idea
+/public/*.txt
+/public/*.xml
+/public/sw.js
+/public/workbox-92923e46.js

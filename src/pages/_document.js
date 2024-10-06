@@ -6,6 +6,7 @@ export default function Document() {
   return (
     <Html lang={AppConfig.locale}>
       <Head>
+        <link rel="manifest" href="/manifest.json" />
         <link
           rel="preload"
           href="assets/fonts/BeVietnamPro-Thin.woff2"

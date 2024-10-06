@@ -1,0 +1,25 @@
+{
+  "name": "KingStudy",
+  "short_name": "KingStudy",
+  "description": "Du học KingStudy",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192_1.ico",
+      "sizes": "192x192",
+      "type": "ico",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/android-chrome-512x512_1.ico",
+      "sizes": "512x512",
+      "type": "ico",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#22458F",
+  "background_color": "#fff",
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait"
+}
