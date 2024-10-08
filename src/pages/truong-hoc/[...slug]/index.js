@@ -415,7 +415,7 @@ const SchoolDetail = ({ schoolDetail }) => {
                         <Link
                           href={schoolData?.map?.link || '/'}
                           target={'_blank'}
-                          className={'text-button-16 text-orange'}
+                          className={'text-button-16 text-orange mt-2 block'}
                         >
                           Xem trên bản đồ
                         </Link>

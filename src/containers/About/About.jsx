@@ -13,7 +13,7 @@ const About = () => {
           <Col lg={{ span: 10, order: 1 }} span={24} order={1}>
             <h3
               className={
-                'lg:text-title-36 text-[2rem] font-[700] text-style-7 lg:mb-[7rem] mb-[1.8rem] lg:text-left text-center'
+                'lg:text-title-36 text-[2rem] font-[700] text-style-7 lg:mb-[1.8rem] mb-[1.8rem] lg:text-left text-center'
               }
             >
               Chào Mừng Tới KingStudy
