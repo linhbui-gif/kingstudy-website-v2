@@ -20,6 +20,7 @@ const SidebarNews = () => {
   const { blogs, loadingBlog, setIdCategory } = useAPI();
   const [categories, setCategories] = useState([]);
   const [loadingCategory, setLoadingCategory] = useState(false);
+  const blogListSixItem = blogs.slice(-6);
   const getCategories = async () => {
     try {
       setLoadingCategory(true);
@@ -104,8 +105,8 @@ const SidebarNews = () => {
           {loadingBlog && skeletonLoadingCard}
           {!loadingBlog && (
             <>
-              {blogs &&
-                blogs.map((element) => {
+              {blogListSixItem &&
+                blogListSixItem.map((element) => {
                   return (
                     <div
                       className={'flex items-center mb-[2rem]'}
